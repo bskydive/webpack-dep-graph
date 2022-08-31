@@ -1,24 +1,21 @@
 {
 	"compileOnSave": false,
 	"files": [
-		"src/index.ts",
+		"src/app.ts",
 
 	],
 	"include": [
-		"./*.ts",
-		"./**/*.ts"
-, "src/viewer/src/app.ts"	],
+		"./src/*.ts",
+		"./src/**/*.ts"
+    ],
 	"exclude": [
-		"src/viewer/**/*"
 	],
 	"compilerOptions": {
 		"baseUrl": "./",
-		"outDir": "./dist/out-tsc",
-		"declaration": false,
-		"module": "commonjs",
+        "declaration": false,
+		"module": "ES2020",
 		"target": "es5",
 		"allowSyntheticDefaultImports": true,
-		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"downlevelIteration": true,
 		"emitDecoratorMetadata": true,
@@ -31,10 +28,7 @@
 			"es2020",
 			"dom"
 		],
-		"resolveJsonModule": true,
-		"types": ["node"],
 		"noImplicitAny": true,
-		"jsx": "react",
 		"allowJs": true,
 	}
 }
