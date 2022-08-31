@@ -3,8 +3,35 @@ import { IWebpackStatsV5Module } from "../models/webpack5.model"
 import { IWebpackStatsV5 } from "src/models/webpack5.model"
 import { readFile } from "./files"
 
-export const nonProjectDirs: RegExp = /cache|webpack|node_modules/
-export const isAppSourcesPath = (key: string) => !nonProjectDirs.test(key)
+export interface IIncludedOptions {
+	exclude: string[]
+	excludeExcept: string[]
+	includeOnly: string[]
+}
+
+export function isIncluded(text: string, opts: IIncludedOptions): boolean {
+	let regExpExclude: RegExp = null
+	let regExpExcludeExcept: RegExp = null
+	let regExpIncludeOnly: RegExp = null
+	let result: boolean = false
+
+	if (opts.exclude.length) {
+		regExpExclude = new RegExp(`/${opts.exclude.join("|")}/`)
+	}
+
+	if (opts.excludeExcept.length) {
+		regExpExcludeExcept = new RegExp(`/${opts.excludeExcept.join("|")}/`)
+	}
+
+	if (opts.includeOnly.length) {
+		regExpIncludeOnly = new RegExp(`/${opts.includeOnly.concat("|")}/`)
+		result = regExpIncludeOnly.test(text)
+	} else {
+		result = !regExpExclude?.test(text) || regExpExcludeExcept?.test(text)
+	}
+
+	return result
+}
 
 export const resolvePathPlus = (name: string) => {
 	let result = name
@@ -13,7 +40,7 @@ export const resolvePathPlus = (name: string) => {
 		result = name.split(" + ")[0]
 	}
 
-	logEmpty("src/analyzer/parsers/moduleParser.ts:8", name)
+	logEmpty("src/utils/webpack.ts:16", name)
 
 	return result
 }
@@ -21,23 +48,26 @@ export const resolvePathPlus = (name: string) => {
 export function parseAbsolutePath(module: IWebpackStatsV5Module): string {
 	let path = module.identifier?.split("!")[1] || ""
 
-	logEmpty("src/analyzer/parsers/pathParser.ts:6", module.name)
+	logEmpty("src/utils/webpack.ts:24", module.name)
 
 	return path
 }
 
 export function fileNameFromPath(path: string) {
 	const [name]: string[] = path.split("/").slice(-1)
-	logEmpty("src/analyzer/parsers/pathParser.ts:17", path)
+	logEmpty("src/utils/webpack.ts:31", path)
 	return name
 }
 
-/** @deprecated TODO remove unused code */
-export function getAppRootPath(modules: IWebpackStatsV5Module[]) {
+/** @deprecated TODO refactor to use without rootPath */
+export function getAppRootPath(
+	modules: IWebpackStatsV5Module[],
+	opts: IIncludedOptions
+) {
 	let rootPath: string = ""
 	const appModule = modules.find(
 		(module: IWebpackStatsV5Module) =>
-			isAppSourcesPath(module.name) && /node_modules/.test(module.issuer)
+			isIncluded(module.name, opts) && /node_modules/.test(module.issuer)
 	)
 
 	if (appModule) {
@@ -49,7 +79,7 @@ export function getAppRootPath(modules: IWebpackStatsV5Module[]) {
 
 	if (!rootPath) {
 		console.warn(
-			"src/analyzer/parsers/projectRoot.ts:19",
+			"src/utils/webpack.ts:52",
 			"EMPTY app root path!",
 			appModule.name
 		)

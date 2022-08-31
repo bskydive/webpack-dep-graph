@@ -50,12 +50,12 @@ export const GRAPHML_HEADER = `\
     <key attr.name="description" attr.type="string" for="edge" id="d9"/>
     <key for="edge" id="d10" yfiles.type="edgegraphics"/>
     <graph edgedefault="directed" id="G">
-        <data key="d0" xml:space="preserve"/>`
+        <data key="d0" xml:space="preserve"/>\n`
 
 export const GRAPHML_FOOTER = `\
     </graph>
     <data key="d7">
         <y:Resources/>
     </data>
-</graphml>`
+</graphml>\n`
 
