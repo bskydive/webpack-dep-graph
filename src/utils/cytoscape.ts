@@ -1,4 +1,4 @@
-import { IDependencyMap } from "../analyzer/models/AnalyzerContext"
+import { IDependencyMap } from "../models/AnalyzerContext"
 import { writeFile } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */

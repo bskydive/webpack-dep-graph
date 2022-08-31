@@ -1,8 +1,8 @@
-import { AnalyzerContext } from "../models/AnalyzerContext"
+import { AnalyzerContext } from "../../models/AnalyzerContext"
 import {
 	IWebpackStatsV5Module,
 	IWebpackStatsV5Reason,
-} from "../models/webpack5.model"
+} from "../../models/webpack5.model"
 // import { WebpackModule, WebpackReason } from "../models/WebpackStat"
 import { isAppSourcesPath, resolvePathPlus } from "../../utils/webpack"
 

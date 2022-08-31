@@ -1,8 +1,8 @@
-import { AnalyzerConfig, AnalyzerContext } from "./models/AnalyzerContext"
+import { AnalyzerConfig, AnalyzerContext } from "../models/AnalyzerContext"
 import { ModuleGraph } from "./analyzerUtils/ModuleGraph"
 import { isAppSourcesPath, getAppRootPath } from "../utils/webpack"
 import { VirtualFS } from "../utils/virtualFS"
-import { IWebpackStatsV5, IWebpackStatsV5Module } from "./models/webpack5.model"
+import { IWebpackStatsV5, IWebpackStatsV5Module } from "../models/webpack5.model"
 import {
 	getDependencyMap,
 	createModuleNodes,

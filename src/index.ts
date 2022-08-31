@@ -1,5 +1,5 @@
 import { Analyzer } from "./analyzer/Analyzer"
-import { AnalyzerContext } from "./analyzer/models/AnalyzerContext"
+import { AnalyzerContext } from "./models/AnalyzerContext"
 import { createDotGraph, saveGraphvizRenderedDot, saveGraphvizDotSimplified, saveGraphvizRenderedPng } from "./utils/graphviz"
 import { loadWebpackStat } from "./utils/webpack"
 import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"

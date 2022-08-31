@@ -5,10 +5,10 @@ import {
 	GRAPHML_NODE_DEFAULT,
 	IGraphmlEdge,
 	IGraphmlNode,
-} from "../analyzer/models/graphml.model"
+} from "../models/graphml.model"
 import { ElementCompact, js2xml, xml2js } from "xml-js"
 import { readFile, writeFile } from "./files"
-import { IDependencyMap } from "../analyzer/models/AnalyzerContext"
+import { IDependencyMap } from "../models/AnalyzerContext"
 import { fileNameFromPath } from "../utils/webpack"
 // import { create } from "xmlbuilder"
 

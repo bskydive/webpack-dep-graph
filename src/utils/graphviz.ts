@@ -1,5 +1,5 @@
 import { digraph, Graph } from "graphviz"
-import { IDependencyMap } from "../analyzer/models/AnalyzerContext"
+import { IDependencyMap } from "../models/AnalyzerContext"
 import { writeFile } from "./files"
 
 // https://renenyffenegger.ch/notes/tools/Graphviz/examples/index

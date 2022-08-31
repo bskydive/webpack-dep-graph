@@ -1,4 +1,4 @@
-import { Module } from "../models/Module"
+import { Module } from "../../models/Module"
 
 export class ModuleGraph {
   /** Lookup the module by id. */

@@ -1,6 +1,6 @@
 import { logEmpty } from "./logger"
-import { IWebpackStatsV5Module } from "../analyzer/models/webpack5.model"
-import { IWebpackStatsV5 } from "src/analyzer/models/webpack5.model"
+import { IWebpackStatsV5Module } from "../models/webpack5.model"
+import { IWebpackStatsV5 } from "src/models/webpack5.model"
 import { readFile } from "./files"
 
 export const nonProjectDirs: RegExp = /cache|webpack|node_modules/

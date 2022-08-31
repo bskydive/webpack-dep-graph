@@ -1,4 +1,4 @@
-import { AnalyzerContext } from "../models/AnalyzerContext"
+import { AnalyzerContext } from "../../models/AnalyzerContext"
 import { resolvePathPlus, parseAbsolutePath, fileNameFromPath } from "../../utils/webpack"
 import { v4 } from "uuid"
 

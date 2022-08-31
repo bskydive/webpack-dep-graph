@@ -1,5 +1,5 @@
 import filesize from "filesize"
-import { AnalyzerContext } from "../analyzer/models/AnalyzerContext"
+import { AnalyzerContext } from "../models/AnalyzerContext"
 
 /** @deprecated TODO repair or remove */
 export function printFileTree(context: AnalyzerContext) {
