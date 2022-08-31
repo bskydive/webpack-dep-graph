@@ -1,8 +1,9 @@
 import { logEmpty } from "../../utils/logger";
-import { ModuleGraph } from "../ModuleGraph"
+import { IDependencyMap } from "../models/AnalyzerContext";
+import { ModuleGraph } from "./ModuleGraph"
 
-export function getDependencyMap(graph: ModuleGraph): Record<string, string[]> {
-  const mapping: Record<string, string[]> = {}
+export function getDependencyMap(graph: ModuleGraph): IDependencyMap {
+  const mapping: IDependencyMap = {}
   const toPath = (id: string) => graph.nodesById.get(id)?.relativePath || ""
 
   for (const [id, dependencies] of graph.dependenciesById) {

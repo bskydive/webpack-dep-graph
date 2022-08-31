@@ -1,10 +1,11 @@
 import { Analyzer } from "./analyzer/Analyzer"
 import { AnalyzerContext } from "./analyzer/models/AnalyzerContext"
-import { createDotGraph, saveGraphvizRenderedDot, saveGraphvizDotSimplified, saveGraphvizRenderedPng } from "./utils/dotGraph"
-import { loadWebpackStat } from "./utils/webpackStats"
+import { createDotGraph, saveGraphvizRenderedDot, saveGraphvizDotSimplified, saveGraphvizRenderedPng } from "./utils/graphviz"
+import { loadWebpackStat } from "./utils/webpack"
 import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"
-import { writeFile } from "./utils/files"
-import { loadGraphml, saveGraphml } from "./utils/graphml"
+// import { writeFile } from "./utils/files"
+import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
+// import { printFileTree } from "./utils/printFileTree"
 
 function main() {
 	let analyzerContext: AnalyzerContext
@@ -27,10 +28,11 @@ function main() {
 
 		saveGraphml("2.graphml", grapml)
 		saveCytoscape("./deps.json", analyzerContext.dependencyMap)
+		saveGraphmlFromDot(analyzerContext.dependencyMap, "./deps.graphml")
 		saveCytoscape("./circular.json", analyzerContext.circularImports)
 		saveCytoscape("./cytoscape.json", cytoscapeGraph)
-		saveGraphvizRenderedDot(dotGraph, "./graph.dot")
-		saveGraphvizRenderedPng(dotGraph, "./graph.png")
+		// saveGraphvizRenderedDot(dotGraph, "./graph.dot")
+		// saveGraphvizRenderedPng(dotGraph, "./graph.png")
 		saveGraphvizDotSimplified(dotGraph, "./graph_text.dot")
 	}
 }

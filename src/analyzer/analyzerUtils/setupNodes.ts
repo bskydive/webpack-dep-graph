@@ -1,6 +1,5 @@
 import { AnalyzerContext } from "../models/AnalyzerContext"
-import { resolvePathPlus } from "../parsers/moduleParser"
-import { parseAbsolutePath, fileNameFromPath } from "../parsers/pathParser"
+import { resolvePathPlus, parseAbsolutePath, fileNameFromPath } from "../../utils/webpack"
 import { v4 } from "uuid"
 
 const debug = (text: string) => console.debug(text)

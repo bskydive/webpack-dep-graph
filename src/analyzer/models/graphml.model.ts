@@ -1,5 +1,5 @@
 export interface IGraphmlNode {
-	key: string
+	id: string
 	label: string
 	x: number
 	y: number
@@ -7,8 +7,8 @@ export interface IGraphmlNode {
 	weight: number
 }
 
-export const GRAPHML_HODE_DEFAULT: IGraphmlNode = {
-	key: "n0",
+export const GRAPHML_NODE_DEFAULT: IGraphmlNode = {
+	id: "n0",
 	label: "",
 	x: 10,
 	y: 10,
@@ -21,6 +21,7 @@ export interface IGraphmlEdge {
 	sourceKey: string
 	targetKey: string
 	label: string
+    y: number
 }
 
 export const GRAPHML_EDGE_DEFAULT: IGraphmlEdge = {
@@ -28,9 +29,10 @@ export const GRAPHML_EDGE_DEFAULT: IGraphmlEdge = {
 	sourceKey: "n0",
 	targetKey: "n0",
 	label: "",
+    y: 0
 }
 
-export const GRAPHML_HEADER = `
+export const GRAPHML_HEADER = `\
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
     <!--Created by yEd 3.22-->
@@ -46,14 +48,12 @@ export const GRAPHML_HEADER = `
     <key attr.name="description" attr.type="string" for="edge" id="d9"/>
     <key for="edge" id="d10" yfiles.type="edgegraphics"/>
     <graph edgedefault="directed" id="G">
-        <data key="d0"/>
-`
+        <data key="d0"/>`
 
-export const GRAPHML_FOOTER = `
+export const GRAPHML_FOOTER = `\
     </graph>
     <data key="d7">
         <y:Resources/>
     </data>
-</graphml>
-`
+</graphml>`
 

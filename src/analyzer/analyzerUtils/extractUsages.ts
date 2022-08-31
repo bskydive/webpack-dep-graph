@@ -4,8 +4,7 @@ import {
 	IWebpackStatsV5Reason,
 } from "../models/webpack5.model"
 // import { WebpackModule, WebpackReason } from "../models/WebpackStat"
-import { isAppSourcesPath } from "../parsers/filterModule"
-import { resolvePathPlus } from "../parsers/moduleParser"
+import { isAppSourcesPath, resolvePathPlus } from "../../utils/webpack"
 
 function getModuleTypes(webpackModules: IWebpackStatsV5Module[]) {
 	reasonTypes: webpackModules

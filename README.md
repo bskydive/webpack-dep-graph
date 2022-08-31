@@ -11,6 +11,7 @@ Fixed and working.
  * TODO [cytoscape](https://js.cytoscape.org) graph viewer
  * TODO [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
  * TODO [graphml](http://graphml.graphdrawing.org/) graph converter for proprietary [yed](https://www.yworks.com/products/yed/download) editor
+ * TODO local webpack dev server
 
 ## What is it for
 

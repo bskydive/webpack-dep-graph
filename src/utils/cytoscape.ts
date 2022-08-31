@@ -1,3 +1,4 @@
+import { IDependencyMap } from "../analyzer/models/AnalyzerContext"
 import { writeFile } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */
@@ -44,7 +45,7 @@ function parseElementDefinition(
 }
 
 export function parseEdgeDefinitions(
-	dependencyMap: Record<string, string[]>
+	dependencyMap: IDependencyMap
 ): ICyElementDefinition[] {
 	let result: ICyElementDefinition[] = []
 	let edges: ICyEdgeDataDefinition[] = []
@@ -69,7 +70,7 @@ export function parseEdgeDefinitions(
 }
 
 export function parseNodeDefinitions(
-	dependencyMap: Record<string, string[]>
+	dependencyMap: IDependencyMap
 ): ICyElementDefinition[] {
 	let result: ICyElementDefinition[] = []
 	let nodes: ICyNodeDataDefinition[] = []
