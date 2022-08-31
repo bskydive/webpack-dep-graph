@@ -7,7 +7,12 @@ Here you can see some examples of input and output
  * output
     * [json: circular dependencies](./circular.json)
     * [json: cytoscape](./cytoscape.json)
-    * [graphml: analyzed deps from webpack stats](./deps.graphml)
     * [json: analyzed deps from webpack stats](./deps.json)
-    * [dot: rendered dot graph](./graph.dot)
-    * [png: rendered dot graph](./graph.png)
+    * dot format
+        * [dot: simplified dot graph](./graph_simplified.dot)
+        * [dot: rendered dot graph](./graph.dot)
+        * [png: rendered dot graph](./graph.png)
+    * analyzed deps from webpack stats for yed
+        * [graphml: raw](./deps.graphml)
+        * [graphml: circular layout(alt+shift+c)](./deps_circular.graphml)
+        * [png: circular layout(alt+shift+c)](./deps_circular.png)

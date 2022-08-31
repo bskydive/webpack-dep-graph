@@ -10,6 +10,7 @@ import { ElementCompact, js2xml, xml2js } from "xml-js"
 import { readFile, writeFile } from "./files"
 import { IDependencyMap } from "../models/AnalyzerContext"
 import { fileNameFromPath } from "../utils/webpack"
+import { missedDependencyMapSrcNodes } from "../analyzer/analyzerUtils/dependencyMap"
 // import { create } from "xmlbuilder"
 
 export function toGraphmlXml(js: ElementCompact): string {
@@ -80,11 +81,17 @@ export function addNode() {}
 export function addEdge() {}
 
 export function createDotGraphXml(dependencyMap: IDependencyMap): string {
+	let allSrcNodes: IDependencyMap = {}
 	let result: string = GRAPHML_HEADER
 	let currentNode: IGraphmlNode = GRAPHML_NODE_DEFAULT
 	let currentEdge: IGraphmlEdge = GRAPHML_EDGE_DEFAULT
 
-	for (const nodePathDest in dependencyMap) {
+	allSrcNodes = {
+		...missedDependencyMapSrcNodes(dependencyMap),
+		...dependencyMap,
+	}
+
+	for (const nodePathDest in allSrcNodes) {
 		currentNode = {
 			id: nodePathDest,
 			label: fileNameFromPath(nodePathDest),
@@ -96,9 +103,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 
 		result += graphmlNodeToXml(currentNode)
 
-		const dependencies = dependencyMap[nodePathDest]
-
-		for (const nodePathSrc of dependencies) {
+		dependencyMap[nodePathDest]?.forEach((nodePathSrc) => {
 			currentEdge = {
 				id: "edge_" + nodePathDest,
 				sourceKey: nodePathSrc,
@@ -108,7 +113,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 			}
 
 			result += graphmlEdgeToXml(currentEdge)
-		}
+		})
 	}
 
 	return result.concat(GRAPHML_FOOTER)

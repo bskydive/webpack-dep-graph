@@ -33,7 +33,7 @@ function main() {
 		saveCytoscape("./cytoscape.json", cytoscapeGraph)
 		// saveGraphvizRenderedDot(dotGraph, "./graph.dot")
 		// saveGraphvizRenderedPng(dotGraph, "./graph.png")
-		saveGraphvizDotSimplified(dotGraph, "./graph_text.dot")
+		saveGraphvizDotSimplified(dotGraph, "./graph_simplified.dot")
 	}
 }
 

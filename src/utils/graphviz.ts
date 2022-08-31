@@ -30,7 +30,7 @@ export function saveGraphvizRenderedPng(g: Graph, fileName: string = 'graph.png'
     g.output( "png", fileName );
 }
 
-export function saveGraphvizDotSimplified(g: Graph, fileName: string = 'graph_text.dot'){
+export function saveGraphvizDotSimplified(g: Graph, fileName: string = 'graph_simplified.dot'){
 	// const json = JSON.stringify(data, null, 2)
 	writeFile(fileName, g.to_dot())  
 }
