@@ -1,6 +1,7 @@
 export interface IGraphmlNode {
 	id: string
 	label: string
+    notes: string
 	x: number
 	y: number
 	height: number
@@ -10,6 +11,7 @@ export interface IGraphmlNode {
 export const GRAPHML_NODE_DEFAULT: IGraphmlNode = {
 	id: "n0",
 	label: "",
+    notes: "",
 	x: 10,
 	y: 10,
 	height: 30,
@@ -48,7 +50,7 @@ export const GRAPHML_HEADER = `\
     <key attr.name="description" attr.type="string" for="edge" id="d9"/>
     <key for="edge" id="d10" yfiles.type="edgegraphics"/>
     <graph edgedefault="directed" id="G">
-        <data key="d0"/>`
+        <data key="d0" xml:space="preserve"/>`
 
 export const GRAPHML_FOOTER = `\
     </graph>

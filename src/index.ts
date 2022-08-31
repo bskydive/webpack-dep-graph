@@ -13,7 +13,7 @@ function main() {
 	console.log(`\n------- loading ${statFileName} ------\n`)
 
 	const webpackStat = loadWebpackStat(statFileName)
-	const grapml = loadGraphml("1.graphml")
+	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml")
 
 	if (webpackStat) {
 		const analyzer = new Analyzer(webpackStat)
@@ -26,13 +26,13 @@ function main() {
 			analyzerContext.dependencyMap
 		)
 
-		saveGraphml("2.graphml", grapml)
+		// saveGraphml("test_save.graphml", grapml)
 		saveCytoscape("./deps.json", analyzerContext.dependencyMap)
 		saveGraphmlFromDot(analyzerContext.dependencyMap, "./deps.graphml")
 		saveCytoscape("./circular.json", analyzerContext.circularImports)
 		saveCytoscape("./cytoscape.json", cytoscapeGraph)
-		// saveGraphvizRenderedDot(dotGraph, "./graph.dot")
-		// saveGraphvizRenderedPng(dotGraph, "./graph.png")
+		saveGraphvizRenderedDot(dotGraph, "./graph.dot")
+		saveGraphvizRenderedPng(dotGraph, "./graph.png")
 		saveGraphvizDotSimplified(dotGraph, "./graph_simplified.dot")
 	}
 }

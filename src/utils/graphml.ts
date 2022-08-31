@@ -45,7 +45,7 @@ export function graphmlNodeToXml(
 ): string {
 	return `\
         <node id="${data.id}">
-            <data key="d5"/>
+            <data key="d5" xml:space="preserve"><![CDATA[${data.notes}]]></data>
             <data key="d6">
                 <y:ShapeNode>
                     <y:Geometry height="30.0" width="99.0" x="790.0" y="559.0"/>
@@ -95,6 +95,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 		currentNode = {
 			id: nodePathDest,
 			label: fileNameFromPath(nodePathDest),
+            notes: nodePathDest,
 			x: currentNode.x + currentNode.height + 10,
 			y: currentNode.y + currentNode.weight + 10,
 			height: 30,
