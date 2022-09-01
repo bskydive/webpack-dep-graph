@@ -10,11 +10,48 @@ Fixed and working.
  * [cytoscape](https://cytoscape.org/) graph converter
  * json graph converter
  * [graphml](http://graphml.graphdrawing.org/) graph converter for proprietary [yed](https://www.yworks.com/products/yed/download) editor
- * [output examples](./doc/README.md)
  * TODO [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
  * TODO local webpack dev server
  * TODO [cytoscape](https://js.cytoscape.org) graph viewer
  * TODO file size viewer
+
+### Examples
+
+The graphviz layout renderer seems to be useless. Generating graphml and editing it in yEd are the best option for now.
+
+ * input
+    * example of the [webpack stats](./doc/webpack-stats.json)
+ * output
+    * [json: circular dependencies](./graph-output/circular.json)
+    * [json: cytoscape](./graph-output/cytoscape.json)
+    * [json: analyzed deps from webpack stats](./graph-output/deps.json)
+    * [xml: simplified dot graph](./graph-output/graph_simplified.dot)
+        * ![](./doc/graphviz_dot_simplified.jpg)
+    * graphviz rendered
+        * [xml: dot](./graph-output/graphviz.dot)
+            * ![](./doc/graphviz_dot.jpg)
+        * [png: dot layout](./graph-output/graphviz_dot.png)
+            * ![](./doc/graphviz_dot_layout.jpg)
+        * [png: spring layout](./graph-output/graphviz_spring.png)
+            * ![](./doc/graphviz_spring_layout.jpg)
+        * [png: directed layout](./graph-output/graphviz_directed.png)
+            * ![](./doc/graphviz_directed_layout.jpg)
+            * ![](./doc/graphviz_directed_layout_full.jpg)
+        * [png: circular layout](./graph-output/graphviz_circular.png)
+            * ![](./doc/graphviz_circle_layout.jpg)
+            * ![](./doc/graphviz_circle_layout_full.jpg)
+        * [png: radial layout](./graph-output/graphviz_radial.png)
+            * ![](./doc/graphviz_radial_layout.jpg)
+        * [png: clustered layout](./graph-output/graphviz_clustered.png)
+            * ![](./doc/graphviz_clustered_layout.jpg)
+    * analyzed deps from webpack stats for [yed](https://www.yworks.com/products/yed) editor
+        * see full in node data properties(right click)
+            * ![](./doc/graphml_data.jpg)
+        * [graphml: raw xml](./graph-output/deps.graphml)
+        * manually edited in yed [graphml: circular layout(alt+shift+c)](./graph-output/deps_circular.graphml)
+            * ![](./doc/graphml_xml.jpg)
+            * ![](./doc/graphml_png.jpg)
+
 
 ## What is it for
 
@@ -36,12 +73,6 @@ Fixed and working.
         npm run start
         
     ```
- * output
-    * graph_text.dot
-    * graph.dot
-    * graph.png
-    * deps.json
-    * cytoscape.json
 
 ## this project is based on 
 
