@@ -30,6 +30,7 @@ export function extractUsages(context: AnalyzerContext) {
 
 	const resolvedModules: IWebpackStatsV5Module[] = webpackModules.map(
 		(item) => {
+            if (item.issuerName.includes('providers.module.ts')) {console.log('src/analyzer/analyzerUtils/extractUsages.ts:33', item.issuerName)}
 			return {
 				...item,
 				issuerPath: item.issuerName,

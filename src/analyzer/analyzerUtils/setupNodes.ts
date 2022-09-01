@@ -13,7 +13,7 @@ export function createModuleNodes(context: AnalyzerContext) {
   for (const module of webpackModules) {
     const id = v4()
 
-    const relativePath = resolvePathPlus(module.name)
+    const relativePath = resolvePathPlus(module.issuerName)
     const absolutePath = parseAbsolutePath(module)
 
     graph.nodeIdByRelativePath.set(relativePath, id)

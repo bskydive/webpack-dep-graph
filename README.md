@@ -17,7 +17,7 @@ Fixed and working.
 
 ### Examples
 
-The graphviz layout renderer seems to be useless. Generating graphml and editing it in yEd are the best option for now.
+The graphviz layout renderer seems to be useless. You can upload the simplified dot file into any [graphviz editor](http://magjac.com/graphviz-visual-editor/) and try to play with settings. Generating graphml and editing it in [yEd](https://www.yworks.com/products/yed/download) are the best option for now.
 
  * input
     * example of the [webpack stats](./doc/webpack-stats.json)
