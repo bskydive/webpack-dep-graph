@@ -8,6 +8,6 @@ export function logEmpty(line: string, data: string) {
 	}
 }
 
-export function log(message: string) {
-    console.info(`${message}`)
+export function log(...args: any) {
+    console.info(...args)
 }

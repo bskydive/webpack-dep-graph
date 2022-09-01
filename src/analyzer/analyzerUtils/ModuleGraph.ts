@@ -1,10 +1,7 @@
-import { Module } from "../../models/Module"
+import { IWebpackModuleParsed } from "../../models/webpackAnalyzer.model"
 
 export class ModuleGraph {
-  /** Lookup the module by id. */
-  nodesById: Map<string, Module> = new Map()
-
-  /** Lookup the module's id by its relative path. */
+  nodesById: Map<string, IWebpackModuleParsed> = new Map()
   nodeIdByRelativePath: Map<string, string> = new Map()
 
   /**
@@ -17,13 +14,7 @@ export class ModuleGraph {
    **/
   dependenciesById: Map<string, Set<string>> = new Map()
 
-  /** Lookup the module ids that re-exports the given module. */
-  exportedBy: Map<string, Set<string>> = new Map()
-
-  /** Lookup the module ids that issues the given module. */
-  issuedBy: Map<string, Set<string>> = new Map()
-
-  byRelativePath(relativePath: string): Module | null {
+  byRelativePath(relativePath: string): IWebpackModuleParsed | null {
     const id = this.nodeIdByRelativePath.get(relativePath)
     if (!id) return null
 

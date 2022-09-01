@@ -1,4 +1,4 @@
-import { Analyzer } from "./analyzer/Analyzer"
+import { webpackAnalyzer } from "./analyzer/webpackAnalyzer"
 import {
 	AnalyzerContext,
 	IAnalyzerConfig,
@@ -13,7 +13,6 @@ import { loadWebpackStat } from "./utils/webpack"
 import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"
 // import { writeFile } from "./utils/files"
 import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
-import { printFileTree } from "./utils/printFileTree"
 import { depsConfig } from "../deps.config"
 import { log } from "./utils/logger"
 
@@ -27,7 +26,7 @@ function main() {
 	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml")
 
 	if (webpackStat) {
-		const analyzer = new Analyzer(webpackStat)
+		const analyzer = new webpackAnalyzer(webpackStat)
 		analyzerContext = analyzer.analyze()
 
 		log("calculations start")
@@ -38,10 +37,6 @@ function main() {
 
 		if (config.testGraphml) {
 			saveGraphml("test_save.graphml", grapml)
-		}
-
-		if (config.printImportAnalysis) {
-			printFileTree(analyzerContext)
 		}
 
 		if (config.depsJson) {

@@ -1,16 +1,15 @@
 import { AnalyzerContext } from "../../models/AnalyzerContext"
 import { resolvePathPlus, parseAbsolutePath, fileNameFromPath } from "../../utils/webpack"
 import { v4 } from "uuid"
-
-const debug = (text: string) => console.debug(text)
+import { log } from "../../utils/logger"
 
 export function createModuleNodes(context: AnalyzerContext) {
   const { graph, vfs, webpackModules } = context
-// console.log('src/analyzer/analyzerUtils/setupNodes.ts', context.graph.dependenciesById.size)
   const startTime = Date.now()
-  debug(`located ${webpackModules.length} modules from this build.`)
 
-  // Construct graph nodes from the module.
+  log(`located ${webpackModules.length} modules from this build.`)
+  // console.log('src/analyzer/analyzerUtils/setupNodes.ts', context.graph.dependenciesById.size)
+
   for (const module of webpackModules) {
     const id = v4()
 
@@ -32,7 +31,7 @@ export function createModuleNodes(context: AnalyzerContext) {
     vfs.touch(absolutePath, id)
   }
 
-  debug(`creating module nodes takes ${Date.now() - startTime}ms.`)
+  log(`creating module nodes takes: ${Date.now() - startTime}ms.`)
 
   return graph;
 }

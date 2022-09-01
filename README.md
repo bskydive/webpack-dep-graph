@@ -14,6 +14,7 @@ Fixed and working.
  * TODO [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
  * TODO local webpack dev server
  * TODO [cytoscape](https://js.cytoscape.org) graph viewer
+ * TODO file size viewer
 
 ## What is it for
 

@@ -1,27 +1,30 @@
+import { log } from "../../utils/logger"
 import { AnalyzerContext } from "../../models/AnalyzerContext"
 import {
 	IWebpackStatsV5Module,
 	IWebpackStatsV5Reason,
 } from "../../models/webpack5.model"
-// import { WebpackModule, WebpackReason } from "../models/WebpackStat"
+
 import { isIncluded, resolvePathPlus } from "../../utils/webpack"
 
 function getModuleTypes(webpackModules: IWebpackStatsV5Module[]) {
-	reasonTypes: webpackModules
+	const reasonTypes = webpackModules
 		.map((m) => m.reasons.map((r) => r.type))
 		.flat()
 		.reduce(
 			(acc, curr) => (acc.includes(curr) ? acc : acc.concat(curr)),
 			[]
 		)
+
+	return reasonTypes
 }
 
+/** TODO remove unnecessary re-exports extraction; webpack stats already have all data */
 export function extractUsages(context: AnalyzerContext) {
 	const { webpackModules, graph, printImportAnalysis = false } = context
+	const summary = { imports: 0, exports: 0, issuers: 0 }
 
-	const report = (text: string) => printImportAnalysis && console.log(text)
-
-	report(`\n------- analyzing imports and re-exports ------\n`)
+	log("analyzing imports and re-exports")
 
 	const moduleTypes = getModuleTypes(webpackModules)
 
@@ -39,16 +42,12 @@ export function extractUsages(context: AnalyzerContext) {
 	)
 
 	for (const webpackModule of resolvedModules) {
-		const summary = { imports: 0, exports: 0, issuers: 0 }
 		const resolvedDependents: Map<string, boolean> = new Map()
 
 		const relativePath = resolvePathPlus(webpackModule.name)
 
 		const module = graph.byRelativePath(relativePath)
 		if (!module) throw new Error("cannot lookup by relative path")
-
-		// TODO: Re-enable this once we support web environments.
-		// report(yellow(`module ${module.absolutePath}`))
 
 		if (!(webpackModule?.reasons instanceof Array)) {
 			continue
@@ -67,10 +66,10 @@ export function extractUsages(context: AnalyzerContext) {
 		for (const reason of reasons) {
 			// Ignore side effect evaluation.
 			if (reason.type.includes("side effect")) {
-				console.log(
-					"src/analyzer/analyzerUtils/extractUsages.ts:71",
-					reason.type
-				)
+				// console.log(
+				// 	"src/analyzer/analyzerUtils/extractUsages.ts:71",
+				// 	reason.type
+				// )
 				continue
 			}
 
@@ -91,18 +90,16 @@ export function extractUsages(context: AnalyzerContext) {
 
 			// Detect if the module is a being re-exported.
 			const isExport = reason.type.includes("export imported specifier")
-			const { absolutePath } = consumerModule
 
 			if (isExport) {
-				// report(green(`  re-exported by ${absolutePath}`))
+				// log(`  re-exported by ${consumerModule}`)
 				summary.exports++
-
 				continue
 			}
 
 			graph.addDependenciesById(consumerModule.id, module.id)
 
-			report(`  imported by ${absolutePath}`)
+			// log(`imported by ${consumerModule}`)
 			summary.imports++
 		}
 
@@ -122,14 +119,16 @@ export function extractUsages(context: AnalyzerContext) {
 			// report(gray(`  issued by ${module.absolutePath}`))
 			summary.issuers++
 		}
-
-		report(
-			`  summary: ${summary.imports} imports, ${summary.exports} re-exports, ${summary.issuers} issuers`
-		)
 	}
-	console.log(
-		"src/analyzer/analyzerUtils/extractUsages.ts:131",
-		graph.dependenciesById.size
+
+	log(
+		`\nsummary: \n`,
+		`module types: ${moduleTypes}`,
+		`imports: ${summary.imports}`,
+		`re-exports: ${summary.exports}`,
+		`issuers: ${summary.issuers}`,
+		`${graph.dependenciesById.size} dependenciesById count`
 	)
+
 	return graph
 }

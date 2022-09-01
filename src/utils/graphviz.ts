@@ -37,13 +37,11 @@ export function saveGraphvizRendered(data: {
     }, fileName)
 
     // TODO use callback (data: Buffer) => log(`${fileName} calculations ended`)
-    log(`${fileName} calculations ended`)
 }
 
 export function saveSimplifiedDot(
 	g: Graph,
 	fileName: string = "graphviz_simplified.dot"
 ) {
-	// const json = JSON.stringify(data, null, 2)
 	writeFile(fileName, g.to_dot())
 }

@@ -5,19 +5,15 @@ import {
 import { ModuleGraph } from "./analyzerUtils/ModuleGraph"
 import { isIncluded, getAppRootPath } from "../utils/webpack"
 import { VirtualFS } from "../utils/virtualFS"
-import {
-	IWebpackStatsV5,
-	IWebpackStatsV5Module,
-} from "../models/webpack5.model"
-import {
-	getDependencyMap,
-	createModuleNodes,
-	extractUsages,
-	getCircularImports,
-} from "./analyzerUtils/index"
+import { IWebpackStatsV5 } from "../models/webpack5.model"
 import { depsConfig } from "../../deps.config"
+import { getCircularImports } from "./analyzerUtils/circular"
+import { getDependencyMap } from "./analyzerUtils/dependencyMap"
+import { extractUsages } from "./analyzerUtils/extractUsages"
+import { createModuleNodes } from "./analyzerUtils/setupNodes"
+import { log } from "../utils/logger"
 
-export class Analyzer {
+export class webpackAnalyzer {
 	stat: IWebpackStatsV5
 	config: IDepsConfig = depsConfig
 	analyzerContext: AnalyzerContext
@@ -43,8 +39,6 @@ export class Analyzer {
 	getStatCount() {
 		return {
 			dependenciesById: this.analyzerContext.graph.dependenciesById.size,
-			issuedBy: this.analyzerContext.graph.issuedBy.size,
-			exportedBy: this.analyzerContext.graph.exportedBy.size,
 			nodeIdByRelativePath:
 				this.analyzerContext.graph.nodeIdByRelativePath.size,
 			nodesById: this.analyzerContext.graph.nodesById.size,
@@ -52,8 +46,6 @@ export class Analyzer {
 	}
 
 	analyze(): AnalyzerContext {
-		console.log("src/analyzer/Analyzer.ts:55", this.stat.modules.length)
-
 		const projectRoot = getAppRootPath(this.stat.modules, {
 			exclude: depsConfig.exclude,
 			excludeExcept: depsConfig.excludeExcept,
@@ -62,13 +54,13 @@ export class Analyzer {
 
 		if (projectRoot) this.config.projectRoot = projectRoot
 
-		console.log("src/analyzer/Analyzer.ts:65", this.getStatCount())
+		log(`\n modules to parse: `, this.stat.modules.length, `\n`)
 
 		this.analyzerContext.graph = createModuleNodes(this.analyzerContext)
-		console.log("src/analyzer/Analyzer.ts:68", this.getStatCount())
+		log(`\n nodes created: \n`, this.getStatCount(), `\n`)
 
 		this.analyzerContext.graph = extractUsages(this.analyzerContext)
-		console.log("src/analyzer/Analyzer.ts:71", this.getStatCount())
+		log(`\n usages extracted: \n`, this.getStatCount(), `\n`)
 
 		this.analyzerContext.dependencyMap = getDependencyMap(
 			this.analyzerContext.graph
