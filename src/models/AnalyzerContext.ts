@@ -4,7 +4,7 @@ import { IWebpackStatsV5Module } from "./webpack5.model"
 
 export type IDependencyMap = Record<string, string[]>
 
-export interface AnalyzerContext extends AnalyzerConfig {
+export interface AnalyzerContext extends IAnalyzerConfig {
 	vfs: VirtualFS
 	graph: ModuleGraph
 	webpackModules: IWebpackStatsV5Module[]
@@ -12,7 +12,18 @@ export interface AnalyzerContext extends AnalyzerConfig {
 	circularImports: string[][]
 }
 
-export interface AnalyzerConfig {
+export interface IAnalyzerConfig {
 	projectRoot: string
-	printImportAnalysis?: boolean
+	exclude: string[]
+	excludeExcept: string[]
+	includeOnly: string[]
+	testGraphml: boolean
+	printImportAnalysis: boolean
+	depsJson: boolean
+	graphmlDeps: boolean
+	circularDepsJson: boolean
+	cytoscapeJson: boolean
+	graphvizRenderedDot: boolean // long execution
+	graphvizRenderedPng: boolean // long execution
+	graphvizDotSimplified: boolean
 }

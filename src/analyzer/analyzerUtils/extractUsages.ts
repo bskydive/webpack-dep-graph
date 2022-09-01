@@ -4,7 +4,7 @@ import {
 	IWebpackStatsV5Reason,
 } from "../../models/webpack5.model"
 // import { WebpackModule, WebpackReason } from "../models/WebpackStat"
-import { isAppSourcesPath, resolvePathPlus } from "../../utils/webpack"
+import { isIncluded, resolvePathPlus } from "../../utils/webpack"
 
 function getModuleTypes(webpackModules: IWebpackStatsV5Module[]) {
 	reasonTypes: webpackModules
@@ -25,16 +25,18 @@ export function extractUsages(context: AnalyzerContext) {
 
 	const moduleTypes = getModuleTypes(webpackModules)
 
-	const resolvedModules: IWebpackStatsV5Module[] = webpackModules.map((item) => {
-		return {
-			...item,
-			issuerPath: item.issuerName,
-			reasons: item.reasons.map((item) => ({
+	const resolvedModules: IWebpackStatsV5Module[] = webpackModules.map(
+		(item) => {
+			return {
 				...item,
-				resolvedModulePath: resolvePathPlus(item.moduleName),
-			})),
+				issuerPath: item.issuerName,
+				reasons: item.reasons.map((item) => ({
+					...item,
+					resolvedModulePath: resolvePathPlus(item.moduleName),
+				})),
+			}
 		}
-	})
+	)
 
 	for (const webpackModule of resolvedModules) {
 		const summary = { imports: 0, exports: 0, issuers: 0 }
@@ -53,14 +55,20 @@ export function extractUsages(context: AnalyzerContext) {
 		}
 
 		const reasons: Partial<IWebpackStatsV5Reason>[] =
-			webpackModule?.reasons?.filter((m: IWebpackStatsV5Reason) => isAppSourcesPath(m.resolvedModulePath))
+			webpackModule?.reasons?.filter((m: IWebpackStatsV5Reason) =>
+				isIncluded(m.resolvedModulePath, {
+					exclude: context.exclude,
+					excludeExcept: context.excludeExcept,
+					includeOnly: context.includeOnly,
+				})
+			)
 
 		// Use the webpack import/export reason to resolve dependency chain
 		for (const reason of reasons) {
 			// Ignore side effect evaluation.
 			if (reason.type.includes("side effect")) {
 				console.log(
-					"src/analyzer/analyzerUtils/extractUsages.ts:34",
+					"src/analyzer/analyzerUtils/extractUsages.ts:71",
 					reason.type
 				)
 				continue
@@ -100,7 +108,11 @@ export function extractUsages(context: AnalyzerContext) {
 
 		const issuers =
 			webpackModule.reasons?.filter((issuer) =>
-				isAppSourcesPath(issuer.moduleName)
+				isIncluded(issuer.moduleName, {
+					exclude: context.exclude,
+					excludeExcept: context.excludeExcept,
+					includeOnly: context.includeOnly,
+				})
 			) ?? []
 
 		for (const issuer of issuers) {
@@ -116,7 +128,7 @@ export function extractUsages(context: AnalyzerContext) {
 		)
 	}
 	console.log(
-		"src/analyzer/analyzerUtils/extractUsages.ts:104",
+		"src/analyzer/analyzerUtils/extractUsages.ts:131",
 		graph.dependenciesById.size
 	)
 	return graph

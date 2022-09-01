@@ -24,6 +24,7 @@ Fixed and working.
 
 ## How to run
 
+ * set the [config](./deps.config.js) params
  * optionally use [node version manager](https://github.com/nvm-sh/nvm) to choose node@16+
  * execute in console
     ```bash
