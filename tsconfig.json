@@ -7,7 +7,7 @@
 	"include": [
 		"./*.ts",
 		"./**/*.ts",
-		"./deps.config.js"
+		"deps.config.ts"
 , "src/viewer/src/app.ts"	],
 	"exclude": [
 		"src/viewer/**/*"

@@ -1,12 +1,10 @@
 
-logs
-*.log
 .lock*
 node_modules/
 *.tsbuildinfo
 .env*
-.vscode/
-dist/
+./.vscode/
+./dist/
 
 ./webpack-stats.json
 ./deps.json
@@ -14,3 +12,5 @@ dist/
 ./cytoscape.json
 ./graph.dot
 ./deps.png
+
+./out

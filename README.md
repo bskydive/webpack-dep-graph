@@ -5,18 +5,19 @@ Fixed and working.
 ## What is it
 
  * webpack [stats.json](https://webpack.js.org/api/stats) parser/converter for visual/UI dependencies analysis
+ * [configurable](./deps.config.ts) deps filters: exclude, except, include
  * [DOT](https://github.com/glejeune/node-graphviz) graph converter
  * [cytoscape](https://cytoscape.org/) graph converter
  * json graph converter
- * TODO [cytoscape](https://js.cytoscape.org) graph viewer
+ * [graphml](http://graphml.graphdrawing.org/) graph converter for proprietary [yed](https://www.yworks.com/products/yed/download) editor
+ * [output examples](./doc/README.md)
  * TODO [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
- * TODO [graphml](http://graphml.graphdrawing.org/) graph converter for proprietary [yed](https://www.yworks.com/products/yed/download) editor
  * TODO local webpack dev server
- * [more docs](./doc/README.md)
+ * TODO [cytoscape](https://js.cytoscape.org) graph viewer
 
 ## What is it for
 
- * Refactoring decision maker helper
+ * Refactoring decision making helper
  * addition tool for the [code analysis methodic](https://github.com/bskydive/code_quality_js)
  * Detect a circular dependency in a large monorepo project.
  * Figure out where the module is being used, imported and exported from.

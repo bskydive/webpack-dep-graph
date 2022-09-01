@@ -1,10 +1,13 @@
 import { Analyzer } from "./analyzer/Analyzer"
-import { AnalyzerContext, IAnalyzerConfig } from "./models/AnalyzerContext"
+import {
+	AnalyzerContext,
+	IAnalyzerConfig,
+	IGraphvizRenderOpts,
+} from "./models/AnalyzerContext"
 import {
 	createDotGraph,
-	saveGraphvizRenderedDot,
-	saveGraphvizDotSimplified,
-	saveGraphvizRenderedPng,
+	saveGraphvizRendered,
+	saveSimplifiedDot,
 } from "./utils/graphviz"
 import { loadWebpackStat } from "./utils/webpack"
 import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"
@@ -12,12 +15,13 @@ import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"
 import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
 import { printFileTree } from "./utils/printFileTree"
 import { depsConfig } from "../deps.config"
+import { log } from "./utils/logger"
 
 function main() {
 	let analyzerContext: AnalyzerContext
 	const config: IAnalyzerConfig = depsConfig
 	const statFileName = process.argv[2] || "webpack-stats.json"
-	console.log(`\n------- loading ${statFileName} ------\n`)
+	log("loading ${statFileName}")
 
 	const webpackStat = loadWebpackStat(statFileName)
 	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml")
@@ -26,7 +30,7 @@ function main() {
 		const analyzer = new Analyzer(webpackStat)
 		analyzerContext = analyzer.analyze()
 
-		console.log(`\n------- displaying file tree ------\n`)
+		log("calculations start")
 		const dotGraph = createDotGraph(analyzerContext.dependencyMap)
 		const cytoscapeGraph = parseEdgeDefinitions(
 			analyzerContext.dependencyMap
@@ -35,29 +39,42 @@ function main() {
 		if (config.testGraphml) {
 			saveGraphml("test_save.graphml", grapml)
 		}
+
 		if (config.printImportAnalysis) {
 			printFileTree(analyzerContext)
 		}
+
 		if (config.depsJson) {
-			saveCytoscape("./deps.json", analyzerContext.dependencyMap)
+			saveCytoscape("./graph-output/deps.json", analyzerContext.dependencyMap)
 		}
+
 		if (config.graphmlDeps) {
-			saveGraphmlFromDot(analyzerContext.dependencyMap, "./deps.graphml")
+			saveGraphmlFromDot(analyzerContext.dependencyMap, "./graph-output/deps.graphml")
 		}
+
 		if (config.circularDepsJson) {
-			saveCytoscape("./circular.json", analyzerContext.circularImports)
+			saveCytoscape("./graph-output/circular.json", analyzerContext.circularImports)
 		}
+
 		if (config.cytoscapeJson) {
-			saveCytoscape("./cytoscape.json", cytoscapeGraph)
+			saveCytoscape("./graph-output/cytoscape.json", cytoscapeGraph)
 		}
-		if (config.graphvizRenderedDot) {
-			saveGraphvizRenderedDot(dotGraph, "./graph.dot")
+
+		if (config.simplifiedDot) {
+			saveSimplifiedDot(dotGraph, "./graph-output/graph_simplified.dot")
 		}
-		if (config.graphvizRenderedPng) {
-			saveGraphvizRenderedPng(dotGraph, "./graph.png")
-		}
-		if (config.graphvizDotSimplified) {
-			saveGraphvizDotSimplified(dotGraph, "./graph_simplified.dot")
+
+		log("heavy calculations start")
+
+		for (const [key, value] of Object.entries(config.graphviz)) {
+			if (value?.enabled) {
+				saveGraphvizRendered({
+					graph: dotGraph,
+					engine: value?.engine,
+                    type: value?.type,
+					fileName: value?.fileName,
+				})
+			}
 		}
 	}
 }

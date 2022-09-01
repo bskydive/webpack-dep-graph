@@ -15,7 +15,7 @@ import {
 	extractUsages,
 	getCircularImports,
 } from "./analyzerUtils/index"
-import { depsConfig } from "../../deps.config.js"
+import { depsConfig } from "../../deps.config"
 
 export class Analyzer {
 	stat: IWebpackStatsV5

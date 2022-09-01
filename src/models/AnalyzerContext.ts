@@ -1,3 +1,4 @@
+import { RenderEngine } from "graphviz"
 import { ModuleGraph } from "../analyzer/analyzerUtils/ModuleGraph"
 import { VirtualFS } from "../utils/virtualFS"
 import { IWebpackStatsV5Module } from "./webpack5.model"
@@ -12,6 +13,14 @@ export interface AnalyzerContext extends IAnalyzerConfig {
 	circularImports: string[][]
 }
 
+export interface IGraphvizRenderOpts {
+    enabled: boolean
+    engine: RenderEngine
+    fileName: string
+    type: 'png' | 'dot'
+}
+
+/** graphviz calculation takes a large time */
 export interface IAnalyzerConfig {
 	projectRoot: string
 	exclude: string[]
@@ -23,7 +32,14 @@ export interface IAnalyzerConfig {
 	graphmlDeps: boolean
 	circularDepsJson: boolean
 	cytoscapeJson: boolean
-	graphvizRenderedDot: boolean // long execution
-	graphvizRenderedPng: boolean // long execution
-	graphvizDotSimplified: boolean
+    simplifiedDot: boolean
+	graphviz: {
+		renderedDot: IGraphvizRenderOpts
+		renderedDotPng: IGraphvizRenderOpts
+		renderedSpringPng: IGraphvizRenderOpts
+		renderedDirectedPng: IGraphvizRenderOpts
+		renderedCircularPng: IGraphvizRenderOpts
+		renderedRadialPng: IGraphvizRenderOpts
+		renderedClusteredPng: IGraphvizRenderOpts
+	}
 }
