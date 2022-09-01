@@ -4,7 +4,7 @@ Fixed and working.
 
 ## What is it
 
- * webpack stats.json parser/converter for visual/UI dependencies analysis
+ * webpack [stats.json](https://webpack.js.org/api/stats) parser/converter for visual/UI dependencies analysis
  * [DOT](https://github.com/glejeune/node-graphviz) graph converter
  * [cytoscape](https://cytoscape.org/) graph converter
  * json graph converter

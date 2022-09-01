@@ -7,7 +7,7 @@
     "start": "ts-node ./src/index.ts",
     "debug": "ts-node ./src/index.ts",
     "build": "tsc --build tsconfig.json && ts-node dist/out-tsc/index.js",
-    "webpack": "webpack --config webpack.config.js --stats",
+    "webpack": "webpack --config webpack.config.js --profile --json > stats.json",
     "analyze": "webpack --config webpack.config.js && ts-node dist/bundle.js ../webpack-stats.json"
   },
   "author": "",
