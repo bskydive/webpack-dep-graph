@@ -105,13 +105,15 @@ export interface IWebpackStatsV5Module {
     depth: number;
     source?: string;
   }
-  
+
+export type TWebpackStatsV5ReasonType = 'harmony import' | 'cjs require' | 'import() context lazy' | 'context element' | 'amd require' | 'cjs require context' | 'import()' | string
+
 export  interface IWebpackStatsV5Reason {
     moduleId: number;
     moduleIdentifier: string;
     module: string;
     moduleName: string;
-    type: string;
+    type: TWebpackStatsV5ReasonType;
     userRequest: string;
     loc: string;
     resolvedModulePath?: string;

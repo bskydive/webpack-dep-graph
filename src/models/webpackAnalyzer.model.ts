@@ -1,7 +1,14 @@
+export const EMPTY_MODULE_PARSED: IWebpackModuleParsed = {
+    uuid: '',
+	fileName: '',
+	relativePath: '',
+	absolutePath: ''
+}
+
 export interface IWebpackModuleParsed {
-	id: string
-	webpackModuleId: number
-	sizeInBytes: number // TODO @deprecated remove or implement file size visualizer
+	uuid: string
+	webpackModuleId?: number // TODO @deprecated remove or implement file size visualizer
+	sizeInBytes?: number // TODO @deprecated remove or implement file size visualizer
 	fileName: string
 	relativePath: string
 	absolutePath: string

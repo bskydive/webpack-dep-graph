@@ -16,18 +16,18 @@ export function isIncluded(text: string, opts: IIncludedOptions): boolean {
 	let result: boolean = false
 
 	if (opts.exclude.length) {
-		regExpExclude = new RegExp(`/${opts.exclude.join("|")}/`)
+		regExpExclude = new RegExp(`${opts.exclude.join("|")}`)
 	}
 
 	if (opts.excludeExcept.length) {
-		regExpExcludeExcept = new RegExp(`/${opts.excludeExcept.join("|")}/`)
+		regExpExcludeExcept = new RegExp(`${opts.excludeExcept.join("|")}`)
 	}
 
 	if (opts.includeOnly.length) {
-		regExpIncludeOnly = new RegExp(`/${opts.includeOnly.concat("|")}/`)
+		regExpIncludeOnly = new RegExp(`${opts.includeOnly.join("|")}`)
 		result = regExpIncludeOnly.test(text)
 	} else {
-		result = !regExpExclude?.test(text) || regExpExcludeExcept?.test(text)
+		result = regExpExcludeExcept?.test(text) || !regExpExclude?.test(text)
 	}
 
 	return result

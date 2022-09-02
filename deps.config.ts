@@ -8,7 +8,7 @@ import { IAnalyzerConfig } from 'src/models/AnalyzerContext'
 export const depsConfig: IAnalyzerConfig = {
 	projectRoot: '',
 	exclude: ['cache', 'webpack', 'node_modules'],
-	excludeExcept: ['angular'], // add some deps from excluded
+	excludeExcept: [], // add some deps from excluded
 	includeOnly: [], // exclude and excludeExcept will be ignored
 	testGraphml: false, // test js2xml
 	graphmlDeps: true, // for yed editor

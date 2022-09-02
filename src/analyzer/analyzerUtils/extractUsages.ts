@@ -1,4 +1,4 @@
-import { log } from "../../utils/logger"
+import { log, logEmpty } from "../../utils/logger"
 import { AnalyzerContext } from "../../models/AnalyzerContext"
 import {
 	IWebpackStatsV5Module,
@@ -6,6 +6,7 @@ import {
 } from "../../models/webpack5.model"
 
 import { isIncluded, resolvePathPlus } from "../../utils/webpack"
+import { IWebpackModuleParsed } from "src/models/webpackAnalyzer.model"
 
 function getModuleTypes(webpackModules: IWebpackStatsV5Module[]) {
 	const reasonTypes = webpackModules
@@ -30,7 +31,10 @@ export function extractUsages(context: AnalyzerContext) {
 
 	const resolvedModules: IWebpackStatsV5Module[] = webpackModules.map(
 		(item) => {
-            if (item.issuerName.includes('providers.module.ts')) {console.log('src/analyzer/analyzerUtils/extractUsages.ts:33', item.issuerName)}
+			if (item?.issuerName?.includes("providers.module.ts")) {
+				log("src/analyzer/analyzerUtils/extractUsages.ts:33",item.name)
+			}
+
 			return {
 				...item,
 				issuerPath: item.issuerName,
@@ -45,10 +49,16 @@ export function extractUsages(context: AnalyzerContext) {
 	for (const webpackModule of resolvedModules) {
 		const resolvedDependents: Map<string, boolean> = new Map()
 
-		const relativePath = resolvePathPlus(webpackModule.name)
+		const relativePath: string = resolvePathPlus(webpackModule.name)
 
-		const module = graph.byRelativePath(relativePath)
-		if (!module) throw new Error("cannot lookup by relative path")
+		const module: IWebpackModuleParsed = graph.byRelativePath(relativePath)
+		if (!module?.uuid) {
+			logEmpty(
+				"src/analyzer/analyzerUtils/extractUsages.ts:52",
+				module?.uuid,
+				webpackModule
+			)
+		}
 
 		if (!(webpackModule?.reasons instanceof Array)) {
 			continue
@@ -98,7 +108,7 @@ export function extractUsages(context: AnalyzerContext) {
 				continue
 			}
 
-			graph.addDependenciesById(consumerModule.id, module.id)
+			graph.addDependenciesById(consumerModule.uuid, module.uuid)
 
 			// log(`imported by ${consumerModule}`)
 			summary.imports++
@@ -124,11 +134,11 @@ export function extractUsages(context: AnalyzerContext) {
 
 	log(
 		`\nsummary: \n`,
-		`module types: ${moduleTypes}`,
-		`imports: ${summary.imports}`,
-		`re-exports: ${summary.exports}`,
-		`issuers: ${summary.issuers}`,
-		`${graph.dependenciesById.size} dependenciesById count`
+		`module types: ${moduleTypes};`,
+		`imports: ${summary.imports};`,
+		`re-exports: ${summary.exports};`,
+		`issuers: ${summary.issuers};`,
+		`dependencies: ${graph.dependenciesById.size}`
 	)
 
 	return graph
