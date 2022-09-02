@@ -1,7 +1,8 @@
 import { logEmpty } from "./logger"
-import { IWebpackStatsV5Module } from "../models/webpack5.model"
-import { IWebpackStatsV5 } from "src/models/webpack5.model"
+import { IWebpackStatsV3Module } from "../models/webpack.3.model"
+import { IWebpackStatsV3 } from "src/models/webpack.3.model"
 import { readFile } from "./files"
+import { IWebpackStatsV5 } from "../models/webpack.5.model"
 
 export interface IIncludedOptions {
 	exclude: string[]
@@ -45,7 +46,7 @@ export const resolvePathPlus = (name: string) => {
 	return result
 }
 
-export function parseAbsolutePath(module: IWebpackStatsV5Module): string {
+export function parseAbsolutePath(module: IWebpackStatsV3Module): string {
 	let path = module.identifier?.split("!")[1] || ""
 
 	logEmpty("src/utils/webpack.ts:24", module.name)
@@ -61,12 +62,12 @@ export function fileNameFromPath(path: string) {
 
 /** @deprecated TODO refactor to use without rootPath */
 export function getAppRootPath(
-	modules: IWebpackStatsV5Module[],
+	modules: IWebpackStatsV3Module[],
 	opts: IIncludedOptions
 ) {
 	let rootPath: string = ""
 	const appModule = modules.find(
-		(module: IWebpackStatsV5Module) =>
+		(module: IWebpackStatsV3Module) =>
 			isIncluded(module.name, opts) && /node_modules/.test(module.issuer)
 	)
 
@@ -81,17 +82,17 @@ export function getAppRootPath(
 		console.warn(
 			"src/utils/webpack.ts:52",
 			"EMPTY app root path!",
-			appModule.name
+			appModule?.name
 		)
 	}
 
 	return rootPath
 }
 
-export function loadWebpackStat(fileName: string): IWebpackStatsV5 {
+export function loadWebpackStat(fileName: string): IWebpackStatsV3 | IWebpackStatsV5 {
 	const statString = readFile(fileName)
 
-	const stat: IWebpackStatsV5 = JSON.parse(statString)
+	const stat: IWebpackStatsV3 = JSON.parse(statString)
 
 	return stat
 }

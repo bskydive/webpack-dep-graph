@@ -22,10 +22,10 @@ function main() {
 	const statFileName = process.argv[2] || "webpack-stats.json"
 	log("loading ${statFileName}")
 
+	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save
 	const webpackStat = loadWebpackStat(statFileName)
-	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml")
-
-	if (webpackStat) {
+    
+	if (webpackStat?.version) {
 		const analyzer = new webpackAnalyzer(webpackStat)
 		analyzerContext = analyzer.analyze()
 

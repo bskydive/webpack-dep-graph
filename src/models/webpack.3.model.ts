@@ -1,4 +1,4 @@
-export interface IWebpackStatsV5 {
+export interface IWebpackStatsV3 {
     errors: any[];
     warnings: string[];
     version: string;
@@ -10,12 +10,12 @@ export interface IWebpackStatsV5 {
     filteredAssets: number;
     entrypoints: Entrypoints;
     chunks: Chunk[];
-    modules: IWebpackStatsV5Module[];
+    modules: IWebpackStatsV3Module[];
     filteredModules: number;
     children: any[];
   }
   
-export interface IWebpackStatsV5Module {
+export interface IWebpackStatsV3Module {
     id: number;
     identifier: string;
     name: string;

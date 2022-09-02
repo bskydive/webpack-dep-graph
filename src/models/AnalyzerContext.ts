@@ -1,12 +1,14 @@
 import { RenderEngine } from "graphviz"
 import { ModuleGraph } from "../analyzer/analyzerUtils/ModuleGraph"
-import { IWebpackStatsV5Module } from "./webpack5.model"
+import { IWebpackStatsV3Module } from "./webpack.3.model"
+import { IWebpackStatsV5Module } from "./webpack.5.model"
 
 export type IDependencyMap = Record<string, string[]>
 
 export interface AnalyzerContext extends IAnalyzerConfig {
 	graph: ModuleGraph
-	webpackModules: IWebpackStatsV5Module[]
+    // TODO refactor to shared sungle model
+    webpackModules: IWebpackStatsV3Module[]
 	dependencyMap: IDependencyMap
 	circularImports: string[][]
 }

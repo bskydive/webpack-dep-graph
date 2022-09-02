@@ -1,14 +1,14 @@
 import { log, logEmpty } from "../../utils/logger"
 import { AnalyzerContext } from "../../models/AnalyzerContext"
 import {
-	IWebpackStatsV5Module,
+	IWebpackStatsV3Module,
 	IWebpackStatsV5Reason,
-} from "../../models/webpack5.model"
+} from "../../models/webpack.3.model"
 
 import { isIncluded, resolvePathPlus } from "../../utils/webpack"
 import { IWebpackModuleParsed } from "src/models/webpackAnalyzer.model"
 
-function getModuleTypes(webpackModules: IWebpackStatsV5Module[]) {
+function getModuleTypes(webpackModules: IWebpackStatsV3Module[]) {
 	const reasonTypes = webpackModules
 		.map((m) => m.reasons.map((r) => r.type))
 		.flat()
@@ -29,11 +29,12 @@ export function extractUsages(context: AnalyzerContext) {
 
 	const moduleTypes = getModuleTypes(webpackModules)
 
-	const resolvedModules: IWebpackStatsV5Module[] = webpackModules.map(
+	const resolvedModules: IWebpackStatsV3Module[] = webpackModules.map(
 		(item) => {
-			if (item?.issuerName?.includes("providers.module.ts")) {
-				log("src/analyzer/analyzerUtils/extractUsages.ts:33",item.name)
-			}
+            // TODO add modules to output
+			// if (item?.issuerName?.includes("providers.module.ts")) {
+			// 	log("src/analyzer/analyzerUtils/extractUsages.ts:33",item.name)
+			// }
 
 			return {
 				...item,
@@ -48,15 +49,14 @@ export function extractUsages(context: AnalyzerContext) {
 
 	for (const webpackModule of resolvedModules) {
 		const resolvedDependents: Map<string, boolean> = new Map()
-
 		const relativePath: string = resolvePathPlus(webpackModule.name)
-
 		const module: IWebpackModuleParsed = graph.byRelativePath(relativePath)
-		if (!module?.uuid) {
+
+        if (!module?.uuid) {
 			logEmpty(
-				"src/analyzer/analyzerUtils/extractUsages.ts:52",
+				"src/analyzer/analyzerUtils/extractUsages.ts:57",
 				module?.uuid,
-				webpackModule
+				webpackModule.name
 			)
 		}
 
@@ -84,7 +84,11 @@ export function extractUsages(context: AnalyzerContext) {
 				continue
 			}
 
-			const moduleName = resolvePathPlus(reason.resolvedModulePath)
+			const moduleName: string = resolvePathPlus(reason.resolvedModulePath)
+			if (!moduleName) {
+                logEmpty('src/analyzer/analyzerUtils/extractUsages.ts:99', moduleName, reason.resolvedModulePath)
+				continue
+			}
 
 			// Mark dependent as resolved, so we don't need to resolve multiple times.
 			if (resolvedDependents.has(moduleName)) {
@@ -95,7 +99,8 @@ export function extractUsages(context: AnalyzerContext) {
 
 			// Resolve the module that utilizes/consumes the current module.
 			const consumerModule = graph.byRelativePath(moduleName)
-			if (!consumerModule) {
+			if (!consumerModule?.uuid) {
+                logEmpty('src/analyzer/analyzerUtils/extractUsages.ts:99', consumerModule?.uuid, moduleName)
 				continue
 			}
 
@@ -108,7 +113,7 @@ export function extractUsages(context: AnalyzerContext) {
 				continue
 			}
 
-			graph.addDependenciesById(consumerModule.uuid, module.uuid)
+			graph.addDependenciesById(consumerModule?.uuid, module?.uuid)
 
 			// log(`imported by ${consumerModule}`)
 			summary.imports++

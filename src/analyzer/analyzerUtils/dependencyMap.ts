@@ -22,7 +22,7 @@ export function missedDependencyMapSrcNodes(
 	dependencyMap: IDependencyMap
 ): IDependencyMap {
 	let result: IDependencyMap = {}
-
+// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
 	for (const targetPath in dependencyMap) {
 		for (const dependencyPath of dependencyMap[targetPath]) {
 			if (!dependencyMap[dependencyPath]) {
