@@ -8,7 +8,7 @@ import { v4 } from "uuid"
 import { log } from "../../utils/logger"
 
 export function createModuleNodes(context: AnalyzerContext) {
-	const { graph, vfs, webpackModules } = context
+	const { graph, webpackModules } = context
 	const startTime = Date.now()
 
 	log(`located ${webpackModules.length} modules from this build.`)
@@ -29,9 +29,6 @@ export function createModuleNodes(context: AnalyzerContext) {
 			relativePath,
 			absolutePath,
 		})
-
-		// Register the path with the virtual file system.
-		vfs.touch(absolutePath, id)
 	}
 
 	log(`creating module nodes takes: ${Date.now() - startTime}ms.`)

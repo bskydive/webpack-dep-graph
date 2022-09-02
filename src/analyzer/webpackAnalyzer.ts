@@ -4,7 +4,6 @@ import {
 } from "../models/AnalyzerContext"
 import { ModuleGraph } from "./analyzerUtils/ModuleGraph"
 import { isIncluded, getAppRootPath } from "../utils/webpack"
-import { VirtualFS } from "../utils/virtualFS"
 import { IWebpackStatsV5 } from "../models/webpack5.model"
 import { depsConfig } from "../../deps.config"
 import { getCircularImports } from "./analyzerUtils/circular"
@@ -22,7 +21,6 @@ export class webpackAnalyzer {
 		this.stat = stat
 		this.analyzerContext = {
 			...this.config,
-			vfs: new VirtualFS(),
 			graph: new ModuleGraph(),
 			webpackModules: this.stat.modules.filter((m) =>
 				isIncluded(m.name, {

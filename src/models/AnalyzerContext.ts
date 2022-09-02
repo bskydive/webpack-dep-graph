@@ -1,12 +1,10 @@
 import { RenderEngine } from "graphviz"
 import { ModuleGraph } from "../analyzer/analyzerUtils/ModuleGraph"
-import { VirtualFS } from "../utils/virtualFS"
 import { IWebpackStatsV5Module } from "./webpack5.model"
 
 export type IDependencyMap = Record<string, string[]>
 
 export interface AnalyzerContext extends IAnalyzerConfig {
-	vfs: VirtualFS
 	graph: ModuleGraph
 	webpackModules: IWebpackStatsV5Module[]
 	dependencyMap: IDependencyMap
