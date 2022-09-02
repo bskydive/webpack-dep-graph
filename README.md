@@ -56,15 +56,15 @@ The graphviz layout renderer seems to be useless. You can upload the simplified 
         * search in nodes, urls, properties
             * ![](./doc/graphml_yed_search.jpg)
         * [graphml: raw xml](./graph-output/deps.graphml)
-        * Manually applied in yed circular layout(alt+shift+c)
+        * Manually applied in yed circular layout: `tools-->fit node to label`, `layout-->circular (alt+shift+c)`
             * exclude non project files
                 * summary: imports: 1551, re-exports: 0, issuers: 1252
-                * [graphml](./graph-output/deps_circular.graphml)
                 * [deps.config.ts](./deps.config.ts)
                     ```ts
                         exclude: ['cache', 'webpack', 'node_modules'],
                         excludeExcept: [], includeOnly: [],
                     ```
+                * [graphml](./graph-output/deps_circular.graphml)
                 * ![](./doc/graphml_xml.jpg)
                 * ![](./doc/graphml_png.jpg)
             * include all
@@ -83,7 +83,7 @@ The graphviz layout renderer seems to be useless. You can upload the simplified 
                     ```
                 * ![](./doc/graphml_only.jpg)
             * exclude non project files except angular
-                * summary: 
+                * summary: imports: 2025; re-exports: 0; issuers: 1678; dependencies: 237
                 * [deps.config.ts](./deps.config.ts)
                     ```ts
                         exclude: ['cache', 'webpack', 'node_modules'],

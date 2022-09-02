@@ -1,13 +1,30 @@
 {
+  "./node_modules/ionic-angular/index.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/util/util.js",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./node_modules/@angular/common/esm5/common.js",
+    "./node_modules/@angular/platform-browser/esm5/platform-browser.js",
+    "./src lazy",
+    "./node_modules/ionic-angular/gestures/gesture.js"
+  ],
+  "./src/providers/logger/logger.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
   "./src/providers/platform/platform.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/config/config.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/currency/currency.ts"
   ],
   "./src/providers/profile/profile.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -27,16 +44,26 @@
     "./src/providers/language/language.ts"
   ],
   "./src/providers/persistence/persistence.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts"
   ],
+  "./src/providers/currency/currency.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js"
+  ],
   "./src/providers/external-link/external-link.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/popup/popup.ts",
     "./src/providers/electron/electron.ts"
   ],
   "./src/providers/index.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -52,6 +79,7 @@
     "./src/providers/bwc/bwc.ts",
     "./src/providers/bwc-error/bwc-error.ts",
     "./src/providers/errors/errors.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/analytics/analytics.ts",
     "./src/providers/theme/theme.ts",
     "./src/providers/rate/rate.ts",
@@ -110,21 +138,46 @@
     "./src/providers/card-phases/card-phases.ts"
   ],
   "./src/providers/app/app.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/currency/currency.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/theme/theme.ts",
     "./src/providers/language/language.ts"
   ],
+  "./src/providers/action-sheet/action-sheet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/dom/dom.ts",
+    "./src/components/info-sheet/info-sheet.ts",
+    "./src/components/email-component/email-component.ts",
+    "./src/components/encrypt-password/encrypt-password.ts",
+    "./src/components/footer-menu/footer-menu.ts",
+    "./src/components/incoming-data-menu/incoming-data-menu.ts",
+    "./src/components/memo-component/memo-component.ts",
+    "./src/components/miner-fee-warning/miner-fee-warning.ts",
+    "./src/components/needs-backup/needs-backup.ts",
+    "./src/components/options-sheet/options-sheet.ts",
+    "./src/components/phone-sheet/phone-sheet.ts",
+    "./src/components/wallet-receive/wallet-receive.ts",
+    "./src/components/wallet-selector/wallet-selector.ts",
+    "./src/components/wallet-tab-options/wallet-tab-options.ts"
+  ],
   "./src/providers/popup/popup.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/on-going-process/on-going-process.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/wallet/wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -146,24 +199,45 @@
     "./src/providers/logs/logs.ts",
     "./src/providers/zce/zce.ts"
   ],
+  "./node_modules/@angular/forms/esm5/forms.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/platform-browser/esm5/platform-browser.js"
+  ],
   "./src/providers/bwc/bwc.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts"
   ],
+  "./src/providers/bwc-error/bwc-error.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
   "./src/providers/errors/errors.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/action-sheet/action-sheet.ts"
   ],
+  "./node_modules/@angular/common/esm5/http.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/common/esm5/common.js"
+  ],
+  "./src/providers/analytics/analytics.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/platform/platform.ts"
+  ],
   "./src/providers/theme/theme.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts"
   ],
   "./src/providers/rate/rate.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
-    "./src/providers/currency/currency.ts"
+    "./src/providers/currency/currency.ts",
+    "./node_modules/@angular/common/esm5/http.js"
   ],
   "./src/providers/tx-format/tx-format.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/currency/currency.ts",
@@ -172,13 +246,18 @@
     "./src/providers/filter/filter.ts"
   ],
   "./src/providers/home-integrations/home-integrations.ts": [
-    "./src/providers/logger/logger.ts"
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/logger/logger.ts",
+    "./node_modules/@angular/common/esm5/http.js"
   ],
   "./src/providers/gift-card/gift-card.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/analytics/analytics.ts",
     "./src/providers/home-integrations/home-integrations.ts",
     "./src/providers/location/location.ts",
@@ -189,12 +268,15 @@
     "./src/utils.ts"
   ],
   "./src/pages/send/amount/amount.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/index.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/rate/rate.ts",
     "./src/providers/tx-format/tx-format.ts",
     "./src/providers/gift-card/gift-card.ts",
@@ -210,12 +292,19 @@
     "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
   ],
   "./src/providers/key/key.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/popup/popup.ts",
     "./src/providers/bwc/bwc.ts"
   ],
+  "./src/components/action-sheet/action-sheet-parent.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/components/action-sheet/action-sheet.ts"
+  ],
   "./src/pages/scan/scan.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/index.ts",
@@ -226,10 +315,16 @@
     "./src/providers/scan/scan.ts"
   ],
   "./src/providers/address/address.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/bwc/bwc.ts"
   ],
+  "./src/providers/replace-parameters/replace-parameters.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
   "./src/providers/incoming-data/incoming-data.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -246,16 +341,28 @@
     "./src/providers/in-app-browser/card.ts",
     "./src/providers/invoice/invoice.ts"
   ],
+  "./node_modules/@angular/common/esm5/common.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
   "./src/providers/push-notifications/push-notifications.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/app/app.ts",
     "./src/providers/bwc/bwc.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/components/notification-component/notification-component.ts"
   ],
+  "./src/pages/finish/finish.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js"
+  ],
   "./src/pages/wallet-details/wallet-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -287,6 +394,8 @@
     "./src/pages/wallet-details/wallet-balance/wallet-balance.ts"
   ],
   "./src/pages/send/confirm/confirm.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -323,25 +432,33 @@
     "./src/providers/wallet-connect/wallet-connect.ts",
     "./src/pages/choose-fee-level/choose-fee-level.ts"
   ],
+  "./node_modules/@angular/platform-browser/esm5/platform-browser.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/common/esm5/common.js"
+  ],
   "./src/providers/fee/fee.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/bwc/bwc.ts"
   ],
   "./src/providers/address-book/address-book.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/address/address.ts"
   ],
   "./src/providers/coinbase/coinbase.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/app/app.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/analytics/analytics.ts",
     "./src/providers/rate/rate.ts",
     "./src/providers/tx-format/tx-format.ts",
@@ -349,6 +466,8 @@
     "./src/environments/index.ts"
   ],
   "./src/pages/add/import-wallet/import-wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -357,6 +476,7 @@
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/on-going-process/on-going-process.ts",
     "./src/providers/wallet/wallet.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/bwc/bwc.ts",
     "./src/providers/bwc-error/bwc-error.ts",
     "./src/providers/errors/errors.ts",
@@ -367,6 +487,7 @@
     "./src/pages/includes/coin-selector/coin-selector.ts"
   ],
   "./src/providers/paypro/paypro.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/on-going-process/on-going-process.ts",
@@ -374,29 +495,43 @@
     "./src/providers/invoice/invoice.ts"
   ],
   "./src/providers/exchange-crypto/exchange-crypto.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/currency/currency.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/home-integrations/home-integrations.ts",
     "./src/providers/replace-parameters/replace-parameters.ts",
     "./src/providers/one-inch/one-inch.ts",
     "./src/providers/changelly/changelly.ts"
   ],
   "./src/providers/one-inch/one-inch.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
-    "./src/providers/persistence/persistence.ts"
+    "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js"
+  ],
+  "./src/providers/dom/dom.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
   ],
   "./src/providers/touchid/touchid.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/app/app.ts"
   ],
+  "./src/providers/derivation-path-helper/derivation-path-helper.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
   "./src/providers/bitpay/bitpay.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/app-identity/app-identity.ts"
   ],
   "./src/providers/bitpay-card/bitpay-card.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/persistence/persistence.ts",
@@ -407,6 +542,7 @@
     "./src/providers/app-identity/app-identity.ts"
   ],
   "./src/providers/clipboard/clipboard.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/currency/currency.ts",
@@ -414,25 +550,53 @@
     "./src/providers/electron/electron.ts"
   ],
   "./src/providers/location/location.ts": [
-    "./src/providers/logger/logger.ts"
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/logger/logger.ts",
+    "./node_modules/@angular/common/esm5/http.js"
+  ],
+  "./src/providers/time/time.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./src/pages/add/select-currency/select-currency.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/currency/currency.ts",
+    "./src/providers/index.ts",
+    "./src/pages/add/import-wallet/import-wallet.ts",
+    "./src/pages/add/join-wallet/join-wallet.ts",
+    "./src/pages/add/create-wallet/create-wallet.ts",
+    "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
+    "./src/pages/onboarding/recovery-key/recovery-key.ts",
+    "./src/pages/add/custom-token/custom-token.ts"
+  ],
+  "./src/components/info-sheet/info-sheet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/external-link/external-link.ts",
+    "./src/components/action-sheet/action-sheet-parent.ts",
+    "./src/components/info-sheet/info-sheet-template.ts"
   ],
   "./src/providers/language/language.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts"
   ],
   "./src/providers/app-identity/app-identity.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts"
   ],
   "./src/providers/buy-crypto/buy-crypto.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/home-integrations/home-integrations.ts",
     "./src/providers/simplex/simplex.ts",
     "./src/providers/wyre/wyre.ts"
   ],
   "./src/providers/simplex/simplex.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -444,10 +608,14 @@
     "./src/environments/index.ts"
   ],
   "./src/providers/changelly/changelly.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
-    "./src/providers/persistence/persistence.ts"
+    "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js"
   ],
   "./src/pages/add/copayers/copayers.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -458,26 +626,44 @@
     "./src/providers/key/key.ts",
     "./src/providers/push-notifications/push-notifications.ts"
   ],
+  "./src/pages/integrations/coinbase/coinbase.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/platform/platform.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/popup/popup.ts",
+    "./src/providers/on-going-process/on-going-process.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./src/providers/coinbase/coinbase.ts"
+  ],
   "./src/providers/filter/filter.ts": [
-    "./src/providers/logger/logger.ts"
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/logger/logger.ts",
+    "./node_modules/@angular/common/esm5/common.js"
   ],
   "./src/providers/logs/logs.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/download/download.ts"
   ],
   "./src/providers/wyre/wyre.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/rate/rate.ts",
     "./src/environments/index.ts"
   ],
   "./src/providers/email-notifications/email-notifications.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/wallet/wallet.ts"
   ],
   "./src/pages/backup/backup-key/backup-key.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -491,6 +677,8 @@
     "./src/pages/backup/backup-game/backup-game.ts"
   ],
   "./src/pages/onboarding/disclaimer/disclaimer.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/external-link/external-link.ts",
@@ -499,6 +687,8 @@
     "./src/pages/tabs/tabs.ts"
   ],
   "./src/pages/add/join-wallet/join-wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -507,6 +697,7 @@
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/on-going-process/on-going-process.ts",
     "./src/providers/wallet/wallet.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/bwc/bwc.ts",
     "./src/providers/bwc-error/bwc-error.ts",
     "./src/providers/errors/errors.ts",
@@ -517,7 +708,31 @@
     "./src/providers/clipboard/clipboard.ts",
     "./src/pages/add/copayers/copayers.ts"
   ],
+  "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/index.ts",
+    "./src/providers/popup/popup.ts",
+    "./src/providers/theme/theme.ts",
+    "./src/providers/bitpay-card/bitpay-card.ts",
+    "./src/providers/bitpay-account/bitpay-account.ts",
+    "./src/providers/scan/scan.ts",
+    "./src/pages/integrations/bitpay-card/bitpay-card.ts"
+  ],
+  "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/pages/send/amount/amount.ts",
+    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
+    "./src/pages/integrations/gift-cards/phone/phone.ts"
+  ],
   "./src/pages/exchange-crypto/exchange-crypto.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -530,6 +745,7 @@
     "./src/providers/tx-format/tx-format.ts",
     "./src/pages/send/amount/amount.ts",
     "./src/providers/replace-parameters/replace-parameters.ts",
+    "./node_modules/@angular/common/esm5/common.js",
     "./src/providers/fee/fee.ts",
     "./src/providers/exchange-crypto/exchange-crypto.ts",
     "./src/providers/one-inch/one-inch.ts",
@@ -543,7 +759,18 @@
     "./src/pages/token-swap/token-swap-approve/token-swap-approve.ts",
     "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts"
   ],
+  "./src/pages/integrations/wallet-connect/wallet-connect.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/scan/scan.ts",
+    "./node_modules/@angular/animations/esm5/animations.js",
+    "./src/pages/send/confirm/confirm.ts",
+    "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts"
+  ],
   "./src/pages/pin/pin-modal/pin-modal.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -551,9 +778,11 @@
     "./src/directives/animate/animate.ts"
   ],
   "./src/providers/electron/electron.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/bitpay-account/bitpay-account.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/persistence/persistence.ts",
@@ -564,13 +793,18 @@
     "./src/providers/app-identity/app-identity.ts"
   ],
   "./src/providers/bitpay-id/bitpay-id.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/app-identity/app-identity.ts",
     "./src/providers/in-app-browser/in-app-browser.ts"
   ],
   "./src/providers/in-app-browser/card.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -579,6 +813,7 @@
     "./src/providers/app/app.ts",
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/on-going-process/on-going-process.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/analytics/analytics.ts",
     "./src/providers/theme/theme.ts",
     "./src/providers/paypro/paypro.ts",
@@ -588,11 +823,21 @@
     "./src/providers/apple-wallet/apple-wallet.ts"
   ],
   "./src/providers/invoice/invoice.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/email-notifications/email-notifications.ts"
   ],
+  "./src/providers/merchant/merchant.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/providers/directory/directory.ts"
+  ],
   "./src/pages/add/create-wallet/create-wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -602,6 +847,7 @@
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/on-going-process/on-going-process.ts",
     "./src/providers/wallet/wallet.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/bwc/bwc.ts",
     "./src/providers/bwc-error/bwc-error.ts",
     "./src/providers/errors/errors.ts",
@@ -612,13 +858,30 @@
     "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
     "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
   ],
+  "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js"
+  ],
+  "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/environments/index.ts",
+    "./src/pages/add/create-wallet/create-wallet.ts",
+    "./src/pages/onboarding/recovery-key/recovery-key.ts",
+    "./src/pages/send/send.ts"
+  ],
   "./src/pages/onboarding/recovery-key/recovery-key.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/pages/backup/backup-key/backup-key.ts",
     "./src/pages/onboarding/disclaimer/disclaimer.ts"
   ],
   "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -648,6 +911,8 @@
     "./src/providers/wallet-connect/wallet-connect.ts"
   ],
   "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/action-sheet/action-sheet.ts",
@@ -659,7 +924,24 @@
     "./src/providers/coinbase/coinbase.ts",
     "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts"
   ],
+  "./src/pages/integrations/gift-cards/card-details/card-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/platform/platform.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./node_modules/@angular/animations/esm5/animations.js",
+    "./src/providers/confetti/confetti.ts",
+    "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts"
+  ],
+  "./src/pipes/format-currency.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/common/esm5/common.js"
+  ],
   "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/index.ts",
     "./src/providers/gift-card/gift-card.ts",
@@ -668,6 +950,8 @@
     "./src/pages/integrations/gift-cards/card-details/card-details.ts"
   ],
   "./src/pages/integrations/simplex/simplex.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/analytics/analytics.ts",
@@ -676,16 +960,21 @@
     "./src/pages/integrations/simplex/simplex-details/simplex-details.ts"
   ],
   "./src/pages/settings/addressbook/add/add.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/app/app.ts",
     "./src/providers/popup/popup.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/pages/scan/scan.ts",
     "./src/providers/address/address.ts",
     "./src/providers/address-book/address-book.ts"
   ],
   "./src/pages/integrations/changelly/changelly.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/theme/theme.ts",
@@ -693,6 +982,8 @@
     "./src/pages/integrations/changelly/changelly-details/changelly-details.ts"
   ],
   "./src/pages/integrations/one-inch/one-inch.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/action-sheet/action-sheet.ts",
@@ -702,24 +993,62 @@
     "./src/providers/location/location.ts",
     "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts"
   ],
+  "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/popup/popup.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./node_modules/@angular/animations/esm5/animations.js",
+    "./src/providers/bitpay-card/bitpay-card.ts",
+    "./src/providers/bitpay-account/bitpay-account.ts",
+    "./src/providers/card-phases/card-phases.ts"
+  ],
+  "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+    "./src/providers/merchant/merchant.ts",
+    "./src/pages/merchant/merchant.ts",
+    "./src/pages/templates/wide-header-page/wide-header-page.ts"
+  ],
+  "./src/pages/add/add.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/add/import-wallet/import-wallet.ts",
+    "./src/pages/add/select-currency/select-currency.ts",
+    "./src/pages/add-wallet/add-wallet.ts"
+  ],
   "./src/providers/download/download.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/in-app-browser/in-app-browser.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/on-going-process/on-going-process.ts"
   ],
   "./src/providers/scan/scan.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/errors/errors.ts"
   ],
   "./src/providers/tx-confirm-notification/tx-confirm-notification.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts"
   ],
   "./src/providers/wallet-connect/wallet-connect.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/persistence/persistence.ts",
@@ -735,6 +1064,8 @@
     "./src/providers/abi-decoder/abi-decoder.ts"
   ],
   "./src/pages/add-wallet/add-wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/pages/add/select-currency/select-currency.ts",
@@ -742,6 +1073,8 @@
     "./src/pages/add/create-wallet/create-wallet.ts"
   ],
   "./src/pages/onboarding/add-funds/add-funds.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -754,6 +1087,8 @@
     "./src/pages/onboarding/recovery-key/recovery-key.ts"
   ],
   "./src/pages/tabs/tabs.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -779,6 +1114,8 @@
     "./src/pages/wallets/wallets.ts"
   ],
   "./src/pages/send/send.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/currency/currency.ts",
@@ -809,6 +1146,8 @@
     "./src/pages/send/multi-send/multi-send.ts"
   ],
   "./src/pages/integrations/bitpay-card/bitpay-card.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/external-link/external-link.ts",
@@ -820,6 +1159,8 @@
     "./src/providers/time/time.ts"
   ],
   "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -840,11 +1181,24 @@
     "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts",
     "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts"
   ],
+  "./src/pages/integrations/gift-cards/phone/phone.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/index.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
+    "./src/providers/phone/phone.ts"
+  ],
   "./src/pages/integrations/invoice/select-invoice/select-invoice.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/index.ts"
   ],
   "./src/pages/paper-wallet/paper-wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -858,7 +1212,13 @@
     "./src/pages/finish/finish.ts",
     "./src/providers/fee/fee.ts"
   ],
+  "./src/pages/send/transfer-to-modal/transfer-to-modal.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js"
+  ],
   "./src/pages/exchange-crypto/exchange-crypto-settings/exchange-crypto-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/theme/theme.ts",
@@ -867,7 +1227,20 @@
     "./src/pages/integrations/changelly/changelly.ts",
     "./src/pages/integrations/one-inch/one-inch.ts"
   ],
+  "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/new-feature/new-feature.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/theme/theme.ts",
+    "./node_modules/@angular/animations/esm5/animations.js"
+  ],
   "./src/pages/settings/alt-currency/alt-currency.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -875,7 +1248,14 @@
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/rate/rate.ts"
   ],
+  "./src/pages/settings/bitpay-id/bitpay-id.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
   "./src/pages/settings/settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -887,6 +1267,7 @@
     "./src/providers/analytics/analytics.ts",
     "./src/providers/theme/theme.ts",
     "./src/providers/home-integrations/home-integrations.ts",
+    "./node_modules/@angular/animations/esm5/animations.js",
     "./src/providers/touchid/touchid.ts",
     "./src/providers/bitpay-card/bitpay-card.ts",
     "./src/providers/language/language.ts",
@@ -917,6 +1298,8 @@
     "./src/pages/settings/notifications/notifications.ts"
   ],
   "./src/pages/integrations/wyre/wyre.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/analytics/analytics.ts",
@@ -924,7 +1307,33 @@
     "./src/providers/wyre/wyre.ts",
     "./src/pages/integrations/wyre/wyre-details/wyre-details.ts"
   ],
+  "./src/directives/animate/animate.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./src/pages/settings/about/about.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/feedback/send-feedback/send-feedback.ts",
+    "./src/pages/settings/about/session-log/session-log.ts"
+  ],
+  "./src/pages/feedback/send-feedback/send-feedback.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/platform/platform.ts",
+    "./src/providers/config/config.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/app/app.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/popup/popup.ts",
+    "./src/providers/on-going-process/on-going-process.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./src/pages/finish/finish.ts",
+    "./src/pages/settings/share/share.ts",
+    "./src/providers/feedback/feedback.ts"
+  ],
   "./src/pages/settings/share/share.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -934,6 +1343,8 @@
     "./src/providers/replace-parameters/replace-parameters.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -952,6 +1363,8 @@
     "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-transaction-history/wallet-transaction-history.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/wallet-addresses.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/popup/popup.ts",
@@ -962,6 +1375,8 @@
     "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/all-addresses/all-addresses.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-export/wallet-export.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -969,11 +1384,14 @@
     "./src/providers/persistence/persistence.ts",
     "./src/providers/app/app.ts",
     "./src/providers/wallet/wallet.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/bwc-error/bwc-error.ts",
     "./src/providers/errors/errors.ts",
     "./src/providers/backup/backup.ts"
   ],
   "./src/pages/wallets/proposals-notifications/proposals-notifications.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -985,7 +1403,116 @@
     "./src/pages/finish/finish.ts",
     "./src/providers/address-book/address-book.ts"
   ],
+  "./node_modules/@angular/http/esm5/http.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/platform-browser/esm5/platform-browser.js"
+  ],
+  "./node_modules/angular2-moment/add.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/calendar.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/date-format.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/difference.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/duration.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/from-unix.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/parse.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/subtract.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/time-ago.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/utc.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/from-utc.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/local.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./node_modules/angular2-moment/locale.pipe.js": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./src/components/email-component/email-component.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/external-link/external-link.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/action-sheet/action-sheet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/dom/dom.ts"
+  ],
+  "./src/components/encrypt-password/encrypt-password.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/app/app.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./src/components/action-sheet/action-sheet-parent.ts",
+    "./src/providers/dom/dom.ts",
+    "./src/components/info-sheet/info-sheet.ts"
+  ],
+  "./src/components/info-sheet/info-sheet-template.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
+  "./src/components/footer-menu/footer-menu.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/platform/platform.ts",
+    "./src/providers/config/config.ts",
+    "./src/providers/app/app.ts",
+    "./src/providers/analytics/analytics.ts",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/incoming-data-menu/incoming-data-menu.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/platform/platform.ts",
+    "./src/providers/currency/currency.ts",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/memo-component/memo-component.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/miner-fee-warning/miner-fee-warning.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/app/app.ts",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/needs-backup/needs-backup.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/components/action-sheet/action-sheet-parent.ts",
+    "./src/providers/dom/dom.ts",
+    "./src/components/info-sheet/info-sheet.ts"
+  ],
+  "./src/components/options-sheet/options-sheet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/platform/platform.ts",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/phone-sheet/phone-sheet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/components/action-sheet/action-sheet-parent.ts",
+    "./src/providers/phone/phone.ts"
+  ],
   "./src/components/wallet-receive/wallet-receive.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/currency/currency.ts",
@@ -996,10 +1523,24 @@
     "./src/providers/dom/dom.ts",
     "./src/components/info-sheet/info-sheet.ts"
   ],
+  "./src/providers/zce/zce.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/bwc/bwc.ts"
+  ],
+  "./src/components/wallet-selector/wallet-selector.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
+  "./src/components/wallet-tab-options/wallet-tab-options.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/components/action-sheet/action-sheet-parent.ts"
+  ],
   "./src/providers/apple-wallet/apple-wallet.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/backup/backup.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -1008,21 +1549,50 @@
     "./src/providers/key/key.ts",
     "./src/providers/download/download.ts"
   ],
+  "./src/providers/confetti/confetti.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
+  ],
   "./src/providers/directory/directory.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts"
   ],
   "./src/providers/feedback/feedback.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
-    "./src/providers/app/app.ts"
+    "./src/providers/app/app.ts",
+    "./node_modules/@angular/common/esm5/http.js"
+  ],
+  "./src/providers/language-loader/language-loader.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/platform/platform.ts",
+    "./node_modules/@angular/common/esm5/http.js"
+  ],
+  "./src/components/notification-component/notification-component.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js"
+  ],
+  "./src/providers/tab/tab.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/gift-card/gift-card.ts"
+  ],
+  "./src/providers/abi-decoder/abi-decoder.ts": [
+    "./node_modules/@angular/core/esm5/core.js"
   ],
   "./src/providers/new-feature-data/new-feature-data.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/app/app.ts",
     "./src/providers/location/location.ts"
   ],
+  "./src/providers/card-phases/card-phases.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/common/esm5/http.js"
+  ],
   "./src/pages/add/create-eth-multisig/create-eth-multisig.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/wallet/wallet.ts",
@@ -1032,6 +1602,8 @@
     "./src/providers/incoming-data/incoming-data.ts"
   ],
   "./src/pages/backup/backup-game/backup-game.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/persistence/persistence.ts",
@@ -1041,12 +1613,50 @@
     "./src/pages/onboarding/disclaimer/disclaimer.ts",
     "./src/pages/onboarding/add-funds/add-funds.ts"
   ],
+  "./src/pages/includes/coin-selector/coin-selector.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/cards/cards.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/index.ts",
+    "./node_modules/@angular/animations/esm5/animations.js"
+  ],
+  "./src/pages/add/custom-token/custom-token.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/profile/profile.ts",
+    "./src/providers/index.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/wallet/wallet.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
+    "./node_modules/@angular/animations/esm5/animations.js",
+    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts",
+    "./src/pages/add/custom-token/confirm-add-token-modal/confirm-add-token-modal.ts"
+  ],
+  "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./node_modules/@angular/forms/esm5/forms.js"
+  ],
+  "./src/pages/add/custom-token/confirm-add-token-modal/confirm-add-token-modal.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js"
+  ],
   "./src/pages/buy-crypto/country-selector/country-selector.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/bitpay/bitpay.ts"
   ],
   "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -1063,12 +1673,16 @@
     "./src/providers/wyre/wyre.ts"
   ],
   "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/theme/theme.ts",
     "./src/providers/buy-crypto/buy-crypto.ts",
     "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
   ],
   "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1094,13 +1708,27 @@
     "./src/pages/integrations/bitpay-card/bitpay-card.ts"
   ],
   "./src/pages/choose-fee-level/choose-fee-level.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/popup/popup.ts",
     "./src/providers/fee/fee.ts"
   ],
+  "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/config/config.ts",
+    "./src/providers/external-link/external-link.ts"
+  ],
+  "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/pipes/format-currency.ts"
+  ],
   "./src/pages/receive/custom-amount/custom-amount.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1111,6 +1739,8 @@
     "./src/providers/tx-format/tx-format.ts"
   ],
   "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -1122,12 +1752,16 @@
     "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
   ],
   "./src/pages/integrations/simplex/simplex-details/simplex-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/popup/popup.ts",
     "./src/providers/simplex/simplex.ts"
   ],
   "./src/pages/send/select-inputs/select-inputs.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1146,6 +1780,8 @@
     "./src/pages/send/transfer-to-modal/transfer-to-modal.ts"
   ],
   "./src/pages/send/multi-send/multi-send.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/index.ts",
@@ -1162,6 +1798,8 @@
     "./src/pages/send/transfer-to-modal/transfer-to-modal.ts"
   ],
   "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1181,17 +1819,23 @@
     "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts"
   ],
   "./src/pages/integrations/changelly/changelly-details/changelly-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/popup/popup.ts",
     "./src/providers/changelly/changelly.ts"
   ],
   "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/theme/theme.ts"
   ],
   "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/external-link/external-link.ts",
@@ -1199,6 +1843,8 @@
     "./src/providers/one-inch/one-inch.ts"
   ],
   "./src/pages/token-swap/token-swap-approve/token-swap-approve.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1216,6 +1862,8 @@
     "./src/providers/one-inch/one-inch.ts"
   ],
   "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1232,7 +1880,48 @@
     "./src/providers/one-inch/one-inch.ts",
     "./src/pages/integrations/one-inch/one-inch.ts"
   ],
+  "./src/pages/home/home.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/config/config.ts",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/index.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/analytics/analytics.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/pages/send/amount/amount.ts",
+    "./src/pages/scan/scan.ts",
+    "./src/providers/incoming-data/incoming-data.ts",
+    "./src/providers/dom/dom.ts",
+    "./src/components/info-sheet/info-sheet.ts",
+    "./src/pages/integrations/coinbase/coinbase.ts",
+    "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
+    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+    "./src/pages/exchange-crypto/exchange-crypto.ts",
+    "./src/pages/integrations/wallet-connect/wallet-connect.ts",
+    "./src/pipes/format-currency.ts",
+    "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts",
+    "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
+    "./src/pages/onboarding/add-funds/add-funds.ts",
+    "./src/pages/new-feature/new-feature.ts",
+    "./src/pages/settings/alt-currency/alt-currency.ts",
+    "./src/pages/settings/bitpay-id/bitpay-id.ts"
+  ],
+  "./src/pages/merchant/merchant.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/merchant/merchant.ts"
+  ],
+  "./src/pages/templates/wide-header-page/wide-header-page.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/platform/platform.ts",
+    "./node_modules/@angular/animations/esm5/animations.js"
+  ],
   "./src/pages/buy-crypto/crypto-settings/crypto-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/theme/theme.ts",
@@ -1242,13 +1931,55 @@
     "./src/pages/integrations/wyre/wyre.ts"
   ],
   "./src/pages/integrations/wyre/wyre-details/wyre-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/popup/popup.ts",
     "./src/providers/theme/theme.ts",
     "./src/providers/wyre/wyre.ts"
   ],
+  "./src/pages/integrations/bitpay-card/bitpay-settings/bitpay-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/config/config.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/popup/popup.ts",
+    "./src/providers/home-integrations/home-integrations.ts",
+    "./src/providers/bitpay-card/bitpay-card.ts",
+    "./src/providers/bitpay-account/bitpay-account.ts"
+  ],
+  "./src/pages/integrations/coinbase/coinbase-settings/coinbase-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/config/config.ts",
+    "./src/providers/popup/popup.ts",
+    "./src/providers/home-integrations/home-integrations.ts",
+    "./src/providers/coinbase/coinbase.ts",
+    "./src/pages/integrations/coinbase/coinbase.ts"
+  ],
+  "./src/pages/integrations/gift-cards/gift-cards-settings/gift-cards-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts"
+  ],
+  "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
+  ],
+  "./src/pages/integrations/wallet-connect/wallet-connect-settings/wallet-connect-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/scan/scan.ts",
+    "./src/pages/integrations/wallet-connect/wallet-connect.ts"
+  ],
   "./src/pages/settings/about/session-log/session-log.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1256,24 +1987,54 @@
     "./src/providers/action-sheet/action-sheet.ts",
     "./src/providers/logs/logs.ts"
   ],
+  "./src/pages/settings/addressbook/addressbook.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/address-book/address-book.ts",
+    "./src/pages/settings/addressbook/add/add.ts",
+    "./src/pages/settings/addressbook/view/view.ts"
+  ],
+  "./src/pages/settings/addressbook/view/view.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/popup/popup.ts",
+    "./src/pages/send/amount/amount.ts",
+    "./src/providers/address/address.ts",
+    "./src/providers/address-book/address-book.ts"
+  ],
+  "./src/pages/settings/advanced/advanced.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/settings/advanced/wallet-recover-page/wallet-recover-page.ts"
+  ],
   "./src/pages/settings/advanced/wallet-recover-page/wallet-recover-page.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/pages/settings/advanced/wallet-recover-page/wallet-mnemonic-recover-page/wallet-mnemonic-recover-page.ts"
   ],
   "./src/pages/settings/advanced/wallet-recover-page/wallet-mnemonic-recover-page/wallet-mnemonic-recover-page.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/popup/popup.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/bwc/bwc.ts",
     "./src/providers/errors/errors.ts"
   ],
   "./src/pages/settings/fee-policy/fee-policy.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/fee/fee.ts"
   ],
   "./src/pages/settings/key-settings/key-settings.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1301,10 +2062,15 @@
     "./src/pages/settings/key-settings/key-qr-export/key-qr-export.ts"
   ],
   "./src/pages/settings/key-settings/key-name/key-name.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
-    "./src/providers/profile/profile.ts"
+    "./src/providers/profile/profile.ts",
+    "./node_modules/@angular/forms/esm5/forms.js"
   ],
   "./src/pages/settings/wallet-settings/wallet-delete/wallet-delete.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/popup/popup.ts",
@@ -1313,18 +2079,25 @@
     "./src/providers/push-notifications/push-notifications.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-name/wallet-name.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/replace-parameters/replace-parameters.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/all-addresses/all-addresses.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/app/app.ts",
     "./src/providers/on-going-process/on-going-process.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-duplicate/wallet-duplicate.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -1337,20 +2110,27 @@
     "./src/providers/derivation-path-helper/derivation-path-helper.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-information/wallet-information.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/currency/currency.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-service-url/wallet-service-url.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/app/app.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/replace-parameters/replace-parameters.ts"
   ],
   "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-transaction-history/wallet-transaction-history.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1361,11 +2141,15 @@
     "./src/pages/wallet-details/wallet-details.ts"
   ],
   "./src/pages/settings/key-settings/clear-encrypt-password/clear-encrypt-password.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/pages/add/import-wallet/import-wallet.ts"
   ],
   "./src/pages/settings/key-settings/extended-private-key/extended-private-key.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/bwc-error/bwc-error.ts",
@@ -1373,6 +2157,8 @@
     "./src/providers/key/key.ts"
   ],
   "./src/pages/settings/key-settings/key-delete/key-delete.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -1383,6 +2169,8 @@
     "./src/providers/push-notifications/push-notifications.ts"
   ],
   "./src/pages/settings/key-settings/key-qr-export/key-qr-export.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/profile/profile.ts",
     "./src/providers/app/app.ts",
@@ -1390,17 +2178,47 @@
     "./src/providers/errors/errors.ts",
     "./src/providers/key/key.ts"
   ],
+  "./src/pages/settings/language/language.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/profile/profile.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/wallet/wallet.ts",
+    "./src/providers/language/language.ts"
+  ],
+  "./src/pages/settings/local-theme/local-theme.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/settings/lock/lock.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/config/config.ts",
+    "./src/providers/profile/profile.ts",
+    "./src/providers/touchid/touchid.ts",
+    "./src/pages/pin/pin-modal/pin-modal.ts"
+  ],
+  "./src/pages/settings/navigation/navigation.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
   "./src/pages/settings/notifications/notifications.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/external-link/external-link.ts",
     "./src/providers/app/app.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/push-notifications/push-notifications.ts",
     "./src/providers/email-notifications/email-notifications.ts"
   ],
   "./src/pages/wallets/wallets.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/profile/profile.ts",
@@ -1418,6 +2236,8 @@
     "./src/pages/wallets/proposals-notifications/proposals-notifications.ts"
   ],
   "./src/pages/tx-details/tx-details.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/config/config.ts",
     "./src/providers/profile/profile.ts",
@@ -1432,11 +2252,22 @@
     "./src/providers/filter/filter.ts",
     "./src/providers/tx-confirm-notification/tx-confirm-notification.ts"
   ],
+  "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/platform/platform.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/providers/time/time.ts"
+  ],
   "./src/pages/wallet-details/wallet-balance/wallet-balance.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/currency/currency.ts"
   ],
   "./src/app/main.ts": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/logger/logger.ts",
     "./src/providers/platform/platform.ts",
     "./src/providers/config/config.ts",
@@ -1450,8 +2281,10 @@
     "./src/providers/popup/popup.ts",
     "./src/providers/on-going-process/on-going-process.ts",
     "./src/providers/wallet/wallet.ts",
+    "./node_modules/@angular/forms/esm5/forms.js",
     "./src/providers/bwc-error/bwc-error.ts",
     "./src/providers/errors/errors.ts",
+    "./node_modules/@angular/common/esm5/http.js",
     "./src/providers/analytics/analytics.ts",
     "./src/providers/theme/theme.ts",
     "./src/providers/rate/rate.ts",
@@ -1459,12 +2292,15 @@
     "./src/providers/gift-card/gift-card.ts",
     "./src/pages/send/amount/amount.ts",
     "./src/pages/scan/scan.ts",
+    "./node_modules/@angular/animations/esm5/animations.js",
     "./src/providers/address/address.ts",
     "./src/providers/replace-parameters/replace-parameters.ts",
     "./src/providers/incoming-data/incoming-data.ts",
+    "./node_modules/@angular/common/esm5/common.js",
     "./src/pages/finish/finish.ts",
     "./src/pages/wallet-details/wallet-details.ts",
     "./src/pages/send/confirm/confirm.ts",
+    "./node_modules/@angular/platform-browser/esm5/platform-browser.js",
     "./src/providers/fee/fee.ts",
     "./src/providers/address-book/address-book.ts",
     "./src/pages/add/import-wallet/import-wallet.ts",
@@ -1528,6 +2364,7 @@
     "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/wallet-addresses.ts",
     "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-export/wallet-export.ts",
     "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
+    "./node_modules/ionic-angular/gestures/gesture.js",
     "./src/components/email-component/email-component.ts",
     "./src/components/action-sheet/action-sheet.ts",
     "./src/components/encrypt-password/encrypt-password.ts",
@@ -1608,336 +2445,57 @@
     "./src/pages/wallets/wallets.ts",
     "./src/pages/tx-details/tx-details.ts",
     "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts",
-    "./src/pages/wallet-details/wallet-balance/wallet-balance.ts"
+    "./src/pages/wallet-details/wallet-balance/wallet-balance.ts",
+    "./node_modules/@angular/platform-browser-dynamic/esm5/platform-browser-dynamic.js",
+    "./node_modules/@angular/platform-browser/esm5/animations.js",
+    "./node_modules/angular2-moment/index.js"
   ],
-  "./src/providers/analytics/analytics.ts": [
-    "./src/providers/platform/platform.ts"
+  "./node_modules/@angular/platform-browser-dynamic/esm5/platform-browser-dynamic.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/common/esm5/common.js",
+    "./node_modules/@angular/platform-browser/esm5/platform-browser.js"
   ],
-  "./src/pages/integrations/coinbase/coinbase.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/providers/on-going-process/on-going-process.ts",
-    "./src/providers/coinbase/coinbase.ts"
+  "./node_modules/@angular/platform-browser/esm5/animations.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/@angular/animations/esm5/animations.js",
+    "./node_modules/@angular/platform-browser/esm5/platform-browser.js"
   ],
-  "./src/pages/integrations/gift-cards/card-details/card-details.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/providers/confetti/confetti.ts",
-    "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts"
+  "./node_modules/angular2-moment/moment.module.js": [
+    "./node_modules/@angular/core/esm5/core.js",
+    "./node_modules/angular2-moment/add.pipe.js",
+    "./node_modules/angular2-moment/calendar.pipe.js",
+    "./node_modules/angular2-moment/date-format.pipe.js",
+    "./node_modules/angular2-moment/difference.pipe.js",
+    "./node_modules/angular2-moment/duration.pipe.js",
+    "./node_modules/angular2-moment/from-unix.pipe.js",
+    "./node_modules/angular2-moment/parse.pipe.js",
+    "./node_modules/angular2-moment/subtract.pipe.js",
+    "./node_modules/angular2-moment/time-ago.pipe.js",
+    "./node_modules/angular2-moment/utc.pipe.js",
+    "./node_modules/angular2-moment/from-utc.pipe.js",
+    "./node_modules/angular2-moment/local.pipe.js",
+    "./node_modules/angular2-moment/locale.pipe.js"
   ],
-  "./src/pages/feedback/send-feedback/send-feedback.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/providers/config/config.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/app/app.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/providers/on-going-process/on-going-process.ts",
-    "./src/pages/finish/finish.ts",
-    "./src/pages/settings/share/share.ts",
-    "./src/providers/feedback/feedback.ts"
+  "./node_modules/ionic-angular/gestures/gesture.js": [
+    "./node_modules/ionic-angular/util/util.js"
   ],
-  "./src/components/footer-menu/footer-menu.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/providers/config/config.ts",
-    "./src/providers/app/app.ts",
-    "./src/providers/analytics/analytics.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts"
+  "./node_modules/@angular/core/esm5/core.js": [
+    "./node_modules/@angular/core/esm5 lazy"
   ],
-  "./src/components/incoming-data-menu/incoming-data-menu.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/providers/currency/currency.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/components/options-sheet/options-sheet.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/providers/language-loader/language-loader.ts": [
-    "./src/providers/platform/platform.ts"
-  ],
-  "./src/pages/templates/wide-header-page/wide-header-page.ts": [
-    "./src/providers/platform/platform.ts"
-  ],
-  "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts": [
-    "./src/providers/platform/platform.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/providers/time/time.ts"
-  ],
-  "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts": [
-    "./src/providers/config/config.ts",
-    "./src/providers/external-link/external-link.ts"
-  ],
-  "./src/pages/home/home.ts": [
-    "./src/providers/config/config.ts",
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/index.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/analytics/analytics.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/pages/send/amount/amount.ts",
-    "./src/pages/scan/scan.ts",
-    "./src/providers/incoming-data/incoming-data.ts",
-    "./src/providers/dom/dom.ts",
-    "./src/components/info-sheet/info-sheet.ts",
-    "./src/pages/integrations/coinbase/coinbase.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
-    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-    "./src/pages/exchange-crypto/exchange-crypto.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect.ts",
-    "./src/pipes/format-currency.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts",
-    "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
-    "./src/pages/onboarding/add-funds/add-funds.ts",
-    "./src/pages/new-feature/new-feature.ts",
-    "./src/pages/settings/alt-currency/alt-currency.ts",
-    "./src/pages/settings/bitpay-id/bitpay-id.ts"
-  ],
-  "./src/pages/integrations/bitpay-card/bitpay-settings/bitpay-settings.ts": [
-    "./src/providers/config/config.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/providers/home-integrations/home-integrations.ts",
-    "./src/providers/bitpay-card/bitpay-card.ts",
-    "./src/providers/bitpay-account/bitpay-account.ts"
-  ],
-  "./src/pages/integrations/coinbase/coinbase-settings/coinbase-settings.ts": [
-    "./src/providers/config/config.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/providers/home-integrations/home-integrations.ts",
-    "./src/providers/coinbase/coinbase.ts",
-    "./src/pages/integrations/coinbase/coinbase.ts"
-  ],
-  "./src/pages/settings/lock/lock.ts": [
-    "./src/providers/config/config.ts",
-    "./src/providers/profile/profile.ts",
-    "./src/providers/touchid/touchid.ts",
-    "./src/pages/pin/pin-modal/pin-modal.ts"
-  ],
-  "./src/pages/add/custom-token/custom-token.ts": [
-    "./src/providers/profile/profile.ts",
-    "./src/providers/index.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/wallet/wallet.ts",
-    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts",
-    "./src/pages/add/custom-token/confirm-add-token-modal/confirm-add-token-modal.ts"
-  ],
-  "./src/pages/settings/language/language.ts": [
-    "./src/providers/profile/profile.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/wallet/wallet.ts",
-    "./src/providers/language/language.ts"
-  ],
-  "./src/providers/currency/currency.ts": [
-    "./src/providers/persistence/persistence.ts"
-  ],
-  "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": [
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/index.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/providers/theme/theme.ts",
-    "./src/providers/bitpay-card/bitpay-card.ts",
-    "./src/providers/bitpay-account/bitpay-account.ts",
-    "./src/providers/scan/scan.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card.ts"
-  ],
-  "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": [
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/providers/bitpay-card/bitpay-card.ts",
-    "./src/providers/bitpay-account/bitpay-account.ts",
-    "./src/providers/card-phases/card-phases.ts"
-  ],
-  "./src/pages/cards/cards.ts": [
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/add/select-currency/select-currency.ts": [
-    "./src/providers/currency/currency.ts",
-    "./src/providers/index.ts",
-    "./src/pages/add/import-wallet/import-wallet.ts",
-    "./src/pages/add/join-wallet/join-wallet.ts",
-    "./src/pages/add/create-wallet/create-wallet.ts",
-    "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
-    "./src/pages/onboarding/recovery-key/recovery-key.ts",
-    "./src/pages/add/custom-token/custom-token.ts"
-  ],
-  "./src/components/info-sheet/info-sheet.ts": [
-    "./src/providers/external-link/external-link.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts",
-    "./src/components/info-sheet/info-sheet-template.ts"
-  ],
-  "./src/pages/integrations/gift-cards/phone/phone.ts": [
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/index.ts",
-    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
-    "./src/providers/phone/phone.ts"
-  ],
-  "./src/components/email-component/email-component.ts": [
-    "./src/providers/external-link/external-link.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/components/encrypt-password/encrypt-password.ts": [
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/app/app.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts",
-    "./src/providers/dom/dom.ts",
-    "./src/components/info-sheet/info-sheet.ts"
-  ],
-  "./src/components/miner-fee-warning/miner-fee-warning.ts": [
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/app/app.ts",
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/pages/send/amount/amount.ts",
-    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
-    "./src/pages/integrations/gift-cards/phone/phone.ts"
-  ],
-  "./src/pages/integrations/wallet-connect/wallet-connect.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/scan/scan.ts",
-    "./src/pages/send/confirm/confirm.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts"
-  ],
-  "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": [
-    "./src/providers/index.ts",
-    "./src/environments/index.ts",
-    "./src/pages/add/create-wallet/create-wallet.ts",
-    "./src/pages/onboarding/recovery-key/recovery-key.ts",
-    "./src/pages/send/send.ts"
-  ],
-  "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-    "./src/providers/merchant/merchant.ts",
-    "./src/pages/merchant/merchant.ts",
-    "./src/pages/templates/wide-header-page/wide-header-page.ts"
-  ],
-  "./src/pages/add/add.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/add/import-wallet/import-wallet.ts",
-    "./src/pages/add/select-currency/select-currency.ts",
-    "./src/pages/add-wallet/add-wallet.ts"
-  ],
-  "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/settings/bitpay-id/bitpay-id.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/settings/about/about.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/feedback/send-feedback/send-feedback.ts",
-    "./src/pages/settings/about/session-log/session-log.ts"
-  ],
-  "./src/pages/includes/coin-selector/coin-selector.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/merchant/merchant.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/merchant/merchant.ts"
-  ],
-  "./src/pages/integrations/gift-cards/gift-cards-settings/gift-cards-settings.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts"
-  ],
-  "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
-  ],
-  "./src/pages/integrations/wallet-connect/wallet-connect-settings/wallet-connect-settings.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/scan/scan.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect.ts"
-  ],
-  "./src/pages/settings/addressbook/view/view.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/popup/popup.ts",
-    "./src/pages/send/amount/amount.ts",
-    "./src/providers/address/address.ts",
-    "./src/providers/address-book/address-book.ts"
-  ],
-  "./src/pages/settings/advanced/advanced.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/settings/advanced/wallet-recover-page/wallet-recover-page.ts"
-  ],
-  "./src/pages/settings/local-theme/local-theme.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/settings/navigation/navigation.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/providers/zce/zce.ts": [
-    "./src/providers/bwc/bwc.ts"
-  ],
-  "./src/pages/new-feature/new-feature.ts": [
-    "./src/providers/theme/theme.ts"
-  ],
-  "./src/providers/merchant/merchant.ts": [
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/providers/directory/directory.ts"
-  ],
-  "./src/providers/tab/tab.ts": [
-    "./src/providers/gift-card/gift-card.ts"
-  ],
-  "./src/components/memo-component/memo-component.ts": [
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/components/needs-backup/needs-backup.ts": [
-    "./src/components/action-sheet/action-sheet-parent.ts",
-    "./src/providers/dom/dom.ts",
-    "./src/components/info-sheet/info-sheet.ts"
-  ],
-  "./src/components/phone-sheet/phone-sheet.ts": [
-    "./src/components/action-sheet/action-sheet-parent.ts",
-    "./src/providers/phone/phone.ts"
-  ],
-  "./src/components/wallet-selector/wallet-selector.ts": [
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/components/wallet-tab-options/wallet-tab-options.ts": [
-    "./src/components/action-sheet/action-sheet-parent.ts"
-  ],
-  "./src/pages/settings/addressbook/addressbook.ts": [
-    "./src/providers/address-book/address-book.ts",
-    "./src/pages/settings/addressbook/add/add.ts",
-    "./src/pages/settings/addressbook/view/view.ts"
-  ],
-  "./src/providers/action-sheet/action-sheet.ts": [
-    "./src/providers/dom/dom.ts",
-    "./src/components/info-sheet/info-sheet.ts",
-    "./src/components/email-component/email-component.ts",
-    "./src/components/encrypt-password/encrypt-password.ts",
-    "./src/components/footer-menu/footer-menu.ts",
-    "./src/components/incoming-data-menu/incoming-data-menu.ts",
-    "./src/components/memo-component/memo-component.ts",
-    "./src/components/miner-fee-warning/miner-fee-warning.ts",
-    "./src/components/needs-backup/needs-backup.ts",
-    "./src/components/options-sheet/options-sheet.ts",
-    "./src/components/phone-sheet/phone-sheet.ts",
-    "./src/components/wallet-receive/wallet-receive.ts",
-    "./src/components/wallet-selector/wallet-selector.ts",
-    "./src/components/wallet-tab-options/wallet-tab-options.ts"
-  ],
-  "./src/components/action-sheet/action-sheet.ts": [
-    "./src/providers/dom/dom.ts"
-  ],
-  "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts": [
-    "./src/pipes/format-currency.ts"
-  ],
-  "./src/components/action-sheet/action-sheet-parent.ts": [
-    "./src/components/action-sheet/action-sheet.ts"
+  "./node_modules/angular2-moment/index.js": [
+    "./node_modules/angular2-moment/add.pipe.js",
+    "./node_modules/angular2-moment/calendar.pipe.js",
+    "./node_modules/angular2-moment/date-format.pipe.js",
+    "./node_modules/angular2-moment/difference.pipe.js",
+    "./node_modules/angular2-moment/duration.pipe.js",
+    "./node_modules/angular2-moment/from-unix.pipe.js",
+    "./node_modules/angular2-moment/parse.pipe.js",
+    "./node_modules/angular2-moment/subtract.pipe.js",
+    "./node_modules/angular2-moment/time-ago.pipe.js",
+    "./node_modules/angular2-moment/utc.pipe.js",
+    "./node_modules/angular2-moment/from-utc.pipe.js",
+    "./node_modules/angular2-moment/local.pipe.js",
+    "./node_modules/angular2-moment/locale.pipe.js",
+    "./node_modules/angular2-moment/moment.module.js"
   ]
 }
