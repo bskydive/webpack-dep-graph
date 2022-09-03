@@ -1,5 +1,5 @@
 import { digraph, Graph, RenderEngine } from "graphviz"
-import { IDependencyMap } from "../models/AnalyzerContext"
+import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { writeFile } from "./files"
 import { log } from "./logger"
 

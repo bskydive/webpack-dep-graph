@@ -1,4 +1,4 @@
-import { IDependencyMap } from "../models/AnalyzerContext"
+import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { writeFile } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */

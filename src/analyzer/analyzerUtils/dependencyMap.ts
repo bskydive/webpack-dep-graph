@@ -1,5 +1,5 @@
 import { logEmpty } from "../../utils/logger"
-import { IDependencyMap } from "../../models/AnalyzerContext"
+import { IDependencyMap } from "../../models/webpackAnalyzer.model"
 import { ModuleGraph } from "./ModuleGraph"
 
 export function getDependencyMap(graph: ModuleGraph): IDependencyMap {

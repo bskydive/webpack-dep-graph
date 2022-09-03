@@ -1,4 +1,4 @@
-import { AnalyzerContext } from "../../models/AnalyzerContext"
+import { IWebpackAnalyzerContext } from "../../models/webpackAnalyzer.model"
 import {
 	resolvePathPlus,
 	parseAbsolutePath,
@@ -7,7 +7,7 @@ import {
 import { v4 } from "uuid"
 import { log } from "../../utils/logger"
 
-export function createModuleNodes(context: AnalyzerContext) {
+export function createModuleNodes(context: IWebpackAnalyzerContext) {
 	const { graph, webpackModules } = context
 	const startTime = Date.now()
 
@@ -25,7 +25,6 @@ export function createModuleNodes(context: AnalyzerContext) {
 
 		graph.nodesById.set(id, {
 			uuid: id,
-			webpackModuleId: module.id || -1,
 			sizeInBytes: module.size || -1,
 			fileName: fileNameFromPath(module.name),
 			relativePath,

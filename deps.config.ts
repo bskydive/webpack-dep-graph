@@ -1,12 +1,13 @@
-import { IAnalyzerConfig } from 'src/models/AnalyzerContext'
+import { IWebpackAnalyzerConfig } from 'src/models/webpackAnalyzer.model'
 
 /**
  * graphviz calculation takes a large time
  * https://graphviz.org/docs/layouts/
  * RenderEngine = 'dot' | 'neato' | 'circo' | 'fdp' | 'osage' | 'twopi';
  */
-export const depsConfig: IAnalyzerConfig = {
+export const depsConfig: IWebpackAnalyzerConfig = {
 	projectRoot: '',
+	webpackStatsFileName: 'webpack-stats.json', // can be passed as a cli parameter to index.ts in package.json scripts section
 	exclude: ['cache', 'webpack', 'node_modules'],
 	excludeExcept: [], // add some deps from excluded
 	includeOnly: [], // exclude and excludeExcept will be ignored

@@ -1,14 +1,14 @@
 import { log, logEmpty } from "../../utils/logger"
-import { AnalyzerContext } from "../../models/AnalyzerContext"
 import {
-	IWebpackStatsV3Module,
-	IWebpackStatsV5Reason,
-} from "../../models/webpack.3.model"
-
+	IWebpackAnalyzerContext,
+	IWebpackModuleParsed,
+	IWebpackModuleReasonShort,
+	IWebpackModuleShort,
+} from "../../models/webpackAnalyzer.model"
 import { isIncluded, resolvePathPlus } from "../../utils/webpack"
-import { IWebpackModuleParsed } from "src/models/webpackAnalyzer.model"
+import { IWebpackStatsV3Module, IWebpackStatsV3Reason } from "src/models/webpack.3.model"
 
-function getModuleTypes(webpackModules: IWebpackStatsV3Module[]) {
+function getModuleTypes(webpackModules: IWebpackStatsV3Module[]): string[] {
 	const reasonTypes = webpackModules
 		.map((m) => m.reasons.map((r) => r.type))
 		.flat()
@@ -21,17 +21,17 @@ function getModuleTypes(webpackModules: IWebpackStatsV3Module[]) {
 }
 
 /** TODO remove unnecessary re-exports extraction; webpack stats already have all data */
-export function extractUsages(context: AnalyzerContext) {
+export function extractUsages(context: IWebpackAnalyzerContext) {
 	const { webpackModules, graph, printImportAnalysis = false } = context
 	const summary = { imports: 0, exports: 0, issuers: 0 }
 
 	log("analyzing imports and re-exports")
 
-	const moduleTypes = getModuleTypes(webpackModules)
+	const moduleTypes: string[] = getModuleTypes(webpackModules)
 
-	const resolvedModules: IWebpackStatsV3Module[] = webpackModules.map(
+    const resolvedModules: IWebpackStatsV3Module[] = webpackModules.map(
 		(item) => {
-            // TODO add modules to output
+			// TODO add *.module.ts to output, it's blocked by node_modules import filtering
 			// if (item?.issuerName?.includes("providers.module.ts")) {
 			// 	log("src/analyzer/analyzerUtils/extractUsages.ts:33",item.name)
 			// }
@@ -52,7 +52,7 @@ export function extractUsages(context: AnalyzerContext) {
 		const relativePath: string = resolvePathPlus(webpackModule.name)
 		const module: IWebpackModuleParsed = graph.byRelativePath(relativePath)
 
-        if (!module?.uuid) {
+		if (!module?.uuid) {
 			logEmpty(
 				"src/analyzer/analyzerUtils/extractUsages.ts:57",
 				module?.uuid,
@@ -64,8 +64,8 @@ export function extractUsages(context: AnalyzerContext) {
 			continue
 		}
 
-		const reasons: Partial<IWebpackStatsV5Reason>[] =
-			webpackModule?.reasons?.filter((m: IWebpackStatsV5Reason) =>
+		const reasons: Partial<IWebpackStatsV3Reason>[] =
+			webpackModule?.reasons?.filter((m: IWebpackStatsV3Reason) =>
 				isIncluded(m.resolvedModulePath, {
 					exclude: context.exclude,
 					excludeExcept: context.excludeExcept,
@@ -86,7 +86,11 @@ export function extractUsages(context: AnalyzerContext) {
 
 			const moduleName: string = resolvePathPlus(reason.resolvedModulePath)
 			if (!moduleName) {
-                logEmpty('src/analyzer/analyzerUtils/extractUsages.ts:99', moduleName, reason.resolvedModulePath)
+				logEmpty(
+					"src/analyzer/analyzerUtils/extractUsages.ts:99",
+					moduleName,
+					reason.resolvedModulePath
+				)
 				continue
 			}
 
@@ -100,7 +104,11 @@ export function extractUsages(context: AnalyzerContext) {
 			// Resolve the module that utilizes/consumes the current module.
 			const consumerModule = graph.byRelativePath(moduleName)
 			if (!consumerModule?.uuid) {
-                logEmpty('src/analyzer/analyzerUtils/extractUsages.ts:99', consumerModule?.uuid, moduleName)
+				logEmpty(
+					"src/analyzer/analyzerUtils/extractUsages.ts:99",
+					consumerModule?.uuid,
+					moduleName
+				)
 				continue
 			}
 

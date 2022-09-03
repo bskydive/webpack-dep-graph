@@ -1,9 +1,9 @@
 import { webpackAnalyzer } from "./analyzer/webpackAnalyzer"
 import {
-	AnalyzerContext,
-	IAnalyzerConfig,
+	IWebpackAnalyzerContext,
+	IWebpackAnalyzerConfig,
 	IGraphvizRenderOpts,
-} from "./models/AnalyzerContext"
+} from "./models/webpackAnalyzer.model"
 import {
 	createDotGraph,
 	saveGraphvizRendered,
@@ -17,9 +17,9 @@ import { depsConfig } from "../deps.config"
 import { log } from "./utils/logger"
 
 function main() {
-	let analyzerContext: AnalyzerContext
-	const config: IAnalyzerConfig = depsConfig
-	const statFileName = process.argv[2] || "webpack-stats.json"
+	let analyzerContext: IWebpackAnalyzerContext
+	const config: IWebpackAnalyzerConfig = depsConfig
+	const statFileName = process?.argv[2] || config.webpackStatsFileName
 	log("loading ${statFileName}")
 
 	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save

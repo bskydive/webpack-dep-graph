@@ -8,7 +8,7 @@ export interface IWebpackStatsV5 {
 	assetsByChunkName: AssetsByChunkName
 	assets: Asset[]
 	chunks: Chunk[]
-	modules: IWebpackV5Modules[]
+	modules: IWebpackStatsV5Module[]
 	entrypoints: Entrypoints
 	namedChunkGroups: Entrypoints
 	errors: any[]
@@ -41,7 +41,7 @@ interface Asset2 {
 	size: number
 }
 
-export interface IWebpackV5Modules {
+export interface IWebpackStatsV5Module {
 	type: string
 	moduleType: string
 	layer?: any
@@ -72,7 +72,7 @@ export interface IWebpackV5Modules {
 	issuerId?: string
 	chunks: string[]
 	assets: any[]
-	reasons: (Reason | Reasons2 | Reasons3)[]
+	reasons: Reason[]
 	usedExports?: any
 	providedExports?: string[]
 	optimizationBailout: string[]
@@ -141,41 +141,11 @@ interface Module {
 	issuerId?: string
 	chunks: string[]
 	assets: any[]
-	reasons: (Reason | Reasons2 | Reasons3)[]
+	reasons: Reason[]
 	usedExports?: any
 	providedExports?: string[]
 	optimizationBailout: string[]
 	depth?: number
-}
-
-interface Reasons3 {
-	moduleIdentifier: string
-	module: string
-	moduleName: string
-	resolvedModuleIdentifier: string
-	resolvedModule: string
-	type: string
-	active: boolean
-	explanation: string
-	userRequest: string
-	loc: string
-	moduleId: string
-	resolvedModuleId: string
-}
-
-interface Reasons2 {
-	moduleIdentifier: string
-	module: string
-	moduleName: string
-	resolvedModuleIdentifier: string
-	resolvedModule: string
-	type: string
-	active: boolean
-	explanation: string
-	userRequest?: string
-	loc: string
-	moduleId: string
-	resolvedModuleId: string
 }
 
 interface Reason {

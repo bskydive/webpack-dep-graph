@@ -1,7 +1,7 @@
 import {
-	IAnalyzerConfig as IDepsConfig,
-	AnalyzerContext,
-} from "../models/AnalyzerContext"
+	IWebpackAnalyzerConfig as IDepsConfig,
+	IWebpackAnalyzerContext,
+} from "../models/webpackAnalyzer.model"
 import { ModuleGraph } from "./analyzerUtils/ModuleGraph"
 import { isIncluded, getAppRootPath } from "../utils/webpack"
 import {
@@ -18,7 +18,7 @@ import { IWebpackStatsV5 } from "../models/webpack.5.model"
 
 export class webpackAnalyzer {
 	config: IDepsConfig = depsConfig
-	analyzerContext: AnalyzerContext
+	analyzerContext: IWebpackAnalyzerContext
 	modules: IWebpackStatsV3Module[] = []
 
 	constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
@@ -64,7 +64,7 @@ export class webpackAnalyzer {
 		}
 	}
 
-	analyze(): AnalyzerContext {
+	analyze(): IWebpackAnalyzerContext {
 		const projectRoot = getAppRootPath(this.modules, {
 			exclude: depsConfig.exclude,
 			excludeExcept: depsConfig.excludeExcept,

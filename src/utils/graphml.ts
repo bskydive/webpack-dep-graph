@@ -8,7 +8,7 @@ import {
 } from "../models/graphml.model"
 import { ElementCompact, js2xml, xml2js } from "xml-js"
 import { readFile, writeFile } from "./files"
-import { IDependencyMap } from "../models/AnalyzerContext"
+import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { fileNameFromPath } from "../utils/webpack"
 import { missedDependencyMapSrcNodes } from "../analyzer/analyzerUtils/dependencyMap"
 // import { create } from "xmlbuilder"
