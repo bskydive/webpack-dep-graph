@@ -20,7 +20,7 @@ Fixed and working.
 The graphviz layout renderer seems to be useless. You can upload the simplified dot file into any [graphviz editor](http://magjac.com/graphviz-visual-editor/) and try to play with settings. Generating graphml and editing it in [yEd](https://www.yworks.com/products/yed/download) are the best option for now.
 
  * input
-    * example of the [webpack stats](./doc/webpack-stats.json)
+    * example of the [webpack stats](./doc/webpack-stats.zip)
  * output
     * [json: circular dependencies](./graph-output/circular.json)
     * [json: cytoscape](./graph-output/cytoscape.json)
@@ -116,7 +116,7 @@ The graphviz layout renderer seems to be useless. You can upload the simplified 
 ## this project is based on 
 
  * unmaintained broken [draft repo](https://github.com/heypoom/webpack-dep-graph)
- * https://github.com/pahen/madge (Maintained, does not use webpack-stats.json)
+ * https://github.com/pahen/madge (Maintained, does not use webpack stats.json)
  * https://github.com/g0t4/webpack-stats-graph (Unmaintained)
  * https://github.com/jantimon/webpack-dependency-stats (Unmaintained)
 
