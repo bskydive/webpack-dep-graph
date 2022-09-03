@@ -32,7 +32,7 @@ export class webpackAnalyzer {
 		const webpackVersion = stats?.version.split(".")[0]
 		let webpackModules: IWebpackModuleShort[] = []
 
-		if (webpackVersion === "3" && stats.modules instanceof Array) {
+		if ((webpackVersion === "3" || webpackVersion === "5") && stats.modules instanceof Array) {
 			log("Webpack version 3 detected")
 
 			this.modules = this.parseWebpackModuleShort(stats.modules)
