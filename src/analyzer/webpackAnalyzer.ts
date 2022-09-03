@@ -8,6 +8,7 @@ import { ModuleGraph } from "./analyzerUtils/ModuleGraph"
 import { isIncluded } from "../utils/webpack"
 import {
 	IWebpackStatsV3,
+	IWebpackStatsV3Chunk,
 	IWebpackStatsV3Module,
 	IWebpackStatsV3Reason,
 } from "../models/webpack.3.model"
@@ -19,6 +20,7 @@ import { createModuleNodes } from "./analyzerUtils/setupNodes"
 import { log } from "../utils/logger"
 import {
 	IWebpackStatsV5,
+	IWebpackStatsV5Chunk,
 	IWebpackStatsV5Module,
 	IWebpackStatsV5Reason,
 } from "../models/webpack.5.model"
@@ -32,12 +34,15 @@ export class webpackAnalyzer {
 		const webpackVersion = stats?.version.split(".")[0]
 		let webpackModules: IWebpackModuleShort[] = []
 
-		if ((webpackVersion === "3" || webpackVersion === "5") && stats.modules instanceof Array) {
-			log("Webpack version 3 detected")
+		if (webpackVersion === "3" || webpackVersion === "5") {
 
-			this.modules = this.parseWebpackModuleShort(stats.modules)
+			this.modules = this.parseWebpackModules(stats.modules)
 
-			webpackModules = this.modules?.filter((module: any) =>
+            if (!this?.modules?.length) {
+                this.modules = this.parseWebpackChunks(stats.chunks)
+            }
+
+            webpackModules = this.modules?.filter((module: any) =>
 				isIncluded(module.name, {
 					exclude: depsConfig.exclude,
 					excludeExcept: depsConfig.excludeExcept,
@@ -57,7 +62,22 @@ export class webpackAnalyzer {
 		}
 	}
 
-	parseWebpackModuleShort(
+	parseWebpackChunks(
+		chunks: IWebpackStatsV3Chunk[] | IWebpackStatsV5Chunk[]
+	): IWebpackModuleShort[] {
+		const result = chunks.map(chunk=>chunk?.modules).flat().map((module) => ({
+			size: module.size,
+			name: module.name,
+			issuerName: module.issuerName,
+			identifier: module.identifier,
+			id: String(module.id),
+			reasons: this.parseWebpackModuleReasonsShort(module.reasons),
+		}))
+
+		return result
+	}
+
+	parseWebpackModules(
 		modules: IWebpackStatsV3Module[] | IWebpackStatsV5Module[]
 	): IWebpackModuleShort[] {
 		const result = modules.map((module) => ({

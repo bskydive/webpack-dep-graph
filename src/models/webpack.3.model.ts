@@ -9,7 +9,7 @@ export interface IWebpackStatsV3 {
 	assets: Asset[]
 	filteredAssets: number
 	entrypoints: Entrypoints
-	chunks: Chunk[]
+	chunks: IWebpackStatsV3Chunk[]
 	modules: IWebpackStatsV3Module[]
 	filteredModules: number
 	children: any[]
@@ -43,7 +43,7 @@ export interface IWebpackStatsV3Module {
 	issuerPath?: string
 }
 
-interface Chunk {
+export interface IWebpackStatsV3Chunk {
 	id: number
 	rendered: boolean
 	initial: boolean
@@ -54,7 +54,7 @@ interface Chunk {
 	files: string[]
 	hash: string
 	parents: number[]
-	modules: Module[]
+	modules: IWebpackStatsV3ChunkModule[]
 	filteredModules: number
 	origins: (Origin | Origins2)[]
 }
@@ -79,7 +79,7 @@ interface Origin {
 	reasons: any[]
 }
 
-interface Module {
+interface IWebpackStatsV3ChunkModule {
 	id: number
 	identifier: string
 	name: string

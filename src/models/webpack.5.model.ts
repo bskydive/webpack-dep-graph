@@ -7,7 +7,7 @@ export interface IWebpackStatsV5 {
 	outputPath: string
 	assetsByChunkName: AssetsByChunkName
 	assets: Asset[]
-	chunks: Chunk[]
+	chunks: IWebpackStatsV5Chunk[]
 	modules: IWebpackStatsV5Module[]
 	entrypoints: Entrypoints
 	namedChunkGroups: Entrypoints
@@ -79,7 +79,7 @@ export interface IWebpackStatsV5Module {
 	depth?: number
 }
 
-interface Chunk {
+export interface IWebpackStatsV5Chunk {
 	rendered: boolean
 	initial: boolean
 	entry: boolean
@@ -97,7 +97,7 @@ interface Chunk {
 	siblings: any[]
 	parents: any[]
 	children: any[]
-	modules: Module[]
+	modules: IWebpackStatsV5ChunkModule[]
 	origins: Origin[]
 }
 
@@ -109,7 +109,7 @@ interface Origin {
 	request: string
 }
 
-interface Module {
+interface IWebpackStatsV5ChunkModule {
 	type: string
 	moduleType: string
 	layer?: any
