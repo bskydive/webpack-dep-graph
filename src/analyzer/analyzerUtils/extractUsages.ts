@@ -6,11 +6,10 @@ import {
 	IWebpackModuleShort,
 } from "../../models/webpackAnalyzer.model"
 import { isIncluded, resolvePathPlus } from "../../utils/webpack"
-import { IWebpackStatsV3Module, IWebpackStatsV3Reason } from "src/models/webpack.3.model"
 
-function getModuleTypes(webpackModules: IWebpackStatsV3Module[]): string[] {
+function getModuleTypes(webpackModules: IWebpackModuleShort[]): string[] {
 	const reasonTypes = webpackModules
-		.map((m) => m.reasons.map((r) => r.type))
+		.map((module) => module.reasons.map((reason) => reason.type))
 		.flat()
 		.reduce(
 			(acc, curr) => (acc.includes(curr) ? acc : acc.concat(curr)),
@@ -22,32 +21,14 @@ function getModuleTypes(webpackModules: IWebpackStatsV3Module[]): string[] {
 
 /** TODO remove unnecessary re-exports extraction; webpack stats already have all data */
 export function extractUsages(context: IWebpackAnalyzerContext) {
-	const { webpackModules, graph, printImportAnalysis = false } = context
+	const { webpackModules, graph } = context
 	const summary = { imports: 0, exports: 0, issuers: 0 }
 
 	log("analyzing imports and re-exports")
 
 	const moduleTypes: string[] = getModuleTypes(webpackModules)
 
-    const resolvedModules: IWebpackStatsV3Module[] = webpackModules.map(
-		(item) => {
-			// TODO add *.module.ts to output, it's blocked by node_modules import filtering
-			// if (item?.issuerName?.includes("providers.module.ts")) {
-			// 	log("src/analyzer/analyzerUtils/extractUsages.ts:33",item.name)
-			// }
-
-			return {
-				...item,
-				issuerPath: item.issuerName,
-				reasons: item.reasons.map((item) => ({
-					...item,
-					resolvedModulePath: resolvePathPlus(item.moduleName),
-				})),
-			}
-		}
-	)
-
-	for (const webpackModule of resolvedModules) {
+	for (const webpackModule of webpackModules) {
 		const resolvedDependents: Map<string, boolean> = new Map()
 		const relativePath: string = resolvePathPlus(webpackModule.name)
 		const module: IWebpackModuleParsed = graph.byRelativePath(relativePath)
@@ -64,9 +45,9 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 			continue
 		}
 
-		const reasons: Partial<IWebpackStatsV3Reason>[] =
-			webpackModule?.reasons?.filter((m: IWebpackStatsV3Reason) =>
-				isIncluded(m.resolvedModulePath, {
+		const reasons: IWebpackModuleReasonShort[] =
+			webpackModule?.reasons?.filter((m: IWebpackModuleReasonShort) =>
+				isIncluded(m.moduleName, {
 					exclude: context.exclude,
 					excludeExcept: context.excludeExcept,
 					includeOnly: context.includeOnly,
@@ -75,6 +56,8 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 
 		// Use the webpack import/export reason to resolve dependency chain
 		for (const reason of reasons) {
+			/** TODO check necessity  */
+			// TODO move to config
 			// Ignore side effect evaluation.
 			if (reason.type.includes("side effect")) {
 				// console.log(
@@ -84,16 +67,17 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 				continue
 			}
 
-			const moduleName: string = resolvePathPlus(reason.resolvedModulePath)
+			const moduleName: string = resolvePathPlus(reason.moduleName)
 			if (!moduleName) {
 				logEmpty(
 					"src/analyzer/analyzerUtils/extractUsages.ts:99",
 					moduleName,
-					reason.resolvedModulePath
+					reason.moduleName
 				)
 				continue
 			}
 
+			/** TODO check necessity  */
 			// Mark dependent as resolved, so we don't need to resolve multiple times.
 			if (resolvedDependents.has(moduleName)) {
 				continue
@@ -112,6 +96,7 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 				continue
 			}
 
+			/** TODO check necessity  */
 			// Detect if the module is a being re-exported.
 			const isExport = reason.type.includes("export imported specifier")
 
@@ -140,7 +125,6 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 			const module = graph.byRelativePath(issuer.moduleName)
 			if (!module) continue
 
-			// report(gray(`  issued by ${module.absolutePath}`))
 			summary.issuers++
 		}
 	}

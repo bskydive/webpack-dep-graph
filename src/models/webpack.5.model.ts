@@ -72,7 +72,7 @@ export interface IWebpackStatsV5Module {
 	issuerId?: string
 	chunks: string[]
 	assets: any[]
-	reasons: Reason[]
+	reasons: IWebpackStatsV5Reason[]
 	usedExports?: any
 	providedExports?: string[]
 	optimizationBailout: string[]
@@ -141,14 +141,14 @@ interface Module {
 	issuerId?: string
 	chunks: string[]
 	assets: any[]
-	reasons: Reason[]
+	reasons: IWebpackStatsV5Reason[]
 	usedExports?: any
 	providedExports?: string[]
 	optimizationBailout: string[]
 	depth?: number
 }
 
-interface Reason {
+export interface IWebpackStatsV5Reason {
 	moduleIdentifier?: string
 	module?: string
 	moduleName?: string

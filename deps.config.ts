@@ -6,7 +6,6 @@ import { IWebpackAnalyzerConfig } from 'src/models/webpackAnalyzer.model'
  * RenderEngine = 'dot' | 'neato' | 'circo' | 'fdp' | 'osage' | 'twopi';
  */
 export const depsConfig: IWebpackAnalyzerConfig = {
-	projectRoot: '',
 	webpackStatsFileName: 'webpack-stats.json', // can be passed as a cli parameter to index.ts in package.json scripts section
 	exclude: ['cache', 'webpack', 'node_modules'],
 	excludeExcept: [], // add some deps from excluded

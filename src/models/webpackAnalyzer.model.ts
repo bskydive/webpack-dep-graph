@@ -7,45 +7,38 @@ export const EMPTY_MODULE_PARSED: IWebpackModuleParsed = {
 	uuid: "",
 	fileName: "",
 	relativePath: "",
-	absolutePath: "",
 }
 
+/** for calculations */
 export interface IWebpackModuleParsed {
 	uuid: string
 	sizeInBytes?: number // TODO @deprecated remove or implement file size visualizer
 	fileName: string
 	relativePath: string
-	absolutePath: string
 }
 
+/** prepared for the IWebpackModuleParsed, parsed from the version dependend formats */
 export interface IWebpackModuleShort {
-	type: string
+	identifier: string
 	size: number
 	name: string
 	issuerName?: string
 	id: string
 	reasons: IWebpackModuleReasonShort[]
-	usedExports?: any
-	providedExports?: string[]
 }
 
 export interface IWebpackModuleReasonShort {
-	moduleIdentifier: string
+	moduleIdentifier: string // absolute path
 	module: string
-	moduleName: string
-	resolvedModuleIdentifier: string
-	resolvedModule: string
+	moduleName: string // relative path
 	type: string
-	moduleId: string | null
-	resolvedModuleId: string | null
 }
 
 export type IDependencyMap = Record<string, string[]>
 
 export interface IWebpackAnalyzerContext extends IWebpackAnalyzerConfig {
 	graph: ModuleGraph
-    /** TODO use IWebpackModuleParsed | Short */
-	webpackModules: IWebpackStatsV3Module[]
+	webpackModules: IWebpackModuleShort[]
 	dependencyMap: IDependencyMap
 	circularImports: string[][]
 }
@@ -59,7 +52,6 @@ export interface IGraphvizRenderOpts {
 
 /** graphviz calculation takes a large time */
 export interface IWebpackAnalyzerConfig {
-	projectRoot: string
 	webpackStatsFileName: string
 	exclude: string[]
 	excludeExcept: string[]

@@ -1,9 +1,5 @@
 import { IWebpackAnalyzerContext } from "../../models/webpackAnalyzer.model"
-import {
-	resolvePathPlus,
-	parseAbsolutePath,
-	fileNameFromPath,
-} from "../../utils/webpack"
+import { resolvePathPlus, fileNameFromPath } from "../../utils/webpack"
 import { v4 } from "uuid"
 import { log } from "../../utils/logger"
 
@@ -16,11 +12,9 @@ export function createModuleNodes(context: IWebpackAnalyzerContext) {
 	for (const module of webpackModules) {
 		const id = v4()
 
-		const relativePath = resolvePathPlus(module.name) 
-        // TODO add issuerName to scope src/analyzer/analyzerUtils/dependencyMap.ts:25
-		// const relativePath = resolvePathPlus(module.issuerName) 
-		const absolutePath = parseAbsolutePath(module)
+		const relativePath = resolvePathPlus(module.name)
 
+		// TODO add issuerName to scope src/analyzer/analyzerUtils/dependencyMap.ts:25
 		graph.nodeIdByRelativePath.set(relativePath, id)
 
 		graph.nodesById.set(id, {
@@ -28,7 +22,6 @@ export function createModuleNodes(context: IWebpackAnalyzerContext) {
 			sizeInBytes: module.size || -1,
 			fileName: fileNameFromPath(module.name),
 			relativePath,
-			absolutePath,
 		})
 	}
 
