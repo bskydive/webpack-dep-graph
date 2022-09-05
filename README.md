@@ -6,34 +6,49 @@ Fixed and working.
 
  * webpack [stats.json](https://webpack.js.org/api/stats) parser/converter for visual/UI dependencies analysis
  * [configurable](./deps.config.ts) deps filters: exclude, except, include
- * [DOT](https://github.com/glejeune/node-graphviz) graph converter
- * [cytoscape](https://cytoscape.org/) graph converter
- * json graph converter
- * [graphml](http://graphml.graphdrawing.org/) graph converter for proprietary [yed](https://www.yworks.com/products/yed/download) editor
- * TODO [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
- * TODO local webpack dev server
- * TODO [cytoscape](https://js.cytoscape.org) graph viewer
- * TODO file size viewer
+ * output formats:
+    * [graphml](http://graphml.graphdrawing.org/) graph for proprietary [yed](https://www.yworks.com/products/yed/download) editor
+    * [DOT](https://github.com/glejeune/node-graphviz) graph
+    * [cytoscape](https://cytoscape.org/) graph
+    * json debug data
+
+## TODO
+
+ * verify includeOnly
+ * add excludeNodeByMaxDepsCount
+ * fix circular.json comparing to eslint
+
+ * [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
+ * local webpack dev server
+ * [cytoscape](https://js.cytoscape.org) graph viewer
+ * file size viewer
 
 ### Examples
 
-The graphviz layout renderer seems to be useless. You can upload the simplified dot file into any [graphviz editor](http://magjac.com/graphviz-visual-editor/) and try to play with settings. Generating graphml and editing it in [yEd](https://www.yworks.com/products/yed/download) are the best option for now.
+The graphviz layout renderer seems to be useless. You can upload the simplified dot file into any [graphviz editor](http://magjac.com/graphviz-visual-editor/) and try to play with settings. Generating graphml and editing it in [yEd](https://www.yworks.com/products/yed/download) are the best option for now. Best yEd layouts: circular(alt+shift+c), hierarchical(alt+shift+h)
 
  * input
     * example of the [webpack stats](./doc/webpack-stats.zip)
- * output
+ * output webpackV5
+    * imports: 15; re-exports: 28; issuers: 43; dependencies: 8
+    * [json: circular dependencies](./graph-output/webpackV5/circular.json)
+    * [json: cytoscape](./graph-output/webpackV5/cytoscape.json)
+    * [json: analyzed deps from webpack stats](./graph-output/webpackV5/deps.json)
+    * [xml: simplified dot graph](./graph-output/webpackV5/graph_simplified.dot)
+        * ![](./doc/graphviz_dot_simplified.jpg)
+ * output webpackV3
+    * imports: 511; re-exports: 0; issuers: 494; dependencies: 114dependencies: 195
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            exclude: ["cache", "webpack", "node_modules", 'main', 'logger', 'index', 'profile', 'config', 'platform','settings', 'popup', 'app', 'confirm', 'analytics', 'theme', 'error', 'home'],
+            excludeExcept: [], includeOnly: [],
+        ```
     * [json: circular dependencies](./graph-output/circular.json)
     * [json: cytoscape](./graph-output/cytoscape.json)
     * [json: analyzed deps from webpack stats](./graph-output/deps.json)
     * [xml: simplified dot graph](./graph-output/graph_simplified.dot)
         * ![](./doc/graphviz_dot_simplified.jpg)
     * graphviz
-        * summary: imports: 1551, re-exports: 0, issuers: 1252
-        * [deps.config.ts](./deps.config.ts)
-            ```ts
-                exclude: ['cache', 'webpack', 'node_modules'],
-                excludeExcept: [], includeOnly: [],
-            ```
         * [xml: dot](./graph-output/graphviz.dot)
             * ![](./doc/graphviz_dot.jpg)
         * [png: dot layout](./graph-output/graphviz_dot.png)

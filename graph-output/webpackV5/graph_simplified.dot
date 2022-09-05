@@ -1,0 +1,29 @@
+digraph G {
+  "./src/analyzer/analyzerUtils/dependencyMap.ts" [ color = "blue" ];
+  "./src/utils/logger.ts";
+  "./src/analyzer/analyzerUtils/extractUsages.ts" [ color = "blue" ];
+  "./src/analyzer/analyzerUtils/setupNodes.ts" [ color = "blue" ];
+  "./src/index.ts" [ color = "blue" ];
+  "./deps.config.ts";
+  "./src/utils/graphviz.ts" [ color = "blue" ];
+  "./src/utils/cytoscape.ts" [ color = "blue" ];
+  "./src/utils/graphml.ts" [ color = "blue" ];
+  "./src/utils/files.ts" [ color = "blue" ];
+  "./src/models/graphml.model.ts";
+  "fs (ignored)";
+  "./src/analyzer/analyzerUtils/dependencyMap.ts" -> "./src/utils/logger.ts" [ color = "red" ];
+  "./src/analyzer/analyzerUtils/extractUsages.ts" -> "./src/utils/logger.ts" [ color = "red" ];
+  "./src/analyzer/analyzerUtils/setupNodes.ts" -> "./src/utils/logger.ts" [ color = "red" ];
+  "./src/index.ts" -> "./src/utils/logger.ts" [ color = "red" ];
+  "./src/index.ts" -> "./deps.config.ts" [ color = "red" ];
+  "./src/index.ts" -> "./src/utils/graphviz.ts" [ color = "red" ];
+  "./src/index.ts" -> "./src/utils/cytoscape.ts" [ color = "red" ];
+  "./src/index.ts" -> "./src/utils/graphml.ts" [ color = "red" ];
+  "./src/utils/graphviz.ts" -> "./src/utils/logger.ts" [ color = "red" ];
+  "./src/utils/graphviz.ts" -> "./src/utils/files.ts" [ color = "red" ];
+  "./src/utils/cytoscape.ts" -> "./src/utils/files.ts" [ color = "red" ];
+  "./src/utils/graphml.ts" -> "./src/utils/files.ts" [ color = "red" ];
+  "./src/utils/graphml.ts" -> "./src/analyzer/analyzerUtils/dependencyMap.ts" [ color = "red" ];
+  "./src/utils/graphml.ts" -> "./src/models/graphml.model.ts" [ color = "red" ];
+  "./src/utils/files.ts" -> "fs (ignored)" [ color = "red" ];
+}

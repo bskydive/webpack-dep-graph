@@ -1,7 +1,7 @@
 import { RenderEngine } from "graphviz"
 import { ModuleGraph } from "../analyzer/analyzerUtils/ModuleGraph"
-import { IWebpackStatsV3Module } from "./webpack.3.model"
-import { IWebpackStatsV5Module } from "./webpack.5.model"
+import { TWebpackStatsV3ReasonType } from "./webpack.3.model"
+import { TWebpackStatsV5ReasonType } from "./webpack.5.model"
 
 export const EMPTY_MODULE_PARSED: IWebpackModuleParsed = {
 	uuid: "",
@@ -26,6 +26,8 @@ export interface IWebpackModuleShort {
 	id: string
 	reasons: IWebpackModuleReasonShort[]
 }
+
+export type TWebpackReasonShortType = TWebpackStatsV5ReasonType | TWebpackStatsV3ReasonType | 'side effect'
 
 export interface IWebpackModuleReasonShort {
 	moduleIdentifier: string // absolute path
@@ -56,6 +58,7 @@ export interface IWebpackAnalyzerConfig {
 	exclude: string[]
 	excludeExcept: string[]
 	includeOnly: string[]
+    edgeTypeExclude: TWebpackReasonShortType[]
 	testGraphml: boolean
 	printImportAnalysis: boolean
 	depsJson: boolean

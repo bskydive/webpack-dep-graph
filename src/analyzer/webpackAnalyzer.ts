@@ -15,7 +15,7 @@ import {
 import { depsConfig } from "../../deps.config"
 import { getCircularImports } from "./analyzerUtils/circular"
 import { getDependencyMap } from "./analyzerUtils/dependencyMap"
-import { extractUsages } from "./analyzerUtils/extractUsages"
+import { extractUsages } from "./analyzerUtils/extractDependencies"
 import { createModuleNodes } from "./analyzerUtils/setupNodes"
 import { log } from "../utils/logger"
 import {

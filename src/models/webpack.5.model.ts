@@ -148,13 +148,25 @@ interface IWebpackStatsV5ChunkModule {
 	depth?: number
 }
 
+export type TWebpackStatsV5ReasonType =
+	| "harmony import"
+	| "cjs require"
+	| "import() context lazy"
+	| "context element"
+	| "amd require"
+	| "cjs require context"
+	| "import()"
+    | 'cjs self exports reference'
+    | 'entry'
+    | 'cjs full require'
+
 export interface IWebpackStatsV5Reason {
 	moduleIdentifier?: string
 	module?: string
 	moduleName?: string
 	resolvedModuleIdentifier?: string
 	resolvedModule?: string
-	type: string
+	type: TWebpackStatsV5ReasonType
 	active: boolean
 	explanation: string
 	userRequest?: string

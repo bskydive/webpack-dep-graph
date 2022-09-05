@@ -114,7 +114,7 @@ export type TWebpackStatsV3ReasonType =
 	| "amd require"
 	| "cjs require context"
 	| "import()"
-	| string
+	| "export imported specifier"
 
 export interface IWebpackStatsV3Reason {
 	moduleId: number
