@@ -1,20 +1,83 @@
-import { logEmpty } from "../../utils/logger"
-import { IDependencyMap } from "../../models/webpackAnalyzer.model"
+import { log, logEmpty } from "../../utils/logger"
+import {
+	IDependencyMap,
+	IWebpackAnalyzerConfig,
+	IWebpackModuleParsed,
+} from "../../models/webpackAnalyzer.model"
 import { ModuleGraph } from "./ModuleGraph"
+import { IIncludedOptions } from "../../utils/webpack"
 
-export function getDependencyMap(graph: ModuleGraph): IDependencyMap {
-	const mapping: IDependencyMap = {}
-	const toPath = (id: string) => graph.nodesById.get(id)?.relativePath || ""
-
-	for (const [id, dependencies] of graph.dependenciesById) {
-		mapping[toPath(id)] = Array.from(dependencies).map(toPath)
+/** applied only after dependencyMap creation to filter in both directions: src/dest nodes */
+function isModuleIncludedOnly(
+	moduleName: string,
+	includeOnly: string[]
+): boolean {
+	let result: boolean = false
+	let regExpIncludeOnly: RegExp = null
+	if (includeOnly.length) {
+		regExpIncludeOnly = new RegExp(`${includeOnly.join("|")}`)
+		result = regExpIncludeOnly.test(moduleName)
 	}
 
-	logEmpty(
-		"src/analyzer/analyzerUtils/dependencyMap.ts:10",
-		mapping?.length?.toString()
+	return result
+}
+
+function getModuleName(
+	destModuleId: string,
+	modules: Map<string, IWebpackModuleParsed>
+) {
+	return modules.get(destModuleId)?.relativePath || ""
+}
+
+function getModuleDependencies(
+	dependencies: Set<string>,
+	destModules: Map<string, IWebpackModuleParsed>
+): string[] {
+	return Array.from(dependencies).map((dependencyName: string) =>
+		getModuleName(dependencyName, destModules)
 	)
-	return mapping
+}
+
+export function getDependencyMap(
+	graph: ModuleGraph,
+	opts: IWebpackAnalyzerConfig
+): IDependencyMap {
+	const result: IDependencyMap = {}
+	let srcModules: string[]
+	let destModule: string
+
+	for (const [destModuleId, dependencies] of graph.dependenciesById) {
+		destModule = getModuleName(destModuleId, graph.nodesById)
+		srcModules = getModuleDependencies(dependencies, graph.nodesById)
+
+		if (destModule) {
+			if (
+				(opts.includeOnlyDestNode.length &&
+					isModuleIncludedOnly(
+						destModule,
+						opts.includeOnlyDestNode
+					)) ||
+				(opts.includeOnlySrcNode.length &&
+					srcModules.findIndex((srcModule) =>
+						isModuleIncludedOnly(srcModule, opts.includeOnlySrcNode)
+					))
+			) {
+				// only source or dest module included by deps.config.ts option
+				result[destModule] = srcModules
+			} else {
+				// empty deps.config.ts included only option
+				result[destModule] = srcModules
+			}
+		} else {
+			log(
+				"src/analyzer/analyzerUtils/dependencyMap.ts:67",
+				"EMPTY dest module name",
+				destModuleId
+			)
+		}
+	}
+
+	return result
 }
 
 /** add missed nodes from edge definitions for graphml */
@@ -22,12 +85,12 @@ export function missedDependencyMapSrcNodes(
 	dependencyMap: IDependencyMap
 ): IDependencyMap {
 	let result: IDependencyMap = {}
-// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
+	// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
 	for (const targetPath in dependencyMap) {
 		for (const dependencyPath of dependencyMap[targetPath]) {
 			if (!dependencyMap[dependencyPath]) {
-                result[dependencyPath] = []
-            }
+				result[dependencyPath] = []
+			}
 		}
 	}
 

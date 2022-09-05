@@ -1,11 +1,26 @@
-import { IWebpackAnalyzerContext } from "../../models/webpackAnalyzer.model"
-import { resolvePathPlus, fileNameFromPath } from "../../utils/webpack"
+import {
+	IWebpackAnalyzerContext,
+	IWebpackModuleShort,
+} from "../../models/webpackAnalyzer.model"
+import {
+	resolvePathPlus,
+	fileNameFromPath,
+	isIncluded,
+} from "../../utils/webpack"
 import { v4 } from "uuid"
 import { log } from "../../utils/logger"
 
 export function createModuleNodes(context: IWebpackAnalyzerContext) {
-	const { graph, webpackModules } = context
+	const graph = context.graph
 	const startTime = Date.now()
+	const webpackModules = context.webpackModules?.filter(
+		(m: IWebpackModuleShort) =>
+			isIncluded(m.name, {
+				exclude: context.exclude,
+				excludeExcept: context.excludeExcept,
+				includeOnly: context.includeOnlyDestNode,
+			})
+	)
 
 	log(`located ${webpackModules.length} modules from this build.`)
 
@@ -14,7 +29,6 @@ export function createModuleNodes(context: IWebpackAnalyzerContext) {
 
 		const relativePath = resolvePathPlus(module.name)
 
-		// TODO add issuerName to scope src/analyzer/analyzerUtils/dependencyMap.ts:25
 		graph.nodeIdByRelativePath.set(relativePath, id)
 
 		graph.nodesById.set(id, {

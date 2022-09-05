@@ -27,7 +27,7 @@ function main() {
     
 	if (webpackStat?.version) {
 		const analyzer = new webpackAnalyzer(webpackStat)
-		analyzerContext = analyzer.analyze()
+		analyzerContext = analyzer.analyze(config)
 
 		log("calculations start")
 		const dotGraph = createDotGraph(analyzerContext.dependencyMap)

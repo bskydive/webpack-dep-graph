@@ -6,6 +6,7 @@ import {
 	IWebpackModuleShort,
 } from "../../models/webpackAnalyzer.model"
 import { isIncluded, resolvePathPlus } from "../../utils/webpack"
+import { ModuleGraph } from "./ModuleGraph"
 
 function getModuleTypes(webpackModules: IWebpackModuleShort[]): string[] {
 	const reasonTypes = webpackModules
@@ -19,19 +20,39 @@ function getModuleTypes(webpackModules: IWebpackModuleShort[]): string[] {
 	return reasonTypes
 }
 
-/** TODO remove unnecessary re-exports extraction; webpack stats already have all data */
-export function extractUsages(context: IWebpackAnalyzerContext) {
+/** @deprecated TODO move statistics to post processing at getDependencyMap */
+function parsedIssuersCount(
+	reasons: IWebpackModuleReasonShort[],
+	context: IWebpackAnalyzerContext,
+	graph: ModuleGraph
+): number {
+	let issuerCount = 0
+
+	const issuers =
+		reasons?.filter((issuer) =>
+			isIncluded(issuer.moduleName, {
+				exclude: context.exclude,
+				excludeExcept: context.excludeExcept,
+				includeOnly: context.includeOnlyDestNode,
+			})
+		) ?? []
+
+	for (const issuer of issuers) {
+		const module = graph.byRelativePath(issuer.moduleName)
+		if (!module) continue
+
+		issuerCount++
+	}
+
+	return issuerCount
+}
+
+export function extractDependencies(context: IWebpackAnalyzerContext) {
 	const { webpackModules, graph } = context
-	const summary = { imports: 0, exports: 0, issuers: 0 }
-
-	log("analyzing imports and re-exports")
-
+	const summary = { imports: 0, issuers: 0 }
 	const moduleTypes: string[] = getModuleTypes(webpackModules)
 
 	for (const webpackModule of webpackModules) {
-		// TODO check necessity
-		// const resolvedDependents: Map<string, boolean> = new Map()
-
 		const relativePath: string = resolvePathPlus(webpackModule.name)
 		const module: IWebpackModuleParsed = graph.byRelativePath(relativePath)
 
@@ -53,20 +74,18 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 				isIncluded(m.moduleName, {
 					exclude: context.exclude,
 					excludeExcept: context.excludeExcept,
-					includeOnly: context.includeOnly,
+					includeOnly: context.includeOnlySrcNode,
 				})
 			)
 
 		// Use the webpack import/export reason to resolve dependency chain
 		for (const reason of reasons) {
-			// Remove node edge loops
-			const isReasonExcluded =
+			const isReasonTypeExcluded =
 				context.edgeTypeExclude.findIndex((item) =>
 					reason.type.includes(item)
 				) >= 0
 
-			if (isReasonExcluded) {
-				summary.exports++
+			if (isReasonTypeExcluded) {
 				continue
 			}
 
@@ -80,17 +99,7 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 				continue
 			}
 
-			// TODO check necessity
-			// Mark dependent as resolved, so we don't need to resolve multiple times.
-			/* 			if (resolvedDependents.has(moduleName)) {
-				continue
-			}
-
-			resolvedDependents.set(moduleName, true)
-             */
-
-			// Resolve the module that utilizes/consumes the current module.
-			const consumerModule = graph.byRelativePath(moduleName)
+			const consumerModule: IWebpackModuleParsed = graph.byRelativePath(moduleName)
 			if (!consumerModule?.uuid) {
 				logEmpty(
 					"src/analyzer/analyzerUtils/extractDependencies.ts:94",
@@ -106,28 +115,17 @@ export function extractUsages(context: IWebpackAnalyzerContext) {
 			summary.imports++
 		}
 
-		const issuers =
-			webpackModule.reasons?.filter((issuer) =>
-				isIncluded(issuer.moduleName, {
-					exclude: context.exclude,
-					excludeExcept: context.excludeExcept,
-					includeOnly: context.includeOnly,
-				})
-			) ?? []
-
-		for (const issuer of issuers) {
-			const module = graph.byRelativePath(issuer.moduleName)
-			if (!module) continue
-
-			summary.issuers++
-		}
+		summary.issuers += parsedIssuersCount(
+			webpackModule?.reasons,
+			context,
+			graph
+		)
 	}
 
 	log(
 		`\nsummary: \n`,
 		`module types: ${moduleTypes};`,
 		`imports: ${summary.imports};`,
-		`re-exports: ${summary.exports};`,
 		`issuers: ${summary.issuers};`,
 		`dependencies: ${graph.dependenciesById.size}`
 	)

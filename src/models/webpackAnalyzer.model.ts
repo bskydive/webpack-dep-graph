@@ -57,7 +57,8 @@ export interface IWebpackAnalyzerConfig {
 	webpackStatsFileName: string
 	exclude: string[]
 	excludeExcept: string[]
-	includeOnly: string[]
+	includeOnlyDestNode: string[]
+	includeOnlySrcNode: string[]
     edgeTypeExclude: TWebpackReasonShortType[]
 	testGraphml: boolean
 	printImportAnalysis: boolean

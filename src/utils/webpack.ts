@@ -3,18 +3,19 @@ import { IWebpackStatsV3Module } from "../models/webpack.3.model"
 import { IWebpackStatsV3 } from "src/models/webpack.3.model"
 import { readFile } from "./files"
 import { IWebpackStatsV5 } from "../models/webpack.5.model"
-import { IWebpackModuleShort } from "src/models/webpackAnalyzer.model"
+import { IWebpackAnalyzerConfig, IWebpackModuleShort } from "../models/webpackAnalyzer.model"
 
+/** TODO @deprecated remove or pick from context interface IWebpackAnalyzerConfig*/
 export interface IIncludedOptions {
 	exclude: string[]
 	excludeExcept: string[]
-	includeOnly: string[]
+	includeOnlyDest: string[]
+	includeOnlySrc: string[]
 }
 
-export function isIncluded(text: string, opts: IIncludedOptions): boolean {
+export function isIncluded(moduleName: string, opts: IWebpackAnalyzerConfig): boolean {
 	let regExpExclude: RegExp = null
 	let regExpExcludeExcept: RegExp = null
-	let regExpIncludeOnly: RegExp = null
 	let result: boolean = false
 
 	if (opts.exclude.length) {
@@ -25,14 +26,9 @@ export function isIncluded(text: string, opts: IIncludedOptions): boolean {
 		regExpExcludeExcept = new RegExp(`${opts.excludeExcept.join("|")}`)
 	}
 
-	if (opts.includeOnly.length) {
-		regExpIncludeOnly = new RegExp(`${opts.includeOnly.join("|")}`)
-		result = regExpIncludeOnly.test(text)
-	} else {
-		result = regExpExcludeExcept?.test(text) || !regExpExclude?.test(text)
-	}
+	result = regExpExcludeExcept?.test(moduleName) || !regExpExclude?.test(moduleName)
 
-	return result
+    return result
 }
 
 export const resolvePathPlus = (name: string) => {

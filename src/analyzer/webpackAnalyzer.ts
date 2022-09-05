@@ -1,5 +1,6 @@
 import {
 	IWebpackAnalyzerConfig as IDepsConfig,
+	IWebpackAnalyzerConfig,
 	IWebpackAnalyzerContext,
 	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
@@ -15,7 +16,7 @@ import {
 import { depsConfig } from "../../deps.config"
 import { getCircularImports } from "./analyzerUtils/circular"
 import { getDependencyMap } from "./analyzerUtils/dependencyMap"
-import { extractUsages } from "./analyzerUtils/extractDependencies"
+import { extractDependencies } from "./analyzerUtils/extractDependencies"
 import { createModuleNodes } from "./analyzerUtils/setupNodes"
 import { log } from "../utils/logger"
 import {
@@ -35,19 +36,14 @@ export class webpackAnalyzer {
 		let webpackModules: IWebpackModuleShort[] = []
 
 		if (webpackVersion === "3" || webpackVersion === "5") {
-
 			this.modules = this.parseWebpackModules(stats.modules)
 
-            if (!this?.modules?.length) {
-                this.modules = this.parseWebpackChunks(stats.chunks)
-            }
+			if (!this?.modules?.length) {
+				this.modules = this.parseWebpackChunks(stats.chunks)
+			}
 
-            webpackModules = this.modules?.filter((module: any) =>
-				isIncluded(module.name, {
-					exclude: depsConfig.exclude,
-					excludeExcept: depsConfig.excludeExcept,
-					includeOnly: depsConfig.includeOnly,
-				})
+			webpackModules = this.modules?.filter((module: any) =>
+				isIncluded(module.name, depsConfig)
 			)
 		} else {
 			throw new Error("Unknown webpack version: " + stats?.version)
@@ -65,14 +61,17 @@ export class webpackAnalyzer {
 	parseWebpackChunks(
 		chunks: IWebpackStatsV3Chunk[] | IWebpackStatsV5Chunk[]
 	): IWebpackModuleShort[] {
-		const result = chunks.map(chunk=>chunk?.modules).flat().map((module) => ({
-			size: module.size,
-			name: module.name,
-			issuerName: module.issuerName,
-			identifier: module.identifier,
-			id: String(module.id),
-			reasons: this.parseWebpackModuleReasonsShort(module.reasons),
-		}))
+		const result = chunks
+			.map((chunk) => chunk?.modules)
+			.flat()
+			.map((module) => ({
+				size: module.size,
+				name: module.name,
+				issuerName: module.issuerName,
+				identifier: module.identifier,
+				id: String(module.id),
+				reasons: this.parseWebpackModuleReasonsShort(module.reasons),
+			}))
 
 		return result
 	}
@@ -120,18 +119,19 @@ export class webpackAnalyzer {
 		}
 	}
 
-	analyze(): IWebpackAnalyzerContext {
+	analyze(config: IWebpackAnalyzerConfig): IWebpackAnalyzerContext {
 		log(`\n modules to parse: `, this.modules.length, `\n`)
 
 		this.analyzerContext.graph = createModuleNodes(this.analyzerContext)
-		log(`\n nodes created: \n`, this.getStatCount(), `\n`)
 
-		this.analyzerContext.graph = extractUsages(this.analyzerContext)
+		this.analyzerContext.graph = extractDependencies(this.analyzerContext)
 		log(`\n usages extracted: \n`, this.getStatCount(), `\n`)
 
 		this.analyzerContext.dependencyMap = getDependencyMap(
-			this.analyzerContext.graph
+			this.analyzerContext.graph,
+			config
 		)
+
 		this.analyzerContext.circularImports = getCircularImports(
 			this.analyzerContext.dependencyMap
 		)

@@ -6,13 +6,14 @@ import { IWebpackAnalyzerConfig } from "src/models/webpackAnalyzer.model"
  * RenderEngine = 'dot' | 'neato' | 'circo' | 'fdp' | 'osage' | 'twopi';
  */
 export const depsConfig: IWebpackAnalyzerConfig = {
-	webpackStatsFileName: "webpack-stats.json", // can be passed as a cli parameter to index.ts in package.json scripts section
+	webpackStatsFileName: "stats.json", // can be passed as a cli parameter to index.ts in package.json scripts section
 	exclude: ["cache", "webpack", "node_modules", 'main', 'logger', 'index', 'profile', 'config', 'platform','settings', 'popup', 'app', 'confirm', 'analytics', 'theme', 'error', 'home'],
 	excludeExcept: [], // add some deps from excluded
-	includeOnly: [], // exclude and excludeExcept will be ignored
+	includeOnlyDestNode: ['index.ts'], // from nodes; exclude and excludeExcept will be ignored
+	includeOnlySrcNode: ['index.ts'], // from edges/reasons; exclude and excludeExcept will be ignored
 	edgeTypeExclude: [
-		"cjs self exports reference",
-		"export imported specifier",
+		"cjs self exports reference", // fake dependencies loops
+		"export imported specifier", // re-export TODO check necessity
 	],
 	testGraphml: false, // test js2xml
 	graphmlDeps: true, // for yed editor
