@@ -4,7 +4,7 @@ import {
 	IWebpackAnalyzerConfig,
 	IWebpackModuleParsed,
 } from "../../models/webpackAnalyzer.model"
-import { ModuleGraph } from "./ModuleGraph"
+import { DependenciesGraph } from "./dependenciesGraph"
 import { IIncludedOptions } from "../../utils/webpack"
 
 /** applied only after dependencyMap creation to filter in both directions: src/dest nodes */
@@ -38,8 +38,9 @@ function getModuleDependencies(
 	)
 }
 
+/** postprocessing */
 export function getDependencyMap(
-	graph: ModuleGraph,
+	graph: DependenciesGraph,
 	opts: IWebpackAnalyzerConfig
 ): IDependencyMap {
 	const result: IDependencyMap = {}
@@ -60,11 +61,16 @@ export function getDependencyMap(
 				(opts.includeOnlySrcNode.length &&
 					srcModules.findIndex((srcModule) =>
 						isModuleIncludedOnly(srcModule, opts.includeOnlySrcNode)
-					))
+					) >= 0)
 			) {
 				// only source or dest module included by deps.config.ts option
 				result[destModule] = srcModules
-			} else {
+			}
+
+			if (
+				!opts.includeOnlyDestNode.length ||
+				!opts.includeOnlySrcNode.length
+			) {
 				// empty deps.config.ts included only option
 				result[destModule] = srcModules
 			}

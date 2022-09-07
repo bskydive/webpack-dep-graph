@@ -5,7 +5,7 @@ import {
 	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
 } from "../models/webpackAnalyzer.model"
-import { ModuleGraph } from "./analyzerUtils/ModuleGraph"
+import { DependenciesGraph } from "./analyzerUtils/dependenciesGraph"
 import { isIncluded } from "../utils/webpack"
 import {
 	IWebpackStatsV3,
@@ -17,7 +17,7 @@ import { depsConfig } from "../../deps.config"
 import { getCircularImports } from "./analyzerUtils/circular"
 import { getDependencyMap } from "./analyzerUtils/dependencyMap"
 import { extractDependencies } from "./analyzerUtils/extractDependencies"
-import { createModuleNodes } from "./analyzerUtils/setupNodes"
+import { createGraphNodes } from "./analyzerUtils/graphNodes"
 import { log } from "../utils/logger"
 import {
 	IWebpackStatsV5,
@@ -51,7 +51,7 @@ export class webpackAnalyzer {
 
 		this.analyzerContext = {
 			...this.config,
-			graph: new ModuleGraph(),
+			graph: new DependenciesGraph(),
 			webpackModules: webpackModules,
 			dependencyMap: {},
 			circularImports: [],
@@ -110,22 +110,14 @@ export class webpackAnalyzer {
 		return stat?.version.split(".")[0]
 	}
 
-	getStatCount() {
-		return {
-			dependenciesById: this.analyzerContext.graph.dependenciesById.size,
-			nodeIdByRelativePath:
-				this.analyzerContext.graph.nodeIdByRelativePath.size,
-			nodesById: this.analyzerContext.graph.nodesById.size,
-		}
-	}
-
 	analyze(config: IWebpackAnalyzerConfig): IWebpackAnalyzerContext {
 		log(`\n modules to parse: `, this.modules.length, `\n`)
+		let [nodeIdByRelativePath, nodesById] = createGraphNodes(this.analyzerContext)
 
-		this.analyzerContext.graph = createModuleNodes(this.analyzerContext)
+        this.analyzerContext.graph.nodeIdByRelativePath = nodeIdByRelativePath
+        this.analyzerContext.graph.nodesById = nodesById
 
 		this.analyzerContext.graph = extractDependencies(this.analyzerContext)
-		log(`\n usages extracted: \n`, this.getStatCount(), `\n`)
 
 		this.analyzerContext.dependencyMap = getDependencyMap(
 			this.analyzerContext.graph,

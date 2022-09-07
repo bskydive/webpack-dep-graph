@@ -1,2 +1,9 @@
 digraph G {
+  "./src/index.ts" [ color = "blue" ];
+  "./src/utils/graphviz.ts";
+  "./src/utils/cytoscape.ts";
+  "./src/utils/graphml.ts";
+  "./src/index.ts" -> "./src/utils/graphviz.ts" [ color = "red" ];
+  "./src/index.ts" -> "./src/utils/cytoscape.ts" [ color = "red" ];
+  "./src/index.ts" -> "./src/utils/graphml.ts" [ color = "red" ];
 }

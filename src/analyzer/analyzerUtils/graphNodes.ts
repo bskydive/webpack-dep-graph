@@ -1,5 +1,6 @@
 import {
 	IWebpackAnalyzerContext,
+	IWebpackModuleParsed,
 	IWebpackModuleShort,
 } from "../../models/webpackAnalyzer.model"
 import {
@@ -10,16 +11,14 @@ import {
 import { v4 } from "uuid"
 import { log } from "../../utils/logger"
 
-export function createModuleNodes(context: IWebpackAnalyzerContext) {
-	const graph = context.graph
+export function createGraphNodes(
+	context: IWebpackAnalyzerContext
+): [Map<string, string>, Map<string, IWebpackModuleParsed>] {
+	let nodeIdByRelativePath: Map<string, string> = new Map()
+	let nodesById: Map<string, IWebpackModuleParsed> = new Map()
 	const startTime = Date.now()
 	const webpackModules = context.webpackModules?.filter(
-		(m: IWebpackModuleShort) =>
-			isIncluded(m.name, {
-				exclude: context.exclude,
-				excludeExcept: context.excludeExcept,
-				includeOnly: context.includeOnlyDestNode,
-			})
+		(m: IWebpackModuleShort) => isIncluded(m.name, context)
 	)
 
 	log(`located ${webpackModules.length} modules from this build.`)
@@ -29,9 +28,9 @@ export function createModuleNodes(context: IWebpackAnalyzerContext) {
 
 		const relativePath = resolvePathPlus(module.name)
 
-		graph.nodeIdByRelativePath.set(relativePath, id)
+		nodeIdByRelativePath.set(relativePath, id)
 
-		graph.nodesById.set(id, {
+		nodesById.set(id, {
 			uuid: id,
 			sizeInBytes: module.size || -1,
 			fileName: fileNameFromPath(module.name),
@@ -41,5 +40,5 @@ export function createModuleNodes(context: IWebpackAnalyzerContext) {
 
 	log(`creating module nodes takes: ${Date.now() - startTime}ms.`)
 
-	return graph
+	return [nodeIdByRelativePath, nodesById ]
 }

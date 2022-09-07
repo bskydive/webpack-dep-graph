@@ -1,5 +1,5 @@
 import { RenderEngine } from "graphviz"
-import { ModuleGraph } from "../analyzer/analyzerUtils/ModuleGraph"
+import { DependenciesGraph } from "../analyzer/analyzerUtils/dependenciesGraph"
 import { TWebpackStatsV3ReasonType } from "./webpack.3.model"
 import { TWebpackStatsV5ReasonType } from "./webpack.5.model"
 
@@ -39,7 +39,7 @@ export interface IWebpackModuleReasonShort {
 export type IDependencyMap = Record<string, string[]>
 
 export interface IWebpackAnalyzerContext extends IWebpackAnalyzerConfig {
-	graph: ModuleGraph
+	graph: DependenciesGraph
 	webpackModules: IWebpackModuleShort[]
 	dependencyMap: IDependencyMap
 	circularImports: string[][]
@@ -52,7 +52,7 @@ export interface IGraphvizRenderOpts {
 	type: "png" | "dot"
 }
 
-/** graphviz calculation takes a large time */
+/** TODO rename/split context vars, that use this interface */
 export interface IWebpackAnalyzerConfig {
 	webpackStatsFileName: string
 	exclude: string[]

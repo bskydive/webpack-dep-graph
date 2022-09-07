@@ -1,1 +1,7 @@
-{}
+{
+  "./src/index.ts": [
+    "./src/utils/graphviz.ts",
+    "./src/utils/cytoscape.ts",
+    "./src/utils/graphml.ts"
+  ]
+}

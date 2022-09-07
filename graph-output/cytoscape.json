@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/graphviz.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/cytoscape.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/graphml.ts",
+      "target": "./src/index.ts"
+    }
+  }
+]

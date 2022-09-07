@@ -1,6 +1,7 @@
 import { IWebpackModuleParsed } from "../../models/webpackAnalyzer.model"
 
-export class ModuleGraph {
+/** @deprecated TODO remove state */
+export class DependenciesGraph {
 	/** {'uuid':{...module}} */
     nodesById: Map<string, IWebpackModuleParsed> = new Map()
     /** {'path1':'uuid1'} */
