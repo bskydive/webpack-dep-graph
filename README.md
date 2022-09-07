@@ -14,7 +14,6 @@ Fixed and working.
 
 ## TODO
 
- * verify includeOnly
  * add excludeNodeByMaxDepsCount
  * fix circular.json comparing to eslint
 

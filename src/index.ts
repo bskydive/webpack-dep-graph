@@ -36,7 +36,7 @@ function main() {
 		)
 
 		if (config.testGraphml) {
-			saveGraphml("test_save.graphml", grapml)
+			saveGraphml("./graph-output/test_save.graphml", grapml)
 		}
 
 		if (config.depsJson) {
