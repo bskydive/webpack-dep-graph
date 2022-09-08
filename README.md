@@ -14,7 +14,8 @@ Fixed and working.
 
 ## TODO
 
- * add excludeNodeByMaxDepsCount
+ * add excludeNodeByMaxDepsCount graph
+ * add Max/Min DepsCount text-->json
  * fix circular.json comparing to eslint
  * validate summary text
  * validate examples
