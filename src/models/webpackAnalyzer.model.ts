@@ -1,5 +1,6 @@
 import { RenderEngine } from "graphviz"
 import { DependenciesGraph } from "../analyzer/analyzerUtils/dependenciesGraph"
+import { IGraphmlEdge, IGraphmlNode } from "./graphml.model"
 import { TWebpackStatsV3ReasonType } from "./webpack.3.model"
 import { TWebpackStatsV5ReasonType } from "./webpack.5.model"
 
@@ -27,7 +28,10 @@ export interface IWebpackModuleShort {
 	reasons: IWebpackModuleReasonShort[]
 }
 
-export type TWebpackReasonShortType = TWebpackStatsV5ReasonType | TWebpackStatsV3ReasonType | 'side effect'
+export type TWebpackReasonShortType =
+	| TWebpackStatsV5ReasonType
+	| TWebpackStatsV3ReasonType
+	| "side effect"
 
 export interface IWebpackModuleReasonShort {
 	moduleIdentifier: string // absolute path
@@ -38,6 +42,7 @@ export interface IWebpackModuleReasonShort {
 
 export type IDependencyMap = Record<string, string[]>
 
+/** @deprecated TODO split state and configs */
 export interface IWebpackAnalyzerContext extends IWebpackAnalyzerConfig {
 	graph: DependenciesGraph
 	webpackModules: IWebpackModuleShort[]
@@ -54,23 +59,31 @@ export interface IGraphvizRenderOpts {
 
 /** TODO rename/split context vars, that use this interface */
 export interface IWebpackAnalyzerConfig {
-	webpackStatsFileName: string
-	exclude: string[]
-	excludeExcept: string[]
-	includeOnlyDestNode: string[]
-	includeOnlySrcNode: string[]
-    edgeTypeExclude: TWebpackReasonShortType[]
-    showSourceEdgeLabels: boolean
-    showDestEdgeLabels: boolean
-	testGraphmlJs2Xml: boolean
-	printImportAnalysis: boolean
-	depsJson: boolean
-	graphmlDeps: boolean
-	circularDepsJson: boolean
-	cytoscapeJson: boolean
-	simplifiedDot: boolean
-    graphml: {}
-    output: {}
+	input: {
+		webpackStatsFileName: string
+	}
+	filters: {
+		exclude: string[]
+		excludeExcept: string[]
+		includeOnlyDestNode: string[]
+		includeOnlySrcNode: string[]
+		edgeTypeExclude: TWebpackReasonShortType[]
+	}
+	output: {
+		testGraphmlJs2Xml: boolean
+		printImportAnalysis: boolean
+		depsJson: boolean
+		graphmlDeps: boolean
+		circularDepsJson: boolean
+		cytoscapeJson: boolean
+		simplifiedDot: boolean
+	}
+	graphml: {
+		showSourceEdgeLabels: boolean
+		showDestEdgeLabels: boolean
+		edge: IGraphmlEdge
+		node: IGraphmlNode
+	}
 	graphviz: {
 		renderedDot: IGraphvizRenderOpts
 		renderedDotPng: IGraphvizRenderOpts

@@ -1,8 +1,6 @@
 import {
-	GRAPHML_EDGE_DEFAULT,
 	GRAPHML_FOOTER,
 	GRAPHML_HEADER,
-	GRAPHML_NODE_DEFAULT,
 	IGraphmlEdge,
 	IGraphmlNode,
 } from "../models/graphml.model"
@@ -42,7 +40,7 @@ export function saveGraphml(fileName: string, data: { [key: string]: string }) {
 }
 
 export function graphmlNodeToXml(
-	data: IGraphmlNode = GRAPHML_NODE_DEFAULT
+	data: IGraphmlNode = depsConfig.graphml.node
 ): string {
 	return `\
     <node id="${data.id}">
@@ -60,7 +58,7 @@ export function graphmlNodeToXml(
 }
 
 export function graphmlEdgeToXml(
-	data: IGraphmlEdge = GRAPHML_EDGE_DEFAULT
+	data: IGraphmlEdge = depsConfig.graphml.edge
 ): string {
 	return `\
     <edge id="${data.id}" source="${data.sourceKey}" target="${data.targetKey}">
@@ -80,8 +78,8 @@ export function graphmlEdgeToXml(
 export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	let allDestNodes: IDependencyMap = {}
 	let result: string = GRAPHML_HEADER
-	let currentNode: IGraphmlNode = GRAPHML_NODE_DEFAULT
-	let currentEdge: IGraphmlEdge = GRAPHML_EDGE_DEFAULT
+	let currentNode: IGraphmlNode = depsConfig.graphml.node
+	let currentEdge: IGraphmlEdge = depsConfig.graphml.edge
 
 	allDestNodes = {
 		...missedDependencyMapSrcNodes(dependencyMap),
@@ -91,7 +89,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	// Nodes
 	for (const destNode in allDestNodes) {
 		currentNode = {
-			...GRAPHML_NODE_DEFAULT,
+			...depsConfig.graphml.node,
 			id: `nodeId_${destNode}`,
 			label: fileNameFromPath(destNode),
 			notes: destNode,
@@ -104,12 +102,12 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	// Edges
 	for (const destNode in allDestNodes) {
 		dependencyMap[destNode]?.forEach((srcNode) => {
-            let label = depsConfig.showSourceEdgeLabels ? srcNode : ""
+            let label = depsConfig.graphml.showSourceEdgeLabels ? srcNode : ""
 			// escaping text for xml parser
-			label += depsConfig.showDestEdgeLabels ? ` --\\> ${destNode}` : ""
+			label += depsConfig.graphml.showDestEdgeLabels ? ` --\\> ${destNode}` : ""
 
 			currentEdge = {
-				...GRAPHML_EDGE_DEFAULT,
+				...depsConfig.graphml.edge,
 				id: `edgeId_${srcNode}_${destNode}`,
 				sourceKey: `nodeId_${srcNode}`,
 				targetKey: `nodeId_${destNode}`,

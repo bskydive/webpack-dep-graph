@@ -52,7 +52,7 @@ export function extractDependencies(
 		// Use the webpack import/export reason to resolve dependency chain
 		for (const reason of reasons) {
 			const isReasonTypeExcluded =
-				context.edgeTypeExclude.findIndex((item) =>
+				context.filters.edgeTypeExclude.findIndex((item) =>
 					reason.type.includes(item)
 				) >= 0
 

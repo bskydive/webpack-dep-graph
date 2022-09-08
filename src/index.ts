@@ -19,7 +19,7 @@ import { log } from "./utils/logger"
 function main() {
 	let analyzerContext: IWebpackAnalyzerContext
 	const config: IWebpackAnalyzerConfig = depsConfig
-	const statFileName = process?.argv[2] || config.webpackStatsFileName
+	const statFileName = process?.argv[2] || config.input.webpackStatsFileName
 	log("loading ${statFileName}")
 
 	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save
@@ -35,27 +35,27 @@ function main() {
 			analyzerContext.dependencyMap
 		)
 
-		if (config.testGraphmlJs2Xml) {
+		if (config.output.testGraphmlJs2Xml) {
 			saveGraphml("./graph-output/test_save.graphml", grapml)
 		}
 
-		if (config.depsJson) {
+		if (config.output.depsJson) {
 			saveCytoscape("./graph-output/deps.json", analyzerContext.dependencyMap)
 		}
 
-		if (config.graphmlDeps) {
+		if (config.output.graphmlDeps) {
 			saveGraphmlFromDot(analyzerContext.dependencyMap, "./graph-output/deps.graphml")
 		}
 
-		if (config.circularDepsJson) {
+		if (config.output.circularDepsJson) {
 			saveCytoscape("./graph-output/circular.json", analyzerContext.circularImports)
 		}
 
-		if (config.cytoscapeJson) {
+		if (config.output.cytoscapeJson) {
 			saveCytoscape("./graph-output/cytoscape.json", cytoscapeGraph)
 		}
 
-		if (config.simplifiedDot) {
+		if (config.output.simplifiedDot) {
 			saveSimplifiedDot(dotGraph, "./graph-output/graph_simplified.dot")
 		}
 

@@ -16,18 +16,6 @@ export interface IGraphmlNode {
     color: TColorHEX | string
 }
 
-export const GRAPHML_NODE_DEFAULT: IGraphmlNode = {
-	id: "n0",
-	label: "",
-	notes: "",
-	x: 10,
-	y: 10,
-	height: 30,
-	width: 100,
-    textColor: "#FF0000",
-    color: "#000000",
-}
-
 export interface IGraphmlEdge {
 	id: string
 	sourceKey: string
@@ -38,18 +26,6 @@ export interface IGraphmlEdge {
 	labelY: number
 	textColor: TColorHEX | string
 	color: TColorHEX | string
-}
-
-export const GRAPHML_EDGE_DEFAULT: IGraphmlEdge = {
-	id: "e0",
-	sourceKey: "n0",
-	targetKey: "n0",
-	label: "",
-	width: 1,
-	labelX: 0,
-	labelY: 0,
-	textColor: "#999999",
-	color: "#999999",
 }
 
 export const GRAPHML_HEADER = `\

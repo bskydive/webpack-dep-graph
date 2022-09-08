@@ -53,14 +53,14 @@ export function getDependencyMap(
 
 		if (destModule) {
 			if (
-				(opts.includeOnlyDestNode.length &&
+				(opts.filters.includeOnlyDestNode.length &&
 					isModuleIncludedOnly(
 						destModule,
-						opts.includeOnlyDestNode
+						opts.filters.includeOnlyDestNode
 					)) ||
-				(opts.includeOnlySrcNode.length &&
+				(opts.filters.includeOnlySrcNode.length &&
 					srcModules.findIndex((srcModule) =>
-						isModuleIncludedOnly(srcModule, opts.includeOnlySrcNode)
+						isModuleIncludedOnly(srcModule, opts.filters.includeOnlySrcNode)
 					) >= 0)
 			) {
 				// only source or dest module included by deps.config.ts option
@@ -68,8 +68,8 @@ export function getDependencyMap(
 			}
 
 			if (
-				!opts.includeOnlyDestNode.length ||
-				!opts.includeOnlySrcNode.length
+				!opts.filters.includeOnlyDestNode.length ||
+				!opts.filters.includeOnlySrcNode.length
 			) {
 				// empty deps.config.ts included only option
 				result[destModule] = srcModules

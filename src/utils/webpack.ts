@@ -18,12 +18,12 @@ export function isIncluded(moduleName: string, opts: IWebpackAnalyzerConfig): bo
 	let regExpExcludeExcept: RegExp = null
 	let result: boolean = false
 
-	if (opts.exclude.length) {
-		regExpExclude = new RegExp(`${opts.exclude.join("|")}`)
+	if (opts.filters.exclude.length) {
+		regExpExclude = new RegExp(`${opts.filters.exclude.join("|")}`)
 	}
 
-	if (opts.excludeExcept.length) {
-		regExpExcludeExcept = new RegExp(`${opts.excludeExcept.join("|")}`)
+	if (opts.filters.excludeExcept.length) {
+		regExpExcludeExcept = new RegExp(`${opts.filters.excludeExcept.join("|")}`)
 	}
 
 	result = regExpExcludeExcept?.test(moduleName) || !regExpExclude?.test(moduleName)

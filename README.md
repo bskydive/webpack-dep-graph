@@ -33,6 +33,10 @@ Fixed and working.
 
 ## Caveats
 
+ * see full in node data properties(right click)
+    * ![](./doc/graphml_yed_data.jpg)
+ * search in nodes, urls, properties
+    * ![](./doc/graphml_yed_search.jpg)
  * Exporting one dependency in multiple files can be confusing
     * ![](./doc/graphml_re-export_code.jpg)
     * ![](./doc/graphml_key_properties.jpg)
@@ -71,63 +75,76 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
     * [json: analyzed deps from webpack stats](./graph-output/deps.json)
     * [xml: simplified dot graph](./graph-output/graph_simplified.dot)
         * ![](./doc/graphviz_dot_simplified.jpg)
-    * graphviz
-        * [xml: dot](./graph-output/graphviz.dot)
-            * ![](./doc/graphviz_dot.jpg)
-        * [png: dot layout](./graph-output/graphviz_dot.png)
-            * ![](./doc/graphviz_dot_layout.jpg)
-        * [png: spring layout](./graph-output/graphviz_spring.png)
-            * ![](./doc/graphviz_spring_layout.jpg)
-        * [png: directed layout](./graph-output/graphviz_directed.png)
-            * ![](./doc/graphviz_directed_layout.jpg)
-            * ![](./doc/graphviz_directed_layout_full.jpg)
-        * [png: circular layout](./graph-output/graphviz_circular.png)
-            * ![](./doc/graphviz_circle_layout.jpg)
-            * ![](./doc/graphviz_circle_layout_full.jpg)
-        * [png: radial layout](./graph-output/graphviz_radial.png)
-            * ![](./doc/graphviz_radial_layout.jpg)
-        * [png: clustered layout](./graph-output/graphviz_clustered.png)
-            * ![](./doc/graphviz_clustered_layout.jpg)
-    * graphml for [yed](https://www.yworks.com/products/yed) editor
-        * see full in node data properties(right click)
-            * ![](./doc/graphml_yed_data.jpg)
-        * search in nodes, urls, properties
-            * ![](./doc/graphml_yed_search.jpg)
-        * [graphml: raw xml](./graph-output/deps.graphml)
-        * Manually applied in yed circular layout: `tools-->fit node to label`, `layout-->circular (alt+shift+c)`
-            * exclude non project files
-                * summary: imports: 1551, re-exports: 0, issuers: 1252
-                * [deps.config.ts](./deps.config.ts)
-                    ```ts
-                        exclude: ['cache', 'webpack', 'node_modules'],
-                        excludeExcept: [], includeOnly: [],
-                    ```
-                * [graphml](./graph-output/deps_circular.graphml)
-                * ![](./doc/graphml_xml.jpg)
-                * ![](./doc/graphml_png.jpg)
-            * include all
-                * summary: imports: 7800; re-exports: 0; issuers: 7493; dependencies: 1630
-                * [deps.config.ts](./deps.config.ts)
-                    ```ts
-                        exclude: [], excludeExcept: [], includeOnly: [],
-                    ```
-                * ![](./doc/graphml_all.jpg)
-            * include only angular
-                * summary: imports: 64, re-exports: 0, issuers: 52
-                * [deps.config.ts](./deps.config.ts)
-                    ```ts
-                        exclude: ['cache', 'webpack', 'node_modules'],
-                        excludeExcept: [], includeOnly: ['angular'],
-                    ```
-                * ![](./doc/graphml_only.jpg)
-            * exclude non project files except angular
-                * summary: imports: 2025; re-exports: 0; issuers: 1678; dependencies: 237
-                * [deps.config.ts](./deps.config.ts)
-                    ```ts
-                        exclude: ['cache', 'webpack', 'node_modules'],
-                        excludeExcept: ['angular'], includeOnly: [],
-                    ```
-                * ![](./doc/graphml_except.jpg)
+
+### graphviz
+* [xml: dot](./graph-output/graphviz.dot)
+    * ![](./doc/graphviz_dot.jpg)
+* [png: dot layout](./graph-output/graphviz_dot.png)
+    * ![](./doc/graphviz_dot_layout.jpg)
+* [png: spring layout](./graph-output/graphviz_spring.png)
+    * ![](./doc/graphviz_spring_layout.jpg)
+* [png: directed layout](./graph-output/graphviz_directed.png)
+    * ![](./doc/graphviz_directed_layout.jpg)
+    * ![](./doc/graphviz_directed_layout_full.jpg)
+* [png: circular layout](./graph-output/graphviz_circular.png)
+    * ![](./doc/graphviz_circle_layout.jpg)
+    * ![](./doc/graphviz_circle_layout_full.jpg)
+* [png: radial layout](./graph-output/graphviz_radial.png)
+    * ![](./doc/graphviz_radial_layout.jpg)
+* [png: clustered layout](./graph-output/graphviz_clustered.png)
+    * ![](./doc/graphviz_clustered_layout.jpg)
+
+### graphml
+
+Used for [yed](https://www.yworks.com/products/yed) editor
+
+ * [graphml: raw xml](./graph-output/deps.graphml)
+ * Manually applied in yed circular layout: `tools-->fit node to label`, `layout-->circular (alt+shift+c)`
+
+ * default [filters](./deps.config.ts):
+    ```ts
+		exclude: ["index","cache","webpack","node_modules","main","logger","profile","config","platform","settings","popup","app","confirm","analytics","theme","error","home",],
+		excludeExcept: ["index"], includeOnlyDestNode: ["key.ts"], includeOnlySrcNode: ["key.ts"],
+		edgeTypeExclude: ["cjs self exports reference","export imported specifier",],
+    ```
+    * summary: imports: 1239; dependencies: 269 nodesPaths: 403 nodes: 405
+    * ![](./doc/graphml_filters_circular.jpg)
+
+#TODO fix:
+
+ * exclude non project files
+    * summary: imports: 1551, re-exports: 0, issuers: 1252
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            exclude: ['cache', 'webpack', 'node_modules'],
+            excludeExcept: [], includeOnly: [],
+        ```
+    * [graphml](./graph-output/deps_circular.graphml)
+    * ![](./doc/graphml_xml.jpg)
+    * ![](./doc/graphml_png.jpg)
+ * include all
+    * summary: imports: 7800; re-exports: 0; issuers: 7493; dependencies: 1630
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            exclude: [], excludeExcept: [], includeOnly: [],
+        ```
+    * ![](./doc/graphml_all.jpg)
+ * include only angular
+    * summary: imports: 64, re-exports: 0, issuers: 52
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            exclude: ['cache', 'webpack', 'node_modules'],
+            excludeExcept: [], includeOnly: ['angular'],
+        ```
+    * ![](./doc/graphml_only.jpg)
+ * exclude non project files except angular
+    * summary: imports: 2025; re-exports: 0; issuers: 1678; dependencies: 237
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            exclude: ['cache', 'webpack', 'node_modules'],
+            excludeExcept: ['angular'], includeOnly: [],
+        ```
+    * ![](./doc/graphml_except.jpg)
 
 
 ## What is it for
