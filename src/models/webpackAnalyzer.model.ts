@@ -60,13 +60,17 @@ export interface IWebpackAnalyzerConfig {
 	includeOnlyDestNode: string[]
 	includeOnlySrcNode: string[]
     edgeTypeExclude: TWebpackReasonShortType[]
-	testGraphml: boolean
+    showSourceEdgeLabels: boolean
+    showDestEdgeLabels: boolean
+	testGraphmlJs2Xml: boolean
 	printImportAnalysis: boolean
 	depsJson: boolean
 	graphmlDeps: boolean
 	circularDepsJson: boolean
 	cytoscapeJson: boolean
 	simplifiedDot: boolean
+    graphml: {}
+    output: {}
 	graphviz: {
 		renderedDot: IGraphvizRenderOpts
 		renderedDotPng: IGraphvizRenderOpts

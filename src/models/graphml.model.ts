@@ -1,21 +1,31 @@
+export const HEX_RED = "#FF0000"
+export const HEX_GRAY = "#999999"
+export const HEX_BLACK = "#000000"
+
+type TColorHEX = typeof HEX_RED | typeof HEX_GRAY | typeof HEX_BLACK
+
 export interface IGraphmlNode {
 	id: string
 	label: string
-    notes: string
+	notes: string
 	x: number
 	y: number
 	height: number
 	width: number
+    textColor: TColorHEX | string
+    color: TColorHEX | string
 }
 
 export const GRAPHML_NODE_DEFAULT: IGraphmlNode = {
 	id: "n0",
 	label: "",
-    notes: "",
+	notes: "",
 	x: 10,
 	y: 10,
 	height: 30,
 	width: 100,
+    textColor: "#FF0000",
+    color: "#000000",
 }
 
 export interface IGraphmlEdge {
@@ -23,9 +33,11 @@ export interface IGraphmlEdge {
 	sourceKey: string
 	targetKey: string
 	label: string
-    width: number
-    labelX: number
-    labelY: number
+	width: number
+	labelX: number
+	labelY: number
+	textColor: TColorHEX | string
+	color: TColorHEX | string
 }
 
 export const GRAPHML_EDGE_DEFAULT: IGraphmlEdge = {
@@ -33,9 +45,11 @@ export const GRAPHML_EDGE_DEFAULT: IGraphmlEdge = {
 	sourceKey: "n0",
 	targetKey: "n0",
 	label: "",
-    width: 1,
-    labelX: 0,
-    labelY: 0
+	width: 1,
+	labelX: 0,
+	labelY: 0,
+	textColor: "#999999",
+	color: "#999999",
 }
 
 export const GRAPHML_HEADER = `\
@@ -62,4 +76,3 @@ export const GRAPHML_FOOTER = `\
     <y:Resources/>
   </data>
 </graphml>\n`
-

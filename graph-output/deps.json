@@ -1,5 +1,6 @@
 {
   "./src/providers/index.ts": [
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/external-link/external-link.ts",
@@ -15,12 +16,15 @@
     "./src/providers/replace-parameters/replace-parameters.ts",
     "./src/providers/incoming-data/incoming-data.ts",
     "./src/providers/push-notifications/push-notifications.ts",
+    "./node_modules/@ionic-native/social-sharing/index.js",
     "./src/providers/fee/fee.ts",
     "./src/providers/address-book/address-book.ts",
     "./src/providers/coinbase/coinbase.ts",
+    "./node_modules/@ionic-native/device/index.js",
     "./src/providers/paypro/paypro.ts",
     "./src/providers/exchange-crypto/exchange-crypto.ts",
     "./src/providers/one-inch/one-inch.ts",
+    "./node_modules/@ionic-native/file/index.js",
     "./src/providers/dom/dom.ts",
     "./src/providers/touchid/touchid.ts",
     "./src/providers/derivation-path-helper/derivation-path-helper.ts",
@@ -33,10 +37,14 @@
     "./src/providers/buy-crypto/buy-crypto.ts",
     "./src/providers/simplex/simplex.ts",
     "./src/providers/changelly/changelly.ts",
+    "./node_modules/@ionic-native/splash-screen/index.js",
     "./src/providers/filter/filter.ts",
     "./src/providers/logs/logs.ts",
     "./src/providers/wyre/wyre.ts",
     "./src/providers/email-notifications/email-notifications.ts",
+    "./node_modules/@ionic-native/status-bar/index.js",
+    "./node_modules/@ionic-native/clipboard/index.js",
+    "./node_modules/fcm-ng/dist/index.js",
     "./src/providers/electron/electron.ts",
     "./src/providers/bitpay-account/bitpay-account.ts",
     "./src/providers/bitpay-id/bitpay-id.ts",
@@ -45,6 +53,13 @@
     "./src/providers/download/download.ts",
     "./src/providers/scan/scan.ts",
     "./src/providers/wallet-connect/wallet-connect.ts",
+    "./node_modules/@ionic-native/screen-orientation/index.js",
+    "./node_modules/@ionic-native/user-agent/index.js",
+    "./node_modules/apple-wallet-ng/dist/index.js",
+    "./node_modules/@ionic-native/fingerprint-aio/index.js",
+    "./node_modules/@ionic-native/launch-review/index.js",
+    "./node_modules/@ionic-native/qr-scanner/index.js",
+    "./node_modules/@ionic-native/vibration/index.js",
     "./src/providers/zce/zce.ts",
     "./src/providers/backup/backup.ts",
     "./src/providers/confetti/confetti.ts",
@@ -56,7 +71,31 @@
     "./src/providers/new-feature-data/new-feature-data.ts",
     "./src/providers/card-phases/card-phases.ts"
   ],
+  "./src/pages/send/amount/amount.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/currency/currency.ts",
+    "./src/providers/index.ts",
+    "./src/providers/rate/rate.ts",
+    "./src/providers/tx-format/tx-format.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/providers/simplex/simplex.ts",
+    "./src/providers/filter/filter.ts",
+    "./src/providers/electron/electron.ts",
+    "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
+    "./src/pages/integrations/gift-cards/phone/phone.ts",
+    "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts",
+    "./src/pages/receive/custom-amount/custom-amount.ts",
+    "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
+  ],
+  "./src/pages/scan/scan.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/incoming-data/incoming-data.ts",
+    "./src/environments/index.ts",
+    "./src/providers/scan/scan.ts"
+  ],
   "./src/pages/wallet-details/wallet-details.ts": [
+    "./node_modules/ionic-angular/index.js",
     "./src/providers/persistence/persistence.ts",
     "./src/providers/currency/currency.ts",
     "./src/providers/external-link/external-link.ts",
@@ -64,6 +103,7 @@
     "./src/providers/wallet/wallet.ts",
     "./src/providers/gift-card/gift-card.ts",
     "./src/pages/send/amount/amount.ts",
+    "./node_modules/@ionic-native/social-sharing/index.js",
     "./src/providers/address-book/address-book.ts",
     "./src/environments/index.ts",
     "./src/providers/exchange-crypto/exchange-crypto.ts",
@@ -77,6 +117,159 @@
     "./src/pages/tx-details/tx-details.ts",
     "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts",
     "./src/pages/wallet-details/wallet-balance/wallet-balance.ts"
+  ],
+  "./src/pages/add/select-currency/select-currency.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/currency/currency.ts",
+    "./src/providers/index.ts",
+    "./src/pages/add/import-wallet/import-wallet.ts",
+    "./src/pages/add/join-wallet/join-wallet.ts",
+    "./src/pages/add/create-wallet/create-wallet.ts",
+    "./src/pages/onboarding/recovery-key/recovery-key.ts",
+    "./src/pages/add/custom-token/custom-token.ts"
+  ],
+  "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/index.ts",
+    "./src/providers/bitpay-card/bitpay-card.ts",
+    "./src/providers/bitpay-account/bitpay-account.ts",
+    "./src/providers/scan/scan.ts",
+    "./src/pages/integrations/bitpay-card/bitpay-card.ts"
+  ],
+  "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/pages/send/amount/amount.ts",
+    "./src/pages/integrations/gift-cards/phone/phone.ts"
+  ],
+  "./src/pages/integrations/wallet-connect/wallet-connect.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/scan/scan.ts",
+    "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts"
+  ],
+  "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/environments/index.ts",
+    "./src/pages/add/create-wallet/create-wallet.ts",
+    "./src/pages/onboarding/recovery-key/recovery-key.ts",
+    "./src/pages/send/send.ts"
+  ],
+  "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+    "./src/providers/merchant/merchant.ts",
+    "./src/pages/integrations/gift-cards/card-details/card-details.ts"
+  ],
+  "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/gift-card/gift-card.ts",
+    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+    "./src/providers/merchant/merchant.ts",
+    "./src/pages/merchant/merchant.ts",
+    "./src/pages/templates/wide-header-page/wide-header-page.ts"
+  ],
+  "./src/pages/add/add.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/pages/add/import-wallet/import-wallet.ts",
+    "./src/pages/add/select-currency/select-currency.ts",
+    "./src/pages/add-wallet/add-wallet.ts"
+  ],
+  "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/currency/currency.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/on-going-process/on-going-process.ts",
+    "./src/providers/wallet/wallet.ts",
+    "./src/pages/send/amount/amount.ts",
+    "./src/pages/wallet-details/wallet-details.ts",
+    "./src/environments/index.ts",
+    "./src/providers/bitpay/bitpay.ts",
+    "./src/pages/add/select-currency/select-currency.ts",
+    "./src/providers/buy-crypto/buy-crypto.ts",
+    "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
+    "./src/pages/buy-crypto/country-selector/country-selector.ts",
+    "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts",
+    "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts"
+  ],
+  "./src/pages/integrations/gift-cards/phone/phone.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/index.ts",
+    "./src/providers/phone/phone.ts",
+    "./node_modules/countries-list/dist/index.es5.min.js"
+  ],
+  "./src/pages/integrations/invoice/select-invoice/select-invoice.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/includes/coin-selector/coin-selector.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/cards/cards.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/persistence/persistence.ts",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/add/custom-token/custom-token.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/wallet/wallet.ts",
+    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts"
+  ],
+  "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts"
+  ],
+  "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/currency/currency.ts",
+    "./src/providers/external-link/external-link.ts",
+    "./src/providers/index.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/on-going-process/on-going-process.ts",
+    "./src/providers/wallet/wallet.ts",
+    "./src/providers/bwc/bwc.ts",
+    "./src/providers/tx-format/tx-format.ts",
+    "./src/pages/finish/finish.ts",
+    "./src/providers/fee/fee.ts",
+    "./src/providers/coinbase/coinbase.ts",
+    "./src/providers/paypro/paypro.ts",
+    "./src/providers/bitpay/bitpay.ts",
+    "./src/providers/bitpay-card/bitpay-card.ts",
+    "./src/pages/integrations/bitpay-card/bitpay-card.ts"
+  ],
+  "./src/pages/send/multi-send/multi-send.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/action-sheet/action-sheet.ts",
+    "./src/providers/bwc/bwc.ts",
+    "./src/providers/tx-format/tx-format.ts",
+    "./src/pages/send/amount/amount.ts",
+    "./src/pages/scan/scan.ts",
+    "./src/providers/address/address.ts",
+    "./src/providers/incoming-data/incoming-data.ts",
+    "./src/pages/send/transfer-to-modal/transfer-to-modal.ts"
+  ],
+  "./src/pages/merchant/merchant.ts": [
+    "./node_modules/ionic-angular/index.js",
+    "./src/providers/index.ts",
+    "./src/providers/merchant/merchant.ts"
   ],
   "./src/providers/coinbase/coinbase.ts": [
     "./src/providers/persistence/persistence.ts",
@@ -95,159 +288,5 @@
     "./src/providers/persistence/persistence.ts",
     "./src/providers/rate/rate.ts",
     "./src/environments/index.ts"
-  ],
-  "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": [
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/index.ts",
-    "./src/providers/bitpay-card/bitpay-card.ts",
-    "./src/providers/bitpay-account/bitpay-account.ts",
-    "./src/providers/scan/scan.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card.ts"
-  ],
-  "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": [
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/currency/currency.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/on-going-process/on-going-process.ts",
-    "./src/providers/wallet/wallet.ts",
-    "./src/pages/send/amount/amount.ts",
-    "./src/pages/wallet-details/wallet-details.ts",
-    "./src/environments/index.ts",
-    "./src/providers/bitpay/bitpay.ts",
-    "./src/pages/add/select-currency/select-currency.ts",
-    "./src/providers/buy-crypto/buy-crypto.ts",
-    "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
-    "./src/pages/buy-crypto/country-selector/country-selector.ts",
-    "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts",
-    "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts"
-  ],
-  "./src/pages/cards/cards.ts": [
-    "./src/providers/persistence/persistence.ts",
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/send/amount/amount.ts": [
-    "./src/providers/currency/currency.ts",
-    "./src/providers/index.ts",
-    "./src/providers/rate/rate.ts",
-    "./src/providers/tx-format/tx-format.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/providers/simplex/simplex.ts",
-    "./src/providers/filter/filter.ts",
-    "./src/providers/electron/electron.ts",
-    "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
-    "./src/pages/integrations/gift-cards/phone/phone.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts",
-    "./src/pages/receive/custom-amount/custom-amount.ts",
-    "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
-  ],
-  "./src/pages/add/select-currency/select-currency.ts": [
-    "./src/providers/currency/currency.ts",
-    "./src/providers/index.ts",
-    "./src/pages/add/import-wallet/import-wallet.ts",
-    "./src/pages/add/join-wallet/join-wallet.ts",
-    "./src/pages/add/create-wallet/create-wallet.ts",
-    "./src/pages/onboarding/recovery-key/recovery-key.ts",
-    "./src/pages/add/custom-token/custom-token.ts"
-  ],
-  "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": [
-    "./src/providers/currency/currency.ts",
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/index.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/on-going-process/on-going-process.ts",
-    "./src/providers/wallet/wallet.ts",
-    "./src/providers/bwc/bwc.ts",
-    "./src/providers/tx-format/tx-format.ts",
-    "./src/pages/finish/finish.ts",
-    "./src/providers/fee/fee.ts",
-    "./src/providers/coinbase/coinbase.ts",
-    "./src/providers/paypro/paypro.ts",
-    "./src/providers/bitpay/bitpay.ts",
-    "./src/providers/bitpay-card/bitpay-card.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card.ts"
-  ],
-  "./src/pages/integrations/gift-cards/phone/phone.ts": [
-    "./src/providers/external-link/external-link.ts",
-    "./src/providers/index.ts",
-    "./src/providers/phone/phone.ts"
-  ],
-  "./src/pages/scan/scan.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/incoming-data/incoming-data.ts",
-    "./src/environments/index.ts",
-    "./src/providers/scan/scan.ts"
-  ],
-  "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/pages/send/amount/amount.ts",
-    "./src/pages/integrations/gift-cards/phone/phone.ts"
-  ],
-  "./src/pages/integrations/wallet-connect/wallet-connect.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/scan/scan.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts"
-  ],
-  "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": [
-    "./src/providers/index.ts",
-    "./src/environments/index.ts",
-    "./src/pages/add/create-wallet/create-wallet.ts",
-    "./src/pages/onboarding/recovery-key/recovery-key.ts",
-    "./src/pages/send/send.ts"
-  ],
-  "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-    "./src/providers/merchant/merchant.ts",
-    "./src/pages/integrations/gift-cards/card-details/card-details.ts"
-  ],
-  "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/gift-card/gift-card.ts",
-    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-    "./src/providers/merchant/merchant.ts",
-    "./src/pages/merchant/merchant.ts",
-    "./src/pages/templates/wide-header-page/wide-header-page.ts"
-  ],
-  "./src/pages/add/add.ts": [
-    "./src/providers/index.ts",
-    "./src/pages/add/import-wallet/import-wallet.ts",
-    "./src/pages/add/select-currency/select-currency.ts",
-    "./src/pages/add-wallet/add-wallet.ts"
-  ],
-  "./src/pages/integrations/invoice/select-invoice/select-invoice.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/includes/coin-selector/coin-selector.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/add/custom-token/custom-token.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/wallet/wallet.ts",
-    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts"
-  ],
-  "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts": [
-    "./src/providers/index.ts"
-  ],
-  "./src/pages/send/multi-send/multi-send.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/action-sheet/action-sheet.ts",
-    "./src/providers/bwc/bwc.ts",
-    "./src/providers/tx-format/tx-format.ts",
-    "./src/pages/send/amount/amount.ts",
-    "./src/pages/scan/scan.ts",
-    "./src/providers/address/address.ts",
-    "./src/providers/incoming-data/incoming-data.ts",
-    "./src/pages/send/transfer-to-modal/transfer-to-modal.ts"
-  ],
-  "./src/pages/merchant/merchant.ts": [
-    "./src/providers/index.ts",
-    "./src/providers/merchant/merchant.ts"
   ]
 }

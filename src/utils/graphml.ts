@@ -11,6 +11,7 @@ import { readFile, writeFile } from "./files"
 import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { fileNameFromPath } from "../utils/webpack"
 import { missedDependencyMapSrcNodes } from "../analyzer/analyzerUtils/dependencyMap"
+import { depsConfig } from "../../deps.config"
 // import { create } from "xmlbuilder"
 
 export function toGraphmlXml(js: ElementCompact): string {
@@ -50,8 +51,8 @@ export function graphmlNodeToXml(
       <y:ShapeNode>
         <y:Geometry height="${data.height}.0" width="${data.width}.0" x="${data.x}.0" y="${data.y}.0"/>
         <y:Fill hasColor="false" transparent="false"/>
-        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">${data.label}<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:BorderStyle color="${data.color}" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="${data.textColor}" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">${data.label}<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
         <y:Shape type="rectangle"/>
       </y:ShapeNode>
     </data>
@@ -67,9 +68,9 @@ export function graphmlEdgeToXml(
     <data key="d10">
       <y:PolyLineEdge>
         <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-        <y:LineStyle color="#000000" type="line" width="${data.width}.0"/>
+        <y:LineStyle color="${data.color}" type="line" width="${data.width}.0"/>
         <y:Arrows source="none" target="standard"/>
-        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.154296875" x="${data.labelX}.0" xml:space="preserve" y="${data.labelY}.0">${data.label}<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="${data.textColor}" verticalTextPosition="bottom" visible="true" width="74.154296875" x="${data.labelX}.0" xml:space="preserve" y="${data.labelY}.0">${data.label}<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
         <y:BendStyle smoothed="false"/>
       </y:PolyLineEdge>
     </data>
@@ -88,9 +89,9 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	}
 
 	// Nodes
-    for (const destNode in allDestNodes) {
+	for (const destNode in allDestNodes) {
 		currentNode = {
-            ...GRAPHML_NODE_DEFAULT,
+			...GRAPHML_NODE_DEFAULT,
 			id: `nodeId_${destNode}`,
 			label: fileNameFromPath(destNode),
 			notes: destNode,
@@ -100,15 +101,19 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 		result += graphmlNodeToXml(currentNode)
 	}
 
-    // Edges
+	// Edges
 	for (const destNode in allDestNodes) {
 		dependencyMap[destNode]?.forEach((srcNode) => {
+            let label = depsConfig.showSourceEdgeLabels ? srcNode : ""
+			// escaping text for xml parser
+			label += depsConfig.showDestEdgeLabels ? ` --\\> ${destNode}` : ""
+
 			currentEdge = {
-                ...GRAPHML_EDGE_DEFAULT,
+				...GRAPHML_EDGE_DEFAULT,
 				id: `edgeId_${srcNode}_${destNode}`,
 				sourceKey: `nodeId_${srcNode}`,
 				targetKey: `nodeId_${destNode}`,
-				label: "", // TODO add option showLabels in config: fileNameFromPath(nodePathSrc + '--' + nodePathDest),
+				label: label,
 			}
 
 			result += graphmlEdgeToXml(currentEdge)

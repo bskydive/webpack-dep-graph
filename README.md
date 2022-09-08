@@ -9,7 +9,7 @@ Fixed and working.
  * output formats:
     * [graphml](http://graphml.graphdrawing.org/) graph for proprietary [yed](https://www.yworks.com/products/yed/download) editor
     * [DOT](https://github.com/glejeune/node-graphviz) graph
-    * [cytoscape](https://cytoscape.org/) graph
+    * `*.png` [cytoscape](https://cytoscape.org/) graph export
     * json debug data
 
 ## TODO
@@ -17,14 +17,38 @@ Fixed and working.
  * add excludeNodeByMaxDepsCount
  * fix circular.json comparing to eslint
 
- * [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
+ * use xml schema for graphml parser
+    * http://www.w3.org/2001/XMLSchema-instance
+    * http://graphml.graphdrawing.org/xmlns 
+    * http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd
+    * http://www.yworks.com/xml/yfiles-common/1.0/java
+    * http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0
+    * http://www.yworks.com/xml/yfiles-common/markup/2.0
+    * http://www.yworks.com/xml/graphml
+    * http://www.yworks.com/xml/yed/3
  * local webpack dev server
- * [cytoscape](https://js.cytoscape.org) graph viewer
+ * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
+ * local web [cytoscape](https://js.cytoscape.org) graph viewer
  * file size viewer
 
-### Examples
+## Caveats
 
-The graphviz layout renderer seems to be useless. You can upload the simplified dot file into any [graphviz editor](http://magjac.com/graphviz-visual-editor/) and try to play with settings. Generating graphml and editing it in [yEd](https://www.yworks.com/products/yed/download) are the best option for now. Best yEd layouts: circular(alt+shift+c), hierarchical(alt+shift+h)
+ * Exporting one dependency in multiple files can be confusing
+    * ![](./doc/graphml_re-export_code.jpg)
+    * ![](./doc/graphml_key_properties.jpg)
+ * Graph node label consist of file name only, so if you see similar names, you can right-click it and check the properties-->data tab to see the full path
+    * ![](./doc/graphml_index_properties_1.jpg)
+    * ![](./doc/graphml_index_properties_2.jpg)
+    * ![](./doc/graphml_index_properties_3.jpg)
+ * You can enable edge labeling and coloring to check similar dependencies origins
+    * ![](./doc/graphml_edge_label_1.jpg)
+    * ![](./doc/graphml_edge_label_2.jpg)
+
+## Examples
+
+Generating graphml and editing it in [yEd](https://www.yworks.com/products/yed/download) are the best option for now. Best yEd layouts: circular(alt+shift+c), hierarchical(alt+shift+h).
+
+The graphviz layout renderer seems to be less useful. You can upload the simplified dot file into any [graphviz editor](http://magjac.com/graphviz-visual-editor/) and try to play with settings.
 
  * input
     * example of the [webpack stats](./doc/webpack-stats.zip)
@@ -129,8 +153,8 @@ The graphviz layout renderer seems to be useless. You can upload the simplified 
 
 ## this project is based on 
 
- * unmaintained broken [draft repo](https://github.com/heypoom/webpack-dep-graph)
- * https://github.com/pahen/madge (Maintained, does not use webpack stats.json)
- * https://github.com/g0t4/webpack-stats-graph (Unmaintained)
- * https://github.com/jantimon/webpack-dependency-stats (Unmaintained)
+ * unmaintained broken draft repo - https://github.com/heypoom/webpack-dep-graph
+ * Maintained, does not use webpack stats.json - https://github.com/pahen/madge
+ * Unmaintained - https://github.com/g0t4/webpack-stats-graph
+ * Unmaintained - https://github.com/jantimon/webpack-dependency-stats
 

@@ -35,7 +35,7 @@ function main() {
 			analyzerContext.dependencyMap
 		)
 
-		if (config.testGraphml) {
+		if (config.testGraphmlJs2Xml) {
 			saveGraphml("./graph-output/test_save.graphml", grapml)
 		}
 
