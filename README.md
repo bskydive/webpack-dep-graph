@@ -16,6 +16,9 @@ Fixed and working.
 
  * add excludeNodeByMaxDepsCount
  * fix circular.json comparing to eslint
+ * validate summary text
+ * validate examples
+ * add size
 
  * use xml schema for graphml parser
     * http://www.w3.org/2001/XMLSchema-instance
@@ -33,6 +36,7 @@ Fixed and working.
 
 ## Caveats
 
+ * `summary` text calculated before filters applied
  * see full in node data properties(right click)
     * ![](./doc/graphml_yed_data.jpg)
  * search in nodes, urls, properties
@@ -77,10 +81,12 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
         * ![](./doc/graphviz_dot_simplified.jpg)
 
 ### graphviz
+
 * [xml: dot](./graph-output/graphviz.dot)
     * ![](./doc/graphviz_dot.jpg)
 * [png: dot layout](./graph-output/graphviz_dot.png)
     * ![](./doc/graphviz_dot_layout.jpg)
+    * ![](./doc/graphviz_dot_layout_full.jpg)
 * [png: spring layout](./graph-output/graphviz_spring.png)
     * ![](./doc/graphviz_spring_layout.jpg)
 * [png: directed layout](./graph-output/graphviz_directed.png)
@@ -101,50 +107,44 @@ Used for [yed](https://www.yworks.com/products/yed) editor
  * [graphml: raw xml](./graph-output/deps.graphml)
  * Manually applied in yed circular layout: `tools-->fit node to label`, `layout-->circular (alt+shift+c)`
 
- * default [filters](./deps.config.ts):
+ * exclude most frequently used dependencies
+    * [filters](./deps.config.ts):
     ```ts
-		exclude: ["index","cache","webpack","node_modules","main","logger","profile","config","platform","settings","popup","app","confirm","analytics","theme","error","home",],
-		excludeExcept: ["index"], includeOnlyDestNode: ["key.ts"], includeOnlySrcNode: ["key.ts"],
+		exclude: ["index", "node_modules", "main", "cache", "webpack", "logger", "profile", "config", "platform", "settings", "popup", "confirm", "analytics", "theme", "error",],
+		excludeExcept: [], includeOnlyDestNode: [], includeOnlySrcNode: [],
 		edgeTypeExclude: ["cjs self exports reference","export imported specifier",],
     ```
-    * summary: imports: 1239; dependencies: 269 nodesPaths: 403 nodes: 405
-    * ![](./doc/graphml_filters_circular.jpg)
-
-#TODO fix:
-
+    * summary: imports: 594; dependencies: 123 nodesPaths: 166 nodes: 168
+    * [graphml](./graph-output/deps_circular.graphml)
+    * ![](./doc/graphml_except.jpg)
+ * include all
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            exclude: [], excludeExcept: [],
+            includeOnlyDestNode: [""], includeOnlySrcNode: [""],
+		    edgeTypeExclude: ["cjs self exports reference","export imported specifier"],
+        ```
+    * summary: imports: 8623; dependencies: 1630 nodesPaths: 2019 nodes: 2021
+    * ![](./doc/graphml_all.jpg)
+ * who use `@angular/forms` dependencies: exclude `node_nodules` except `angular` and include only `forms` source modules
+    * [filters](./deps.config.ts):
+        ```ts
+            filters: {
+                exclude: ["node_modules"],
+                excludeExcept: ["angular"], includeOnlyDestNode: ["key.ts"], includeOnlySrcNode: ["key.ts"],
+            //...
+            graphml: {
+                showSourceEdgeLabels: false,
+                showDestEdgeLabels: true,
+        ```
+    * ![](./doc/graphml_filter_forms_only.jpg)
  * exclude non project files
-    * summary: imports: 1551, re-exports: 0, issuers: 1252
+    * summary: imports: 1654; dependencies: 195 nodesPaths: 224 nodes: 226
     * [deps.config.ts](./deps.config.ts)
         ```ts
             exclude: ['cache', 'webpack', 'node_modules'],
             excludeExcept: [], includeOnly: [],
         ```
-    * [graphml](./graph-output/deps_circular.graphml)
-    * ![](./doc/graphml_xml.jpg)
-    * ![](./doc/graphml_png.jpg)
- * include all
-    * summary: imports: 7800; re-exports: 0; issuers: 7493; dependencies: 1630
-    * [deps.config.ts](./deps.config.ts)
-        ```ts
-            exclude: [], excludeExcept: [], includeOnly: [],
-        ```
-    * ![](./doc/graphml_all.jpg)
- * include only angular
-    * summary: imports: 64, re-exports: 0, issuers: 52
-    * [deps.config.ts](./deps.config.ts)
-        ```ts
-            exclude: ['cache', 'webpack', 'node_modules'],
-            excludeExcept: [], includeOnly: ['angular'],
-        ```
-    * ![](./doc/graphml_only.jpg)
- * exclude non project files except angular
-    * summary: imports: 2025; re-exports: 0; issuers: 1678; dependencies: 237
-    * [deps.config.ts](./deps.config.ts)
-        ```ts
-            exclude: ['cache', 'webpack', 'node_modules'],
-            excludeExcept: ['angular'], includeOnly: [],
-        ```
-    * ![](./doc/graphml_except.jpg)
 
 
 ## What is it for

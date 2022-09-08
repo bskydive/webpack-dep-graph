@@ -11,27 +11,25 @@ export const depsConfig: IWebpackAnalyzerConfig = {
 	},
 	filters: {
 		exclude: [
-			"index",
-			"cache",
-			"webpack",
+            "index",
 			"node_modules",
-			"main",
+            "main",
+            "cache",
+			"webpack",
 			"logger",
 			"profile",
 			"config",
 			"platform",
 			"settings",
 			"popup",
-			"app",
 			"confirm",
 			"analytics",
 			"theme",
 			"error",
-			"home",
 		], // exclude by words in module path
-		excludeExcept: ["index"], // add some deps from excluded: exclude 'angular', but leave 'router'
-		includeOnlyDestNode: ["key.ts"], // from nodes; applied after exclude and excludeExcept filters
-		includeOnlySrcNode: ["key.ts"], // from edges/reasons; applied after exclude and excludeExcept filters
+		excludeExcept: [], // add some deps from excluded: exclude 'angular', but leave 'router'
+		includeOnlyDestNode: [], // from nodes; applied after exclude and excludeExcept filters
+		includeOnlySrcNode: [], // from edges/reasons; applied after exclude and excludeExcept filters
 		edgeTypeExclude: [
 			"cjs self exports reference", // fake dependencies loops
 			"export imported specifier", // re-export TODO check necessity

@@ -14,7 +14,8 @@ function isModuleIncludedOnly(
 ): boolean {
 	let result: boolean = false
 	let regExpIncludeOnly: RegExp = null
-	if (includeOnly.length) {
+
+	if (includeOnly.length && includeOnly.join("|")) {
 		regExpIncludeOnly = new RegExp(`${includeOnly.join("|")}`)
 		result = regExpIncludeOnly.test(moduleName)
 	}
@@ -51,35 +52,39 @@ export function getDependencyMap(
 		destModule = getModuleName(destModuleId, graph.nodesById)
 		srcModules = getModuleDependencies(dependencies, graph.nodesById)
 
-		if (destModule) {
-			if (
-				(opts.filters.includeOnlyDestNode.length &&
-					isModuleIncludedOnly(
-						destModule,
-						opts.filters.includeOnlyDestNode
-					)) ||
-				(opts.filters.includeOnlySrcNode.length &&
-					srcModules.findIndex((srcModule) =>
-						isModuleIncludedOnly(srcModule, opts.filters.includeOnlySrcNode)
-					) >= 0)
-			) {
-				// only source or dest module included by deps.config.ts option
-				result[destModule] = srcModules
-			}
-
-			if (
-				!opts.filters.includeOnlyDestNode.length ||
-				!opts.filters.includeOnlySrcNode.length
-			) {
-				// empty deps.config.ts included only option
-				result[destModule] = srcModules
-			}
-		} else {
+		if (!destModule) {
 			log(
 				"src/analyzer/analyzerUtils/dependencyMap.ts:67",
 				"EMPTY dest module name",
 				destModuleId
 			)
+
+			continue
+		}
+
+		if (
+			!opts.filters.includeOnlyDestNode.length &&
+			!opts.filters.includeOnlySrcNode.length
+		) {
+			// empty included only option
+			result[destModule] = srcModules
+		}
+
+		if ( 
+			opts.filters.includeOnlySrcNode.length && 
+            opts.filters.includeOnlySrcNode.join('').length
+		) {
+			// filter source modules(dependencies)
+			srcModules = srcModules.filter((srcModule) =>
+            isModuleIncludedOnly(srcModule, opts.filters.includeOnlySrcNode))
+		}
+
+		if (
+            srcModules.length ||
+			isModuleIncludedOnly(destModule, opts.filters.includeOnlyDestNode)
+		) {
+            // filter dest modules(issuer)
+            result[destModule] = srcModules
 		}
 	}
 
