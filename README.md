@@ -20,6 +20,7 @@ Fixed and working.
  * validate summary text
  * validate examples
  * add size
+ * make npm package in v2
 
  * use xml schema for graphml parser
     * http://www.w3.org/2001/XMLSchema-instance
