@@ -1,9 +1,11 @@
 import { logEmpty } from "./logger"
-import { IWebpackStatsV3Module } from "../models/webpack.3.model"
 import { IWebpackStatsV3 } from "src/models/webpack.3.model"
 import { readFile } from "./files"
 import { IWebpackStatsV5 } from "../models/webpack.5.model"
-import { IWebpackAnalyzerConfig, IWebpackModuleShort } from "../models/webpackAnalyzer.model"
+import {
+	IWebpackAnalyzerConfigFilters,
+	IWebpackModuleShort,
+} from "../models/webpackAnalyzer.model"
 
 /** TODO @deprecated remove or pick from context interface IWebpackAnalyzerConfig*/
 export interface IIncludedOptions {
@@ -13,24 +15,31 @@ export interface IIncludedOptions {
 	includeOnlySrc: string[]
 }
 
-export function isIncluded(moduleName: string, opts: IWebpackAnalyzerConfig): boolean {
+/** exclude & excludeExcept filter options applied */
+export function isIncluded(
+	moduleName: string,
+	filters: IWebpackAnalyzerConfigFilters
+): boolean {
 	let regExpExclude: RegExp = null
 	let regExpExcludeExcept: RegExp = null
 	let result: boolean = false
 
-	if (opts.filters.exclude.length) {
-		regExpExclude = new RegExp(`${opts.filters.exclude.join("|")}`)
+	if (filters.exclude.length) {
+		regExpExclude = new RegExp(`${filters.exclude.join("|")}`)
 	}
 
-	if (opts.filters.excludeExcept.length) {
-		regExpExcludeExcept = new RegExp(`${opts.filters.excludeExcept.join("|")}`)
+	if (filters.excludeExcept.length) {
+		regExpExcludeExcept = new RegExp(`${filters.excludeExcept.join("|")}`)
 	}
 
-	result = regExpExcludeExcept?.test(moduleName) || !regExpExclude?.test(moduleName)
+	result =
+		regExpExcludeExcept?.test(moduleName) ||
+		!regExpExclude?.test(moduleName)
 
-    return result
+	return result
 }
 
+/** parse `path1 + path2` to `path1`*/
 export const resolvePathPlus = (name: string) => {
 	let result = name
 

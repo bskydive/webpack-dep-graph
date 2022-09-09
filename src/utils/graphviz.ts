@@ -29,8 +29,6 @@ export function saveGraphvizRendered(data: {
 }) {
     const fileName = data.fileName || `graphviz_${data.engine}.${data.type}`
 
-    log(`${fileName} calculations starts`)    
-
     data.graph.render({ 
         type: data.type, 
         use: data.engine 

@@ -8,7 +8,7 @@ import { ElementCompact, js2xml, xml2js } from "xml-js"
 import { readFile, writeFile } from "./files"
 import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { fileNameFromPath } from "../utils/webpack"
-import { missedDependencyMapSrcNodes } from "../analyzer/analyzerUtils/dependencyMap"
+import { missedDependenciesMapSrcNodes } from "../analyzer/analyzerUtils/dependenciesMap"
 import { depsConfig } from "../../deps.config"
 // import { create } from "xmlbuilder"
 
@@ -82,7 +82,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	let currentEdge: IGraphmlEdge = depsConfig.graphml.edge
 
 	allDestNodes = {
-		...missedDependencyMapSrcNodes(dependencyMap),
+		...missedDependenciesMapSrcNodes(dependencyMap),
 		...dependencyMap,
 	}
 

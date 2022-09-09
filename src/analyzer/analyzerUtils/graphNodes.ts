@@ -1,5 +1,4 @@
 import {
-	IWebpackAnalyzerContext,
 	IWebpackModuleParsed,
 	IWebpackModuleShort,
 } from "../../models/webpackAnalyzer.model"
@@ -10,15 +9,16 @@ import {
 } from "../../utils/webpack"
 import { v4 } from "uuid"
 import { log } from "../../utils/logger"
+import { depsConfig } from "../../../deps.config"
 
 export function createGraphNodes(
-	context: IWebpackAnalyzerContext
+	modules: IWebpackModuleShort[]
 ): [Map<string, string>, Map<string, IWebpackModuleParsed>] {
 	let nodeIdByRelativePath: Map<string, string> = new Map()
 	let nodesById: Map<string, IWebpackModuleParsed> = new Map()
 	const startTime = Date.now()
-	const webpackModules = context.webpackModules?.filter(
-		(m: IWebpackModuleShort) => isIncluded(m.name, context)
+	const webpackModules = modules?.filter((m: IWebpackModuleShort) =>
+		isIncluded(m.name, depsConfig.filters)
 	)
 
 	log(`located ${webpackModules.length} modules from this build.`)
@@ -40,5 +40,5 @@ export function createGraphNodes(
 
 	log(`creating module nodes takes: ${Date.now() - startTime}ms.`)
 
-	return [nodeIdByRelativePath, nodesById ]
+	return [nodeIdByRelativePath, nodesById]
 }

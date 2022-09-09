@@ -30,7 +30,9 @@ export const depsConfig: IWebpackAnalyzerConfig = {
 		excludeExcept: [], // add some deps from excluded: exclude 'angular', but leave 'router'
 		includeOnlyDestNode: [], // from nodes; applied after exclude and excludeExcept filters
 		includeOnlySrcNode: [], // from edges/reasons; applied after exclude and excludeExcept filters
-		edgeTypeExclude: [
+        // TODO implement
+        excludeNodeByMaxDepsCount: 3, // applied after exclude* and include* filters
+        edgeTypeExclude: [
 			"cjs self exports reference", // fake dependencies loops
 			"export imported specifier", // re-export TODO check necessity
 		],

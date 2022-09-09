@@ -1,11 +1,11 @@
 import {
+	IDependencyMap,
 	IWebpackAnalyzerConfig as IDepsConfig,
 	IWebpackAnalyzerConfig,
-	IWebpackAnalyzerContext,
 	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
 } from "../models/webpackAnalyzer.model"
-import { DependenciesGraph } from "./analyzerUtils/dependenciesGraph"
+import { DependenciesUUIDMap } from "./analyzerUtils/dependenciesUUIDMap"
 import { isIncluded } from "../utils/webpack"
 import {
 	IWebpackStatsV3,
@@ -14,9 +14,8 @@ import {
 	IWebpackStatsV3Reason,
 } from "../models/webpack.3.model"
 import { depsConfig } from "../../deps.config"
-import { getCircularImports } from "./analyzerUtils/circular"
-import { getDependencyMap } from "./analyzerUtils/dependencyMap"
-import { extractDependencies } from "./analyzerUtils/extractDependencies"
+import { getDependenciesMap } from "./analyzerUtils/dependenciesMap"
+import { filterDependencies } from "./analyzerUtils/filterDependencies"
 import { createGraphNodes } from "./analyzerUtils/graphNodes"
 import { log } from "../utils/logger"
 import {
@@ -26,10 +25,12 @@ import {
 	IWebpackStatsV5Reason,
 } from "../models/webpack.5.model"
 
-export class webpackAnalyzer {
+export class WebpackAnalyzer {
 	config: IDepsConfig = depsConfig
-	analyzerContext: IWebpackAnalyzerContext
-	modules: IWebpackModuleShort[] = []
+	graph: DependenciesUUIDMap = new DependenciesUUIDMap()
+	modules: IWebpackModuleShort[]
+	dependencyMap: IDependencyMap = {}
+	circularImports: string[][] = []
 
 	constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
 		const webpackVersion = stats?.version.split(".")[0]
@@ -43,18 +44,10 @@ export class webpackAnalyzer {
 			}
 
 			webpackModules = this.modules?.filter((module: any) =>
-				isIncluded(module.name, depsConfig)
+				isIncluded(module.name, depsConfig.filters)
 			)
 		} else {
 			throw new Error("Unknown webpack version: " + stats?.version)
-		}
-
-		this.analyzerContext = {
-			...this.config,
-			graph: new DependenciesGraph(),
-			webpackModules: webpackModules,
-			dependencyMap: {},
-			circularImports: [],
 		}
 	}
 
@@ -110,24 +103,17 @@ export class webpackAnalyzer {
 		return stat?.version.split(".")[0]
 	}
 
-	analyze(config: IWebpackAnalyzerConfig): IWebpackAnalyzerContext {
+	analyze(config: IWebpackAnalyzerConfig): IDependencyMap {
 		log(`\n modules to parse: `, this.modules.length, `\n`)
-		let [nodeIdByRelativePath, nodesById] = createGraphNodes(this.analyzerContext)
+		let [nodeIdByRelativePath, nodesById] = createGraphNodes(this.modules)
 
-        this.analyzerContext.graph.nodeIdByRelativePath = nodeIdByRelativePath
-        this.analyzerContext.graph.nodesById = nodesById
+		this.graph.nodeIdByRelativePath = nodeIdByRelativePath
+		this.graph.nodesById = nodesById
 
-		this.analyzerContext.graph = extractDependencies(this.analyzerContext)
+		this.graph = filterDependencies(this.graph, this.modules)
 
-		this.analyzerContext.dependencyMap = getDependencyMap(
-			this.analyzerContext.graph,
-			config
-		)
+		this.dependencyMap = getDependenciesMap(this.graph, config)
 
-		this.analyzerContext.circularImports = getCircularImports(
-			this.analyzerContext.dependencyMap
-		)
-
-		return this.analyzerContext
+		return this.dependencyMap
 	}
 }

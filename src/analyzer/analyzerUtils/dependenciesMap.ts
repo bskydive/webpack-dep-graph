@@ -1,11 +1,11 @@
-import { log, logEmpty } from "../../utils/logger"
+import { log } from "../../utils/logger"
 import {
 	IDependencyMap,
 	IWebpackAnalyzerConfig,
+	IWebpackAnalyzerConfigFilters,
 	IWebpackModuleParsed,
 } from "../../models/webpackAnalyzer.model"
-import { DependenciesGraph } from "./dependenciesGraph"
-import { IIncludedOptions } from "../../utils/webpack"
+import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
 
 /** applied only after dependencyMap creation to filter in both directions: src/dest nodes */
 function isModuleIncludedOnly(
@@ -39,9 +39,61 @@ function getModuleDependencies(
 	)
 }
 
+function isDependencyLinkIncluded(
+	filters: IWebpackAnalyzerConfigFilters,
+	srcModules: string[],
+	destModule: string
+): boolean {
+	if (
+		!filters.includeOnlyDestNode.length &&
+		!filters.includeOnlySrcNode.length
+	) {
+		// empty included only option
+		return true
+	}
+
+	if (
+		filters.includeOnlySrcNode.length &&
+		filters.includeOnlySrcNode.join("").length
+	) {
+		// filter source modules(dependencies)
+		srcModules = srcModules.filter((srcModule) =>
+			isModuleIncludedOnly(srcModule, filters.includeOnlySrcNode)
+		)
+	}
+
+	if (
+		srcModules.length ||
+		isModuleIncludedOnly(destModule, filters.includeOnlyDestNode)
+	) {
+		// filter dest modules(issuer)
+		return true
+	}
+
+	return false
+}
+
+/** find missed nodes from edge definitions for graphml */
+export function missedDependenciesMapSrcNodes(
+	dependencyMap: IDependencyMap
+): IDependencyMap {
+	let result: IDependencyMap = {}
+	// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
+	for (const targetPath in dependencyMap) {
+		for (const dependencyPath of dependencyMap[targetPath]) {
+			if (!dependencyMap[dependencyPath]) {
+				result[dependencyPath] = []
+			}
+		}
+	}
+
+    log('added missed dest nodes', Object.keys(result).length)
+	return result
+}
+
 /** postprocessing */
-export function getDependencyMap(
-	graph: DependenciesGraph,
+export function getDependenciesMap(
+	graph: DependenciesUUIDMap,
 	opts: IWebpackAnalyzerConfig
 ): IDependencyMap {
 	const result: IDependencyMap = {}
@@ -62,48 +114,11 @@ export function getDependencyMap(
 			continue
 		}
 
-		if (
-			!opts.filters.includeOnlyDestNode.length &&
-			!opts.filters.includeOnlySrcNode.length
-		) {
-			// empty included only option
+		if (isDependencyLinkIncluded(opts.filters, srcModules, destModule)) {
 			result[destModule] = srcModules
 		}
-
-		if ( 
-			opts.filters.includeOnlySrcNode.length && 
-            opts.filters.includeOnlySrcNode.join('').length
-		) {
-			// filter source modules(dependencies)
-			srcModules = srcModules.filter((srcModule) =>
-            isModuleIncludedOnly(srcModule, opts.filters.includeOnlySrcNode))
-		}
-
-		if (
-            srcModules.length ||
-			isModuleIncludedOnly(destModule, opts.filters.includeOnlyDestNode)
-		) {
-            // filter dest modules(issuer)
-            result[destModule] = srcModules
-		}
 	}
 
 	return result
 }
 
-/** add missed nodes from edge definitions for graphml */
-export function missedDependencyMapSrcNodes(
-	dependencyMap: IDependencyMap
-): IDependencyMap {
-	let result: IDependencyMap = {}
-	// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
-	for (const targetPath in dependencyMap) {
-		for (const dependencyPath of dependencyMap[targetPath]) {
-			if (!dependencyMap[dependencyPath]) {
-				result[dependencyPath] = []
-			}
-		}
-	}
-
-	return result
-}

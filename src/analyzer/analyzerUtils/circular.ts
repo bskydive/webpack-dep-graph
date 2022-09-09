@@ -1,7 +1,7 @@
 /**
  * Source: https://github.com/pahen/madge/blob/master/lib/cyclic.js
  */
-export function getCircularImports(graph: Record<string, string[]>) {
+export function getCircularImports(dependenciesMap: Record<string, string[]>): string[][] {
   const circular: string[][] = []
 
   const resolved: Map<string, boolean> = new Map()
@@ -20,8 +20,8 @@ export function getCircularImports(graph: Record<string, string[]>) {
   function resolve(id: string) {
     unresolved.set(id, true)
 
-    if (graph[id]) {
-      graph[id].forEach((dependency) => {
+    if (dependenciesMap[id]) {
+      dependenciesMap[id].forEach((dependency) => {
         if (!resolved.get(dependency)) {
           if (unresolved.get(dependency)) {
             const paths = getPath(dependency)
@@ -38,7 +38,7 @@ export function getCircularImports(graph: Record<string, string[]>) {
     unresolved.set(id, false)
   }
 
-  Object.keys(graph).forEach(resolve)
+  Object.keys(dependenciesMap).forEach(resolve)
 
   return circular
 }
