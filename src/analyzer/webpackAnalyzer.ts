@@ -16,7 +16,6 @@ import {
 import { depsConfig } from "../../deps.config"
 import { getDependenciesMap } from "./analyzerUtils/dependenciesMap"
 import { filterDependencies } from "./analyzerUtils/filterDependencies"
-import { createGraphNodes } from "./analyzerUtils/graphNodes"
 import { log } from "../utils/logger"
 import {
 	IWebpackStatsV5,
@@ -27,7 +26,7 @@ import {
 
 export class WebpackAnalyzer {
 	config: IDepsConfig = depsConfig
-	graph: DependenciesUUIDMap = new DependenciesUUIDMap()
+	graph: DependenciesUUIDMap
 	modules: IWebpackModuleShort[]
 	dependencyMap: IDependencyMap = {}
 	circularImports: string[][] = []
@@ -105,12 +104,10 @@ export class WebpackAnalyzer {
 
 	analyze(config: IWebpackAnalyzerConfig): IDependencyMap {
 		log(`\n modules to parse: `, this.modules.length, `\n`)
-		let [nodeIdByRelativePath, nodesById] = createGraphNodes(this.modules)
 
-		this.graph.nodeIdByRelativePath = nodeIdByRelativePath
-		this.graph.nodesById = nodesById
+		this.graph = new DependenciesUUIDMap(this.modules)
 
-		this.graph = filterDependencies(this.graph, this.modules)
+		this.graph = filterDependencies(this.graph)
 
 		this.dependencyMap = getDependenciesMap(this.graph, config)
 

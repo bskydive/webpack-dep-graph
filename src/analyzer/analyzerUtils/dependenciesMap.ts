@@ -100,9 +100,9 @@ export function getDependenciesMap(
 	let srcModules: string[]
 	let destModule: string
 
-	for (const [destModuleId, dependencies] of graph.dependenciesById) {
-		destModule = getModuleName(destModuleId, graph.nodesById)
-		srcModules = getModuleDependencies(dependencies, graph.nodesById)
+	for (const [destModuleId, dependencies] of graph.dependenciesListByUUID) {
+		destModule = getModuleName(destModuleId, graph.modulesByUUID)
+		srcModules = getModuleDependencies(dependencies, graph.modulesByUUID)
 
 		if (!destModule) {
 			log(

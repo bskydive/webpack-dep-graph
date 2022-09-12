@@ -13,7 +13,7 @@ import { depsConfig } from "../../../deps.config"
 
 export function createGraphNodes(
 	modules: IWebpackModuleShort[]
-): [Map<string, string>, Map<string, IWebpackModuleParsed>] {
+    ): [Map<string, string>, Map<string, IWebpackModuleParsed>] {
 	let nodeIdByRelativePath: Map<string, string> = new Map()
 	let nodesById: Map<string, IWebpackModuleParsed> = new Map()
 	const startTime = Date.now()

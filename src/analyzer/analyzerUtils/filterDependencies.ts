@@ -50,9 +50,9 @@ function isEmptyData(
 	return !uuid || !reasons?.length
 }
 
+/** @deprecated TODO move to DependenciesUUIDMap.addDependenciesById */
 export function filterDependencies(
-	graph: DependenciesUUIDMap,
-	webpackModules: IWebpackModuleShort[]
+	graph: DependenciesUUIDMap
 ): DependenciesUUIDMap {
 	let relativePath: string
 	let module: IWebpackModuleParsed
@@ -66,9 +66,9 @@ export function filterDependencies(
 		emptyReasons: 0,
 	}
 
-	const moduleTypes: string[] = getModuleTypes(webpackModules)
+	const moduleTypes: string[] = getModuleTypes(graph.modules)
 
-	for (const webpackModule of webpackModules) {
+	for (const webpackModule of graph.modules) {
 		relativePath = resolvePathPlus(webpackModule.name)
 		module = graph.byRelativePath(relativePath)
 
@@ -114,13 +114,13 @@ export function filterDependencies(
 
 	log(
 		`\nsummary: \n`,
-		`raw modules: ${webpackModules.length}`,
+		`raw modules: ${graph.modules.length}`,
 		`raw module types: ${moduleTypes};`,
 		`filtered module uuid: ${stats.emptyUUID}`,
 		`filtered module reasons: ${stats.emptyUUID}`,
-		`dependencies: ${graph.dependenciesById.size}`,
-		`nodesPaths: ${graph.nodeIdByRelativePath.size}`,
-		`nodes: ${graph.nodesById.size}`
+		`dependencies: ${graph.dependenciesListByUUID.size}`,
+		`nodesPaths: ${graph.UUIDByRelativePath.size}`,
+		`nodes: ${graph.modulesByUUID.size}`
 	)
 
 	return graph

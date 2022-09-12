@@ -14,27 +14,38 @@ Fixed and working.
 
 ## TODO
 
- * add excludeNodeByMaxDepsCount graph
- * add Max/Min DepsCount text-->json
- * fix circular.json comparing to eslint
- * validate summary text
- * validate examples
- * add size
- * make npm package in v2
-
- * use xml schema for graphml parser
-    * http://www.w3.org/2001/XMLSchema-instance
-    * http://graphml.graphdrawing.org/xmlns 
-    * http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd
-    * http://www.yworks.com/xml/yfiles-common/1.0/java
-    * http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0
-    * http://www.yworks.com/xml/yfiles-common/markup/2.0
-    * http://www.yworks.com/xml/graphml
-    * http://www.yworks.com/xml/yed/3
- * local webpack dev server
- * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
- * local web [cytoscape](https://js.cytoscape.org) graph viewer
- * file size viewer
+ * v1.3.0
+    * simplify data structures
+    * add excludeNodeByMaxDepsCount graph
+    * add Max/Min DepsCount text-->json
+    * add deps size
+    * add issuedPath
+    * validate summary text
+    * validate examples
+    * add gephi examples
+ * v2
+    * npm package
+    * webpack plugin
+    * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
+    * fix circular.json comparing to eslint
+ * v3
+    * vscode plugin(folder/file right click) like in dependency cruiser
+        * stats.json validation with current folder structure
+        * collect stats before run
+ * v4+
+    * use xml schema for graphml parser
+        * http://www.w3.org/2001/XMLSchema-instance
+        * http://graphml.graphdrawing.org/xmlns 
+        * http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd
+        * http://www.yworks.com/xml/yfiles-common/1.0/java
+        * http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0
+        * http://www.yworks.com/xml/yfiles-common/markup/2.0
+        * http://www.yworks.com/xml/graphml
+        * http://www.yworks.com/xml/yed/3
+    * local webpack dev server
+    * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
+    * local web [cytoscape](https://js.cytoscape.org) graph viewer
+    * file size viewer
 
 ## Caveats
 
@@ -170,10 +181,12 @@ Used for [yed](https://www.yworks.com/products/yed) editor
         
     ```
 
-## this project is based on 
+## Similar projects
 
- * unmaintained broken draft repo - https://github.com/heypoom/webpack-dep-graph
- * Maintained, does not use webpack stats.json - https://github.com/pahen/madge
- * Unmaintained - https://github.com/g0t4/webpack-stats-graph
- * Unmaintained - https://github.com/jantimon/webpack-dependency-stats
+ * deps graph with [npm]() and [vscode]() plugin
+ * deps diff with query language [statoscope]()
+ * without webpack stats.json [repo](https://github.com/pahen/madge)
+ * forked from: unmaintained broken draft [repo](https://github.com/heypoom/webpack-dep-graph)
+ * Unmaintained [repo](https://github.com/g0t4/webpack-stats-graph)
+ * Unmaintained [repo](https://github.com/jantimon/webpack-dependency-stats)
 
