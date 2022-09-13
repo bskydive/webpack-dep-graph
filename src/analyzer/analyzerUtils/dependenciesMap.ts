@@ -93,16 +93,16 @@ export function missedDependenciesMapSrcNodes(
 
 /** postprocessing */
 export function getDependenciesMap(
-	graph: DependenciesUUIDMap,
+	uuidMap: DependenciesUUIDMap,
 	opts: IWebpackAnalyzerConfig
 ): IDependencyMap {
 	const result: IDependencyMap = {}
 	let srcModules: string[]
 	let destModule: string
 
-	for (const [destModuleId, dependencies] of graph.dependenciesListByUUID) {
-		destModule = getModuleName(destModuleId, graph.modulesByUUID)
-		srcModules = getModuleDependencies(dependencies, graph.modulesByUUID)
+	for (const [destModuleId, dependencies] of uuidMap.dependenciesListByUUID) {
+		destModule = getModuleName(destModuleId, uuidMap.moduleByUUID)
+		srcModules = getModuleDependencies(dependencies, uuidMap.moduleByUUID)
 
 		if (!destModule) {
 			log(

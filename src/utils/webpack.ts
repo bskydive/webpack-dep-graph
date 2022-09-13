@@ -1,4 +1,4 @@
-import { logEmpty } from "./logger"
+import { log, logEmpty } from "./logger"
 import { IWebpackStatsV3 } from "src/models/webpack.3.model"
 import { readFile } from "./files"
 import { IWebpackStatsV5 } from "../models/webpack.5.model"
@@ -7,16 +7,8 @@ import {
 	IWebpackModuleShort,
 } from "../models/webpackAnalyzer.model"
 
-/** TODO @deprecated remove or pick from context interface IWebpackAnalyzerConfig*/
-export interface IIncludedOptions {
-	exclude: string[]
-	excludeExcept: string[]
-	includeOnlyDest: string[]
-	includeOnlySrc: string[]
-}
-
 /** exclude & excludeExcept filter options applied */
-export function isIncluded(
+export function isModuleIncluded(
 	moduleName: string,
 	filters: IWebpackAnalyzerConfigFilters
 ): boolean {
@@ -37,6 +29,17 @@ export function isIncluded(
 		!regExpExclude?.test(moduleName)
 
 	return result
+}
+
+export function isReasonExcluded(
+	filters: IWebpackAnalyzerConfigFilters,
+	reasonType: string
+): boolean {
+	return (
+		filters.edgeTypeExclude.findIndex((item) =>
+			reasonType.includes(item)
+		) >= 0
+	)
 }
 
 /** parse `path1 + path2` to `path1`*/
@@ -69,9 +72,14 @@ export function fileNameFromPath(path: string) {
 export function loadWebpackStat(
 	fileName: string
 ): IWebpackStatsV3 | IWebpackStatsV5 {
-	const statString = readFile(fileName)
+	if (typeof fileName !== "string" || !fileName?.length) {
+		throw new Error("Empty stats file name: " + fileName)
+	}
 
+	const statString = readFile(fileName)
 	const stat: IWebpackStatsV3 = JSON.parse(statString)
+
+	log(`${fileName} loaded`)
 
 	return stat
 }

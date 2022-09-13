@@ -1,81 +1,86 @@
-import { WebpackAnalyzer } from "./analyzer/webpackAnalyzer"
-import {
-	IDependencyMap,
-	IWebpackAnalyzerConfig,
-} from "./models/webpackAnalyzer.model"
+import { WebpackStatsParser } from "./analyzer/webpackStats"
+import { IDependencyMap } from "./models/webpackAnalyzer.model"
 import {
 	createDotGraph,
+	IGraphvizDot,
 	saveGraphvizRendered,
 	saveSimplifiedDot,
 } from "./utils/graphviz"
 import { loadWebpackStat } from "./utils/webpack"
-import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"
+import {
+	ICyElementDefinition,
+	parseEdgeDefinitions,
+	saveCytoscape,
+} from "./utils/cytoscape"
 import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
 import { depsConfig } from "../deps.config"
 import { log } from "./utils/logger"
 import { getCircularImports } from "./analyzer/analyzerUtils/circular"
+import { IWebpackStatsV3 } from "./models/webpack.3.model"
+import { IWebpackStatsV5 } from "./models/webpack.5.model"
 
 function main() {
-	const config: IWebpackAnalyzerConfig = depsConfig
-	const statFileName = process?.argv[2] || config.input.webpackStatsFileName
-	const GRAPHML_STUB = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save
-	const webpackStat = loadWebpackStat(statFileName)
-	let dependencyMap: IDependencyMap = {}
-    let analyzer: WebpackAnalyzer
-    let circularImports: string[][]
+	let GRAPHML_STUB: { [key: string]: string }
+	let cytoscapeGraph: ICyElementDefinition[]
+	let statFileName: string
+	let webpackStat: IWebpackStatsV3 | IWebpackStatsV5
+	let dotGraph: IGraphvizDot
+	let dependencyMap: IDependencyMap
+	let statsParser: WebpackStatsParser
+	let circularImports: string[][]
 
-	log("loading ${statFileName}")
+	log(`loading ${statFileName}`)
+	statFileName = process?.argv[2] || depsConfig.input.webpackStatsFileName
+	webpackStat = loadWebpackStat(statFileName)
 
-	if (webpackStat?.version) {
-		
-		
-        analyzer = new WebpackAnalyzer(webpackStat)
-		dependencyMap = analyzer.analyze(config)
+	log("stats parsing start")
+	statsParser = new WebpackStatsParser(webpackStat)
+	dependencyMap = statsParser.dependencyMap
+	log(statsParser.uuidMap.getSummary())
 
-		log("calculations start")
-		const dotGraph = createDotGraph(dependencyMap)
-		const cytoscapeGraph = parseEdgeDefinitions(dependencyMap)
+	log("graph parsing start")
+	dotGraph = createDotGraph(dependencyMap)
 
-		if (config.output.testGraphmlJs2Xml) {
-			saveGraphml("./graph-output/test_save.graphml", GRAPHML_STUB)
-		}
+	if (depsConfig.output.testGraphmlJs2Xml) {
+		GRAPHML_STUB = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save
+		saveGraphml("./graph-output/test_save.graphml", GRAPHML_STUB)
+	}
 
-		if (config.output.depsJson) {
-			saveCytoscape("./graph-output/deps.json", dependencyMap)
-		}
+	if (depsConfig.output.depsJson) {
+		saveCytoscape("./graph-output/deps.json", dependencyMap)
+	}
 
-		if (config.output.graphmlDeps) {
-			saveGraphmlFromDot(dependencyMap, "./graph-output/deps.graphml")
-		}
+	if (depsConfig.output.graphmlDeps) {
+		saveGraphmlFromDot(dependencyMap, "./graph-output/deps.graphml")
+	}
 
-		circularImports = getCircularImports(dependencyMap)
+	circularImports = getCircularImports(dependencyMap)
 
-		if (config.output.circularDepsJson) {
-			saveCytoscape("./graph-output/circular.json", circularImports)
-		}
+	if (depsConfig.output.circularDepsJson) {
+		saveCytoscape("./graph-output/circular.json", circularImports)
+	}
 
-		if (config.output.cytoscapeJson) {
-			saveCytoscape("./graph-output/cytoscape.json", cytoscapeGraph)
-		}
+	if (depsConfig.output.cytoscapeJson) {
+		cytoscapeGraph = parseEdgeDefinitions(dependencyMap)
+		saveCytoscape("./graph-output/cytoscape.json", cytoscapeGraph)
+	}
 
-		if (config.output.simplifiedDot) {
-			saveSimplifiedDot(dotGraph, "./graph-output/graph_simplified.dot")
-		}
+	if (depsConfig.output.simplifiedDot) {
+		saveSimplifiedDot(dotGraph, "./graph-output/graph_simplified.dot")
+	}
 
-		log("heavy async calculations start")
+	log("heavy async calculations start")
 
-		for (const [key, value] of Object.entries(config.graphviz)) {
-			if (value?.enabled) {
+	for (const [key, value] of Object.entries(depsConfig.graphviz)) {
+		if (value?.enabled) {
+			log(`${key}-->${value?.fileName} calculations starts`)
 
-                log(`${key}-->${value?.fileName} calculations starts`)
-
-                saveGraphvizRendered({
-					graph: dotGraph,
-					engine: value?.engine,
-					type: value?.type,
-					fileName: value?.fileName,
-				})
-			}
+			saveGraphvizRendered({
+				graph: dotGraph,
+				engine: value?.engine,
+				type: value?.type,
+				fileName: value?.fileName,
+			})
 		}
 	}
 }

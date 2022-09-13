@@ -1,12 +1,13 @@
 import { digraph, Graph, RenderEngine } from "graphviz"
 import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { writeFile } from "./files"
-import { log } from "./logger"
+
+export type IGraphvizDot = Graph
 
 /**
  * https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
  */
-export function createDotGraph(dependencyMap: IDependencyMap): Graph {
+export function createDotGraph(dependencyMap: IDependencyMap): IGraphvizDot {
 	const g: Graph = digraph("G")
 
 	for (const consumerPath in dependencyMap) {

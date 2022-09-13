@@ -2,37 +2,48 @@ import { depsConfig } from "../../../deps.config"
 import { log } from "../../utils/logger"
 import {
 	fileNameFromPath,
-	isIncluded,
+	isModuleIncluded,
+	isReasonExcluded,
 	resolvePathPlus,
 } from "../../utils/webpack"
 import { v4 } from "uuid"
 import {
 	IWebpackModuleParsed,
+	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
 } from "../../models/webpackAnalyzer.model"
 
 /** @deprecated TODO split state and logic */
 export class DependenciesUUIDMap {
-    /** source unparsed list */
-    modules: IWebpackModuleShort[] = []	
-
-    /** flattened list for parsing {'uuid':{...module}} */
-	modulesByUUID: Map<string, IWebpackModuleParsed> = new Map()
-	/** flattened list for parsing {'path1':'uuid1'} */
-	UUIDByRelativePath: Map<string, string> = new Map()
-
-    /** resulting map: {"uuid:LoginPage": ["uuid:LoginForm", "uuid:LoginButton"]} */
-	dependenciesListByUUID: Map<string, Set<string>> = new Map()
-    
-
-	constructor(modules: IWebpackModuleShort[]) {
-        this.modules = modules
-		this.createUUIDNodes(modules)
+	/** source unparsed list */
+	modules: IWebpackModuleShort[] = []
+	stats: {
+		emptyUUID: number
+		emptyReasons: number
+		moduleTypes: string[]
+	} = {
+		emptyUUID: 0,
+		emptyReasons: 0,
+		moduleTypes: [],
 	}
 
-	byRelativePath(relativePath: string): IWebpackModuleParsed | null {
-		const uuid: string = this.UUIDByRelativePath.get(relativePath)
-		const module: IWebpackModuleParsed = this.modulesByUUID.get(uuid)
+	/** flattened list for parsing {'uuid':{...module}} */
+	moduleByUUID: Map<string, IWebpackModuleParsed> = new Map()
+	/** flattened list for parsing {'path1':'uuid1'} */
+	uuidByRelativePath: Map<string, string> = new Map()
+
+	/** resulting map: {"uuid:LoginPage": ["uuid:LoginForm", "uuid:LoginButton"]} */
+	dependenciesListByUUID: Map<string, Set<string>> = new Map()
+
+	constructor(modules: IWebpackModuleShort[]) {
+		this.modules = modules
+		this.createUUIDNodes(modules)
+		this.filterDependencies()
+	}
+
+	moduleByRelativePath(relativePath: string): IWebpackModuleParsed | null {
+		const uuid: string = this.uuidByRelativePath.get(relativePath)
+		const module: IWebpackModuleParsed = this.moduleByUUID.get(uuid)
 
 		if (!uuid || !module?.uuid) return null
 
@@ -47,12 +58,12 @@ export class DependenciesUUIDMap {
 		this.dependenciesListByUUID.get(consumerId)?.add(dependencyId)
 	}
 
-	createUUIDNodes(modules: IWebpackModuleShort[]) {
+	private createUUIDNodes(modules: IWebpackModuleShort[]) {
 		let nodeIdByRelativePath: Map<string, string> = new Map()
 		let nodesById: Map<string, IWebpackModuleParsed> = new Map()
 		const startTime = Date.now()
 		const webpackModules = modules?.filter((m: IWebpackModuleShort) =>
-			isIncluded(m.name, depsConfig.filters)
+			isModuleIncluded(m.name, depsConfig.filters)
 		)
 
 		log(`located ${webpackModules.length} modules from this build.`)
@@ -74,7 +85,102 @@ export class DependenciesUUIDMap {
 
 		log(`creating module nodes takes: ${Date.now() - startTime}ms.`)
 
-		this.UUIDByRelativePath = nodeIdByRelativePath
-		this.modulesByUUID = nodesById
+		this.uuidByRelativePath = nodeIdByRelativePath
+		this.moduleByUUID = nodesById
+	}
+
+	private getModuleTypes(webpackModules: IWebpackModuleShort[]): string[] {
+		const reasonTypes = webpackModules
+			.map((module) => module.reasons.map((reason) => reason.type))
+			.flat()
+			.reduce(
+				(acc, curr) => (acc.includes(curr) ? acc : acc.concat(curr)),
+				[]
+			)
+
+		return reasonTypes
+	}
+
+	private isEmptyData(
+		uuid: string,
+		reasons: IWebpackModuleReasonShort[]
+	): boolean {
+		if (!uuid) {
+			this.stats.emptyUUID++
+		}
+		if (!reasons?.length) {
+			this.stats.emptyReasons++
+		}
+
+		return !uuid || !reasons?.length
+	}
+
+	private filterDependencies(): void {
+		let relativePath: string
+		let module: IWebpackModuleParsed
+		/** dependencies, source */
+		let reasons: IWebpackModuleReasonShort[] = []
+		let moduleName: string
+		/** node, consumer */
+		let destModule: IWebpackModuleParsed
+
+		this.stats.moduleTypes = this.getModuleTypes(this.modules)
+
+		for (const webpackModule of this.modules) {
+			relativePath = resolvePathPlus(webpackModule.name)
+			module = this.moduleByRelativePath(relativePath)
+
+			if (this.isEmptyData(module?.uuid, webpackModule?.reasons)) {
+				// log("Empty parsed module", { name: webpackModule.name })
+				continue
+			}
+
+			// exclude & excludeExcept filter options applied
+			reasons = webpackModule?.reasons?.filter(
+				(m: IWebpackModuleReasonShort) =>
+					isModuleIncluded(m.moduleName, depsConfig.filters)
+			)
+
+			for (const reason of reasons) {
+				if (isReasonExcluded(depsConfig.filters, reason.type)) {
+					continue
+				}
+
+				moduleName = resolvePathPlus(reason.moduleName)
+
+				if (!moduleName) {
+					log("Empty reason", {
+						uuid: module?.uuid,
+						reason: reason.moduleName,
+					})
+					continue
+				}
+
+				destModule = this.moduleByRelativePath(moduleName)
+
+				if (!destModule?.uuid) {
+					log("Empty destination", {
+						name: moduleName,
+					})
+					continue
+				}
+
+				// TODO add module.issuerName as dependency:  module.name-->module.issuerName(consumer)
+				this.addDependenciesById(destModule?.uuid, module?.uuid)
+			}
+		}
+	}
+
+	getSummary(): string[] {
+		return [
+			`summary:`,
+			`raw modules: ${this.modules.length}`,
+			`raw module types: ${this.stats.moduleTypes};`,
+			`filtered module uuid: ${this.stats.emptyUUID}`,
+			`filtered module reasons: ${this.stats.emptyUUID}`,
+			`dependencies: ${this.dependenciesListByUUID.size}`,
+			`nodesPaths: ${this.uuidByRelativePath.size}`,
+			`nodes: ${this.moduleByUUID.size}`,
+		]
 	}
 }

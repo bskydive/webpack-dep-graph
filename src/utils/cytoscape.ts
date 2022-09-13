@@ -2,7 +2,7 @@ import { IDependencyMap } from "../models/webpackAnalyzer.model"
 import { writeFile } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */
-interface ICyElementDefinition {
+export interface ICyElementDefinition {
 	data: ICyNodeDataDefinition | ICyEdgeDataDefinition
 }
 
