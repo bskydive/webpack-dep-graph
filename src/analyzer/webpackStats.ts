@@ -2,8 +2,7 @@ import {
     IDependencyMap,
 	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
-} from "../models/webpackAnalyzer.model"
-import { isModuleIncluded } from "../utils/webpack"
+} from "../models/webpackStats.model"
 import {
 	IWebpackStatsV3,
 	IWebpackStatsV3Chunk,
@@ -17,8 +16,8 @@ import {
 	IWebpackStatsV5Module,
 	IWebpackStatsV5Reason,
 } from "../models/webpack.5.model"
-import { DependenciesUUIDMap } from "./analyzerUtils/dependenciesUUIDMap"
-import { getDependenciesMap } from "./analyzerUtils/dependenciesMap"
+import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
+import { getDependenciesMap } from "./dependenciesMap"
 
 export class WebpackStatsParser {
 	private modules: IWebpackModuleShort[]
@@ -32,11 +31,11 @@ export class WebpackStatsParser {
 		this.dependencyMap = getDependenciesMap(this.uuidMap, depsConfig)
 	}
 
-	private getParsedModules(
+	/** modules filtering in  */
+    private getParsedModules(
 		stats: IWebpackStatsV3 | IWebpackStatsV5
 	): IWebpackModuleShort[] {
 		let webpackModules: IWebpackModuleShort[]
-		let webpackModulesFiltered: IWebpackModuleShort[]
 
 		const webpackVersion = this.getWebpackVersion(stats)
 
@@ -50,11 +49,7 @@ export class WebpackStatsParser {
 			webpackModules = this.parseWebpackChunks(stats.chunks)
 		}
 
-		webpackModulesFiltered = webpackModules?.filter((module: any) =>
-			isModuleIncluded(module.name, depsConfig.filters)
-		)
-
-		return webpackModulesFiltered
+		return webpackModules
 	}
 
 	private parseWebpackChunks(

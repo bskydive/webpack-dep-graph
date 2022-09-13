@@ -1,5 +1,5 @@
 import { digraph, Graph, RenderEngine } from "graphviz"
-import { IDependencyMap } from "../models/webpackAnalyzer.model"
+import { IDependencyMap } from "../models/webpackStats.model"
 import { writeFile } from "./files"
 
 export type IGraphvizDot = Graph
@@ -39,8 +39,8 @@ export function saveGraphvizRendered(data: {
 }
 
 export function saveSimplifiedDot(
-	g: Graph,
-	fileName: string = "graphviz_simplified.dot"
+	fileName: string,
+	g: Graph
 ) {
 	writeFile(fileName, g.to_dot())
 }

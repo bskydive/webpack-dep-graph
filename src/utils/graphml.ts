@@ -6,9 +6,8 @@ import {
 } from "../models/graphml.model"
 import { ElementCompact, js2xml, xml2js } from "xml-js"
 import { readFile, writeFile } from "./files"
-import { IDependencyMap } from "../models/webpackAnalyzer.model"
-import { fileNameFromPath } from "../utils/webpack"
-import { missedDependenciesMapSrcNodes } from "../analyzer/analyzerUtils/dependenciesMap"
+import { IDependencyMap } from "../models/webpackStats.model"
+import { fileNameFromPath } from "../utils/files"
 import { depsConfig } from "../../deps.config"
 // import { create } from "xmlbuilder"
 
@@ -75,6 +74,23 @@ export function graphmlEdgeToXml(
     </edge>\n`
 }
 
+/** add src nodes to graph nodes section */
+function addDependenciesMapSrcNodes(
+	dependencyMap: IDependencyMap
+): IDependencyMap {
+	let result: IDependencyMap = {}
+	// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
+	for (const targetPath in dependencyMap) {
+		for (const dependencyPath of dependencyMap[targetPath]) {
+			if (!dependencyMap[dependencyPath]) {
+				result[dependencyPath] = []
+			}
+		}
+	}
+
+	return result
+}
+
 export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	let allDestNodes: IDependencyMap = {}
 	let result: string = GRAPHML_HEADER
@@ -82,7 +98,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	let currentEdge: IGraphmlEdge = depsConfig.graphml.edge
 
 	allDestNodes = {
-		...missedDependenciesMapSrcNodes(dependencyMap),
+		...addDependenciesMapSrcNodes(dependencyMap),
 		...dependencyMap,
 	}
 
@@ -102,9 +118,11 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	// Edges
 	for (const destNode in allDestNodes) {
 		dependencyMap[destNode]?.forEach((srcNode) => {
-            let label = depsConfig.graphml.showSourceEdgeLabels ? srcNode : ""
+			let label = depsConfig.graphml.showSourceEdgeLabels ? srcNode : ""
 			// escaping text for xml parser
-			label += depsConfig.graphml.showDestEdgeLabels ? ` --\\> ${destNode}` : ""
+			label += depsConfig.graphml.showDestEdgeLabels
+				? ` --\\> ${destNode}`
+				: ""
 
 			currentEdge = {
 				...depsConfig.graphml.edge,
@@ -121,10 +139,7 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	return result.concat(GRAPHML_FOOTER)
 }
 
-export function saveGraphmlFromDot(
-	data: IDependencyMap,
-	fileName: string = "./deps.graphml"
-) {
+export function saveGraphmlFromDot(fileName: string, data: IDependencyMap) {
 	const xml: string = createDotGraphXml(data)
 
 	writeFile(fileName, xml)

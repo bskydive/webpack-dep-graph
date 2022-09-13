@@ -1,18 +1,18 @@
-import { IWebpackAnalyzerConfig } from "src/models/webpackAnalyzer.model"
+import { IConfig } from "src/models/webpackStats.model"
 
 /**
  * graphviz calculation takes a large time
  * https://graphviz.org/docs/layouts/
  * RenderEngine = 'dot' | 'neato' | 'circo' | 'fdp' | 'osage' | 'twopi';
  */
-export const depsConfig: IWebpackAnalyzerConfig = {
+export const depsConfig: IConfig = {
 	input: {
 		webpackStatsFileName: "webpack-stats.json", // can be passed as a cli parameter to index.ts in package.json scripts section
 	},
 	filters: {
 		exclude: [
+            "node_modules",
             "index",
-			"node_modules",
             "main",
             "cache",
 			"webpack",
@@ -38,13 +38,30 @@ export const depsConfig: IWebpackAnalyzerConfig = {
 		],
 	},
 	output: {
-		printImportAnalysis: false, // not implemented, legacy
-		testGraphmlJs2Xml: false, // test js2xml
-		graphmlDeps: true, // for yed editor
-		depsJson: true, // js object
-		circularDepsJson: true,
-		cytoscapeJson: true,
-		simplifiedDot: true, // human readable
+		testGraphmlJs2Xml: { // test js2xml
+            enabled: false,
+            fileName: '',
+        },
+		graphmlDeps: { // for yed editor
+            enabled: true,
+            fileName: "./graph-output/deps.graphml",
+        },
+		depsJson: { // js object
+            enabled: true,
+            fileName: './graph-output/deps.json',
+        },
+		circularDepsJson: { // 
+            enabled: true,
+            fileName: "./graph-output/circular.json",
+        },
+		cytoscapeJson: { // 
+            enabled: true,
+            fileName: "./graph-output/cytoscape.json",
+        },
+		simplifiedDot: { // human readable
+            enabled: true,
+            fileName: "./graph-output/graph_simplified.dot",
+        },
 	},
 	graphml: {
 		showSourceEdgeLabels: true,

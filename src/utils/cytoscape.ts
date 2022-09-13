@@ -1,4 +1,4 @@
-import { IDependencyMap } from "../models/webpackAnalyzer.model"
+import { IDependencyMap } from "../models/webpackStats.model"
 import { writeFile } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */
@@ -85,7 +85,7 @@ export function parseNodeDefinitions(
 }
 
 
-export function saveCytoscape(fileName: string, data: any) {
+export function saveJSON(fileName: string, data: any) {
 	const json = JSON.stringify(data, null, 2)
 	writeFile(fileName, json)
 }

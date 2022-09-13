@@ -3,14 +3,14 @@ import { IWebpackStatsV3 } from "src/models/webpack.3.model"
 import { readFile } from "./files"
 import { IWebpackStatsV5 } from "../models/webpack.5.model"
 import {
-	IWebpackAnalyzerConfigFilters,
+	IConfigFilters,
 	IWebpackModuleShort,
-} from "../models/webpackAnalyzer.model"
+} from "../models/webpackStats.model"
 
 /** exclude & excludeExcept filter options applied */
 export function isModuleIncluded(
 	moduleName: string,
-	filters: IWebpackAnalyzerConfigFilters
+	filters: IConfigFilters
 ): boolean {
 	let regExpExclude: RegExp = null
 	let regExpExcludeExcept: RegExp = null
@@ -31,8 +31,8 @@ export function isModuleIncluded(
 	return result
 }
 
-export function isReasonExcluded(
-	filters: IWebpackAnalyzerConfigFilters,
+export function isReasonTypeExcluded(
+	filters: IConfigFilters,
 	reasonType: string
 ): boolean {
 	return (
@@ -61,12 +61,6 @@ export function parseAbsolutePath(module: IWebpackModuleShort): string {
 	logEmpty("src/utils/webpack.ts:24", module.name)
 
 	return path
-}
-
-export function fileNameFromPath(path: string) {
-	const [name]: string[] = path.split("/").slice(-1)
-	logEmpty("src/utils/webpack.ts:31", path)
-	return name
 }
 
 export function loadWebpackStat(
