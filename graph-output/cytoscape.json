@@ -1,877 +1,16 @@
 [
   {
     "data": {
-      "./src/providers/wallet/wallet.ts": "",
-      "source": "./src/providers/filter/filter.ts",
-      "target": "./src/providers/wallet/wallet.ts"
+      "./src/providers/action-sheet/action-sheet.ts": "",
+      "source": "./src/providers/dom/dom.ts",
+      "target": "./src/providers/action-sheet/action-sheet.ts"
     }
   },
   {
     "data": {
-      "./src/providers/wallet/wallet.ts": "",
-      "source": "./src/providers/logs/logs.ts",
-      "target": "./src/providers/wallet/wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/wallet/wallet.ts": "",
-      "source": "./src/providers/zce/zce.ts",
-      "target": "./src/providers/wallet/wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/tx-format/tx-format.ts": "",
-      "source": "./src/providers/filter/filter.ts",
-      "target": "./src/providers/tx-format/tx-format.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/providers/filter/filter.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/providers/electron/electron.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/pages/integrations/gift-cards/phone/phone.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/pages/receive/custom-amount/custom-amount.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/amount/amount.ts": "",
-      "source": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts",
-      "target": "./src/pages/send/amount/amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/filter/filter.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-key/backup-key.ts": "",
-      "source": "./src/providers/logs/logs.ts",
-      "target": "./src/pages/backup/backup-key/backup-key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-key/backup-key.ts": "",
-      "source": "./src/pages/backup/backup-game/backup-game.ts",
-      "target": "./src/pages/backup/backup-key/backup-key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/buy-crypto/buy-crypto.ts": "",
-      "source": "./src/providers/wyre/wyre.ts",
-      "target": "./src/providers/buy-crypto/buy-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wyre/wyre.ts": "",
-      "source": "./src/providers/wyre/wyre.ts",
-      "target": "./src/pages/integrations/wyre/wyre.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wyre/wyre.ts": "",
-      "source": "./src/pages/integrations/wyre/wyre-details/wyre-details.ts",
-      "target": "./src/pages/integrations/wyre/wyre.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts": "",
-      "source": "./src/providers/wyre/wyre.ts",
-      "target": "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wyre/wyre-details/wyre-details.ts": "",
-      "source": "./src/providers/wyre/wyre.ts",
-      "target": "./src/pages/integrations/wyre/wyre-details/wyre-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/gift-card/gift-card.ts": "",
-      "source": "./src/providers/email-notifications/email-notifications.ts",
-      "target": "./src/providers/gift-card/gift-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/gift-card/gift-card.ts": "",
-      "source": "./src/providers/bitpay-id/bitpay-id.ts",
-      "target": "./src/providers/gift-card/gift-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/gift-card/gift-card.ts": "",
-      "source": "./src/providers/invoice/invoice.ts",
-      "target": "./src/providers/gift-card/gift-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/gift-card/gift-card.ts": "",
-      "source": "./src/utils.ts",
-      "target": "./src/providers/gift-card/gift-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/invoice/invoice.ts": "",
-      "source": "./src/providers/email-notifications/email-notifications.ts",
-      "target": "./src/providers/invoice/invoice.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/backup/backup-key/backup-key.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/exchange-crypto/exchange-crypto.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/send/send.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/tx-details/tx-details.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-details.ts": "",
-      "source": "./src/pages/wallet-details/wallet-balance/wallet-balance.ts",
-      "target": "./src/pages/wallet-details/wallet-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/recovery-key/recovery-key.ts": "",
-      "source": "./src/pages/backup/backup-key/backup-key.ts",
-      "target": "./src/pages/onboarding/recovery-key/recovery-key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/recovery-key/recovery-key.ts": "",
-      "source": "./src/pages/onboarding/disclaimer/disclaimer.ts",
-      "target": "./src/pages/onboarding/recovery-key/recovery-key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallets/wallets.ts": "",
-      "source": "./src/pages/backup/backup-key/backup-key.ts",
-      "target": "./src/pages/wallets/wallets.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallets/wallets.ts": "",
-      "source": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
-      "target": "./src/pages/wallets/wallets.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallets/wallets.ts": "",
-      "source": "./src/pages/add/add.ts",
-      "target": "./src/pages/wallets/wallets.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallets/wallets.ts": "",
-      "source": "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
-      "target": "./src/pages/wallets/wallets.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/import-wallet/import-wallet.ts": "",
-      "source": "./src/pages/onboarding/disclaimer/disclaimer.ts",
-      "target": "./src/pages/add/import-wallet/import-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/import-wallet/import-wallet.ts": "",
-      "source": "./src/pages/includes/coin-selector/coin-selector.ts",
-      "target": "./src/pages/add/import-wallet/import-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-game/backup-game.ts": "",
-      "source": "./src/pages/onboarding/disclaimer/disclaimer.ts",
-      "target": "./src/pages/backup/backup-game/backup-game.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-game/backup-game.ts": "",
-      "source": "./src/pages/onboarding/add-funds/add-funds.ts",
-      "target": "./src/pages/backup/backup-game/backup-game.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/select-currency/select-currency.ts": "",
-      "source": "./src/pages/add/join-wallet/join-wallet.ts",
-      "target": "./src/pages/add/select-currency/select-currency.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/select-currency/select-currency.ts": "",
-      "source": "./src/pages/add/create-wallet/create-wallet.ts",
-      "target": "./src/pages/add/select-currency/select-currency.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/select-currency/select-currency.ts": "",
-      "source": "./src/pages/onboarding/recovery-key/recovery-key.ts",
-      "target": "./src/pages/add/select-currency/select-currency.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/select-currency/select-currency.ts": "",
-      "source": "./src/pages/add/custom-token/custom-token.ts",
-      "target": "./src/pages/add/select-currency/select-currency.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add-wallet/add-wallet.ts": "",
-      "source": "./src/pages/add/join-wallet/join-wallet.ts",
-      "target": "./src/pages/add-wallet/add-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add-wallet/add-wallet.ts": "",
-      "source": "./src/pages/add/create-wallet/create-wallet.ts",
-      "target": "./src/pages/add-wallet/add-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/add/join-wallet/join-wallet.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/integrations/simplex/simplex.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/integrations/invoice/select-invoice/select-invoice.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/paper-wallet/paper-wallet.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/send/select-inputs/select-inputs.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/send.ts": "",
-      "source": "./src/pages/send/multi-send/multi-send.ts",
-      "target": "./src/pages/send/send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/exchange-crypto/exchange-crypto.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/integrations/wallet-connect/wallet-connect.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pipes/format-currency.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/onboarding/add-funds/add-funds.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/home/home.ts": "",
-      "source": "./src/pages/new-feature/new-feature.ts",
-      "target": "./src/pages/home/home.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
-      "source": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
-      "source": "./src/providers/merchant/merchant.ts",
-      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
-      "source": "./src/pages/integrations/gift-cards/card-details/card-details.ts",
-      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
-      "source": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
-      "source": "./src/providers/merchant/merchant.ts",
-      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
-      "source": "./src/pages/merchant/merchant.ts",
-      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
-      "source": "./src/pages/templates/wide-header-page/wide-header-page.ts",
-      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/pages/exchange-crypto/exchange-crypto.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/providers/tab/tab.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/pages/cards/cards.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/pages/home/home.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tabs/tabs.ts": "",
-      "source": "./src/pages/wallets/wallets.ts",
-      "target": "./src/pages/tabs/tabs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/external-link/external-link.ts": "",
-      "source": "./src/providers/electron/electron.ts",
-      "target": "./src/providers/external-link/external-link.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/clipboard/clipboard.ts": "",
-      "source": "./src/providers/electron/electron.ts",
-      "target": "./src/providers/clipboard/clipboard.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
-      "source": "./src/providers/bitpay-account/bitpay-account.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
-      "source": "./src/providers/scan/scan.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
-      "source": "./src/pages/integrations/bitpay-card/bitpay-card.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
-      "source": "./src/providers/bitpay-account/bitpay-account.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
-      "source": "./src/providers/card-phases/card-phases.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/incoming-data/incoming-data.ts": "",
-      "source": "./src/providers/bitpay-id/bitpay-id.ts",
-      "target": "./src/providers/incoming-data/incoming-data.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/incoming-data/incoming-data.ts": "",
-      "source": "./src/providers/in-app-browser/card.ts",
-      "target": "./src/providers/incoming-data/incoming-data.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/incoming-data/incoming-data.ts": "",
-      "source": "./src/providers/invoice/invoice.ts",
-      "target": "./src/providers/incoming-data/incoming-data.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/in-app-browser/card.ts": "",
-      "source": "./src/providers/bitpay-id/bitpay-id.ts",
-      "target": "./src/providers/in-app-browser/card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/in-app-browser/card.ts": "",
-      "source": "./src/providers/in-app-browser/in-app-browser.ts",
-      "target": "./src/providers/in-app-browser/card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/in-app-browser/card.ts": "",
-      "source": "./src/providers/apple-wallet/apple-wallet.ts",
-      "target": "./src/providers/in-app-browser/card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
-      "source": "./src/providers/in-app-browser/card.ts",
-      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
-      "source": "./src/pages/tabs/tabs.ts",
-      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/paypro/paypro.ts": "",
-      "source": "./src/providers/invoice/invoice.ts",
-      "target": "./src/providers/paypro/paypro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/merchant/merchant.ts": "",
-      "source": "./src/providers/merchant/merchant.ts",
-      "target": "./src/pages/merchant/merchant.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": "",
-      "source": "./src/pages/add/create-wallet/create-wallet.ts",
-      "target": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": "",
-      "source": "./src/pages/onboarding/recovery-key/recovery-key.ts",
-      "target": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": "",
-      "source": "./src/pages/send/send.ts",
-      "target": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
-      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/pages/integrations/changelly/changelly.ts",
-      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/pages/integrations/one-inch/one-inch.ts",
-      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts",
-      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/pages/token-swap/token-swap-approve/token-swap-approve.ts",
-      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts",
-      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
-      "source": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
-      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
-      "source": "./src/pages/buy-crypto/country-selector/country-selector.ts",
-      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
-      "source": "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts",
-      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
-      "source": "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts",
-      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/add-funds/add-funds.ts": "",
-      "source": "./src/pages/onboarding/recovery-key/recovery-key.ts",
-      "target": "./src/pages/onboarding/add-funds/add-funds.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": "",
-      "source": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts": "",
-      "source": "./src/pipes/format-currency.ts",
-      "target": "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": "",
-      "source": "./src/pages/integrations/changelly/changelly.ts",
-      "target": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": "",
-      "source": "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts",
-      "target": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts": "",
-      "source": "./src/pages/integrations/one-inch/one-inch.ts",
-      "target": "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/logs/logs.ts": "",
-      "source": "./src/providers/download/download.ts",
-      "target": "./src/providers/logs/logs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/backup/backup.ts": "",
-      "source": "./src/providers/download/download.ts",
-      "target": "./src/providers/backup/backup.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-id/bitpay-id.ts": "",
-      "source": "./src/providers/in-app-browser/in-app-browser.ts",
-      "target": "./src/providers/bitpay-id/bitpay-id.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/scan/scan.ts": "",
-      "source": "./src/providers/scan/scan.ts",
-      "target": "./src/pages/scan/scan.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/add.ts": "",
-      "source": "./src/pages/add-wallet/add-wallet.ts",
-      "target": "./src/pages/add/add.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": "",
-      "source": "./src/pages/integrations/bitpay-card/bitpay-card.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts": "",
-      "source": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
-      "target": "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": "",
-      "source": "./src/pages/integrations/gift-cards/phone/phone.ts",
-      "target": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/select-inputs/select-inputs.ts": "",
-      "source": "./src/pages/send/transfer-to-modal/transfer-to-modal.ts",
-      "target": "./src/pages/send/select-inputs/select-inputs.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/send/multi-send/multi-send.ts": "",
-      "source": "./src/pages/send/transfer-to-modal/transfer-to-modal.ts",
-      "target": "./src/pages/send/multi-send/multi-send.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wallet-connect/wallet-connect.ts": "",
-      "source": "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts",
-      "target": "./src/pages/integrations/wallet-connect/wallet-connect.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/pin/pin-modal/pin-modal.ts": "",
-      "source": "./src/directives/animate/animate.ts",
-      "target": "./src/pages/pin/pin-modal/pin-modal.ts"
+      "./src/providers/action-sheet/action-sheet.ts": "",
+      "source": "./src/components/info-sheet/info-sheet.ts",
+      "target": "./src/providers/action-sheet/action-sheet.ts"
     }
   },
   {
@@ -960,6 +99,1378 @@
   },
   {
     "data": {
+      "./src/components/action-sheet/action-sheet.ts": "",
+      "source": "./src/providers/dom/dom.ts",
+      "target": "./src/components/action-sheet/action-sheet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/components/encrypt-password/encrypt-password.ts": "",
+      "source": "./src/providers/dom/dom.ts",
+      "target": "./src/components/encrypt-password/encrypt-password.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/components/encrypt-password/encrypt-password.ts": "",
+      "source": "./src/components/info-sheet/info-sheet.ts",
+      "target": "./src/components/encrypt-password/encrypt-password.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/components/needs-backup/needs-backup.ts": "",
+      "source": "./src/providers/dom/dom.ts",
+      "target": "./src/components/needs-backup/needs-backup.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/components/needs-backup/needs-backup.ts": "",
+      "source": "./src/components/info-sheet/info-sheet.ts",
+      "target": "./src/components/needs-backup/needs-backup.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/components/wallet-receive/wallet-receive.ts": "",
+      "source": "./src/providers/dom/dom.ts",
+      "target": "./src/components/wallet-receive/wallet-receive.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/components/wallet-receive/wallet-receive.ts": "",
+      "source": "./src/components/info-sheet/info-sheet.ts",
+      "target": "./src/components/wallet-receive/wallet-receive.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/providers/dom/dom.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/components/info-sheet/info-sheet.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/integrations/coinbase/coinbase.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/exchange-crypto/exchange-crypto.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/integrations/wallet-connect/wallet-connect.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pipes/format-currency.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/onboarding/add-funds/add-funds.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/home/home.ts": "",
+      "source": "./src/pages/new-feature/new-feature.ts",
+      "target": "./src/pages/home/home.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/wallet/wallet.ts": "",
+      "source": "./src/providers/touchid/touchid.ts",
+      "target": "./src/providers/wallet/wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/wallet/wallet.ts": "",
+      "source": "./src/providers/language/language.ts",
+      "target": "./src/providers/wallet/wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/wallet/wallet.ts": "",
+      "source": "./src/providers/filter/filter.ts",
+      "target": "./src/providers/wallet/wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/wallet/wallet.ts": "",
+      "source": "./src/providers/logs/logs.ts",
+      "target": "./src/providers/wallet/wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/wallet/wallet.ts": "",
+      "source": "./src/providers/zce/zce.ts",
+      "target": "./src/providers/wallet/wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/import-wallet/import-wallet.ts": "",
+      "source": "./src/providers/derivation-path-helper/derivation-path-helper.ts",
+      "target": "./src/pages/add/import-wallet/import-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/import-wallet/import-wallet.ts": "",
+      "source": "./src/pages/onboarding/disclaimer/disclaimer.ts",
+      "target": "./src/pages/add/import-wallet/import-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/import-wallet/import-wallet.ts": "",
+      "source": "./src/pages/includes/coin-selector/coin-selector.ts",
+      "target": "./src/pages/add/import-wallet/import-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/join-wallet/join-wallet.ts": "",
+      "source": "./src/providers/derivation-path-helper/derivation-path-helper.ts",
+      "target": "./src/pages/add/join-wallet/join-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/join-wallet/join-wallet.ts": "",
+      "source": "./src/providers/clipboard/clipboard.ts",
+      "target": "./src/pages/add/join-wallet/join-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/join-wallet/join-wallet.ts": "",
+      "source": "./src/pages/add/copayers/copayers.ts",
+      "target": "./src/pages/add/join-wallet/join-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/create-wallet/create-wallet.ts": "",
+      "source": "./src/providers/derivation-path-helper/derivation-path-helper.ts",
+      "target": "./src/pages/add/create-wallet/create-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/create-wallet/create-wallet.ts": "",
+      "source": "./src/pages/add/copayers/copayers.ts",
+      "target": "./src/pages/add/create-wallet/create-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/create-wallet/create-wallet.ts": "",
+      "source": "./src/pages/add/create-eth-multisig/create-eth-multisig.ts",
+      "target": "./src/pages/add/create-wallet/create-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay-card/bitpay-card.ts": "",
+      "source": "./src/providers/bitpay/bitpay.ts",
+      "target": "./src/providers/bitpay-card/bitpay-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay-card/bitpay-card.ts": "",
+      "source": "./src/providers/app-identity/app-identity.ts",
+      "target": "./src/providers/bitpay-card/bitpay-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay-account/bitpay-account.ts": "",
+      "source": "./src/providers/bitpay/bitpay.ts",
+      "target": "./src/providers/bitpay-account/bitpay-account.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay-account/bitpay-account.ts": "",
+      "source": "./src/providers/app-identity/app-identity.ts",
+      "target": "./src/providers/bitpay-account/bitpay-account.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card.ts": "",
+      "source": "./src/providers/bitpay/bitpay.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card.ts": "",
+      "source": "./src/providers/bitpay-card/bitpay-card.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card.ts": "",
+      "source": "./src/providers/time/time.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/providers/bitpay/bitpay.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/pages/add/select-currency/select-currency.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/providers/buy-crypto/buy-crypto.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/pages/buy-crypto/country-selector/country-selector.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts": "",
+      "source": "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts",
+      "target": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/country-selector/country-selector.ts": "",
+      "source": "./src/providers/bitpay/bitpay.ts",
+      "target": "./src/pages/buy-crypto/country-selector/country-selector.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": "",
+      "source": "./src/providers/bitpay/bitpay.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": "",
+      "source": "./src/providers/bitpay-card/bitpay-card.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts": "",
+      "source": "./src/pages/integrations/bitpay-card/bitpay-card.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
+      "source": "./src/providers/bitpay-card/bitpay-card.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
+      "source": "./src/providers/bitpay-account/bitpay-account.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
+      "source": "./src/providers/scan/scan.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
+      "source": "./src/pages/integrations/bitpay-card/bitpay-card.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
+      "source": "./src/providers/bitpay-card/bitpay-card.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
+      "source": "./src/providers/bitpay-account/bitpay-account.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
+      "source": "./src/providers/card-phases/card-phases.ts",
+      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/providers/clipboard/clipboard.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/providers/location/location.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/pages/exchange-crypto/exchange-crypto.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/providers/tab/tab.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/pages/cards/cards.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/pages/home/home.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tabs/tabs.ts": "",
+      "source": "./src/pages/wallets/wallets.ts",
+      "target": "./src/pages/tabs/tabs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/providers/clipboard/clipboard.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/add/copayers/copayers.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/integrations/coinbase/coinbase.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/add/join-wallet/join-wallet.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/integrations/simplex/simplex.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/integrations/invoice/select-invoice/select-invoice.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/paper-wallet/paper-wallet.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/send/select-inputs/select-inputs.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/send.ts": "",
+      "source": "./src/pages/send/multi-send/multi-send.ts",
+      "target": "./src/pages/send/send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/gift-card/gift-card.ts": "",
+      "source": "./src/providers/location/location.ts",
+      "target": "./src/providers/gift-card/gift-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/gift-card/gift-card.ts": "",
+      "source": "./src/providers/time/time.ts",
+      "target": "./src/providers/gift-card/gift-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/gift-card/gift-card.ts": "",
+      "source": "./src/providers/email-notifications/email-notifications.ts",
+      "target": "./src/providers/gift-card/gift-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/gift-card/gift-card.ts": "",
+      "source": "./src/providers/bitpay-id/bitpay-id.ts",
+      "target": "./src/providers/gift-card/gift-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/gift-card/gift-card.ts": "",
+      "source": "./src/providers/invoice/invoice.ts",
+      "target": "./src/providers/gift-card/gift-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/gift-card/gift-card.ts": "",
+      "source": "./src/utils.ts",
+      "target": "./src/providers/gift-card/gift-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/providers/location/location.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/providers/time/time.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/providers/buy-crypto/buy-crypto.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/backup/backup-key/backup-key.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/exchange-crypto/exchange-crypto.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/send/send.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/tx-details/tx-details.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/wallet-details.ts": "",
+      "source": "./src/pages/wallet-details/wallet-balance/wallet-balance.ts",
+      "target": "./src/pages/wallet-details/wallet-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/providers/location/location.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/providers/changelly/changelly.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/pages/integrations/changelly/changelly.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/pages/integrations/one-inch/one-inch.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/pages/token-swap/token-swap-approve/token-swap-approve.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts",
+      "target": "./src/pages/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/one-inch/one-inch.ts": "",
+      "source": "./src/providers/location/location.ts",
+      "target": "./src/pages/integrations/one-inch/one-inch.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/one-inch/one-inch.ts": "",
+      "source": "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts",
+      "target": "./src/pages/integrations/one-inch/one-inch.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/new-feature-data/new-feature-data.ts": "",
+      "source": "./src/providers/location/location.ts",
+      "target": "./src/providers/new-feature-data/new-feature-data.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts": "",
+      "source": "./src/providers/time/time.ts",
+      "target": "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/add.ts": "",
+      "source": "./src/pages/add/select-currency/select-currency.ts",
+      "target": "./src/pages/add/add.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/add.ts": "",
+      "source": "./src/pages/add-wallet/add-wallet.ts",
+      "target": "./src/pages/add/add.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add-wallet/add-wallet.ts": "",
+      "source": "./src/pages/add/select-currency/select-currency.ts",
+      "target": "./src/pages/add-wallet/add-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add-wallet/add-wallet.ts": "",
+      "source": "./src/pages/add/join-wallet/join-wallet.ts",
+      "target": "./src/pages/add-wallet/add-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add-wallet/add-wallet.ts": "",
+      "source": "./src/pages/add/create-wallet/create-wallet.ts",
+      "target": "./src/pages/add-wallet/add-wallet.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/app/app.ts": "",
+      "source": "./src/providers/language/language.ts",
+      "target": "./src/providers/app/app.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay/bitpay.ts": "",
+      "source": "./src/providers/app-identity/app-identity.ts",
+      "target": "./src/providers/bitpay/bitpay.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay-id/bitpay-id.ts": "",
+      "source": "./src/providers/app-identity/app-identity.ts",
+      "target": "./src/providers/bitpay-id/bitpay-id.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/bitpay-id/bitpay-id.ts": "",
+      "source": "./src/providers/in-app-browser/in-app-browser.ts",
+      "target": "./src/providers/bitpay-id/bitpay-id.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/in-app-browser/card.ts": "",
+      "source": "./src/providers/app-identity/app-identity.ts",
+      "target": "./src/providers/in-app-browser/card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/in-app-browser/card.ts": "",
+      "source": "./src/providers/bitpay-id/bitpay-id.ts",
+      "target": "./src/providers/in-app-browser/card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/in-app-browser/card.ts": "",
+      "source": "./src/providers/in-app-browser/in-app-browser.ts",
+      "target": "./src/providers/in-app-browser/card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/in-app-browser/card.ts": "",
+      "source": "./src/providers/apple-wallet/apple-wallet.ts",
+      "target": "./src/providers/in-app-browser/card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts": "",
+      "source": "./src/providers/buy-crypto/buy-crypto.ts",
+      "target": "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts": "",
+      "source": "./src/providers/simplex/simplex.ts",
+      "target": "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts": "",
+      "source": "./src/providers/wyre/wyre.ts",
+      "target": "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts": "",
+      "source": "./src/providers/buy-crypto/buy-crypto.ts",
+      "target": "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts": "",
+      "source": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
+      "target": "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/providers/simplex/simplex.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/providers/filter/filter.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/providers/electron/electron.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/pages/integrations/gift-cards/phone/phone.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/pages/receive/custom-amount/custom-amount.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/amount/amount.ts": "",
+      "source": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts",
+      "target": "./src/pages/send/amount/amount.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/buy-crypto/buy-crypto.ts": "",
+      "source": "./src/providers/simplex/simplex.ts",
+      "target": "./src/providers/buy-crypto/buy-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/buy-crypto/buy-crypto.ts": "",
+      "source": "./src/providers/wyre/wyre.ts",
+      "target": "./src/providers/buy-crypto/buy-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/simplex/simplex.ts": "",
+      "source": "./src/providers/simplex/simplex.ts",
+      "target": "./src/pages/integrations/simplex/simplex.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/simplex/simplex.ts": "",
+      "source": "./src/pages/integrations/simplex/simplex-details/simplex-details.ts",
+      "target": "./src/pages/integrations/simplex/simplex.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/simplex/simplex-details/simplex-details.ts": "",
+      "source": "./src/providers/simplex/simplex.ts",
+      "target": "./src/pages/integrations/simplex/simplex-details/simplex-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/exchange-crypto/exchange-crypto.ts": "",
+      "source": "./src/providers/changelly/changelly.ts",
+      "target": "./src/providers/exchange-crypto/exchange-crypto.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/changelly/changelly.ts": "",
+      "source": "./src/providers/changelly/changelly.ts",
+      "target": "./src/pages/integrations/changelly/changelly.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/changelly/changelly.ts": "",
+      "source": "./src/pages/integrations/changelly/changelly-details/changelly-details.ts",
+      "target": "./src/pages/integrations/changelly/changelly.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": "",
+      "source": "./src/providers/changelly/changelly.ts",
+      "target": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": "",
+      "source": "./src/pages/integrations/changelly/changelly.ts",
+      "target": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": "",
+      "source": "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts",
+      "target": "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/changelly/changelly-details/changelly-details.ts": "",
+      "source": "./src/providers/changelly/changelly.ts",
+      "target": "./src/pages/integrations/changelly/changelly-details/changelly-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallets/wallets.ts": "",
+      "source": "./src/pages/add/copayers/copayers.ts",
+      "target": "./src/pages/wallets/wallets.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallets/wallets.ts": "",
+      "source": "./src/pages/backup/backup-key/backup-key.ts",
+      "target": "./src/pages/wallets/wallets.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallets/wallets.ts": "",
+      "source": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
+      "target": "./src/pages/wallets/wallets.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallets/wallets.ts": "",
+      "source": "./src/pages/add/add.ts",
+      "target": "./src/pages/wallets/wallets.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/wallets/wallets.ts": "",
+      "source": "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
+      "target": "./src/pages/wallets/wallets.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/onboarding/add-funds/add-funds.ts": "",
+      "source": "./src/pages/integrations/coinbase/coinbase.ts",
+      "target": "./src/pages/onboarding/add-funds/add-funds.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/onboarding/add-funds/add-funds.ts": "",
+      "source": "./src/pages/onboarding/recovery-key/recovery-key.ts",
+      "target": "./src/pages/onboarding/add-funds/add-funds.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/tx-format/tx-format.ts": "",
+      "source": "./src/providers/filter/filter.ts",
+      "target": "./src/providers/tx-format/tx-format.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/tx-details/tx-details.ts": "",
+      "source": "./src/providers/filter/filter.ts",
+      "target": "./src/pages/tx-details/tx-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/backup/backup-key/backup-key.ts": "",
+      "source": "./src/providers/logs/logs.ts",
+      "target": "./src/pages/backup/backup-key/backup-key.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/backup/backup-key/backup-key.ts": "",
+      "source": "./src/pages/backup/backup-game/backup-game.ts",
+      "target": "./src/pages/backup/backup-key/backup-key.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/wyre/wyre.ts": "",
+      "source": "./src/providers/wyre/wyre.ts",
+      "target": "./src/pages/integrations/wyre/wyre.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/wyre/wyre.ts": "",
+      "source": "./src/pages/integrations/wyre/wyre-details/wyre-details.ts",
+      "target": "./src/pages/integrations/wyre/wyre.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/wyre/wyre-details/wyre-details.ts": "",
+      "source": "./src/providers/wyre/wyre.ts",
+      "target": "./src/pages/integrations/wyre/wyre-details/wyre-details.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/invoice/invoice.ts": "",
+      "source": "./src/providers/email-notifications/email-notifications.ts",
+      "target": "./src/providers/invoice/invoice.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/onboarding/recovery-key/recovery-key.ts": "",
+      "source": "./src/pages/backup/backup-key/backup-key.ts",
+      "target": "./src/pages/onboarding/recovery-key/recovery-key.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/onboarding/recovery-key/recovery-key.ts": "",
+      "source": "./src/pages/onboarding/disclaimer/disclaimer.ts",
+      "target": "./src/pages/onboarding/recovery-key/recovery-key.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/backup/backup-game/backup-game.ts": "",
+      "source": "./src/pages/onboarding/disclaimer/disclaimer.ts",
+      "target": "./src/pages/backup/backup-game/backup-game.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/backup/backup-game/backup-game.ts": "",
+      "source": "./src/pages/onboarding/add-funds/add-funds.ts",
+      "target": "./src/pages/backup/backup-game/backup-game.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/select-currency/select-currency.ts": "",
+      "source": "./src/pages/add/join-wallet/join-wallet.ts",
+      "target": "./src/pages/add/select-currency/select-currency.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/select-currency/select-currency.ts": "",
+      "source": "./src/pages/add/create-wallet/create-wallet.ts",
+      "target": "./src/pages/add/select-currency/select-currency.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/select-currency/select-currency.ts": "",
+      "source": "./src/pages/onboarding/recovery-key/recovery-key.ts",
+      "target": "./src/pages/add/select-currency/select-currency.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/add/select-currency/select-currency.ts": "",
+      "source": "./src/pages/add/custom-token/custom-token.ts",
+      "target": "./src/pages/add/select-currency/select-currency.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
+      "source": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
+      "source": "./src/providers/merchant/merchant.ts",
+      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
+      "source": "./src/pages/integrations/gift-cards/card-details/card-details.ts",
+      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
+      "source": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
+      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
+      "source": "./src/providers/merchant/merchant.ts",
+      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
+      "source": "./src/pages/merchant/merchant.ts",
+      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
+      "source": "./src/pages/templates/wide-header-page/wide-header-page.ts",
+      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/external-link/external-link.ts": "",
+      "source": "./src/providers/electron/electron.ts",
+      "target": "./src/providers/external-link/external-link.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/clipboard/clipboard.ts": "",
+      "source": "./src/providers/electron/electron.ts",
+      "target": "./src/providers/clipboard/clipboard.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/incoming-data/incoming-data.ts": "",
+      "source": "./src/providers/bitpay-id/bitpay-id.ts",
+      "target": "./src/providers/incoming-data/incoming-data.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/incoming-data/incoming-data.ts": "",
+      "source": "./src/providers/in-app-browser/card.ts",
+      "target": "./src/providers/incoming-data/incoming-data.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/incoming-data/incoming-data.ts": "",
+      "source": "./src/providers/invoice/invoice.ts",
+      "target": "./src/providers/incoming-data/incoming-data.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
+      "source": "./src/providers/in-app-browser/card.ts",
+      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
+      "source": "./src/pages/tabs/tabs.ts",
+      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/paypro/paypro.ts": "",
+      "source": "./src/providers/invoice/invoice.ts",
+      "target": "./src/providers/paypro/paypro.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/merchant/merchant.ts": "",
+      "source": "./src/providers/merchant/merchant.ts",
+      "target": "./src/pages/merchant/merchant.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": "",
+      "source": "./src/pages/add/create-wallet/create-wallet.ts",
+      "target": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": "",
+      "source": "./src/pages/onboarding/recovery-key/recovery-key.ts",
+      "target": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts": "",
+      "source": "./src/pages/send/send.ts",
+      "target": "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": "",
+      "source": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
+      "target": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts": "",
+      "source": "./src/pipes/format-currency.ts",
+      "target": "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts": "",
+      "source": "./src/pages/integrations/one-inch/one-inch.ts",
+      "target": "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/logs/logs.ts": "",
+      "source": "./src/providers/download/download.ts",
+      "target": "./src/providers/logs/logs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/providers/backup/backup.ts": "",
+      "source": "./src/providers/download/download.ts",
+      "target": "./src/providers/backup/backup.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/scan/scan.ts": "",
+      "source": "./src/providers/scan/scan.ts",
+      "target": "./src/pages/scan/scan.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": "",
+      "source": "./src/pages/integrations/gift-cards/phone/phone.ts",
+      "target": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/select-inputs/select-inputs.ts": "",
+      "source": "./src/pages/send/transfer-to-modal/transfer-to-modal.ts",
+      "target": "./src/pages/send/select-inputs/select-inputs.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/send/multi-send/multi-send.ts": "",
+      "source": "./src/pages/send/transfer-to-modal/transfer-to-modal.ts",
+      "target": "./src/pages/send/multi-send/multi-send.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/integrations/wallet-connect/wallet-connect.ts": "",
+      "source": "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts",
+      "target": "./src/pages/integrations/wallet-connect/wallet-connect.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/pages/pin/pin-modal/pin-modal.ts": "",
+      "source": "./src/directives/animate/animate.ts",
+      "target": "./src/pages/pin/pin-modal/pin-modal.ts"
+    }
+  },
+  {
+    "data": {
       "./src/components/action-sheet/action-sheet-parent.ts": "",
       "source": "./src/components/action-sheet/action-sheet.ts",
       "target": "./src/components/action-sheet/action-sheet-parent.ts"
@@ -1037,13 +1548,6 @@
   },
   {
     "data": {
-      "./src/pages/add/create-wallet/create-wallet.ts": "",
-      "source": "./src/pages/add/create-eth-multisig/create-eth-multisig.ts",
-      "target": "./src/pages/add/create-wallet/create-wallet.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/add/custom-token/custom-token.ts": "",
       "source": "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts",
       "target": "./src/pages/add/custom-token/custom-token.ts"
@@ -1054,27 +1558,6 @@
       "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
       "source": "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts",
       "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/simplex/simplex.ts": "",
-      "source": "./src/pages/integrations/simplex/simplex-details/simplex-details.ts",
-      "target": "./src/pages/integrations/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/changelly/changelly.ts": "",
-      "source": "./src/pages/integrations/changelly/changelly-details/changelly-details.ts",
-      "target": "./src/pages/integrations/changelly/changelly.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/one-inch/one-inch.ts": "",
-      "source": "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts",
-      "target": "./src/pages/integrations/one-inch/one-inch.ts"
     }
   }
 ]

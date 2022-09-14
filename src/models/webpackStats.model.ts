@@ -104,10 +104,12 @@ export type TModuleByUUID = Map<string, IWebpackModuleParsed>
 
 export type TUUIDByRelativePath = Map<string, string>
 
-export type TDependenciesListByUUID = Map<string, Set<string>>
+export type TModulesMapByUUID = Map<string, Set<string>>
 
 export interface IStats {
     rawModules: number
+    moduleExcluded: number
+    dependencyExcluded: number
     emptyUUID: number
     emptyReasons: number
     emptyReasonDest: number

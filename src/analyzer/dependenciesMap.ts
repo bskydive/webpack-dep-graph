@@ -80,9 +80,9 @@ export function getDependenciesMap(
 	let srcModules: string[]
 	let destModule: string
 
-	for (const [destModuleId, dependencies] of uuidMap.dependenciesListByUUID) {
-		destModule = getModuleName(uuidMap.moduleByUUID, destModuleId)
-		srcModules = getModuleDependencies(uuidMap.moduleByUUID, dependencies)
+	for (const [destModuleId, dependencies] of uuidMap.modulesMapByUUID) {
+		destModule = getModuleName(uuidMap.moduleByUUIDMap, destModuleId)
+		srcModules = getModuleDependencies(uuidMap.moduleByUUIDMap, dependencies)
 
 		if (!destModule) {
 			log(
