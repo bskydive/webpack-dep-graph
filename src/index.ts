@@ -8,26 +8,27 @@ import {
 } from "./utils/graphviz"
 import { loadWebpackStat } from "./utils/webpack"
 import {
-	ICyElementDefinition,
-	parseEdgeDefinitions,
-	saveJSON,
+	saveCytoscape,
 } from "./utils/cytoscape"
-import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
+import {
+	loadGraphml,
+	saveGraphml,
+	saveGraphmlFromDot,
+} from "./utils/graphml"
 import { depsConfig } from "../deps.config"
 import { log } from "./utils/logger"
-import { getCircularImports } from "./analyzer/circular"
+import { saveCircularImports } from "./analyzer/circular"
 import { IWebpackStatsV3 } from "./models/webpack.3.model"
 import { IWebpackStatsV5 } from "./models/webpack.5.model"
+import { saveJSON } from "./utils/files"
 
 function main() {
 	let GRAPHML_STUB: { [key: string]: string }
-	let cytoscapeGraph: ICyElementDefinition[]
 	let statFileName: string
 	let webpackStat: IWebpackStatsV3 | IWebpackStatsV5
 	let dotGraph: IGraphvizDot
 	let dependencyMap: IDependencyMap
 	let statsParser: WebpackStatsParser
-	let circularImports: string[][]
 
 	log(`loading ${statFileName}`)
 	statFileName = process?.argv[2] || depsConfig.input.webpackStatsFileName
@@ -51,17 +52,21 @@ function main() {
 	}
 
 	if (depsConfig.output.graphmlDeps.enabled) {
-		saveGraphmlFromDot(depsConfig.output.graphmlDeps.fileName, dependencyMap)
+		saveGraphmlFromDot(
+			depsConfig.output.graphmlDeps.fileName,
+			dependencyMap
+		)
 	}
 
 	if (depsConfig.output.circularDepsJson.enabled) {
-        circularImports = getCircularImports(dependencyMap)
-		saveJSON(depsConfig.output.circularDepsJson.fileName, circularImports)
+		saveCircularImports(
+			depsConfig.output.circularDepsJson.fileName,
+			dependencyMap
+		)
 	}
 
 	if (depsConfig.output.cytoscapeJson.enabled) {
-		cytoscapeGraph = parseEdgeDefinitions(dependencyMap)
-		saveJSON(depsConfig.output.cytoscapeJson.fileName, cytoscapeGraph)
+		saveCytoscape(depsConfig.output.cytoscapeJson.fileName, dependencyMap)
 	}
 
 	if (depsConfig.output.simplifiedDot.enabled) {

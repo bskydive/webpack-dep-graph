@@ -1,5 +1,5 @@
 import { IDependencyMap } from "../models/webpackStats.model"
-import { writeFile } from "./files"
+import { saveJSON } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */
 export interface ICyElementDefinition {
@@ -85,7 +85,7 @@ export function parseNodeDefinitions(
 }
 
 
-export function saveJSON(fileName: string, data: any) {
-	const json = JSON.stringify(data, null, 2)
-	writeFile(fileName, json)
+export function saveCytoscape(fileName: string, dependencyMap: IDependencyMap) {
+    const data = parseEdgeDefinitions(dependencyMap)
+    saveJSON(fileName, data)
 }

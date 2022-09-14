@@ -1,3 +1,6 @@
+import { IDependencyMap } from "../models/webpackStats.model"
+import { saveJSON } from "../utils/files"
+
 /**
  * Source: https://github.com/pahen/madge/blob/master/lib/cyclic.js
  */
@@ -41,4 +44,9 @@ export function getCircularImports(dependenciesMap: Record<string, string[]>): s
   Object.keys(dependenciesMap).forEach(resolve)
 
   return circular
+}
+
+export function saveCircularImports(fileName: string, dependencyMap: IDependencyMap) {
+    const data = getCircularImports(dependencyMap)
+    saveJSON(fileName, data)
 }

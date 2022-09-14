@@ -22,3 +22,8 @@ export function fileNameFromPath(path: string) {
 	const [name]: string[] = path.split("/").slice(-1)
 	return name
 }
+
+export function saveJSON(fileName: string, data: any) {
+	const json = JSON.stringify(data, null, 2)
+	writeFile(fileName, json)
+}
