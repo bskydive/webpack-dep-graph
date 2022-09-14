@@ -20,7 +20,7 @@ import { fileNameFromPath } from "../utils/files"
 /** @deprecated TODO split state and logic */
 export class DependenciesUUIDMap {
 	stats: IStats = {
-        dependencyExcluded: 0,
+		dependencyExcluded: 0,
 		rawModules: 0,
 		moduleExcluded: 0,
 		emptyUUID: 0,
@@ -53,10 +53,11 @@ export class DependenciesUUIDMap {
 		})
 
 		this.stats.rawModules = modules.length
-        this.stats.moduleTypes = this.getModuleTypes(modules)
+		this.stats.moduleTypes = this.getModuleTypes(modules)
 
 		this.createUUIDNodes(filteredDestModules)
 		this.createDependenciesList(filteredDestModules)
+        this.filterByMaxDependenciesCount()
 	}
 
 	moduleByRelativePath(relativePath: string): IWebpackModuleParsed | null {
@@ -136,16 +137,6 @@ export class DependenciesUUIDMap {
 				continue
 			}
 
-			if (
-				depsConfig.filters.excludeNodeByMaxDepsCount > 0 &&
-				webpackModule.reasons.length >
-					depsConfig.filters.excludeNodeByMaxDepsCount
-			) {
-				this.stats.maxReasonCountExcluded++
-				// log("Too many dependencies", { name: webpackModule.name })
-				continue
-			}
-
 			// exclude & excludeExcept filter options applied
 			reasons = webpackModule?.reasons?.filter(
 				(m: IWebpackModuleReasonShort) => {
@@ -194,6 +185,21 @@ export class DependenciesUUIDMap {
 		}
 	}
 
+	filterByMaxDependenciesCount() {
+		if (depsConfig.filters.excludeNodeByMaxDepsCount > 0) {
+			for (const [consumer, dependencies] of this.modulesMapByUUID) {
+				if (
+					dependencies.size >
+					depsConfig.filters.excludeNodeByMaxDepsCount
+				) {
+					this.stats.maxReasonCountExcluded++
+					this.modulesMapByUUID.delete(consumer)
+					// log("Too many dependencies", { name: webpackModule.name })
+				}
+			}
+		}
+	}
+
 	getSummary(): string[] {
 		return [
 			`summary:`,
@@ -205,11 +211,11 @@ export class DependenciesUUIDMap {
 			`flattened modules: ${this.moduleByUUIDMap.size}`,
 			`flattened modules path: ${this.uuidByRelativePathMap.size}`,
 			`filtered:`,
-			`empty module uuid: ${this.stats.emptyUUID}`,
+			`empty module uuid's: ${this.stats.emptyUUID}`,
 			`empty reasons: ${this.stats.emptyReasons}`,
 			`empty reasons dest: ${this.stats.emptyReasonDest}`,
-			`excluded module reason type: ${this.stats.reasonTypeExcluded}`,
-			`max reasons count: ${this.stats.maxReasonCountExcluded}`,
+			`excluded module reason types: ${this.stats.reasonTypeExcluded}`,
+			`excluded modules by max reasons count: ${this.stats.maxReasonCountExcluded}`,
 		]
 	}
 }
