@@ -19,9 +19,8 @@ import { fileNameFromPath } from "../utils/files"
 
 /** @deprecated TODO split state and logic */
 export class DependenciesUUIDMap {
-	/** source unparsed list */
-	modules: IWebpackModuleShort[] = []
 	stats: IStats = {
+		rawModules: 0,
 		emptyUUID: 0,
 		emptyReasons: 0,
 		emptyReasonDest: 0,
@@ -39,9 +38,17 @@ export class DependenciesUUIDMap {
 	dependenciesListByUUID: TDependenciesListByUUID = new Map()
 
 	constructor(modules: IWebpackModuleShort[]) {
-		this.modules = modules
-		this.createUUIDNodes(modules)
-		this.filterDependencies()
+        let filteredDestModules: IWebpackModuleShort[]
+
+        filteredDestModules = modules?.filter((m: IWebpackModuleShort) =>
+			// filter target/dest nodes
+			isModuleIncluded(m.name, depsConfig.filters)
+		)
+
+		this.stats.moduleTypes = this.getModuleTypes(modules)
+
+        this.createUUIDNodes(filteredDestModules)
+		this.filterDependencies(filteredDestModules)
 	}
 
 	moduleByRelativePath(relativePath: string): IWebpackModuleParsed | null {
@@ -100,7 +107,7 @@ export class DependenciesUUIDMap {
 		return reasonTypes
 	}
 
-	private filterDependencies(): void {
+	private filterDependencies(filteredDestModules: IWebpackModuleShort[] ): void {
 		let relativePath: string
 		let module: IWebpackModuleParsed
 		/** dependencies, source */
@@ -108,14 +115,6 @@ export class DependenciesUUIDMap {
 		let moduleName: string
 		/** consumer */
 		let destModule: IWebpackModuleParsed
-		let filteredDestModules: IWebpackModuleShort[]
-
-		filteredDestModules = this.modules?.filter((m: IWebpackModuleShort) =>
-			// filter target/dest nodes
-			isModuleIncluded(m.name, depsConfig.filters)
-		)
-
-		this.stats.moduleTypes = this.getModuleTypes(filteredDestModules)
 
 		for (const webpackModule of filteredDestModules) {
 			relativePath = resolvePathPlus(webpackModule.name)
@@ -132,7 +131,7 @@ export class DependenciesUUIDMap {
 				webpackModule.reasons.length >
 					depsConfig.filters.excludeNodeByMaxDepsCount
 			) {
-                this.stats.maxReasonCountExcluded++
+				this.stats.maxReasonCountExcluded++
 				// log("Too many dependencies", { name: webpackModule.name })
 				continue
 			}
@@ -180,13 +179,13 @@ export class DependenciesUUIDMap {
 	getSummary(): string[] {
 		return [
 			`summary:`,
-			`raw modules: ${this.modules.length}`,
+			`raw modules: ${this.stats.rawModules}`,
 			`raw module types: ${this.stats.moduleTypes};`,
 			`dependencies: ${this.dependenciesListByUUID.size}`,
 			`nodesPaths: ${this.uuidByRelativePath.size}`,
 			`nodes: ${this.moduleByUUID.size}`,
-            `filtered:`,
-            `empty module uuid: ${this.stats.emptyUUID}`,
+			`filtered:`,
+			`empty module uuid: ${this.stats.emptyUUID}`,
 			`empty reasons: ${this.stats.emptyReasons}`,
 			`empty reasons dest: ${this.stats.emptyReasonDest}`,
 			`excluded module reason type: ${this.stats.reasonTypeExcluded}`,

@@ -1,32 +1,4 @@
 {
-  "./src/providers/index.ts": [
-    "./src/providers/filter/filter.ts",
-    "./src/providers/logs/logs.ts",
-    "./src/providers/wyre/wyre.ts",
-    "./src/providers/email-notifications/email-notifications.ts",
-    "./src/providers/electron/electron.ts",
-    "./src/providers/bitpay-account/bitpay-account.ts",
-    "./src/providers/bitpay-id/bitpay-id.ts",
-    "./src/providers/in-app-browser/card.ts",
-    "./src/providers/invoice/invoice.ts",
-    "./src/providers/merchant/merchant.ts",
-    "./src/providers/download/download.ts",
-    "./src/providers/in-app-browser/in-app-browser.ts",
-    "./src/providers/scan/scan.ts",
-    "./src/providers/tx-confirm-notification/tx-confirm-notification.ts",
-    "./src/providers/wallet-connect/wallet-connect.ts",
-    "./src/providers/zce/zce.ts",
-    "./src/providers/apple-wallet/apple-wallet.ts",
-    "./src/providers/backup/backup.ts",
-    "./src/providers/confetti/confetti.ts",
-    "./src/providers/directory/directory.ts",
-    "./src/providers/feedback/feedback.ts",
-    "./src/providers/language-loader/language-loader.ts",
-    "./src/providers/tab/tab.ts",
-    "./src/providers/abi-decoder/abi-decoder.ts",
-    "./src/providers/new-feature-data/new-feature-data.ts",
-    "./src/providers/card-phases/card-phases.ts"
-  ],
   "./src/providers/wallet/wallet.ts": [
     "./src/providers/filter/filter.ts",
     "./src/providers/logs/logs.ts",
@@ -38,7 +10,6 @@
   "./src/pages/send/amount/amount.ts": [
     "./src/providers/filter/filter.ts",
     "./src/providers/electron/electron.ts",
-    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
     "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
     "./src/pages/integrations/gift-cards/phone/phone.ts",
     "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts",
@@ -46,28 +17,11 @@
     "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
   ],
   "./src/pages/tx-details/tx-details.ts": [
-    "./src/providers/filter/filter.ts",
-    "./src/providers/tx-confirm-notification/tx-confirm-notification.ts"
+    "./src/providers/filter/filter.ts"
   ],
   "./src/pages/backup/backup-key/backup-key.ts": [
     "./src/providers/logs/logs.ts",
     "./src/pages/backup/backup-game/backup-game.ts"
-  ],
-  "./src/pages/settings/about/session-log/session-log.ts": [
-    "./src/providers/logs/logs.ts"
-  ],
-  "./src/pages/settings/key-settings/key-settings.ts": [
-    "./src/providers/logs/logs.ts",
-    "./src/pages/backup/backup-key/backup-key.ts",
-    "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
-    "./src/pages/add/add.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-export/wallet-export.ts",
-    "./src/pages/settings/key-settings/key-name/key-name.ts",
-    "./src/pages/settings/key-settings/clear-encrypt-password/clear-encrypt-password.ts",
-    "./src/pages/settings/key-settings/extended-private-key/extended-private-key.ts",
-    "./src/pages/settings/key-settings/key-delete/key-delete.ts",
-    "./src/pages/settings/key-settings/key-qr-export/key-qr-export.ts"
   ],
   "./src/providers/buy-crypto/buy-crypto.ts": [
     "./src/providers/wyre/wyre.ts"
@@ -91,147 +45,10 @@
   "./src/providers/invoice/invoice.ts": [
     "./src/providers/email-notifications/email-notifications.ts"
   ],
-  "./src/pages/settings/notifications/notifications.ts": [
-    "./src/providers/email-notifications/email-notifications.ts"
-  ],
-  "./src/app/main.ts": [
-    "./src/providers/email-notifications/email-notifications.ts",
-    "./src/pages/backup/backup-key/backup-key.ts",
-    "./src/pages/onboarding/disclaimer/disclaimer.ts",
-    "./src/pages/add/join-wallet/join-wallet.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
-    "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
-    "./src/pages/exchange-crypto/exchange-crypto.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect.ts",
-    "./src/pages/pin/pin-modal/pin-modal.ts",
-    "./src/pages/add/create-wallet/create-wallet.ts",
-    "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
-    "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
-    "./src/pages/onboarding/recovery-key/recovery-key.ts",
-    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
-    "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
-    "./src/pages/integrations/gift-cards/card-details/card-details.ts",
-    "./src/pipes/format-currency.ts",
-    "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts",
-    "./src/pages/integrations/simplex/simplex.ts",
-    "./src/pages/settings/addressbook/add/add.ts",
-    "./src/pages/integrations/changelly/changelly.ts",
-    "./src/pages/integrations/one-inch/one-inch.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts",
-    "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
-    "./src/pages/add/add.ts",
-    "./src/pages/add-wallet/add-wallet.ts",
-    "./src/pages/onboarding/add-funds/add-funds.ts",
-    "./src/pages/tabs/tabs.ts",
-    "./src/pages/send/send.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card.ts",
-    "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts",
-    "./src/pages/integrations/gift-cards/phone/phone.ts",
-    "./src/pages/integrations/invoice/select-invoice/select-invoice.ts",
-    "./src/pages/paper-wallet/paper-wallet.ts",
-    "./src/pages/send/transfer-to-modal/transfer-to-modal.ts",
-    "./src/pages/exchange-crypto/exchange-crypto-settings/exchange-crypto-settings.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts",
-    "./src/pages/new-feature/new-feature.ts",
-    "./src/pages/settings/alt-currency/alt-currency.ts",
-    "./src/pages/settings/bitpay-id/bitpay-id.ts",
-    "./src/pages/settings/settings.ts",
-    "./src/pages/integrations/wyre/wyre.ts",
-    "./src/directives/animate/animate.ts",
-    "./src/pages/settings/about/about.ts",
-    "./src/pages/feedback/send-feedback/send-feedback.ts",
-    "./src/pages/settings/share/share.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/wallet-addresses.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-export/wallet-export.ts",
-    "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
-    "./src/components/email-component/email-component.ts",
-    "./src/components/action-sheet/action-sheet.ts",
-    "./src/components/encrypt-password/encrypt-password.ts",
-    "./src/components/info-sheet/info-sheet-template.ts",
-    "./src/components/footer-menu/footer-menu.ts",
-    "./src/components/incoming-data-menu/incoming-data-menu.ts",
-    "./src/components/memo-component/memo-component.ts",
-    "./src/components/miner-fee-warning/miner-fee-warning.ts",
-    "./src/components/needs-backup/needs-backup.ts",
-    "./src/components/options-sheet/options-sheet.ts",
-    "./src/components/phone-sheet/phone-sheet.ts",
-    "./src/components/wallet-receive/wallet-receive.ts",
-    "./src/components/wallet-selector/wallet-selector.ts",
-    "./src/components/wallet-tab-options/wallet-tab-options.ts",
-    "./src/utils.ts",
-    "./src/providers/language-loader/language-loader.ts",
-    "./src/components/notification-component/notification-component.ts",
-    "./src/pages/add/create-eth-multisig/create-eth-multisig.ts",
-    "./src/pages/backup/backup-game/backup-game.ts",
-    "./src/pages/includes/coin-selector/coin-selector.ts",
-    "./src/pages/cards/cards.ts",
-    "./src/pages/add/custom-token/custom-token.ts",
-    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts",
-    "./src/pages/add/custom-token/confirm-add-token-modal/confirm-add-token-modal.ts",
-    "./src/pages/buy-crypto/country-selector/country-selector.ts",
-    "./src/pages/buy-crypto/crypto-offers/crypto-offers.ts",
-    "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-card-topup/bitpay-card-topup.ts",
-    "./src/pages/choose-fee-level/choose-fee-level.ts",
-    "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts",
-    "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts",
-    "./src/pages/receive/custom-amount/custom-amount.ts",
-    "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts",
-    "./src/pages/integrations/simplex/simplex-details/simplex-details.ts",
-    "./src/pages/send/select-inputs/select-inputs.ts",
-    "./src/pages/send/multi-send/multi-send.ts",
-    "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts",
-    "./src/pages/integrations/changelly/changelly-details/changelly-details.ts",
-    "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts",
-    "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts",
-    "./src/pages/token-swap/token-swap-approve/token-swap-approve.ts",
-    "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts",
-    "./src/pages/home/home.ts",
-    "./src/pages/merchant/merchant.ts",
-    "./src/pages/templates/wide-header-page/wide-header-page.ts",
-    "./src/pages/buy-crypto/crypto-settings/crypto-settings.ts",
-    "./src/pages/integrations/wyre/wyre-details/wyre-details.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-settings/bitpay-settings.ts",
-    "./src/pages/integrations/coinbase/coinbase-settings/coinbase-settings.ts",
-    "./src/pages/integrations/gift-cards/gift-cards-settings/gift-cards-settings.ts",
-    "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect-settings/wallet-connect-settings.ts",
-    "./src/pages/settings/about/session-log/session-log.ts",
-    "./src/pages/settings/addressbook/addressbook.ts",
-    "./src/pages/settings/addressbook/view/view.ts",
-    "./src/pages/settings/advanced/advanced.ts",
-    "./src/pages/settings/advanced/wallet-recover-page/wallet-recover-page.ts",
-    "./src/pages/settings/advanced/wallet-recover-page/wallet-mnemonic-recover-page/wallet-mnemonic-recover-page.ts",
-    "./src/pages/settings/fee-policy/fee-policy.ts",
-    "./src/pages/settings/key-settings/key-settings.ts",
-    "./src/pages/settings/key-settings/key-name/key-name.ts",
-    "./src/pages/settings/wallet-settings/wallet-delete/wallet-delete.ts",
-    "./src/pages/settings/wallet-settings/wallet-name/wallet-name.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/all-addresses/all-addresses.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-duplicate/wallet-duplicate.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-information/wallet-information.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-service-url/wallet-service-url.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-transaction-history/wallet-transaction-history.ts",
-    "./src/pages/settings/key-settings/clear-encrypt-password/clear-encrypt-password.ts",
-    "./src/pages/settings/key-settings/extended-private-key/extended-private-key.ts",
-    "./src/pages/settings/key-settings/key-delete/key-delete.ts",
-    "./src/pages/settings/key-settings/key-qr-export/key-qr-export.ts",
-    "./src/pages/settings/language/language.ts",
-    "./src/pages/settings/local-theme/local-theme.ts",
-    "./src/pages/settings/lock/lock.ts",
-    "./src/pages/settings/navigation/navigation.ts",
-    "./src/pages/settings/notifications/notifications.ts",
-    "./src/pages/wallets/wallets.ts",
-    "./src/pages/tx-details/tx-details.ts",
-    "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts",
-    "./src/pages/wallet-details/wallet-balance/wallet-balance.ts"
-  ],
   "./src/pages/wallet-details/wallet-details.ts": [
     "./src/pages/backup/backup-key/backup-key.ts",
     "./src/pages/exchange-crypto/exchange-crypto.ts",
     "./src/pages/send/send.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/wallet-addresses.ts",
     "./src/pages/wallets/proposals-notifications/proposals-notifications.ts",
     "./src/pages/tx-details/tx-details.ts",
     "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts",
@@ -245,7 +62,6 @@
     "./src/pages/backup/backup-key/backup-key.ts",
     "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
     "./src/pages/add/add.ts",
-    "./src/pages/settings/settings.ts",
     "./src/pages/wallets/proposals-notifications/proposals-notifications.ts"
   ],
   "./src/pages/add/import-wallet/import-wallet.ts": [
@@ -259,7 +75,6 @@
   "./src/pages/add/select-currency/select-currency.ts": [
     "./src/pages/add/join-wallet/join-wallet.ts",
     "./src/pages/add/create-wallet/create-wallet.ts",
-    "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
     "./src/pages/onboarding/recovery-key/recovery-key.ts",
     "./src/pages/add/custom-token/custom-token.ts"
   ],
@@ -271,7 +86,6 @@
     "./src/pages/add/join-wallet/join-wallet.ts",
     "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts",
     "./src/pages/integrations/simplex/simplex.ts",
-    "./src/pages/settings/addressbook/add/add.ts",
     "./src/pages/integrations/invoice/select-invoice/select-invoice.ts",
     "./src/pages/paper-wallet/paper-wallet.ts",
     "./src/pages/send/select-inputs/select-inputs.ts",
@@ -286,9 +100,7 @@
     "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts",
     "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
     "./src/pages/onboarding/add-funds/add-funds.ts",
-    "./src/pages/new-feature/new-feature.ts",
-    "./src/pages/settings/alt-currency/alt-currency.ts",
-    "./src/pages/settings/bitpay-id/bitpay-id.ts"
+    "./src/pages/new-feature/new-feature.ts"
   ],
   "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": [
     "./src/pages/integrations/gift-cards/buy-card/buy-card.ts",
@@ -305,44 +117,10 @@
     "./src/pages/exchange-crypto/exchange-crypto.ts",
     "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
     "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts",
-    "./src/pages/settings/settings.ts",
     "./src/providers/tab/tab.ts",
     "./src/pages/cards/cards.ts",
     "./src/pages/home/home.ts",
     "./src/pages/wallets/wallets.ts"
-  ],
-  "./src/pages/settings/settings.ts": [
-    "./src/pages/integrations/wallet-connect/wallet-connect.ts",
-    "./src/pages/pin/pin-modal/pin-modal.ts",
-    "./src/pages/add/add.ts",
-    "./src/pages/exchange-crypto/exchange-crypto-settings/exchange-crypto-settings.ts",
-    "./src/pages/new-feature/new-feature.ts",
-    "./src/pages/settings/alt-currency/alt-currency.ts",
-    "./src/pages/settings/bitpay-id/bitpay-id.ts",
-    "./src/pages/settings/about/about.ts",
-    "./src/pages/settings/share/share.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings.ts",
-    "./src/providers/new-feature-data/new-feature-data.ts",
-    "./src/pages/buy-crypto/crypto-settings/crypto-settings.ts",
-    "./src/pages/integrations/bitpay-card/bitpay-settings/bitpay-settings.ts",
-    "./src/pages/integrations/coinbase/coinbase-settings/coinbase-settings.ts",
-    "./src/pages/integrations/gift-cards/gift-cards-settings/gift-cards-settings.ts",
-    "./src/pages/integrations/wallet-connect/wallet-connect-settings/wallet-connect-settings.ts",
-    "./src/pages/settings/addressbook/addressbook.ts",
-    "./src/pages/settings/advanced/advanced.ts",
-    "./src/pages/settings/fee-policy/fee-policy.ts",
-    "./src/pages/settings/key-settings/key-settings.ts",
-    "./src/pages/settings/language/language.ts",
-    "./src/pages/settings/local-theme/local-theme.ts",
-    "./src/pages/settings/lock/lock.ts",
-    "./src/pages/settings/navigation/navigation.ts",
-    "./src/pages/settings/notifications/notifications.ts"
-  ],
-  "./src/pages/integrations/wallet-connect/wallet-connect-settings/wallet-connect-settings.ts": [
-    "./src/pages/integrations/wallet-connect/wallet-connect.ts"
-  ],
-  "./src/pages/settings/lock/lock.ts": [
-    "./src/pages/pin/pin-modal/pin-modal.ts"
   ],
   "./src/providers/external-link/external-link.ts": [
     "./src/providers/electron/electron.ts"
@@ -359,9 +137,6 @@
     "./src/providers/bitpay-account/bitpay-account.ts",
     "./src/providers/card-phases/card-phases.ts"
   ],
-  "./src/pages/integrations/bitpay-card/bitpay-settings/bitpay-settings.ts": [
-    "./src/providers/bitpay-account/bitpay-account.ts"
-  ],
   "./src/providers/incoming-data/incoming-data.ts": [
     "./src/providers/bitpay-id/bitpay-id.ts",
     "./src/providers/in-app-browser/card.ts",
@@ -371,13 +146,6 @@
     "./src/providers/bitpay-id/bitpay-id.ts",
     "./src/providers/in-app-browser/in-app-browser.ts",
     "./src/providers/apple-wallet/apple-wallet.ts"
-  ],
-  "./src/pages/send/confirm/confirm.ts": [
-    "./src/providers/in-app-browser/card.ts",
-    "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts",
-    "./src/providers/tx-confirm-notification/tx-confirm-notification.ts",
-    "./src/providers/wallet-connect/wallet-connect.ts",
-    "./src/pages/choose-fee-level/choose-fee-level.ts"
   ],
   "./src/pages/onboarding/disclaimer/disclaimer.ts": [
     "./src/providers/in-app-browser/card.ts",
@@ -394,15 +162,10 @@
     "./src/pages/onboarding/recovery-key/recovery-key.ts",
     "./src/pages/send/send.ts"
   ],
-  "./src/pages/add/create-wallet/create-wallet.ts": [
-    "./src/pages/settings/key-settings/key-onboarding/key-onboarding.ts",
-    "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
-  ],
   "./src/pages/exchange-crypto/exchange-crypto.ts": [
     "./src/pages/coin-and-wallet-selector/coin-and-wallet-selector.ts",
     "./src/pages/integrations/changelly/changelly.ts",
     "./src/pages/integrations/one-inch/one-inch.ts",
-    "./src/pages/exchange-crypto/exchange-crypto-settings/exchange-crypto-settings.ts",
     "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts",
     "./src/pages/token-swap/token-swap-approve/token-swap-approve.ts",
     "./src/pages/token-swap/token-swap-checkout/token-swap-checkout.ts"
@@ -416,39 +179,11 @@
   "./src/pages/onboarding/add-funds/add-funds.ts": [
     "./src/pages/onboarding/recovery-key/recovery-key.ts"
   ],
-  "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": [
-    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
-    "./src/pages/integrations/gift-cards/phone/phone.ts"
-  ],
-  "./src/pages/integrations/gift-cards/phone/phone.ts": [
-    "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts",
-    "./src/providers/phone/phone.ts"
-  ],
   "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": [
     "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
   ],
-  "./src/pages/integrations/gift-cards/confirm-card-purchase/confirm-card-purchase.ts": [
-    "./src/pages/integrations/gift-cards/card-details/card-details.ts",
-    "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts",
-    "./src/providers/wallet-connect/wallet-connect.ts"
-  ],
   "./src/pages/integrations/gift-cards/card-details/printable-card/printable-card.ts": [
     "./src/pipes/format-currency.ts"
-  ],
-  "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts": [
-    "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
-  ],
-  "./src/pages/buy-crypto/crypto-settings/crypto-settings.ts": [
-    "./src/pages/integrations/simplex/simplex.ts",
-    "./src/pages/integrations/wyre/wyre.ts"
-  ],
-  "./src/pages/settings/addressbook/addressbook.ts": [
-    "./src/pages/settings/addressbook/add/add.ts",
-    "./src/pages/settings/addressbook/view/view.ts"
-  ],
-  "./src/pages/exchange-crypto/exchange-crypto-settings/exchange-crypto-settings.ts": [
-    "./src/pages/integrations/changelly/changelly.ts",
-    "./src/pages/integrations/one-inch/one-inch.ts"
   ],
   "./src/pages/exchange-crypto/exchange-checkout/exchange-checkout.ts": [
     "./src/pages/integrations/changelly/changelly.ts",
@@ -478,6 +213,9 @@
   "./src/pages/buy-crypto/crypto-payment-method/crypto-payment-method.ts": [
     "./src/pages/buy-crypto/crypto-order-summary/crypto-order-summary.ts"
   ],
+  "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": [
+    "./src/pages/integrations/gift-cards/phone/phone.ts"
+  ],
   "./src/pages/send/select-inputs/select-inputs.ts": [
     "./src/pages/send/transfer-to-modal/transfer-to-modal.ts"
   ],
@@ -489,24 +227,6 @@
   ],
   "./src/pages/pin/pin-modal/pin-modal.ts": [
     "./src/directives/animate/animate.ts"
-  ],
-  "./src/pages/settings/about/about.ts": [
-    "./src/pages/feedback/send-feedback/send-feedback.ts",
-    "./src/pages/settings/about/session-log/session-log.ts"
-  ],
-  "./src/pages/feedback/send-feedback/send-feedback.ts": [
-    "./src/pages/settings/share/share.ts",
-    "./src/providers/feedback/feedback.ts"
-  ],
-  "./src/pages/settings/wallet-settings/wallet-settings.ts": [
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/wallet-addresses.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-export/wallet-export.ts",
-    "./src/pages/settings/wallet-settings/wallet-delete/wallet-delete.ts",
-    "./src/pages/settings/wallet-settings/wallet-name/wallet-name.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-duplicate/wallet-duplicate.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-information/wallet-information.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-service-url/wallet-service-url.ts",
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-transaction-history/wallet-transaction-history.ts"
   ],
   "./src/providers/action-sheet/action-sheet.ts": [
     "./src/components/email-component/email-component.ts",
@@ -528,11 +248,11 @@
   "./src/components/info-sheet/info-sheet.ts": [
     "./src/components/info-sheet/info-sheet-template.ts"
   ],
-  "./src/components/phone-sheet/phone-sheet.ts": [
+  "./src/pages/integrations/gift-cards/phone/phone.ts": [
     "./src/providers/phone/phone.ts"
   ],
-  "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-export/wallet-export.ts": [
-    "./src/providers/backup/backup.ts"
+  "./src/components/phone-sheet/phone-sheet.ts": [
+    "./src/providers/phone/phone.ts"
   ],
   "./src/pages/integrations/gift-cards/card-details/card-details.ts": [
     "./src/providers/confetti/confetti.ts",
@@ -541,6 +261,9 @@
   "./src/providers/merchant/merchant.ts": [
     "./src/providers/directory/directory.ts"
   ],
+  "./src/pages/feedback/send-feedback/send-feedback.ts": [
+    "./src/providers/feedback/feedback.ts"
+  ],
   "./src/providers/push-notifications/push-notifications.ts": [
     "./src/components/notification-component/notification-component.ts"
   ],
@@ -548,9 +271,11 @@
     "./src/providers/wallet-connect/web3-providers/web3-providers.ts",
     "./src/providers/abi-decoder/abi-decoder.ts"
   ],
+  "./src/pages/add/create-wallet/create-wallet.ts": [
+    "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
+  ],
   "./src/pages/add/custom-token/custom-token.ts": [
-    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts",
-    "./src/pages/add/custom-token/confirm-add-token-modal/confirm-add-token-modal.ts"
+    "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts"
   ],
   "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": [
     "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts"
@@ -563,17 +288,5 @@
   ],
   "./src/pages/integrations/one-inch/one-inch.ts": [
     "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts"
-  ],
-  "./src/pages/integrations/gift-cards/gift-cards-settings/gift-cards-settings.ts": [
-    "./src/pages/integrations/gift-cards/gift-card-settings/gift-card-settings.ts"
-  ],
-  "./src/pages/settings/advanced/advanced.ts": [
-    "./src/pages/settings/advanced/wallet-recover-page/wallet-recover-page.ts"
-  ],
-  "./src/pages/settings/advanced/wallet-recover-page/wallet-recover-page.ts": [
-    "./src/pages/settings/advanced/wallet-recover-page/wallet-mnemonic-recover-page/wallet-mnemonic-recover-page.ts"
-  ],
-  "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/wallet-addresses.ts": [
-    "./src/pages/settings/wallet-settings/wallet-settings-advanced/wallet-addresses/all-addresses/all-addresses.ts"
   ]
 }

@@ -15,7 +15,6 @@ Fixed and working.
 ## TODO
 
  * v1.3.0
-    * add excludeNodeByMaxDepsCount graph
     * add Max/Min DepsCount text-->json
     * add deps size
     * add issuedPath

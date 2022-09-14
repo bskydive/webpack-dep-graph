@@ -107,6 +107,7 @@ export type TUUIDByRelativePath = Map<string, string>
 export type TDependenciesListByUUID = Map<string, Set<string>>
 
 export interface IStats {
+    rawModules: number
     emptyUUID: number
     emptyReasons: number
     emptyReasonDest: number
