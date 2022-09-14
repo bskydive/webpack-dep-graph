@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.22-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0" xml:space="preserve"/>
+    <node id="nodeId_./deps.config.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./deps.config.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="120.0" y="50.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">deps.config.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/utils/logger.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/utils/logger.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="230.0" y="90.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">logger.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/models/graphml.model.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/models/graphml.model.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="340.0" y="130.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">graphml.model.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_fs (ignored)">
+    <data key="d5" xml:space="preserve"><![CDATA[fs (ignored)]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="450.0" y="170.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">fs (ignored)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/index.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/index.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="560.0" y="210.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">index.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/analyzer/dependenciesUUIDMap.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/analyzer/dependenciesUUIDMap.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="670.0" y="250.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">dependenciesUUIDMap.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/analyzer/webpackStats.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/analyzer/webpackStats.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="780.0" y="290.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">webpackStats.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/utils/graphml.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/utils/graphml.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="890.0" y="330.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">graphml.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/analyzer/dependenciesMap.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/analyzer/dependenciesMap.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="1000.0" y="370.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">dependenciesMap.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/utils/webpack.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/utils/webpack.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="1110.0" y="410.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">webpack.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/analyzer/circular.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/analyzer/circular.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="1220.0" y="450.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">circular.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/utils/cytoscape.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/utils/cytoscape.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="1330.0" y="490.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">cytoscape.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/utils/graphviz.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/utils/graphviz.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="1440.0" y="530.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">graphviz.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <node id="nodeId_./src/utils/files.ts">
+    <data key="d5" xml:space="preserve"><![CDATA[./src/utils/files.ts]]></data>
+    <data key="d6">
+      <y:ShapeNode>
+        <y:Geometry height="30.0" width="100.0" x="1550.0" y="570.0"/>
+        <y:Fill hasColor="false" transparent="false"/>
+        <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+        <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#FF0000" verticalTextPosition="bottom" visible="true" width="50.951171875" x="24.0244140625" xml:space="preserve" y="5.96875">files.ts<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+        <y:Shape type="rectangle"/>
+      </y:ShapeNode>
+    </data>
+    </node>
+    <edge id="edgeId_./src/analyzer/webpackStats.ts_./src/index.ts" source="nodeId_./src/analyzer/webpackStats.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/analyzer/webpackStats.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./deps.config.ts_./src/index.ts" source="nodeId_./deps.config.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./deps.config.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/logger.ts_./src/index.ts" source="nodeId_./src/utils/logger.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/logger.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/webpack.ts_./src/index.ts" source="nodeId_./src/utils/webpack.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/webpack.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/index.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/graphviz.ts_./src/index.ts" source="nodeId_./src/utils/graphviz.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/graphviz.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/cytoscape.ts_./src/index.ts" source="nodeId_./src/utils/cytoscape.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/cytoscape.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/graphml.ts_./src/index.ts" source="nodeId_./src/utils/graphml.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/graphml.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/analyzer/circular.ts_./src/index.ts" source="nodeId_./src/analyzer/circular.ts" target="nodeId_./src/index.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/analyzer/circular.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./deps.config.ts_./src/analyzer/dependenciesUUIDMap.ts" source="nodeId_./deps.config.ts" target="nodeId_./src/analyzer/dependenciesUUIDMap.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./deps.config.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/logger.ts_./src/analyzer/dependenciesUUIDMap.ts" source="nodeId_./src/utils/logger.ts" target="nodeId_./src/analyzer/dependenciesUUIDMap.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/logger.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/webpack.ts_./src/analyzer/dependenciesUUIDMap.ts" source="nodeId_./src/utils/webpack.ts" target="nodeId_./src/analyzer/dependenciesUUIDMap.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/webpack.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/analyzer/dependenciesUUIDMap.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/analyzer/dependenciesUUIDMap.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./deps.config.ts_./src/analyzer/webpackStats.ts" source="nodeId_./deps.config.ts" target="nodeId_./src/analyzer/webpackStats.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./deps.config.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/analyzer/dependenciesUUIDMap.ts_./src/analyzer/webpackStats.ts" source="nodeId_./src/analyzer/dependenciesUUIDMap.ts" target="nodeId_./src/analyzer/webpackStats.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/analyzer/dependenciesUUIDMap.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/analyzer/dependenciesMap.ts_./src/analyzer/webpackStats.ts" source="nodeId_./src/analyzer/dependenciesMap.ts" target="nodeId_./src/analyzer/webpackStats.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/analyzer/dependenciesMap.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./deps.config.ts_./src/utils/graphml.ts" source="nodeId_./deps.config.ts" target="nodeId_./src/utils/graphml.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./deps.config.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/utils/graphml.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/utils/graphml.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/models/graphml.model.ts_./src/utils/graphml.ts" source="nodeId_./src/models/graphml.model.ts" target="nodeId_./src/utils/graphml.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/models/graphml.model.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/logger.ts_./src/analyzer/dependenciesMap.ts" source="nodeId_./src/utils/logger.ts" target="nodeId_./src/analyzer/dependenciesMap.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/logger.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/logger.ts_./src/utils/webpack.ts" source="nodeId_./src/utils/logger.ts" target="nodeId_./src/utils/webpack.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/logger.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/utils/webpack.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/utils/webpack.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/analyzer/circular.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/analyzer/circular.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/utils/cytoscape.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/utils/cytoscape.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_./src/utils/files.ts_./src/utils/graphviz.ts" source="nodeId_./src/utils/files.ts" target="nodeId_./src/utils/graphviz.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">./src/utils/files.ts<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+    <edge id="edgeId_fs (ignored)_./src/utils/files.ts" source="nodeId_fs (ignored)" target="nodeId_./src/utils/files.ts">
+    <data key="d9"/>
+    <data key="d10">
+      <y:PolyLineEdge>
+        <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+        <y:LineStyle color="#999999" type="line" width="1.0"/>
+        <y:Arrows source="none" target="standard"/>
+        <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#999999" verticalTextPosition="bottom" visible="true" width="74.154296875" x="0.0" xml:space="preserve" y="0.0">fs (ignored)<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+        <y:BendStyle smoothed="false"/>
+      </y:PolyLineEdge>
+    </data>
+    </edge>
+  </graph>
+  <data key="d7">
+    <y:Resources/>
+  </data>
+</graphml>
