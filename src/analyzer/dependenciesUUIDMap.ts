@@ -17,7 +17,7 @@ import {
 } from "../models/webpackStats.model"
 import { fileNameFromPath } from "../utils/files"
 
-/** @deprecated TODO split state and logic */
+/** Concatenating source and dest modules into Map */
 export class DependenciesUUIDMap {
 	stats: IStats = {
 		dependencyExcluded: 0,
@@ -36,6 +36,8 @@ export class DependenciesUUIDMap {
 	/** flattened list for parsing {'path1':'uuid1'} */
 	uuidByRelativePathMap: TUUIDByRelativePath = new Map()
 
+	/** resulting map for filtering: {"uuid_source": ["uuid_dest1", "uuid_dest2"]} */
+	modulesMapByUUIDInverted: TModulesMapByUUID = new Map()
 	/** resulting map: {"uuid_destination": ["uuid_source1", "uuid_source2"]} */
 	modulesMapByUUID: TModulesMapByUUID = new Map()
 
@@ -57,7 +59,7 @@ export class DependenciesUUIDMap {
 
 		this.createUUIDNodes(filteredDestModules)
 		this.createDependenciesList(filteredDestModules)
-        this.filterByMaxDependenciesCount()
+		this.filterByMaxDependenciesCount()
 	}
 
 	moduleByRelativePath(relativePath: string): IWebpackModuleParsed | null {
@@ -70,11 +72,19 @@ export class DependenciesUUIDMap {
 	}
 
 	addDependenciesById(consumerId: string, dependencyId: string) {
+		// direct consumer<--dependency list
 		if (!this.modulesMapByUUID.has(consumerId)) {
 			this.modulesMapByUUID.set(consumerId, new Set())
 		}
 
 		this.modulesMapByUUID.get(consumerId)?.add(dependencyId)
+
+		// inverted dependency-->consumer list for filtering
+		if (!this.modulesMapByUUIDInverted.has(dependencyId)) {
+			this.modulesMapByUUIDInverted.set(dependencyId, new Set())
+		}
+
+		this.modulesMapByUUIDInverted.get(dependencyId)?.add(consumerId)
 	}
 
 	private createUUIDNodes(modules: IWebpackModuleShort[]) {
@@ -120,7 +130,7 @@ export class DependenciesUUIDMap {
 		filteredDestModules: IWebpackModuleShort[]
 	): void {
 		let relativePath: string
-		let module: IWebpackModuleParsed
+		let moduleParsed: IWebpackModuleParsed
 		/** dependencies, source */
 		let reasons: IWebpackModuleReasonShort[] = []
 		let moduleName: string
@@ -129,9 +139,9 @@ export class DependenciesUUIDMap {
 
 		for (const webpackModule of filteredDestModules) {
 			relativePath = resolvePathPlus(webpackModule.name)
-			module = this.moduleByRelativePath(relativePath)
+			moduleParsed = this.moduleByRelativePath(relativePath)
 
-			if (!module?.uuid) {
+			if (!moduleParsed?.uuid) {
 				this.stats.emptyUUID++
 				log("Empty parsed module", { name: webpackModule.name })
 				continue
@@ -163,7 +173,7 @@ export class DependenciesUUIDMap {
 				if (!moduleName) {
 					this.stats.emptyReasons++
 					log("Empty reason", {
-						uuid: module?.uuid,
+						uuid: moduleParsed?.uuid,
 						reason: reason.moduleName,
 					})
 					continue
@@ -180,23 +190,51 @@ export class DependenciesUUIDMap {
 				}
 
 				// TODO add module.issuerName as dependency:  module.name-->module.issuerName(consumer)
-				this.addDependenciesById(destModule?.uuid, module?.uuid)
+				this.addDependenciesById(destModule?.uuid, moduleParsed?.uuid)
 			}
 		}
 	}
 
 	filterByMaxDependenciesCount() {
-		if (depsConfig.filters.excludeNodeByMaxDepsCount > 0) {
+		if (depsConfig.filters.excludeDestNodeByMaxDepsCount > 0) {
+			// exclude destination nodes(consumers)
 			for (const [consumer, dependencies] of this.modulesMapByUUID) {
 				if (
 					dependencies.size >
-					depsConfig.filters.excludeNodeByMaxDepsCount
+					depsConfig.filters.excludeDestNodeByMaxDepsCount
 				) {
 					this.stats.maxReasonCountExcluded++
 					this.modulesMapByUUID.delete(consumer)
 					// log("Too many dependencies", { name: webpackModule.name })
 				}
 			}
+		}
+
+		if (depsConfig.filters.excludeSrcNodeByMaxDepsCount > 0) {
+			// exclude source nodes(dependencies)
+			let sourcesUUIDList: Set<string> = new Set()
+
+			for (const [dependency, consumers] of this
+				.modulesMapByUUIDInverted) {
+				if (
+					consumers.size >
+					depsConfig.filters.excludeSrcNodeByMaxDepsCount
+				) {
+					sourcesUUIDList.add(dependency)
+
+					for (const consumer of consumers) {
+						// remove dependencies/sources
+						this.modulesMapByUUID.get(consumer)?.delete(dependency)
+
+						if (this.modulesMapByUUID.get(consumer)?.size <= 0) {
+							// remove nodes with empty dependencies
+							this.modulesMapByUUID.delete(consumer)
+						}
+					}
+				}
+			}
+
+			this.stats.maxReasonCountExcluded += sourcesUUIDList?.size
 		}
 	}
 

@@ -71,7 +71,7 @@ function isDependencyLinkIncluded(
 	return false
 }
 
-/** postprocessing */
+/** postprocessing, converting Map to array */
 export function getDependenciesMap(
 	uuidMap: DependenciesUUIDMap,
 	opts: IConfig

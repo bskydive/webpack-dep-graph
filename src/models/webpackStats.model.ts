@@ -84,7 +84,8 @@ export interface IConfigFilters {
 	excludeExcept: string[]
 	includeOnlyDestNode: string[]
 	includeOnlySrcNode: string[]
-	excludeNodeByMaxDepsCount: number
+	excludeDestNodeByMaxDepsCount: number
+	excludeSrcNodeByMaxDepsCount: number
 	edgeTypeExclude: TWebpackReasonShortType[]
 }
 

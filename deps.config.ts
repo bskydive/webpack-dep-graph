@@ -31,7 +31,8 @@ export const depsConfig: IConfig = {
 		includeOnlyDestNode: [], // from nodes; applied after exclude and excludeExcept filters
 		includeOnlySrcNode: [], // from edges/reasons; applied after exclude and excludeExcept filters
         // TODO implement
-        excludeNodeByMaxDepsCount: 7, // applied after exclude* and include* filters
+        excludeDestNodeByMaxDepsCount: 7, // applied after exclude* and include* filters
+        excludeSrcNodeByMaxDepsCount: 7, // applied after exclude* and include* filters
         edgeTypeExclude: [
 			"cjs self exports reference", // fake dependencies loops
 			"export imported specifier", // re-export TODO check necessity

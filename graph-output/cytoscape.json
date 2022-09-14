@@ -1,27 +1,6 @@
 [
   {
     "data": {
-      "./src/providers/currency/currency.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/currency/currency.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/app/app.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/app/app.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/app/app.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/app/app.ts"
-    }
-  },
-  {
-    "data": {
       "./src/providers/app/app.ts": "",
       "source": "./src/providers/language/language.ts",
       "target": "./src/providers/app/app.ts"
@@ -29,107 +8,9 @@
   },
   {
     "data": {
-      "./src/providers/key/key.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/key/key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/key/key.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/key/key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/address-book/address-book.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/address-book/address-book.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/address-book/address-book.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/address-book/address-book.ts"
-    }
-  },
-  {
-    "data": {
       "./src/providers/address-book/address-book.ts": "",
       "source": "./src/providers/address/address.ts",
       "target": "./src/providers/address-book/address-book.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/coinbase/coinbase.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/coinbase/coinbase.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/coinbase/coinbase.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/coinbase/coinbase.ts": "",
-      "source": "./src/providers/rate/rate.ts",
-      "target": "./src/providers/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/coinbase/coinbase.ts": "",
-      "source": "./src/providers/tx-format/tx-format.ts",
-      "target": "./src/providers/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/coinbase/coinbase.ts": "",
-      "source": "./src/providers/home-integrations/home-integrations.ts",
-      "target": "./src/providers/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/one-inch/one-inch.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/one-inch/one-inch.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-card/bitpay-card.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/bitpay-card/bitpay-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-card/bitpay-card.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/providers/bitpay-card/bitpay-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-card/bitpay-card.ts": "",
-      "source": "./src/providers/home-integrations/home-integrations.ts",
-      "target": "./src/providers/bitpay-card/bitpay-card.ts"
     }
   },
   {
@@ -148,90 +29,6 @@
   },
   {
     "data": {
-      "./src/providers/app-identity/app-identity.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/app-identity/app-identity.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/simplex/simplex.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/simplex/simplex.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/simplex/simplex.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/simplex/simplex.ts": "",
-      "source": "./src/providers/rate/rate.ts",
-      "target": "./src/providers/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/simplex/simplex.ts": "",
-      "source": "./src/providers/home-integrations/home-integrations.ts",
-      "target": "./src/providers/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/changelly/changelly.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/changelly/changelly.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/wyre/wyre.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/wyre/wyre.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/wyre/wyre.ts": "",
-      "source": "./src/providers/rate/rate.ts",
-      "target": "./src/providers/wyre/wyre.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
       "source": "./src/providers/in-app-browser/card.ts",
       "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
@@ -242,20 +39,6 @@
       "./src/pages/onboarding/disclaimer/disclaimer.ts": "",
       "source": "./src/pages/tabs/tabs.ts",
       "target": "./src/pages/onboarding/disclaimer/disclaimer.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-intro/bitpay-card-intro.ts"
     }
   },
   {
@@ -289,29 +72,8 @@
   {
     "data": {
       "./src/pages/pin/pin-modal/pin-modal.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/pin/pin-modal/pin-modal.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/pin/pin-modal/pin-modal.ts": "",
       "source": "./src/directives/animate/animate.ts",
       "target": "./src/pages/pin/pin-modal/pin-modal.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-account/bitpay-account.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/bitpay-account/bitpay-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-account/bitpay-account.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/providers/bitpay-account/bitpay-account.ts"
     }
   },
   {
@@ -338,13 +100,6 @@
   {
     "data": {
       "./src/providers/bitpay-id/bitpay-id.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/bitpay-id/bitpay-id.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/bitpay-id/bitpay-id.ts": "",
       "source": "./src/providers/app-identity/app-identity.ts",
       "target": "./src/providers/bitpay-id/bitpay-id.ts"
     }
@@ -359,29 +114,8 @@
   {
     "data": {
       "./src/providers/invoice/invoice.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/invoice/invoice.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/invoice/invoice.ts": "",
       "source": "./src/providers/email-notifications/email-notifications.ts",
       "target": "./src/providers/invoice/invoice.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card-phases/phase-one/phase-one-intro-page/phase-one-intro-page.ts"
     }
   },
   {
@@ -408,43 +142,8 @@
   {
     "data": {
       "./src/providers/new-feature-data/new-feature-data.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/providers/new-feature-data/new-feature-data.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/new-feature-data/new-feature-data.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/new-feature-data/new-feature-data.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/new-feature-data/new-feature-data.ts": "",
       "source": "./src/providers/location/location.ts",
       "target": "./src/providers/new-feature-data/new-feature-data.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-game/backup-game.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/backup/backup-game/backup-game.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-game/backup-game.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/backup/backup-game/backup-game.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-game/backup-game.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/pages/backup/backup-game/backup-game.ts"
     }
   },
   {
@@ -470,51 +169,9 @@
   },
   {
     "data": {
-      "./src/pages/cards/cards.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/cards/cards.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/buy-crypto/country-selector/country-selector.ts": "",
-      "source": "./src/providers/persistence/persistence.ts",
-      "target": "./src/pages/buy-crypto/country-selector/country-selector.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/buy-crypto/country-selector/country-selector.ts": "",
       "source": "./src/providers/bitpay/bitpay.ts",
       "target": "./src/pages/buy-crypto/country-selector/country-selector.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/rate/rate.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/rate/rate.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/tx-format/tx-format.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/tx-format/tx-format.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/tx-format/tx-format.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/tx-format/tx-format.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/tx-format/tx-format.ts": "",
-      "source": "./src/providers/rate/rate.ts",
-      "target": "./src/providers/tx-format/tx-format.ts"
     }
   },
   {
@@ -526,58 +183,9 @@
   },
   {
     "data": {
-      "./src/providers/fee/fee.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/fee/fee.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/fee/fee.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/fee/fee.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/paypro/paypro.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/paypro/paypro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/paypro/paypro.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/providers/paypro/paypro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/paypro/paypro.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/paypro/paypro.ts"
-    }
-  },
-  {
-    "data": {
       "./src/providers/paypro/paypro.ts": "",
       "source": "./src/providers/invoice/invoice.ts",
       "target": "./src/providers/paypro/paypro.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/exchange-crypto/exchange-crypto.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/exchange-crypto/exchange-crypto.ts": "",
-      "source": "./src/providers/home-integrations/home-integrations.ts",
-      "target": "./src/providers/exchange-crypto/exchange-crypto.ts"
     }
   },
   {
@@ -604,29 +212,8 @@
   {
     "data": {
       "./src/providers/clipboard/clipboard.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/providers/clipboard/clipboard.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/clipboard/clipboard.ts": "",
-      "source": "./src/providers/incoming-data/incoming-data.ts",
-      "target": "./src/providers/clipboard/clipboard.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/clipboard/clipboard.ts": "",
       "source": "./src/providers/electron/electron.ts",
       "target": "./src/providers/clipboard/clipboard.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/select-currency/select-currency.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/pages/add/select-currency/select-currency.ts"
     }
   },
   {
@@ -667,41 +254,6 @@
   {
     "data": {
       "./src/pages/paper-wallet/paper-wallet.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/pages/paper-wallet/paper-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/paper-wallet/paper-wallet.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/paper-wallet/paper-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/paper-wallet/paper-wallet.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/paper-wallet/paper-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/paper-wallet/paper-wallet.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/paper-wallet/paper-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/paper-wallet/paper-wallet.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/pages/paper-wallet/paper-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/paper-wallet/paper-wallet.ts": "",
       "source": "./src/pages/finish/finish.ts",
       "target": "./src/pages/paper-wallet/paper-wallet.ts"
     }
@@ -711,41 +263,6 @@
       "./src/pages/paper-wallet/paper-wallet.ts": "",
       "source": "./src/providers/fee/fee.ts",
       "target": "./src/pages/paper-wallet/paper-wallet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/incoming-data-menu/incoming-data-menu.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/components/incoming-data-menu/incoming-data-menu.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/incoming-data-menu/incoming-data-menu.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/incoming-data-menu/incoming-data-menu.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/wallet-receive/wallet-receive.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/components/wallet-receive/wallet-receive.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/wallet-receive/wallet-receive.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/components/wallet-receive/wallet-receive.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/wallet-receive/wallet-receive.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/wallet-receive/wallet-receive.ts"
     }
   },
   {
@@ -772,92 +289,8 @@
   {
     "data": {
       "./src/pages/choose-fee-level/choose-fee-level.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/pages/choose-fee-level/choose-fee-level.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/choose-fee-level/choose-fee-level.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/choose-fee-level/choose-fee-level.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/choose-fee-level/choose-fee-level.ts": "",
       "source": "./src/providers/fee/fee.ts",
       "target": "./src/pages/choose-fee-level/choose-fee-level.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/receive/custom-amount/custom-amount.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/pages/receive/custom-amount/custom-amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/receive/custom-amount/custom-amount.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/receive/custom-amount/custom-amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/receive/custom-amount/custom-amount.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/receive/custom-amount/custom-amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/receive/custom-amount/custom-amount.ts": "",
-      "source": "./src/providers/tx-format/tx-format.ts",
-      "target": "./src/pages/receive/custom-amount/custom-amount.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/rate/rate.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/tx-details/tx-details.ts": "",
-      "source": "./src/providers/tx-format/tx-format.ts",
-      "target": "./src/pages/tx-details/tx-details.ts"
     }
   },
   {
@@ -865,27 +298,6 @@
       "./src/pages/tx-details/tx-details.ts": "",
       "source": "./src/providers/filter/filter.ts",
       "target": "./src/pages/tx-details/tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/wallet-balance/wallet-balance.ts": "",
-      "source": "./src/providers/currency/currency.ts",
-      "target": "./src/pages/wallet-details/wallet-balance/wallet-balance.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/info-sheet/info-sheet.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/components/info-sheet/info-sheet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/info-sheet/info-sheet.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/info-sheet/info-sheet.ts"
     }
   },
   {
@@ -898,43 +310,8 @@
   {
     "data": {
       "./src/pages/integrations/coinbase/coinbase.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase.ts": "",
       "source": "./src/providers/coinbase/coinbase.ts",
       "target": "./src/pages/integrations/coinbase/coinbase.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-details/card-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/gift-cards/card-details/card-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-details/card-details.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/integrations/gift-cards/card-details/card-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-details/card-details.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/pages/integrations/gift-cards/card-details/card-details.ts"
     }
   },
   {
@@ -954,13 +331,6 @@
   {
     "data": {
       "./src/pages/integrations/simplex/simplex.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/simplex/simplex.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/simplex/simplex.ts": "",
       "source": "./src/providers/simplex/simplex.ts",
       "target": "./src/pages/integrations/simplex/simplex.ts"
     }
@@ -975,13 +345,6 @@
   {
     "data": {
       "./src/pages/integrations/changelly/changelly.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/changelly/changelly.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/changelly/changelly.ts": "",
       "source": "./src/providers/changelly/changelly.ts",
       "target": "./src/pages/integrations/changelly/changelly.ts"
     }
@@ -991,20 +354,6 @@
       "./src/pages/integrations/changelly/changelly.ts": "",
       "source": "./src/pages/integrations/changelly/changelly-details/changelly-details.ts",
       "target": "./src/pages/integrations/changelly/changelly.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/one-inch/one-inch.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/one-inch/one-inch.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/one-inch/one-inch.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/integrations/one-inch/one-inch.ts"
     }
   },
   {
@@ -1038,20 +387,6 @@
   {
     "data": {
       "./src/pages/integrations/bitpay-card/bitpay-card.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card.ts": "",
-      "source": "./src/pages/send/amount/amount.ts",
-      "target": "./src/pages/integrations/bitpay-card/bitpay-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/bitpay-card/bitpay-card.ts": "",
       "source": "./src/providers/bitpay/bitpay.ts",
       "target": "./src/pages/integrations/bitpay-card/bitpay-card.ts"
     }
@@ -1073,22 +408,8 @@
   {
     "data": {
       "./src/pages/integrations/gift-cards/phone/phone.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/gift-cards/phone/phone.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/phone/phone.ts": "",
       "source": "./src/providers/phone/phone.ts",
       "target": "./src/pages/integrations/gift-cards/phone/phone.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wyre/wyre.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/wyre/wyre.ts"
     }
   },
   {
@@ -1108,34 +429,6 @@
   {
     "data": {
       "./src/pages/feedback/send-feedback/send-feedback.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/feedback/send-feedback/send-feedback.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/feedback/send-feedback/send-feedback.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/pages/feedback/send-feedback/send-feedback.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/feedback/send-feedback/send-feedback.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/feedback/send-feedback/send-feedback.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/feedback/send-feedback/send-feedback.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/feedback/send-feedback/send-feedback.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/feedback/send-feedback/send-feedback.ts": "",
       "source": "./src/pages/finish/finish.ts",
       "target": "./src/pages/feedback/send-feedback/send-feedback.ts"
     }
@@ -1145,41 +438,6 @@
       "./src/pages/feedback/send-feedback/send-feedback.ts": "",
       "source": "./src/providers/feedback/feedback.ts",
       "target": "./src/pages/feedback/send-feedback/send-feedback.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/email-component/email-component.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/components/email-component/email-component.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/email-component/email-component.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/email-component/email-component.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/encrypt-password/encrypt-password.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/components/encrypt-password/encrypt-password.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/encrypt-password/encrypt-password.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/components/encrypt-password/encrypt-password.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/encrypt-password/encrypt-password.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/encrypt-password/encrypt-password.ts"
     }
   },
   {
@@ -1198,41 +456,6 @@
   },
   {
     "data": {
-      "./src/components/miner-fee-warning/miner-fee-warning.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/components/miner-fee-warning/miner-fee-warning.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/miner-fee-warning/miner-fee-warning.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/components/miner-fee-warning/miner-fee-warning.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/miner-fee-warning/miner-fee-warning.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/miner-fee-warning/miner-fee-warning.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/simplex/simplex-details/simplex-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/simplex/simplex-details/simplex-details.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/integrations/simplex/simplex-details/simplex-details.ts": "",
       "source": "./src/providers/simplex/simplex.ts",
       "target": "./src/pages/integrations/simplex/simplex-details/simplex-details.ts"
@@ -1241,29 +464,8 @@
   {
     "data": {
       "./src/pages/integrations/changelly/changelly-details/changelly-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/changelly/changelly-details/changelly-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/changelly/changelly-details/changelly-details.ts": "",
       "source": "./src/providers/changelly/changelly.ts",
       "target": "./src/pages/integrations/changelly/changelly-details/changelly-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/changelly/changelly-terms/changelly-terms.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/one-inch/one-inch-details/one-inch-details.ts"
     }
   },
   {
@@ -1276,13 +478,6 @@
   {
     "data": {
       "./src/pages/integrations/wyre/wyre-details/wyre-details.ts": "",
-      "source": "./src/providers/external-link/external-link.ts",
-      "target": "./src/pages/integrations/wyre/wyre-details/wyre-details.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wyre/wyre-details/wyre-details.ts": "",
       "source": "./src/providers/wyre/wyre.ts",
       "target": "./src/pages/integrations/wyre/wyre-details/wyre-details.ts"
     }
@@ -1290,43 +485,8 @@
   {
     "data": {
       "./src/providers/push-notifications/push-notifications.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/push-notifications/push-notifications.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/push-notifications/push-notifications.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/push-notifications/push-notifications.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/push-notifications/push-notifications.ts": "",
       "source": "./src/components/notification-component/notification-component.ts",
       "target": "./src/providers/push-notifications/push-notifications.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/touchid/touchid.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/touchid/touchid.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/copayers/copayers.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/pages/add/copayers/copayers.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/copayers/copayers.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/add/copayers/copayers.ts"
     }
   },
   {
@@ -1341,20 +501,6 @@
       "./src/pages/add/copayers/copayers.ts": "",
       "source": "./src/providers/push-notifications/push-notifications.ts",
       "target": "./src/pages/add/copayers/copayers.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-key/backup-key.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/pages/backup/backup-key/backup-key.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/backup/backup-key/backup-key.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/backup/backup-key/backup-key.ts"
     }
   },
   {
@@ -1380,34 +526,6 @@
   },
   {
     "data": {
-      "./src/components/footer-menu/footer-menu.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/components/footer-menu/footer-menu.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/footer-menu/footer-menu.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/footer-menu/footer-menu.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/backup/backup.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/backup/backup.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/backup/backup.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/backup/backup.ts"
-    }
-  },
-  {
-    "data": {
       "./src/providers/backup/backup.ts": "",
       "source": "./src/providers/key/key.ts",
       "target": "./src/providers/backup/backup.ts"
@@ -1418,20 +536,6 @@
       "./src/providers/backup/backup.ts": "",
       "source": "./src/providers/download/download.ts",
       "target": "./src/providers/backup/backup.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/feedback/feedback.ts": "",
-      "source": "./src/providers/app/app.ts",
-      "target": "./src/providers/feedback/feedback.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/recovery-key/recovery-key.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/onboarding/recovery-key/recovery-key.ts"
     }
   },
   {
@@ -1451,34 +555,6 @@
   {
     "data": {
       "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
-      "source": "./src/pages/send/amount/amount.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
-      "source": "./src/providers/incoming-data/incoming-data.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
       "source": "./src/providers/coinbase/coinbase.ts",
       "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
     }
@@ -1488,34 +564,6 @@
       "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts": "",
       "source": "./src/pages/integrations/coinbase/coinbase-tx-details/coinbase-tx-details.ts",
       "target": "./src/pages/integrations/coinbase/coinbase-account/coinbase-account.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/in-app-browser/in-app-browser.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/providers/in-app-browser/in-app-browser.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/in-app-browser/in-app-browser.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/providers/in-app-browser/in-app-browser.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/add-funds/add-funds.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/onboarding/add-funds/add-funds.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/onboarding/add-funds/add-funds.ts": "",
-      "source": "./src/pages/send/amount/amount.ts",
-      "target": "./src/pages/onboarding/add-funds/add-funds.ts"
     }
   },
   {
@@ -1542,36 +590,8 @@
   {
     "data": {
       "./src/pages/add/custom-token/custom-token.ts": "",
-      "source": "./src/providers/action-sheet/action-sheet.ts",
-      "target": "./src/pages/add/custom-token/custom-token.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/custom-token/custom-token.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/add/custom-token/custom-token.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/custom-token/custom-token.ts": "",
       "source": "./src/pages/add/custom-token/add-custom-token-modal/add-custom-token-modal.ts",
       "target": "./src/pages/add/custom-token/custom-token.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallets/proposals-notifications/proposals-notifications.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/wallets/proposals-notifications/proposals-notifications.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallets/proposals-notifications/proposals-notifications.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/wallets/proposals-notifications/proposals-notifications.ts"
     }
   },
   {
@@ -1598,20 +618,6 @@
   {
     "data": {
       "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": "",
-      "source": "./src/providers/on-going-process/on-going-process.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts": "",
       "source": "./src/pages/finish/finish.ts",
       "target": "./src/pages/integrations/coinbase/coinbase-withdraw/coinbase-withdraw.ts"
     }
@@ -1632,58 +638,9 @@
   },
   {
     "data": {
-      "./src/providers/email-notifications/email-notifications.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/providers/email-notifications/email-notifications.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/create-eth-multisig/create-eth-multisig.ts": "",
-      "source": "./src/providers/wallet/wallet.ts",
-      "target": "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/create-eth-multisig/create-eth-multisig.ts": "",
-      "source": "./src/pages/scan/scan.ts",
-      "target": "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/add/create-eth-multisig/create-eth-multisig.ts": "",
       "source": "./src/providers/address/address.ts",
       "target": "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/add/create-eth-multisig/create-eth-multisig.ts": "",
-      "source": "./src/providers/incoming-data/incoming-data.ts",
-      "target": "./src/pages/add/create-eth-multisig/create-eth-multisig.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/address/address.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/address/address.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/zce/zce.ts": "",
-      "source": "./src/providers/bwc/bwc.ts",
-      "target": "./src/providers/zce/zce.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/buy-crypto/buy-crypto.ts": "",
-      "source": "./src/providers/home-integrations/home-integrations.ts",
-      "target": "./src/providers/buy-crypto/buy-crypto.ts"
     }
   },
   {
@@ -1703,20 +660,6 @@
   {
     "data": {
       "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": "",
-      "source": "./src/pages/send/amount/amount.ts",
-      "target": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/buy-card/buy-card.ts": "",
       "source": "./src/pages/integrations/gift-cards/phone/phone.ts",
       "target": "./src/pages/integrations/gift-cards/buy-card/buy-card.ts"
     }
@@ -1724,22 +667,8 @@
   {
     "data": {
       "./src/providers/merchant/merchant.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/providers/merchant/merchant.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/providers/merchant/merchant.ts": "",
       "source": "./src/providers/directory/directory.ts",
       "target": "./src/providers/merchant/merchant.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
     }
   },
   {
@@ -1761,13 +690,6 @@
       "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts": "",
       "source": "./src/pages/integrations/gift-cards/card-details/card-details.ts",
       "target": "./src/pages/integrations/gift-cards/purchased-cards/purchased-cards.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/pages/integrations/gift-cards/card-catalog/card-catalog.ts"
     }
   },
   {
@@ -1800,37 +722,9 @@
   },
   {
     "data": {
-      "./src/providers/tab/tab.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/providers/tab/tab.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts": "",
-      "source": "./src/providers/gift-card/gift-card.ts",
-      "target": "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts": "",
       "source": "./src/providers/time/time.ts",
       "target": "./src/pages/wallet-details/search-tx-modal/search-tx-modal.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/memo-component/memo-component.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/memo-component/memo-component.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/needs-backup/needs-backup.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/needs-backup/needs-backup.ts"
     }
   },
   {
@@ -1849,20 +743,6 @@
   },
   {
     "data": {
-      "./src/components/options-sheet/options-sheet.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/options-sheet/options-sheet.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/phone-sheet/phone-sheet.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/phone-sheet/phone-sheet.ts"
-    }
-  },
-  {
-    "data": {
       "./src/components/phone-sheet/phone-sheet.ts": "",
       "source": "./src/providers/phone/phone.ts",
       "target": "./src/components/phone-sheet/phone-sheet.ts"
@@ -1870,37 +750,9 @@
   },
   {
     "data": {
-      "./src/components/wallet-selector/wallet-selector.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/wallet-selector/wallet-selector.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/components/wallet-tab-options/wallet-tab-options.ts": "",
-      "source": "./src/components/action-sheet/action-sheet-parent.ts",
-      "target": "./src/components/wallet-tab-options/wallet-tab-options.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/integrations/wallet-connect/wallet-connect.ts": "",
-      "source": "./src/pages/scan/scan.ts",
-      "target": "./src/pages/integrations/wallet-connect/wallet-connect.ts"
-    }
-  },
-  {
-    "data": {
       "./src/pages/integrations/wallet-connect/wallet-connect.ts": "",
       "source": "./src/pages/integrations/wallet-connect/wallet-connect-request-details/wallet-connect-request-details.ts",
       "target": "./src/pages/integrations/wallet-connect/wallet-connect.ts"
-    }
-  },
-  {
-    "data": {
-      "./src/pages/scan/scan.ts": "",
-      "source": "./src/providers/incoming-data/incoming-data.ts",
-      "target": "./src/pages/scan/scan.ts"
     }
   },
   {
