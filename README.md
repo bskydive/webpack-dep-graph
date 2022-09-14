@@ -48,8 +48,8 @@ Fixed and working.
 
 ## Caveats
 
- * `summary` text calculated before filters applied
- * see full in node data properties(right click)
+ * dependency map calculated only for nodes with dependencies. For the dot format it's ok, but for the graphml bunch of nodes added from the reasons(dependencies) array
+ * see the full path in node data properties(right click)
     * ![](./doc/graphml_yed_data.jpg)
  * search in nodes, urls, properties
     * ![](./doc/graphml_yed_search.jpg)
@@ -73,12 +73,27 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
  * input
     * example of the [webpack stats](./doc/webpack-stats.zip)
  * output webpackV5
-    * imports: 15; re-exports: 28; issuers: 43; dependencies: 8
-    * [json: circular dependencies](./graph-output/webpackV5/circular.json)
-    * [json: cytoscape](./graph-output/webpackV5/cytoscape.json)
-    * [json: analyzed deps from webpack stats](./graph-output/webpackV5/deps.json)
-    * [xml: simplified dot graph](./graph-output/webpackV5/graph_simplified.dot)
-        * ![](./doc/graphviz_dot_simplified.jpg)
+    * run `npm run webpack`
+    * summary: raw modules: 101, dependencies: 4, nodesPaths: 96, nodes: 101
+    * [deps.config.ts](./deps.config.ts)
+        ```ts
+            input: {
+                webpackStatsFileName: "stats.json",
+            },
+            filters: {
+                exclude: [
+                    "node_modules",
+                    "deps.config",
+                    "files",
+                    "logger"
+                ],
+        ```
+    * [json: circular dependencies](./doc/webpackV5/circular.json)
+        * ![](./doc/graphml_webpackV5_circular.jpg)
+    * [json: cytoscape](./doc/webpackV5/cytoscape.json)
+    * [json: analyzed deps from webpack stats](./doc/webpackV5/deps.json)
+    * [xml: simplified dot graph](./doc/webpackV5/graph_simplified.dot)
+        * ![](./doc/webpackV3/graphviz_dot_simplified.jpg)
  * output webpackV3
     * imports: 511; re-exports: 0; issuers: 494; dependencies: 114dependencies: 195
     * [deps.config.ts](./deps.config.ts)
@@ -90,27 +105,27 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
     * [json: cytoscape](./graph-output/cytoscape.json)
     * [json: analyzed deps from webpack stats](./graph-output/deps.json)
     * [xml: simplified dot graph](./graph-output/graph_simplified.dot)
-        * ![](./doc/graphviz_dot_simplified.jpg)
+        * ![](./doc/webpackV3/graphviz_dot_simplified.jpg)
 
 ### graphviz
 
 * [xml: dot](./graph-output/graphviz.dot)
-    * ![](./doc/graphviz_dot.jpg)
+    * ![](./doc/webpackV3/graphviz_dot.jpg)
 * [png: dot layout](./graph-output/graphviz_dot.png)
-    * ![](./doc/graphviz_dot_layout.jpg)
-    * ![](./doc/graphviz_dot_layout_full.jpg)
+    * ![](./doc/webpackV3/graphviz_dot_layout.jpg)
+    * ![](./doc/webpackV3/graphviz_dot_layout_full.jpg)
 * [png: spring layout](./graph-output/graphviz_spring.png)
-    * ![](./doc/graphviz_spring_layout.jpg)
+    * ![](./doc/webpackV3/graphviz_spring_layout.jpg)
 * [png: directed layout](./graph-output/graphviz_directed.png)
-    * ![](./doc/graphviz_directed_layout.jpg)
-    * ![](./doc/graphviz_directed_layout_full.jpg)
+    * ![](./doc/webpackV3/graphviz_directed_layout.jpg)
+    * ![](./doc/webpackV3/graphviz_directed_layout_full.jpg)
 * [png: circular layout](./graph-output/graphviz_circular.png)
-    * ![](./doc/graphviz_circle_layout.jpg)
-    * ![](./doc/graphviz_circle_layout_full.jpg)
+    * ![](./doc/webpackV3/graphviz_circle_layout.jpg)
+    * ![](./doc/webpackV3/graphviz_circle_layout_full.jpg)
 * [png: radial layout](./graph-output/graphviz_radial.png)
-    * ![](./doc/graphviz_radial_layout.jpg)
+    * ![](./doc/webpackV3/graphviz_radial_layout.jpg)
 * [png: clustered layout](./graph-output/graphviz_clustered.png)
-    * ![](./doc/graphviz_clustered_layout.jpg)
+    * ![](./doc/webpackV3/graphviz_clustered_layout.jpg)
 
 ### graphml
 

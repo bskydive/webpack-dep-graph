@@ -98,3 +98,19 @@ export interface IConfig {
 	graphml: IConfigGraphml
 	graphviz: IConfigGrapviz
 }
+
+
+export type TModuleByUUID = Map<string, IWebpackModuleParsed>
+
+export type TUUIDByRelativePath = Map<string, string>
+
+export type TDependenciesListByUUID = Map<string, Set<string>>
+
+export interface IStats {
+    emptyUUID: number
+    emptyReasons: number
+    emptyReasonDest: number
+    moduleTypes: string[]
+    reasonTypeExcluded: number
+    maxReasonCountExcluded: number
+}

@@ -7,9 +7,13 @@ import {
 } from "../utils/webpack"
 import { v4 } from "uuid"
 import {
+	IStats,
 	IWebpackModuleParsed,
 	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
+	TDependenciesListByUUID,
+	TModuleByUUID,
+	TUUIDByRelativePath,
 } from "../models/webpackStats.model"
 import { fileNameFromPath } from "../utils/files"
 
@@ -17,23 +21,22 @@ import { fileNameFromPath } from "../utils/files"
 export class DependenciesUUIDMap {
 	/** source unparsed list */
 	modules: IWebpackModuleShort[] = []
-	stats: {
-		emptyUUID: number
-		emptyReasons: number
-		moduleTypes: string[]
-	} = {
+	stats: IStats = {
 		emptyUUID: 0,
 		emptyReasons: 0,
+		emptyReasonDest: 0,
+		reasonTypeExcluded: 0,
+		maxReasonCountExcluded: 0,
 		moduleTypes: [],
 	}
 
 	/** flattened list for parsing {'uuid':{...module}} */
-	moduleByUUID: Map<string, IWebpackModuleParsed> = new Map()
+	moduleByUUID: TModuleByUUID = new Map()
 	/** flattened list for parsing {'path1':'uuid1'} */
-	uuidByRelativePath: Map<string, string> = new Map()
+	uuidByRelativePath: TUUIDByRelativePath = new Map()
 
 	/** resulting map: {"uuid:LoginPage": ["uuid:LoginForm", "uuid:LoginButton"]} */
-	dependenciesListByUUID: Map<string, Set<string>> = new Map()
+	dependenciesListByUUID: TDependenciesListByUUID = new Map()
 
 	constructor(modules: IWebpackModuleShort[]) {
 		this.modules = modules
@@ -59,8 +62,8 @@ export class DependenciesUUIDMap {
 	}
 
 	private createUUIDNodes(modules: IWebpackModuleShort[]) {
-		let nodeIdByRelativePath: Map<string, string> = new Map()
-		let nodesById: Map<string, IWebpackModuleParsed> = new Map()
+		let nodeIdByRelativePath: TUUIDByRelativePath = new Map()
+		let nodesById: TModuleByUUID = new Map()
 		// const startTime = Date.now()
 		log(`located ${modules.length} modules from this build.`)
 
@@ -97,31 +100,18 @@ export class DependenciesUUIDMap {
 		return reasonTypes
 	}
 
-	private isEmptyData(
-		uuid: string,
-		reasons: IWebpackModuleReasonShort[]
-	): boolean {
-		if (!uuid) {
-			this.stats.emptyUUID++
-		}
-		if (!reasons?.length) {
-			this.stats.emptyReasons++
-		}
-
-		return !uuid || !reasons?.length
-	}
-
 	private filterDependencies(): void {
 		let relativePath: string
 		let module: IWebpackModuleParsed
 		/** dependencies, source */
 		let reasons: IWebpackModuleReasonShort[] = []
 		let moduleName: string
-		/** node, consumer */
+		/** consumer */
 		let destModule: IWebpackModuleParsed
 		let filteredDestModules: IWebpackModuleShort[]
 
 		filteredDestModules = this.modules?.filter((m: IWebpackModuleShort) =>
+			// filter target/dest nodes
 			isModuleIncluded(m.name, depsConfig.filters)
 		)
 
@@ -131,25 +121,39 @@ export class DependenciesUUIDMap {
 			relativePath = resolvePathPlus(webpackModule.name)
 			module = this.moduleByRelativePath(relativePath)
 
-			if (this.isEmptyData(module?.uuid, webpackModule?.reasons)) {
-				// log("Empty parsed module", { name: webpackModule.name })
+			if (!module?.uuid) {
+				this.stats.emptyUUID++
+				log("Empty parsed module", { name: webpackModule.name })
+				continue
+			}
+
+			if (
+				depsConfig.filters.excludeNodeByMaxDepsCount > 0 &&
+				webpackModule.reasons.length >
+					depsConfig.filters.excludeNodeByMaxDepsCount
+			) {
+                this.stats.maxReasonCountExcluded++
+				// log("Too many dependencies", { name: webpackModule.name })
 				continue
 			}
 
 			// exclude & excludeExcept filter options applied
 			reasons = webpackModule?.reasons?.filter(
 				(m: IWebpackModuleReasonShort) =>
+					// filter source/deps nodes
 					isModuleIncluded(m.moduleName, depsConfig.filters)
 			)
 
 			for (const reason of reasons) {
 				if (isReasonTypeExcluded(depsConfig.filters, reason.type)) {
+					this.stats.reasonTypeExcluded++
 					continue
 				}
 
 				moduleName = resolvePathPlus(reason.moduleName)
 
 				if (!moduleName) {
+					this.stats.emptyReasons++
 					log("Empty reason", {
 						uuid: module?.uuid,
 						reason: reason.moduleName,
@@ -160,6 +164,7 @@ export class DependenciesUUIDMap {
 				destModule = this.moduleByRelativePath(moduleName)
 
 				if (!destModule?.uuid) {
+					this.stats.emptyReasonDest++
 					log("Empty destination", {
 						name: moduleName,
 					})
@@ -177,11 +182,15 @@ export class DependenciesUUIDMap {
 			`summary:`,
 			`raw modules: ${this.modules.length}`,
 			`raw module types: ${this.stats.moduleTypes};`,
-			`filtered module uuid: ${this.stats.emptyUUID}`,
-			`filtered module reasons: ${this.stats.emptyUUID}`,
 			`dependencies: ${this.dependenciesListByUUID.size}`,
 			`nodesPaths: ${this.uuidByRelativePath.size}`,
 			`nodes: ${this.moduleByUUID.size}`,
+            `filtered:`,
+            `empty module uuid: ${this.stats.emptyUUID}`,
+			`empty reasons: ${this.stats.emptyReasons}`,
+			`empty reasons dest: ${this.stats.emptyReasonDest}`,
+			`excluded module reason type: ${this.stats.reasonTypeExcluded}`,
+			`max reasons count: ${this.stats.maxReasonCountExcluded}`,
 		]
 	}
 }

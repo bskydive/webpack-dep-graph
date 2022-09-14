@@ -4,6 +4,7 @@ import {
 	IConfig,
 	IConfigFilters,
 	IWebpackModuleParsed,
+	TModuleByUUID,
 } from "../models/webpackStats.model"
 import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
 
@@ -23,19 +24,16 @@ function isModuleIncludedOnly(
 	return result
 }
 
-function getModuleName(
-	destModuleId: string,
-	modules: Map<string, IWebpackModuleParsed>
-) {
+function getModuleName(modules: TModuleByUUID, destModuleId: string) {
 	return modules.get(destModuleId)?.relativePath || ""
 }
 
 function getModuleDependencies(
-	dependencies: Set<string>,
-	destModules: Map<string, IWebpackModuleParsed>
+	destModules: TModuleByUUID,
+	dependencies: Set<string>
 ): string[] {
 	return Array.from(dependencies).map((dependencyName: string) =>
-		getModuleName(dependencyName, destModules)
+		getModuleName(destModules, dependencyName)
 	)
 }
 
@@ -83,8 +81,8 @@ export function getDependenciesMap(
 	let destModule: string
 
 	for (const [destModuleId, dependencies] of uuidMap.dependenciesListByUUID) {
-		destModule = getModuleName(destModuleId, uuidMap.moduleByUUID)
-		srcModules = getModuleDependencies(dependencies, uuidMap.moduleByUUID)
+		destModule = getModuleName(uuidMap.moduleByUUID, destModuleId)
+		srcModules = getModuleDependencies(uuidMap.moduleByUUID, dependencies)
 
 		if (!destModule) {
 			log(
@@ -103,4 +101,3 @@ export function getDependenciesMap(
 
 	return result
 }
-
