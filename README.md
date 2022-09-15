@@ -50,7 +50,10 @@ Fixed and working.
 
 ## Caveats
 
- * dependency map calculated only for nodes with dependencies. For the dot format it's ok, but for the graphml bunch of nodes added from the reasons(dependencies) array
+ * terminology:
+    * webpack `module`: dependencies, source in graph
+	* webpack `reason(origin)`: consumer, destination in graph
+ * dependency map calculated only for nodes with dependencies. For the dot format it's ok, but for the graphml bunch of nodes added from the dependencies array
  * see the full path in node data properties(right click)
     * ![](./doc/graphml_yed_data.jpg)
  * search in nodes, urls, properties

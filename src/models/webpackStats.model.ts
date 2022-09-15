@@ -39,7 +39,8 @@ export interface IWebpackModuleReasonShort {
 	type: string
 }
 
-export type IDependencyMap = Record<string, string[]>
+/** destPath:{srcPath1, srcPath2} */
+export type TSrcFileNamesByDest = Map<string, string[]>
 
 export interface IGraphvizRenderOpts {
 	enabled: boolean
@@ -85,8 +86,8 @@ export interface IConfigFilters {
 	excludeExcept: string[]
 	includeOnlyDestNode: string[]
 	includeOnlySrcNode: string[]
-	excludeDestNodeByMaxDepsCount: number
-	excludeSrcNodeByMaxDepsCount: number
+	excludeByMaxOutgoingCount: number
+	excludeByMaxIncomingCount: number
 	edgeTypeExclude: TWebpackReasonShortType[]
 }
 
@@ -106,19 +107,20 @@ export type TModuleByUUID = Map<TUuid, IWebpackModuleParsed>
 
 export type TUUIDByRelativePath = Map<string, TUuid>
 
-export type TModulesMapByUUID = Map<TUuid, Set<TUuid>>
+export type TUuidsByUuidMap = Map<TUuid, Set<TUuid>>
 
 /** alias */
 export type TUuid = string
 
 export interface IStats {
     rawModules: number
-    rawDestModulesTypes: string[]
-    excludedSrcNodesByType: Set<string>
+    rawSrcModulesTypes: string[]
+    excludedNodesByType: Set<string>
     excludedSrcNodes: Set<string>
     excludedDestNodes: Set<string>
+    excludedSrcNodeByMaxDepsCount: Set<string>
     excludedDestNodeByMaxDepsCount: Set<string>
-    emptyDestNodeUuids: Set<string>
+    emptySrcNodeUuids: Set<string>
     emptyDestNodes: Set<string>
     emptySrcNodes: Set<string>
     depsSizes: string[]
@@ -126,13 +128,14 @@ export interface IStats {
 
 export const STATS_EMPTY: IStats = {
     rawModules: 0,
-    rawDestModulesTypes: [],
-    excludedSrcNodesByType: new Set(),
+    rawSrcModulesTypes: [],
+    excludedNodesByType: new Set(),
     excludedSrcNodes: new Set(),
     excludedDestNodes: new Set(),
+    excludedSrcNodeByMaxDepsCount: new Set(),
     excludedDestNodeByMaxDepsCount: new Set(),
-    emptyDestNodeUuids: new Set(),
-    emptyDestNodes: new Set(),
+    emptySrcNodeUuids: new Set(),
+    emptyDestNodes: new Set(), // TODO add source module uuid, convert to map
     emptySrcNodes: new Set(),
     depsSizes: []
 }

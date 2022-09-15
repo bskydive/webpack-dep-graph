@@ -1,6 +1,6 @@
 import { log } from "../utils/logger"
 import {
-	IDependencyMap,
+	TSrcFileNamesByDest,
 	IConfig,
 	IConfigFilters,
 	TModuleByUUID,
@@ -29,11 +29,11 @@ function getModuleName(modules: TModuleByUUID, destModuleUuid: TUuid) {
 }
 
 function getModuleDependencies(
-	destModules: TModuleByUUID,
-	dependencies: Set<string>
+	srcNodes: TModuleByUUID,
+	destNodes: Set<string>
 ): string[] {
-	return Array.from(dependencies).map((dependencyName: string) =>
-		getModuleName(destModules, dependencyName)
+	return Array.from(destNodes).map((dependencyName: string) =>
+		getModuleName(srcNodes, dependencyName)
 	)
 }
 
@@ -72,30 +72,30 @@ function isDependencyLinkIncluded(
 }
 
 /** postprocessing, converting Map to array */
-export function getDependenciesMap(
+export function getSrcFileNamesByDest(
 	uuidMap: DependenciesUUIDMap,
 	opts: IConfig
-): IDependencyMap {
-	const result: IDependencyMap = {}
+): TSrcFileNamesByDest {
+	const result: TSrcFileNamesByDest = new Map()
 	let srcModules: string[]
-	let destModule: string
+	let destPath: string
 
-	for (const [destModuleUuid, dependencies] of uuidMap.modulesMapByUUID) {
-		destModule = getModuleName(uuidMap.moduleByUUIDMap, destModuleUuid)
-		srcModules = getModuleDependencies(uuidMap.moduleByUUIDMap, dependencies)
+	for (const [srcNodeId, destNodeIds] of uuidMap.destUuidsBySrcUuidMap) {
+		destPath = getModuleName(uuidMap.srcModuleByUUIDMap, srcNodeId)
+		srcModules = getModuleDependencies(uuidMap.srcModuleByUUIDMap, destNodeIds)
 
-		if (!destModule) {
+		if (!destPath) {
 			log(
 				"src/analyzer/analyzerUtils/dependencyMap.ts:67",
 				"EMPTY dest module name",
-				destModuleUuid
+				srcNodeId
 			)
 
 			continue
 		}
 
-		if (isDependencyLinkIncluded(opts.filters, srcModules, destModule)) {
-			result[destModule] = srcModules
+		if (isDependencyLinkIncluded(opts.filters, srcModules, destPath)) {
+			result.set(destPath,srcModules)
 		}
 	}
 

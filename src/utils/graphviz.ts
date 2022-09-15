@@ -1,5 +1,5 @@
 import { digraph, Graph, RenderEngine } from "graphviz"
-import { IDependencyMap } from "../models/webpackStats.model"
+import { TSrcFileNamesByDest } from "../models/webpackStats.model"
 import { writeFile } from "./files"
 import { log } from "./logger"
 
@@ -9,15 +9,14 @@ export type IGraphvizDot = Graph
  * https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
  * TODO find how set nodesep attr https://www.graphviz.org/faq/#FaqLarger
  */
-export function createDotGraph(dependencyMap: IDependencyMap): IGraphvizDot {
+export function createDotGraph(srcFileNamesByDest: TSrcFileNamesByDest): IGraphvizDot {
 	const g: Graph = digraph("G")
 
-	for (const consumerPath in dependencyMap) {
-		const n = g.addNode(consumerPath, { color: "blue" })
-
-		const dependencies = dependencyMap[consumerPath]
-		for (const dep of dependencies) {
-			g.addEdge(n, dep, { color: "red" })
+	for (const [destFileName, srcFileNames] of srcFileNamesByDest) {
+		const destNode = g.addNode(destFileName, { color: "blue" })
+		
+		for (const srcNode of srcFileNames) {
+			g.addEdge(srcNode, destNode, { color: "red" })
 		}
 	}
 

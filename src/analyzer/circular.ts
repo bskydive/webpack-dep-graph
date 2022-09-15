@@ -1,52 +1,58 @@
-import { IDependencyMap } from "../models/webpackStats.model"
+import { TSrcFileNamesByDest } from "../models/webpackStats.model"
 import { saveJSON } from "../utils/files"
 
 /**
- * Source: https://github.com/pahen/madge/blob/master/lib/cyclic.js
+ * @deprecated TODO verify/fix/improve
+ *  https://github.com/pahen/madge/blob/master/lib/cyclic.js
  */
-export function getCircularImports(dependenciesMap: Record<string, string[]>): string[][] {
-  const circular: string[][] = []
+export function getCircularImports(
+	srcFileNamesByDest: TSrcFileNamesByDest
+): string[][] {
+	const circular: string[][] = []
 
-  const resolved: Map<string, boolean> = new Map()
-  const unresolved: Map<string, boolean> = new Map()
+	const resolved: Map<string, boolean> = new Map()
+	const unresolved: Map<string, boolean> = new Map()
 
-  function getPath(parent: string) {
-    let visited = false
+	function getPath(srcFileName: string) {
+		let visited = false
 
-    return Object.keys(unresolved).filter((module) => {
-      if (module === parent) visited = true
+		return Object.keys(unresolved).filter((module) => {
+			if (module === srcFileName) visited = true
 
-      return visited && unresolved.get(module)
-    })
-  }
+			return visited && unresolved.get(module)
+		})
+	}
 
-  function resolve(id: string) {
-    unresolved.set(id, true)
+	function resolve(destFileName: string) {
+		unresolved.set(destFileName, true)
 
-    if (dependenciesMap[id]) {
-      dependenciesMap[id].forEach((dependency) => {
-        if (!resolved.get(dependency)) {
-          if (unresolved.get(dependency)) {
-            const paths = getPath(dependency)
+		srcFileNamesByDest.get(destFileName)?.forEach((dependency) => {
+			if (!resolved.get(dependency)) {
+				if (unresolved.get(dependency)) {
+					const paths = getPath(dependency)
 
-            return circular.push(paths)
-          }
+					return circular.push(paths)
+				}
 
-          resolve(dependency)
-        }
-      })
-    }
+				resolve(dependency)
+			}
+		})
 
-    resolved.set(id, true)
-    unresolved.set(id, false)
-  }
+		resolved.set(destFileName, true)
+		unresolved.set(destFileName, false)
+	}
 
-  Object.keys(dependenciesMap).forEach(resolve)
+	for (const [destFileName, srcFileNames] of srcFileNamesByDest) {
+		resolve(destFileName)
+	}
 
-  return circular
+	return circular
 }
 
-export function saveCircularImports(fileName: string, dependencyMap: IDependencyMap) {
-    const data = getCircularImports(dependencyMap)
-    saveJSON(fileName, data)
+export function saveCircularImports(
+	fileName: string,
+	srcFileNamesByDest: TSrcFileNamesByDest
+) {
+	const data = getCircularImports(srcFileNamesByDest)
+	saveJSON(fileName, data)
 }

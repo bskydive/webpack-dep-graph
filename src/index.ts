@@ -1,5 +1,5 @@
 import { WebpackStatsParser } from "./analyzer/webpackStats"
-import { IDependencyMap } from "./models/webpackStats.model"
+import { TSrcFileNamesByDest } from "./models/webpackStats.model"
 import {
 	createDotGraph,
 	IGraphvizDot,
@@ -21,7 +21,8 @@ function main() {
 	let statFileName: string
 	let webpackStat: IWebpackStatsV3 | IWebpackStatsV5
 	let dotGraph: IGraphvizDot
-	let dependencyMap: IDependencyMap
+    /** destPath:{srcPath1, srcPath2} */
+	let srcFileNamesByDest: TSrcFileNamesByDest
 	let statsParser: WebpackStatsParser
 
 	log(`loading ${statFileName}`)
@@ -30,7 +31,7 @@ function main() {
 
 	log("stats parsing start")
 	statsParser = new WebpackStatsParser(webpackStat)
-	dependencyMap = statsParser.dependencyMap
+	srcFileNamesByDest = statsParser.srcFileNamesByDest
 
 	log(statsParser.uuidMap.getSummary())
 	if (depsConfig.output.statsJson.enabled) {
@@ -42,7 +43,7 @@ function main() {
 	}
 
 	log("graph parsing start")
-	dotGraph = createDotGraph(dependencyMap)
+	dotGraph = createDotGraph(srcFileNamesByDest)
 
 	if (depsConfig.output.testGraphmlJs2Xml.enabled) {
 		GRAPHML_STUB = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save
@@ -50,25 +51,25 @@ function main() {
 	}
 
 	if (depsConfig.output.depsJson.enabled) {
-		saveJSON(depsConfig.output.depsJson.fileName, dependencyMap)
+		saveJSON(depsConfig.output.depsJson.fileName, Object.fromEntries(srcFileNamesByDest))
 	}
 
 	if (depsConfig.output.graphmlDeps.enabled) {
 		saveGraphmlFromDot(
 			depsConfig.output.graphmlDeps.fileName,
-			dependencyMap
+			srcFileNamesByDest
 		)
 	}
 
 	if (depsConfig.output.circularDepsJson.enabled) {
 		saveCircularImports(
 			depsConfig.output.circularDepsJson.fileName,
-			dependencyMap
+			srcFileNamesByDest
 		)
 	}
 
 	if (depsConfig.output.cytoscapeJson.enabled) {
-		saveCytoscape(depsConfig.output.cytoscapeJson.fileName, dependencyMap)
+		saveCytoscape(depsConfig.output.cytoscapeJson.fileName, srcFileNamesByDest)
 	}
 
 	if (depsConfig.output.simplifiedDot.enabled) {

@@ -6,7 +6,7 @@ import {
 } from "../models/graphml.model"
 import { ElementCompact, js2xml, xml2js } from "xml-js"
 import { readFile, writeFile } from "./files"
-import { IDependencyMap } from "../models/webpackStats.model"
+import { TSrcFileNamesByDest } from "../models/webpackStats.model"
 import { fileNameFromPath } from "../utils/files"
 import { depsConfig } from "../../deps.config"
 // import { create } from "xmlbuilder"
@@ -76,14 +76,14 @@ export function graphmlEdgeToXml(
 
 /** add src nodes to graph nodes section */
 function addDependenciesMapSrcNodes(
-	dependencyMap: IDependencyMap
-): IDependencyMap {
-	let result: IDependencyMap = {}
+	srcFileNamesByDest: TSrcFileNamesByDest
+): TSrcFileNamesByDest {
+	let result: TSrcFileNamesByDest = new Map()
 	// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
-	for (const targetPath in dependencyMap) {
-		for (const dependencyPath of dependencyMap[targetPath]) {
-			if (!dependencyMap[dependencyPath]) {
-				result[dependencyPath] = []
+	for (const [destFileName, srcFileNames] of srcFileNamesByDest) {
+		for (const srcFileName of srcFileNames) {
+			if (!srcFileNamesByDest.get(srcFileName)) {
+				result.set(srcFileName, [])
 			}
 		}
 	}
@@ -91,24 +91,26 @@ function addDependenciesMapSrcNodes(
 	return result
 }
 
-export function createDotGraphXml(dependencyMap: IDependencyMap): string {
-	let allDestNodes: IDependencyMap = {}
+export function createDotGraphXml(
+	srcFileNamesByDest: TSrcFileNamesByDest
+): string {
+	let srcFileNamesByDestAppended: TSrcFileNamesByDest
 	let result: string = GRAPHML_HEADER
 	let currentNode: IGraphmlNode = depsConfig.graphml.node
 	let currentEdge: IGraphmlEdge = depsConfig.graphml.edge
 
-	allDestNodes = {
-		...addDependenciesMapSrcNodes(dependencyMap),
-		...dependencyMap,
-	}
+	srcFileNamesByDestAppended = new Map([
+		...addDependenciesMapSrcNodes(srcFileNamesByDest),
+		...srcFileNamesByDest,
+	])
 
 	// Nodes
-	for (const destNode in allDestNodes) {
+	for (const [destFileName, srcFileNames] of srcFileNamesByDestAppended) {
 		currentNode = {
 			...depsConfig.graphml.node,
-			id: `nodeId_${destNode}`,
-			label: fileNameFromPath(destNode),
-			notes: destNode,
+			id: `nodeId_${destFileName}`,
+			label: fileNameFromPath(destFileName),
+			notes: destFileName,
 			x: currentNode.x + currentNode.width + 10,
 			y: currentNode.y + currentNode.height + 10,
 		}
@@ -116,19 +118,19 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	}
 
 	// Edges
-	for (const destNode in allDestNodes) {
-		dependencyMap[destNode]?.forEach((srcNode) => {
+	for (const [destFileName, srcFileNames] of srcFileNamesByDestAppended) {
+		srcFileNames?.forEach((srcNode) => {
 			let label = depsConfig.graphml.showSourceEdgeLabels ? srcNode : ""
 			// escaping text for xml parser
 			label += depsConfig.graphml.showDestEdgeLabels
-				? ` --\\> ${destNode}`
+				? ` --\\> ${destFileName}`
 				: ""
 
 			currentEdge = {
 				...depsConfig.graphml.edge,
-				id: `edgeId_${srcNode}_${destNode}`,
+				id: `edgeId_${srcNode}_${destFileName}`,
 				sourceKey: `nodeId_${srcNode}`,
-				targetKey: `nodeId_${destNode}`,
+				targetKey: `nodeId_${destFileName}`,
 				label: label,
 			}
 
@@ -139,7 +141,10 @@ export function createDotGraphXml(dependencyMap: IDependencyMap): string {
 	return result.concat(GRAPHML_FOOTER)
 }
 
-export function saveGraphmlFromDot(fileName: string, data: IDependencyMap) {
+export function saveGraphmlFromDot(
+	fileName: string,
+	data: TSrcFileNamesByDest
+) {
 	const xml: string = createDotGraphXml(data)
 
 	writeFile(fileName, xml)

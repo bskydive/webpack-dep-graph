@@ -7,32 +7,18 @@ import { IConfig } from "src/models/webpackStats.model"
  */
 export const depsConfig: IConfig = {
 	input: {
-		webpackStatsFileName: "webpack-stats.json", // can be passed as a cli parameter to index.ts in package.json scripts section
+		webpackStatsFileName: "stats.json", // can be passed as a cli parameter to index.ts in package.json scripts section
 	},
 	filters: {
 		exclude: [
             "node_modules",
-            "index",
-            "main",
-            "cache",
-			"webpack",
-			"logger",
-			"profile",
-			"config",
-			"platform",
-			"settings",
-			"popup",
-			"confirm",
-			"analytics",
-			"theme",
-			"error",
 		], // exclude by words in module path
 		excludeExcept: [], // add some deps from excluded: exclude 'angular', but leave 'router'
 		includeOnlyDestNode: [], // from nodes; applied after exclude and excludeExcept filters
 		includeOnlySrcNode: [], // from edges/reasons; applied after exclude and excludeExcept filters
         // TODO implement
-        excludeDestNodeByMaxDepsCount: 7, // applied after exclude* and include* filters
-        excludeSrcNodeByMaxDepsCount: 7, // applied after exclude* and include* filters
+        excludeByMaxOutgoingCount: 5, // applied after exclude* and include* filters
+        excludeByMaxIncomingCount: 0, // applied after exclude* and include* filters
         edgeTypeExclude: [
 			"cjs self exports reference", // fake dependencies loops
 			"export imported specifier", // re-export TODO check necessity
@@ -120,7 +106,7 @@ export const depsConfig: IConfig = {
 			fileName: "./graph-output/graphviz_directed.png",
 		},
 		renderedCircularPng: {
-			enabled: false,
+			enabled: true,
 			engine: "circo",
 			type: "png",
 			fileName: "./graph-output/graphviz_circular.png",
