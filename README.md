@@ -14,8 +14,6 @@ Fixed and working.
 
 ## TODO
 
- * v1.3.0
-    * verify/fix source/module and dest/reason/origin naming
  * v1.4.0
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
  * v1.5.0
