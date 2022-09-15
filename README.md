@@ -73,7 +73,7 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
     * example of the [webpack stats](./doc/webpack-stats.zip)
  * output webpackV5
     * run `npm run webpack`
-    * summary: raw modules: 101, dependencies: 4, nodesPaths: 96, nodes: 101
+    * [summary](./doc/stats_summary.json)
     * [deps.config.ts](./deps.config.ts)
         ```ts
             input: {
@@ -94,7 +94,7 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
     * [xml: simplified dot graph](./doc/webpackV5/graph_simplified.dot)
         * ![](./doc/webpackV3/graphviz_dot_simplified.jpg)
  * output webpackV3
-    * imports: 511; re-exports: 0; issuers: 494; dependencies: 114dependencies: 195
+    * [summary](./doc/stats_summary.json)
     * [deps.config.ts](./deps.config.ts)
         ```ts
             exclude: ["cache", "webpack", "node_modules", 'main', 'logger', 'index', 'profile', 'config', 'platform','settings', 'popup', 'app', 'confirm', 'analytics', 'theme', 'error', 'home'],

@@ -53,7 +53,7 @@ export const depsConfig: IConfig = {
         },
         statsJson: { // js object
             enabled: true,
-            fileName: './graph-output/stats.json',
+            fileName: './graph-output/stats_summary.json',
         },
 		circularDepsJson: { // 
             enabled: true,
