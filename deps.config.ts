@@ -106,7 +106,7 @@ export const depsConfig: IConfig = {
 			fileName: "./graph-output/graphviz_directed.png",
 		},
 		renderedCircularPng: {
-			enabled: true,
+			enabled: false,
 			engine: "circo",
 			type: "png",
 			fileName: "./graph-output/graphviz_circular.png",
