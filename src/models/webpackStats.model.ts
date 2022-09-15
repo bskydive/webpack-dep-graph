@@ -121,4 +121,18 @@ export interface IStats {
     emptyDestNodeUuids: Set<string>
     emptyDestNodes: Set<string>
     emptySrcNodes: Set<string>
+    depsSizes: string[]
+}
+
+export const STATS_EMPTY: IStats = {
+    rawModules: 0,
+    rawDestModulesTypes: [],
+    excludedSrcNodesByType: new Set(),
+    excludedSrcNodes: new Set(),
+    excludedDestNodes: new Set(),
+    excludedDestNodeByMaxDepsCount: new Set(),
+    emptyDestNodeUuids: new Set(),
+    emptyDestNodes: new Set(),
+    emptySrcNodes: new Set(),
+    depsSizes: []
 }

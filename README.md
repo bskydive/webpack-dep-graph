@@ -15,21 +15,24 @@ Fixed and working.
 ## TODO
 
  * v1.3.0
-    * add deps size
-    * add issuedPath
-    * validate summary text
-    * validate examples
+    * verify/fix source/module and dest/reason/origin naming
+ * v1.4.0
+    * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
+ * v1.5.0
     * add gephi examples
+    * validate/refactor examples
  * v2
     * npm package
-    * webpack plugin
-    * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
-    * fix circular.json comparing to eslint
  * v3
+    * webpack plugin
+ * v4
     * vscode plugin(folder/file right click) like in dependency cruiser
         * stats.json validation with current folder structure
-        * collect stats before run
- * v4+
+        * collect stats.json before run
+ * v5+
+    * replace UUID by relative path
+    * fix circular.json comparing to eslint
+    * add issuedPath
     * use xml schema for graphml parser
         * http://www.w3.org/2001/XMLSchema-instance
         * http://graphml.graphdrawing.org/xmlns 
@@ -41,9 +44,9 @@ Fixed and working.
         * http://www.yworks.com/xml/yed/3
     * local webpack dev server
     * deps size in UI
+    * deps size in stats_summary.json
     * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
     * local web [cytoscape](https://js.cytoscape.org) graph viewer
-    * file size viewer
 
 ## Caveats
 

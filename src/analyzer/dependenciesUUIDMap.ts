@@ -14,23 +14,14 @@ import {
 	TModulesMapByUUID,
 	TModuleByUUID,
 	TUUIDByRelativePath as TUuidByRelativePath,
-    TUuid,
+	TUuid,
+	STATS_EMPTY,
 } from "../models/webpackStats.model"
 import { fileNameFromPath } from "../utils/files"
 
 /** Concatenating source and dest modules into Map */
 export class DependenciesUUIDMap {
-	stats: IStats = {
-		rawModules: 0,
-		rawDestModulesTypes: [],
-		excludedSrcNodesByType: new Set(),
-		excludedSrcNodes: new Set(),
-		excludedDestNodes: new Set(),
-		excludedDestNodeByMaxDepsCount: new Set(),
-		emptyDestNodeUuids: new Set(),
-		emptyDestNodes: new Set(),
-		emptySrcNodes: new Set(),
-	}
+	stats: IStats = STATS_EMPTY
 
 	/** flattened list for parsing {'uuid':{...module}} */
 	moduleByUUIDMap: TModuleByUUID = new Map()
@@ -61,6 +52,7 @@ export class DependenciesUUIDMap {
 		this.createUUIDNodes(filteredDestModules)
 		this.createDependenciesList(filteredDestModules)
 		this.filterByMaxDependenciesCount()
+		this.stats.depsSizes = this.getDepsSizes()
 	}
 
 	moduleByRelativePath(relativePath: string): IWebpackModuleParsed | null {
@@ -89,7 +81,7 @@ export class DependenciesUUIDMap {
 	}
 
 	/** TODO remove uuid's by relative path */
-    private createUUIDNodes(modules: IWebpackModuleShort[]) {
+	private createUUIDNodes(modules: IWebpackModuleShort[]) {
 		let nodeIdByRelativePath: TUuidByRelativePath = new Map()
 		let nodesById: TModuleByUUID = new Map()
 		// const startTime = Date.now()
@@ -128,6 +120,7 @@ export class DependenciesUUIDMap {
 		return reasonTypes
 	}
 
+	/** TODO verify edge direction */
 	private createDependenciesList(
 		filteredDestModules: IWebpackModuleShort[]
 	): void {
@@ -136,7 +129,7 @@ export class DependenciesUUIDMap {
 		/** dependencies, source */
 		let reasons: IWebpackModuleReasonShort[] = []
 		let moduleName: string
-		/** consumer */
+		/** consumer, destination */
 		let destModule: IWebpackModuleParsed
 
 		for (const webpackModule of filteredDestModules) {
@@ -239,6 +232,32 @@ export class DependenciesUUIDMap {
 		}
 	}
 
+	/** TODO find how extract reason size */
+	getDepsSizes(): string[] {
+		let depsSizes: string[] = []
+		// let moduleUuid: TUuid
+		let module: IWebpackModuleParsed
+
+		for (const [destNodeUuid, srcNodes] of this.modulesMapByUUID) {
+			module = this.moduleByUUIDMap.get(destNodeUuid)
+			depsSizes.push(
+				`${module.sizeInBytes / 1000} MB: ${module.relativePath}`
+			)
+
+			// for (const srcNodeUuid of srcNodes) {
+			// 	moduleUuid = this.uuidByRelativePathMap.get(srcNodeUuid)
+			//     module = this.moduleByUUIDMap.get(moduleUuid)
+			//     depsSizes.push(`${module.sizeInBytes/1000} MB: ${module.relativePath}`)
+			// }
+		}
+
+		return depsSizes.sort(
+			(current, next) =>
+				parseFloat(next.split(" MB:")[0]) -
+				parseFloat(current.split(" MB:")[0])
+		)
+	}
+
 	getSummary(): string[] {
 		return [
 			`summary:`,
@@ -270,6 +289,7 @@ export class DependenciesUUIDMap {
 			emptyDestNodeUuids: [...this.stats.emptyDestNodeUuids],
 			emptyDestNodes: [...this.stats.emptyDestNodes],
 			emptySrcNodes: [...this.stats.emptySrcNodes],
+			depsSizes: this.stats.depsSizes,
 		}
 	}
 }

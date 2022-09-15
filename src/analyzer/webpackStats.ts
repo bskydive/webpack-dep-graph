@@ -26,13 +26,13 @@ export class WebpackStatsParser {
 
 
 	constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
-		this.modules = this.getParsedModules(stats)
+		this.modules = this.getShortModules(stats)
         this.uuidMap = new DependenciesUUIDMap(this.modules)
 		this.dependencyMap = getDependenciesMap(this.uuidMap, depsConfig)
 	}
 
 	/** modules filtering in  */
-    private getParsedModules(
+    private getShortModules(
 		stats: IWebpackStatsV3 | IWebpackStatsV5
 	): IWebpackModuleShort[] {
 		let webpackModules: IWebpackModuleShort[]

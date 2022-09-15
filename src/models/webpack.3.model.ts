@@ -1,3 +1,5 @@
+
+/** https://webpack.js.org/api/stats */
 export interface IWebpackStatsV3 {
 	errors: any[]
 	warnings: string[]

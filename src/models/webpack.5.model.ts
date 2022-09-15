@@ -1,3 +1,4 @@
+/** https://webpack.js.org/api/stats */
 export interface IWebpackStatsV5 {
 	hash: string
 	version: string
