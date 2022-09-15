@@ -5,7 +5,7 @@ Fixed and working.
 ## What is it
 
  * webpack [stats.json](https://webpack.js.org/api/stats) parser/converter for visual/UI dependencies analysis
- * [configurable](./deps.config.ts) deps filters: exclude, except, include
+ * [configurable](./deps.config.ts) filters: exclude, except, include, max deps count
  * output formats:
     * [graphml](http://graphml.graphdrawing.org/) graph for proprietary [yed](https://www.yworks.com/products/yed/download) editor
     * [DOT](https://github.com/glejeune/node-graphviz) graph
@@ -15,7 +15,6 @@ Fixed and working.
 ## TODO
 
  * v1.3.0
-    * add Max/Min DepsCount text-->json
     * add deps size
     * add issuedPath
     * validate summary text
@@ -41,6 +40,7 @@ Fixed and working.
         * http://www.yworks.com/xml/graphml
         * http://www.yworks.com/xml/yed/3
     * local webpack dev server
+    * deps size in UI
     * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
     * local web [cytoscape](https://js.cytoscape.org) graph viewer
     * file size viewer

@@ -13,28 +13,29 @@ import {
 	IWebpackModuleShort,
 	TModulesMapByUUID,
 	TModuleByUUID,
-	TUUIDByRelativePath,
+	TUUIDByRelativePath as TUuidByRelativePath,
+    TUuid,
 } from "../models/webpackStats.model"
 import { fileNameFromPath } from "../utils/files"
 
 /** Concatenating source and dest modules into Map */
 export class DependenciesUUIDMap {
 	stats: IStats = {
-		dependencyExcluded: 0,
 		rawModules: 0,
-		moduleExcluded: 0,
-		emptyUUID: 0,
-		emptyReasons: 0,
-		emptyReasonDest: 0,
-		reasonTypeExcluded: 0,
-		maxReasonCountExcluded: 0,
-		moduleTypes: [],
+		rawDestModulesTypes: [],
+		excludedSrcNodesByType: new Set(),
+		excludedSrcNodes: new Set(),
+		excludedDestNodes: new Set(),
+		excludedDestNodeByMaxDepsCount: new Set(),
+		emptyDestNodeUuids: new Set(),
+		emptyDestNodes: new Set(),
+		emptySrcNodes: new Set(),
 	}
 
 	/** flattened list for parsing {'uuid':{...module}} */
 	moduleByUUIDMap: TModuleByUUID = new Map()
 	/** flattened list for parsing {'path1':'uuid1'} */
-	uuidByRelativePathMap: TUUIDByRelativePath = new Map()
+	uuidByRelativePathMap: TUuidByRelativePath = new Map()
 
 	/** resulting map for filtering: {"uuid_source": ["uuid_dest1", "uuid_dest2"]} */
 	modulesMapByUUIDInverted: TModulesMapByUUID = new Map()
@@ -48,14 +49,14 @@ export class DependenciesUUIDMap {
 			// filter target/dest nodes
 			const result = isModuleIncluded(m.name, depsConfig.filters)
 			if (!result) {
-				this.stats.moduleExcluded++
+				this.stats.excludedDestNodes.add(m.name)
 			}
 
 			return result
 		})
 
 		this.stats.rawModules = modules.length
-		this.stats.moduleTypes = this.getModuleTypes(modules)
+		this.stats.rawDestModulesTypes = this.getModuleTypes(modules)
 
 		this.createUUIDNodes(filteredDestModules)
 		this.createDependenciesList(filteredDestModules)
@@ -63,7 +64,7 @@ export class DependenciesUUIDMap {
 	}
 
 	moduleByRelativePath(relativePath: string): IWebpackModuleParsed | null {
-		const uuid: string = this.uuidByRelativePathMap.get(relativePath)
+		const uuid: TUuid = this.uuidByRelativePathMap.get(relativePath)
 		const module: IWebpackModuleParsed = this.moduleByUUIDMap.get(uuid)
 
 		if (!uuid || !module?.uuid) return null
@@ -71,37 +72,38 @@ export class DependenciesUUIDMap {
 		return module
 	}
 
-	addDependenciesById(consumerId: string, dependencyId: string) {
+	addDependenciesById(consumerUuid: TUuid, dependencyUuid: TUuid) {
 		// direct consumer<--dependency list
-		if (!this.modulesMapByUUID.has(consumerId)) {
-			this.modulesMapByUUID.set(consumerId, new Set())
+		if (!this.modulesMapByUUID.has(consumerUuid)) {
+			this.modulesMapByUUID.set(consumerUuid, new Set())
 		}
 
-		this.modulesMapByUUID.get(consumerId)?.add(dependencyId)
+		this.modulesMapByUUID.get(consumerUuid)?.add(dependencyUuid)
 
 		// inverted dependency-->consumer list for filtering
-		if (!this.modulesMapByUUIDInverted.has(dependencyId)) {
-			this.modulesMapByUUIDInverted.set(dependencyId, new Set())
+		if (!this.modulesMapByUUIDInverted.has(dependencyUuid)) {
+			this.modulesMapByUUIDInverted.set(dependencyUuid, new Set())
 		}
 
-		this.modulesMapByUUIDInverted.get(dependencyId)?.add(consumerId)
+		this.modulesMapByUUIDInverted.get(dependencyUuid)?.add(consumerUuid)
 	}
 
-	private createUUIDNodes(modules: IWebpackModuleShort[]) {
-		let nodeIdByRelativePath: TUUIDByRelativePath = new Map()
+	/** TODO remove uuid's by relative path */
+    private createUUIDNodes(modules: IWebpackModuleShort[]) {
+		let nodeIdByRelativePath: TUuidByRelativePath = new Map()
 		let nodesById: TModuleByUUID = new Map()
 		// const startTime = Date.now()
 		log(`located ${modules.length} modules from this build.`)
 
 		for (const module of modules) {
-			const id = v4()
+			const uuid: TUuid = v4()
 
 			const relativePath = resolvePathPlus(module.name)
 
-			nodeIdByRelativePath.set(relativePath, id)
+			nodeIdByRelativePath.set(relativePath, uuid)
 
-			nodesById.set(id, {
-				uuid: id,
+			nodesById.set(uuid, {
+				uuid: uuid,
 				sizeInBytes: module.size || -1,
 				fileName: fileNameFromPath(module.name),
 				relativePath,
@@ -130,7 +132,7 @@ export class DependenciesUUIDMap {
 		filteredDestModules: IWebpackModuleShort[]
 	): void {
 		let relativePath: string
-		let moduleParsed: IWebpackModuleParsed
+		let moduleShort: IWebpackModuleParsed
 		/** dependencies, source */
 		let reasons: IWebpackModuleReasonShort[] = []
 		let moduleName: string
@@ -139,24 +141,24 @@ export class DependenciesUUIDMap {
 
 		for (const webpackModule of filteredDestModules) {
 			relativePath = resolvePathPlus(webpackModule.name)
-			moduleParsed = this.moduleByRelativePath(relativePath)
+			moduleShort = this.moduleByRelativePath(relativePath)
 
-			if (!moduleParsed?.uuid) {
-				this.stats.emptyUUID++
+			if (!moduleShort?.uuid) {
+				this.stats.emptyDestNodeUuids.add(relativePath)
 				log("Empty parsed module", { name: webpackModule.name })
 				continue
 			}
 
 			// exclude & excludeExcept filter options applied
 			reasons = webpackModule?.reasons?.filter(
-				(m: IWebpackModuleReasonShort) => {
+				(module: IWebpackModuleReasonShort) => {
 					// filter source/deps nodes
 					const result = isModuleIncluded(
-						m.moduleName,
+						resolvePathPlus(module.moduleName),
 						depsConfig.filters
 					)
 					if (!result) {
-						this.stats.dependencyExcluded++
+						this.stats.excludedSrcNodes.add(module.moduleName)
 					}
 					return result
 				}
@@ -164,16 +166,16 @@ export class DependenciesUUIDMap {
 
 			for (const reason of reasons) {
 				if (isReasonTypeExcluded(depsConfig.filters, reason.type)) {
-					this.stats.reasonTypeExcluded++
+					this.stats.excludedSrcNodesByType.add(reason.moduleName)
 					continue
 				}
 
 				moduleName = resolvePathPlus(reason.moduleName)
 
 				if (!moduleName) {
-					this.stats.emptyReasons++
+					this.stats.emptySrcNodes.add(reason.moduleName)
 					log("Empty reason", {
-						uuid: moduleParsed?.uuid,
+						uuid: moduleShort?.uuid,
 						reason: reason.moduleName,
 					})
 					continue
@@ -182,7 +184,7 @@ export class DependenciesUUIDMap {
 				destModule = this.moduleByRelativePath(moduleName)
 
 				if (!destModule?.uuid) {
-					this.stats.emptyReasonDest++
+					this.stats.emptyDestNodes.add(moduleName)
 					log("Empty destination", {
 						name: moduleName,
 					})
@@ -190,7 +192,7 @@ export class DependenciesUUIDMap {
 				}
 
 				// TODO add module.issuerName as dependency:  module.name-->module.issuerName(consumer)
-				this.addDependenciesById(destModule?.uuid, moduleParsed?.uuid)
+				this.addDependenciesById(destModule?.uuid, moduleShort?.uuid)
 			}
 		}
 	}
@@ -203,7 +205,7 @@ export class DependenciesUUIDMap {
 					dependencies.size >
 					depsConfig.filters.excludeDestNodeByMaxDepsCount
 				) {
-					this.stats.maxReasonCountExcluded++
+					this.stats.excludedDestNodeByMaxDepsCount.add(consumer)
 					this.modulesMapByUUID.delete(consumer)
 					// log("Too many dependencies", { name: webpackModule.name })
 				}
@@ -212,7 +214,7 @@ export class DependenciesUUIDMap {
 
 		if (depsConfig.filters.excludeSrcNodeByMaxDepsCount > 0) {
 			// exclude source nodes(dependencies)
-			let sourcesUUIDList: Set<string> = new Set()
+			let sourcesUUIDList: Set<TUuid> = new Set()
 
 			for (const [dependency, consumers] of this
 				.modulesMapByUUIDInverted) {
@@ -221,6 +223,7 @@ export class DependenciesUUIDMap {
 					depsConfig.filters.excludeSrcNodeByMaxDepsCount
 				) {
 					sourcesUUIDList.add(dependency)
+					this.stats.excludedDestNodeByMaxDepsCount.add(dependency)
 
 					for (const consumer of consumers) {
 						// remove dependencies/sources
@@ -233,27 +236,40 @@ export class DependenciesUUIDMap {
 					}
 				}
 			}
-
-			this.stats.maxReasonCountExcluded += sourcesUUIDList?.size
 		}
 	}
 
 	getSummary(): string[] {
 		return [
 			`summary:`,
-			`raw module types: ${this.stats.moduleTypes};`,
+			`raw module types: ${this.stats.rawDestModulesTypes.length}`,
 			`raw modules: ${this.stats.rawModules}`,
-			`excluded modules: ${this.stats.moduleExcluded}`,
-			`excluded dependencies: ${this.stats.dependencyExcluded}`,
 			`included modules: ${this.modulesMapByUUID.size}`,
 			`flattened modules: ${this.moduleByUUIDMap.size}`,
 			`flattened modules path: ${this.uuidByRelativePathMap.size}`,
 			`filtered:`,
-			`empty module uuid's: ${this.stats.emptyUUID}`,
-			`empty reasons: ${this.stats.emptyReasons}`,
-			`empty reasons dest: ${this.stats.emptyReasonDest}`,
-			`excluded module reason types: ${this.stats.reasonTypeExcluded}`,
-			`excluded modules by max reasons count: ${this.stats.maxReasonCountExcluded}`,
+			`excluded dest nodes: ${this.stats.excludedDestNodes.size}`,
+			`excluded src nodes: ${this.stats.excludedSrcNodes.size}`,
+			`empty dest nodes uuid's: ${this.stats.emptyDestNodeUuids.size}`,
+			`empty src nodes: ${this.stats.emptySrcNodes.size}`,
+			`empty dest nodes: ${this.stats.emptyDestNodes.size}`,
+			`excluded module reason types: ${this.stats.excludedSrcNodesByType.size}`,
+			`excluded modules by max reasons count: ${this.stats.excludedDestNodeByMaxDepsCount.size}`,
 		]
+	}
+
+	getData(): { [key: string]: string | number | string[] } {
+		return {
+			rawDestModulesTypes: this.stats.rawDestModulesTypes,
+			excludedSrcNodesByType: [...this.stats.excludedSrcNodesByType],
+			excludedSrcNodes: [...this.stats.excludedSrcNodes],
+			excludedDestNodes: [...this.stats.excludedDestNodes],
+			excludedDestNodeByMaxDepsCount: [
+				...this.stats.excludedDestNodeByMaxDepsCount,
+			],
+			emptyDestNodeUuids: [...this.stats.emptyDestNodeUuids],
+			emptyDestNodes: [...this.stats.emptyDestNodes],
+			emptySrcNodes: [...this.stats.emptySrcNodes],
+		}
 	}
 }

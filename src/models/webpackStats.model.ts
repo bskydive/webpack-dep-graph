@@ -56,6 +56,7 @@ interface IWebpackAnalyzerConfigOutputEntry {
 export interface IConfigOutput {
 	testGraphmlJs2Xml: IWebpackAnalyzerConfigOutputEntry
 	depsJson: IWebpackAnalyzerConfigOutputEntry
+	statsJson: IWebpackAnalyzerConfigOutputEntry
 	graphmlDeps: IWebpackAnalyzerConfigOutputEntry
 	circularDepsJson: IWebpackAnalyzerConfigOutputEntry
 	cytoscapeJson: IWebpackAnalyzerConfigOutputEntry
@@ -101,20 +102,23 @@ export interface IConfig {
 }
 
 
-export type TModuleByUUID = Map<string, IWebpackModuleParsed>
+export type TModuleByUUID = Map<TUuid, IWebpackModuleParsed>
 
-export type TUUIDByRelativePath = Map<string, string>
+export type TUUIDByRelativePath = Map<string, TUuid>
 
-export type TModulesMapByUUID = Map<string, Set<string>>
+export type TModulesMapByUUID = Map<TUuid, Set<TUuid>>
+
+/** alias */
+export type TUuid = string
 
 export interface IStats {
     rawModules: number
-    moduleExcluded: number
-    dependencyExcluded: number
-    emptyUUID: number
-    emptyReasons: number
-    emptyReasonDest: number
-    moduleTypes: string[]
-    reasonTypeExcluded: number
-    maxReasonCountExcluded: number
+    rawDestModulesTypes: string[]
+    excludedSrcNodesByType: Set<string>
+    excludedSrcNodes: Set<string>
+    excludedDestNodes: Set<string>
+    excludedDestNodeByMaxDepsCount: Set<string>
+    emptyDestNodeUuids: Set<string>
+    emptyDestNodes: Set<string>
+    emptySrcNodes: Set<string>
 }

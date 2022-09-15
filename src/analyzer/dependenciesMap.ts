@@ -3,8 +3,8 @@ import {
 	IDependencyMap,
 	IConfig,
 	IConfigFilters,
-	IWebpackModuleParsed,
 	TModuleByUUID,
+    TUuid,
 } from "../models/webpackStats.model"
 import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
 
@@ -24,8 +24,8 @@ function isModuleIncludedOnly(
 	return result
 }
 
-function getModuleName(modules: TModuleByUUID, destModuleId: string) {
-	return modules.get(destModuleId)?.relativePath || ""
+function getModuleName(modules: TModuleByUUID, destModuleUuid: TUuid) {
+	return modules.get(destModuleUuid)?.relativePath || ""
 }
 
 function getModuleDependencies(
@@ -80,15 +80,15 @@ export function getDependenciesMap(
 	let srcModules: string[]
 	let destModule: string
 
-	for (const [destModuleId, dependencies] of uuidMap.modulesMapByUUID) {
-		destModule = getModuleName(uuidMap.moduleByUUIDMap, destModuleId)
+	for (const [destModuleUuid, dependencies] of uuidMap.modulesMapByUUID) {
+		destModule = getModuleName(uuidMap.moduleByUUIDMap, destModuleUuid)
 		srcModules = getModuleDependencies(uuidMap.moduleByUUIDMap, dependencies)
 
 		if (!destModule) {
 			log(
 				"src/analyzer/analyzerUtils/dependencyMap.ts:67",
 				"EMPTY dest module name",
-				destModuleId
+				destModuleUuid
 			)
 
 			continue

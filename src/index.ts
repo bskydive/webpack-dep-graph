@@ -7,14 +7,8 @@ import {
 	saveSimplifiedDot,
 } from "./utils/graphviz"
 import { loadWebpackStat } from "./utils/webpack"
-import {
-	saveCytoscape,
-} from "./utils/cytoscape"
-import {
-	loadGraphml,
-	saveGraphml,
-	saveGraphmlFromDot,
-} from "./utils/graphml"
+import { saveCytoscape } from "./utils/cytoscape"
+import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
 import { depsConfig } from "../deps.config"
 import { log } from "./utils/logger"
 import { saveCircularImports } from "./analyzer/circular"
@@ -37,7 +31,15 @@ function main() {
 	log("stats parsing start")
 	statsParser = new WebpackStatsParser(webpackStat)
 	dependencyMap = statsParser.dependencyMap
+
 	log(statsParser.uuidMap.getSummary())
+	if (depsConfig.output.statsJson.enabled) {
+		const statsJson = {
+			summary: statsParser.uuidMap.getSummary(),
+			data: statsParser.uuidMap.getData(),
+		}
+		saveJSON(depsConfig.output.statsJson.fileName, statsJson)
+	}
 
 	log("graph parsing start")
 	dotGraph = createDotGraph(dependencyMap)
