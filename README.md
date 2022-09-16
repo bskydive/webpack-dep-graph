@@ -12,6 +12,27 @@ Fixed and working.
     * `*.png` [cytoscape](https://cytoscape.org/) graph export
     * json debug data
 
+## What is it for
+
+ * Refactoring decision making helper
+ * addition tool for the [code analysis methodic](https://github.com/bskydive/code_quality_js)
+ * Detect a circular dependency in a large monorepo project.
+ * Figure out where the module is being used, imported and exported from.
+ * Analyze why webpack cannot tree-shake a particular module or dependency from the chunk.
+
+## How to run
+
+ * set the [config](./deps.config.js) params
+ * optionally use [node version manager](https://github.com/nvm-sh/nvm) to choose node@16+
+ * execute in console
+    ```bash
+        nvm i 16 # optionally
+        npm i
+        cp ${your_project_folder}/stats.json ./webpack-dep-graph/webpack-stats.json
+        npm run start
+        
+    ```
+
 ## TODO
 
  * v1.4.0
@@ -177,31 +198,10 @@ Used for [yed](https://www.yworks.com/products/yed) editor
         ```
 
 
-## What is it for
-
- * Refactoring decision making helper
- * addition tool for the [code analysis methodic](https://github.com/bskydive/code_quality_js)
- * Detect a circular dependency in a large monorepo project.
- * Figure out where the module is being used, imported and exported from.
- * Analyze why webpack cannot tree-shake a particular module or dependency from the chunk.
-
-## How to run
-
- * set the [config](./deps.config.js) params
- * optionally use [node version manager](https://github.com/nvm-sh/nvm) to choose node@16+
- * execute in console
-    ```bash
-        nvm i 16 # optionally
-        npm i
-        cp ${your_project_folder}/stats.json ./webpack-dep-graph/webpack-stats.json
-        npm run start
-        
-    ```
-
 ## Similar projects
 
- * deps graph with [npm]() and [vscode]() plugin
- * deps diff with query language [statoscope]()
+ * deps graph with [npm](https://www.npmjs.com/package/dependency-cruiser) and [vscode](https://marketplace.visualstudio.com/items?itemName=juanallo.vscode-dependency-cruiser) plugin
+ * deps diff with query language [statoscope](https://statoscope.tech/)
  * without webpack stats.json [repo](https://github.com/pahen/madge)
  * forked from: unmaintained broken draft [repo](https://github.com/heypoom/webpack-dep-graph)
  * Unmaintained [repo](https://github.com/g0t4/webpack-stats-graph)
