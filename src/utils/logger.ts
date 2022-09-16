@@ -1,9 +1,14 @@
-export function logEmpty(line: string, data: string) {
-	if (!data) {
+export function logEmpty(line: string, value: string, ...args: any) {
+	if (!value) {
 		console.warn({
-			msg: 'EMPTY data',
+			msg: "EMPTY data",
 			line,
-			data,
+			value,
+			data: { ...args },
 		})
 	}
+}
+
+export function log(...args: any) {
+	console.info(...args)
 }

@@ -1,8 +1,8 @@
-import { IDependencyMap } from "../models/AnalyzerContext"
-import { writeFile } from "./files"
+import { TSrcFileNamesByDest } from "../models/webpackStats.model"
+import { saveJSON } from "./files"
 
 /** see src/viewer/node_modules/@types/cytoscape/index.d.ts:83 */
-interface ICyElementDefinition {
+export interface ICyElementDefinition {
 	data: ICyNodeDataDefinition | ICyEdgeDataDefinition
 }
 
@@ -45,21 +45,18 @@ function parseElementDefinition(
 }
 
 export function parseEdgeDefinitions(
-	dependencyMap: IDependencyMap
+	srcFileNamesByDest: TSrcFileNamesByDest
 ): ICyElementDefinition[] {
 	let result: ICyElementDefinition[] = []
 	let edges: ICyEdgeDataDefinition[] = []
 	let edge: ICyEdgeDataDefinition
-	let dependenciesPaths: string[] = []
 
-	for (const targetPath in dependencyMap) {
-		dependenciesPaths = dependencyMap[targetPath]
-
-		for (const dependencyPath of dependenciesPaths) {
+	for (const [destFileName, srcFileNames] of srcFileNamesByDest) {
+		for (const srcFileName of srcFileNames) {
 			edge = parseEdge({
-				id: targetPath,
-				source: dependencyPath,
-				target: targetPath,
+				id: destFileName,
+				source: srcFileName,
+				target: destFileName,
 			})
 
 			edges.push(edge)
@@ -70,22 +67,24 @@ export function parseEdgeDefinitions(
 }
 
 export function parseNodeDefinitions(
-	dependencyMap: IDependencyMap
+	srcFileNamesByDest: TSrcFileNamesByDest
 ): ICyElementDefinition[] {
 	let result: ICyElementDefinition[] = []
 	let nodes: ICyNodeDataDefinition[] = []
 	let node: ICyNodeDataDefinition
 
-	for (const targetPath in dependencyMap) {
-		node = parseNode({ id: targetPath })
+	for (const destFileName in srcFileNamesByDest) {
+		node = parseNode({ id: destFileName })
 		nodes.push(node)
 	}
 
 	return result.concat(nodes.map((item) => parseElementDefinition(item)))
 }
 
-
-export function saveCytoscape(fileName: string, data: any) {
-	const json = JSON.stringify(data, null, 2)
-	writeFile(fileName, json)
+export function saveCytoscape(
+	fileName: string,
+	dependencyMap: TSrcFileNamesByDest
+) {
+	const data = parseEdgeDefinitions(dependencyMap)
+	saveJSON(fileName, data)
 }

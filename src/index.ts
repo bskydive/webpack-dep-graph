@@ -1,39 +1,94 @@
-import { Analyzer } from "./analyzer/Analyzer"
-import { AnalyzerContext } from "./models/AnalyzerContext"
-import { createDotGraph, saveGraphvizRenderedDot, saveGraphvizDotSimplified, saveGraphvizRenderedPng } from "./utils/graphviz"
+import { WebpackStatsParser } from "./analyzer/webpackStats"
+import { TSrcFileNamesByDest } from "./models/webpackStats.model"
+import {
+	createDotGraph,
+	IGraphvizDot,
+	saveGraphvizRendered,
+	saveSimplifiedDot,
+} from "./utils/graphviz"
 import { loadWebpackStat } from "./utils/webpack"
-import { parseEdgeDefinitions, saveCytoscape } from "./utils/cytoscape"
-// import { writeFile } from "./utils/files"
+import { saveCytoscape } from "./utils/cytoscape"
 import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
-// import { printFileTree } from "./utils/printFileTree"
+import { depsConfig } from "../deps.config"
+import { log } from "./utils/logger"
+import { saveCircularImports } from "./analyzer/circular"
+import { IWebpackStatsV3 } from "./models/webpack.3.model"
+import { IWebpackStatsV5 } from "./models/webpack.5.model"
+import { saveJSON } from "./utils/files"
 
 function main() {
-	let analyzerContext: AnalyzerContext
-	const statFileName = process.argv[2] || "webpack-stats.json"
-	console.log(`\n------- loading ${statFileName} ------\n`)
+	let GRAPHML_STUB: { [key: string]: string }
+	let statFileName: string
+	let webpackStat: IWebpackStatsV3 | IWebpackStatsV5
+	let dotGraph: IGraphvizDot
+    /** destPath:{srcPath1, srcPath2} */
+	let srcFileNamesByDest: TSrcFileNamesByDest
+	let statsParser: WebpackStatsParser
 
-	const webpackStat = loadWebpackStat(statFileName)
-	const grapml = loadGraphml("./src/models/graphml.3.22.stub.graphml")
+	log(`loading ${statFileName}`)
+	statFileName = process?.argv[2] || depsConfig.input.webpackStatsFileName
+	webpackStat = loadWebpackStat(statFileName)
 
-	if (webpackStat) {
-		const analyzer = new Analyzer(webpackStat)
-		analyzerContext = analyzer.analyze()
+	log("stats parsing start")
+	statsParser = new WebpackStatsParser(webpackStat)
+	srcFileNamesByDest = statsParser.srcFileNamesByDest
 
-		console.log(`\n------- displaying file tree ------\n`)
-		// printFileTree(analyzerContext)
-		const dotGraph = createDotGraph(analyzerContext.dependencyMap)
-		const cytoscapeGraph = parseEdgeDefinitions(
-			analyzerContext.dependencyMap
+	log(statsParser.uuidMap.getSummary())
+	if (depsConfig.output.statsJson.enabled) {
+		const statsJson = {
+			summary: statsParser.uuidMap.getSummary(),
+			data: statsParser.uuidMap.getData(),
+		}
+		saveJSON(depsConfig.output.statsJson.fileName, statsJson)
+	}
+
+	log("graph parsing start")
+	dotGraph = createDotGraph(srcFileNamesByDest)
+
+	if (depsConfig.output.testGraphmlJs2Xml.enabled) {
+		GRAPHML_STUB = loadGraphml("./src/models/graphml.3.22.stub.graphml") // for testing lib save
+		saveGraphml("./graph-output/test_save.graphml", GRAPHML_STUB)
+	}
+
+	if (depsConfig.output.depsJson.enabled) {
+		saveJSON(depsConfig.output.depsJson.fileName, Object.fromEntries(srcFileNamesByDest))
+	}
+
+	if (depsConfig.output.graphmlDeps.enabled) {
+		saveGraphmlFromDot(
+			depsConfig.output.graphmlDeps.fileName,
+			srcFileNamesByDest
 		)
+	}
 
-		// saveGraphml("test_save.graphml", grapml)
-		saveCytoscape("./deps.json", analyzerContext.dependencyMap)
-		saveGraphmlFromDot(analyzerContext.dependencyMap, "./deps.graphml")
-		saveCytoscape("./circular.json", analyzerContext.circularImports)
-		saveCytoscape("./cytoscape.json", cytoscapeGraph)
-		saveGraphvizRenderedDot(dotGraph, "./graph.dot")
-		saveGraphvizRenderedPng(dotGraph, "./graph.png")
-		saveGraphvizDotSimplified(dotGraph, "./graph_simplified.dot")
+	if (depsConfig.output.circularDepsJson.enabled) {
+		saveCircularImports(
+			depsConfig.output.circularDepsJson.fileName,
+			srcFileNamesByDest
+		)
+	}
+
+	if (depsConfig.output.cytoscapeJson.enabled) {
+		saveCytoscape(depsConfig.output.cytoscapeJson.fileName, srcFileNamesByDest)
+	}
+
+	if (depsConfig.output.simplifiedDot.enabled) {
+		saveSimplifiedDot(depsConfig.output.simplifiedDot.fileName, dotGraph)
+	}
+
+	log("heavy async calculations start")
+
+	for (const [key, value] of Object.entries(depsConfig.graphviz)) {
+		if (value?.enabled) {
+			log(`${key}-->${value?.fileName} calculations starts`)
+
+			saveGraphvizRendered({
+				graph: dotGraph,
+				engine: value?.engine,
+				type: value?.type,
+				fileName: value?.fileName,
+			})
+		}
 	}
 }
 

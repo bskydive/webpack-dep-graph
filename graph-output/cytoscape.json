@@ -1,0 +1,142 @@
+[
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/analyzer/webpackStats.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./deps.config.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/logger.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/webpack.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/graphviz.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/cytoscape.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/utils/graphml.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/index.ts": "",
+      "source": "./src/analyzer/circular.ts",
+      "target": "./src/index.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/dependenciesUUIDMap.ts": "",
+      "source": "./deps.config.ts",
+      "target": "./src/analyzer/dependenciesUUIDMap.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/dependenciesUUIDMap.ts": "",
+      "source": "./src/utils/logger.ts",
+      "target": "./src/analyzer/dependenciesUUIDMap.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/dependenciesUUIDMap.ts": "",
+      "source": "./src/utils/webpack.ts",
+      "target": "./src/analyzer/dependenciesUUIDMap.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/webpackStats.ts": "",
+      "source": "./deps.config.ts",
+      "target": "./src/analyzer/webpackStats.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/webpackStats.ts": "",
+      "source": "./src/analyzer/dependenciesUUIDMap.ts",
+      "target": "./src/analyzer/webpackStats.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/webpackStats.ts": "",
+      "source": "./src/analyzer/dependenciesMap.ts",
+      "target": "./src/analyzer/webpackStats.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/utils/graphml.ts": "",
+      "source": "./deps.config.ts",
+      "target": "./src/utils/graphml.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/utils/graphml.ts": "",
+      "source": "./src/models/graphml.model.ts",
+      "target": "./src/utils/graphml.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/analyzer/dependenciesMap.ts": "",
+      "source": "./src/utils/logger.ts",
+      "target": "./src/analyzer/dependenciesMap.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/utils/graphviz.ts": "",
+      "source": "./src/utils/logger.ts",
+      "target": "./src/utils/graphviz.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/utils/webpack.ts": "",
+      "source": "./src/utils/logger.ts",
+      "target": "./src/utils/webpack.ts"
+    }
+  },
+  {
+    "data": {
+      "./src/utils/files.ts": "",
+      "source": "fs (ignored)",
+      "target": "./src/utils/files.ts"
+    }
+  }
+]

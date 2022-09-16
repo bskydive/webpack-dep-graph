@@ -1,36 +1,53 @@
-import { digraph, Graph } from "graphviz"
-import { IDependencyMap } from "../models/AnalyzerContext"
+import { digraph, Graph, RenderEngine } from "graphviz"
+import { TSrcFileNamesByDest } from "../models/webpackStats.model"
 import { writeFile } from "./files"
+import { log } from "./logger"
 
-// https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
-export function createDotGraph(
-	dependencyMap: IDependencyMap
-): Graph {
+export type IGraphvizDot = Graph
+
+/**
+ * https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
+ * TODO find how set nodesep attr https://www.graphviz.org/faq/#FaqLarger
+ */
+export function createDotGraph(srcFileNamesByDest: TSrcFileNamesByDest): IGraphvizDot {
 	const g: Graph = digraph("G")
 
-	for (const consumerPath in dependencyMap) {
-		const n = g.addNode(consumerPath, { color: "blue" })
-
-		const dependencies = dependencyMap[consumerPath]
-		for (const dep of dependencies) {
-			g.addEdge(n, dep, { color: "red" })
+	for (const [destFileName, srcFileNames] of srcFileNamesByDest) {
+		const destNode = g.addNode(destFileName, { color: "blue" })
+		
+		for (const srcNode of srcFileNames) {
+			g.addEdge(srcNode, destNode, { color: "red" })
 		}
 	}
 
 	return g
 }
 
-/** !!! very long execution time */
-export function saveGraphvizRenderedDot(g: Graph, fileName: string = 'graph.dot'){
-    g.output( "dot", fileName );
+export function saveGraphvizRendered(data: {
+	graph: Graph
+	fileName?: string
+	engine: RenderEngine
+	type: "png" | "dot"
+}) {
+	const fileName = data.fileName || `graphviz_${data.engine}.${data.type}`
+
+	data.graph.render(
+		{
+			type: data.type,
+			use: data.engine,
+		},
+		fileName
+	)
+
+	// TODO use callback saveRendered
 }
 
-/** !!! very long execution time */
-export function saveGraphvizRenderedPng(g: Graph, fileName: string = 'graph.png'){
-    g.output( "png", fileName );
+/** callback for logging end of operation */
+function saveRendered(data: Buffer, fileName: string) {
+    log(`${fileName} calculations ended`)
+    writeFile(fileName, data)
 }
 
-export function saveGraphvizDotSimplified(g: Graph, fileName: string = 'graph_simplified.dot'){
-	// const json = JSON.stringify(data, null, 2)
-	writeFile(fileName, g.to_dot())  
+export function saveSimplifiedDot(fileName: string, g: Graph) {
+	writeFile(fileName, g.to_dot())
 }
