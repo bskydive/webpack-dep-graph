@@ -1,7 +1,5 @@
 # Webpack Dependency Graph Visualizer
 
-Fixed and working.
-
 ## What is it
 
  * webpack [stats.json](https://webpack.js.org/api/stats) parser/converter for visual/UI dependencies analysis
@@ -41,6 +39,7 @@ Fixed and working.
     * add gephi examples
     * validate/refactor examples
  * v2
+    * migrate to new repo
     * npm package
  * v3
     * webpack plugin
