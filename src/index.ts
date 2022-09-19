@@ -1,4 +1,4 @@
-import { WebpackStatsParser } from "./analyzer/webpackStats"
+import { WebpackStatsParser } from "./webpack-stats/webpackStats"
 import { TSrcFileNamesByDest } from "./models/webpackStats.model"
 import {
 	createDotGraph,
@@ -11,7 +11,7 @@ import { saveCytoscape } from "./utils/cytoscape"
 import { loadGraphml, saveGraphml, saveGraphmlFromDot } from "./utils/graphml"
 import { depsConfig } from "../deps.config"
 import { log } from "./utils/logger"
-import { saveCircularImports } from "./analyzer/circular"
+import { saveCircularImports } from "./webpack-stats/circular"
 import { IWebpackStatsV3 } from "./models/webpack.3.model"
 import { IWebpackStatsV5 } from "./models/webpack.5.model"
 import { saveJSON } from "./utils/files"

@@ -34,6 +34,7 @@
 ## TODO
 
  * v1.4.0
+    * depsCountColoring
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
  * v1.5.0
     * add gephi examples

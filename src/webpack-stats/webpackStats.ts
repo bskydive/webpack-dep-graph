@@ -1,5 +1,5 @@
 import {
-    TSrcFileNamesByDest,
+	TSrcFileNamesByDest,
 	IWebpackModuleReasonShort,
 	IWebpackModuleShort,
 } from "../models/webpackStats.model"
@@ -21,19 +21,21 @@ import { getSrcFileNamesByDest } from "./dependenciesMap"
 
 export class WebpackStatsParser {
 	private modules: IWebpackModuleShort[]
-    uuidMap: DependenciesUUIDMap
-    /** destPath:{srcPath1, srcPath2} */
-    srcFileNamesByDest: TSrcFileNamesByDest
-
+	uuidMap: DependenciesUUIDMap
+	/** destPath:{srcPath1, srcPath2} */
+	srcFileNamesByDest: TSrcFileNamesByDest
 
 	constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
 		this.modules = this.getShortModules(stats)
-        this.uuidMap = new DependenciesUUIDMap(this.modules)
-		this.srcFileNamesByDest = getSrcFileNamesByDest(this.uuidMap, depsConfig)
+		this.uuidMap = new DependenciesUUIDMap(this.modules)
+		this.srcFileNamesByDest = getSrcFileNamesByDest(
+			this.uuidMap,
+			depsConfig
+		)
 	}
 
 	/** modules filtering in  */
-    private getShortModules(
+	private getShortModules(
 		stats: IWebpackStatsV3 | IWebpackStatsV5
 	): IWebpackModuleShort[] {
 		let webpackModules: IWebpackModuleShort[]
@@ -44,10 +46,10 @@ export class WebpackStatsParser {
 			throw new Error("Unknown webpack version: " + stats?.version)
 		}
 
-		webpackModules = this.parseWebpackModules(stats.modules)
+		webpackModules = this.parseWebpackModules(stats?.modules)
 
 		if (!webpackModules?.length) {
-			webpackModules = this.parseWebpackChunks(stats.chunks)
+			webpackModules = this.parseWebpackChunks(stats?.chunks)
 		}
 
 		return webpackModules
@@ -74,7 +76,7 @@ export class WebpackStatsParser {
 	private parseWebpackModules(
 		modules: IWebpackStatsV3Module[] | IWebpackStatsV5Module[]
 	): IWebpackModuleShort[] {
-		const result = modules.map((module) => ({
+		const result = modules?.map((module) => ({
 			size: module.size,
 			name: module.name,
 			issuerName: module.issuerName,
@@ -93,7 +95,10 @@ export class WebpackStatsParser {
 			return {
 				moduleIdentifier: module.moduleIdentifier,
 				module: module.module,
-				moduleName: module.moduleName,
+				moduleName:
+					(module as IWebpackStatsV5Reason)?.resolvedModule ||
+					(module as IWebpackStatsV3Reason)?.resolvedModulePath ||
+					module?.moduleName,
 				type: module.type,
 			}
 		})

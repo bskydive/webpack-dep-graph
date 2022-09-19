@@ -16,13 +16,20 @@ export const depsConfig: IConfig = {
 		excludeExcept: [], // add some deps from excluded: exclude 'angular', but leave 'router'
 		includeOnlyDestNode: [], // from nodes; applied after exclude and excludeExcept filters
 		includeOnlySrcNode: [], // from edges/reasons; applied after exclude and excludeExcept filters
-        // TODO implement
         excludeByMaxOutgoingCount: 5, // applied after exclude* and include* filters
         excludeByMaxIncomingCount: 0, // applied after exclude* and include* filters
         edgeTypeExclude: [
-			"cjs self exports reference", // fake dependencies loops
+            "cjs self exports reference", // fake dependencies loops
 			"export imported specifier", // re-export TODO check necessity
 		],
+        // TODO implement
+        // excludeExceptColor: 'brown',
+        // depsCountColoring: {
+        //      5: 'green',
+        //      10: 'red'
+        // },
+        // collapseNodePaths: ['node_modules'], // replace edge-node-edge with one edge
+        // collapseNodeColor: 'brown',
 	},
 	output: {
 		testGraphmlJs2Xml: { // test js2xml
