@@ -86,7 +86,7 @@ export function getSrcFileNamesByDest(
 
 		if (!destPath) {
 			log(
-				"src/analyzer/analyzerUtils/dependencyMap.ts:67",
+				"src/webpack-stats/dependenciesMap.ts:89",
 				"EMPTY dest module name",
 				srcNodeId
 			)

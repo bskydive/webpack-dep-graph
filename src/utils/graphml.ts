@@ -79,7 +79,7 @@ function addDependenciesMapSrcNodes(
 	srcFileNamesByDest: TSrcFileNamesByDest
 ): TSrcFileNamesByDest {
 	let result: TSrcFileNamesByDest = new Map()
-	// TODO add issuerName see src/analyzer/analyzerUtils/setupNodes.ts:21
+	// TODO add issuerName see src/webpack-stats/dependenciesUUIDMap.ts:186
 	for (const [destFileName, srcFileNames] of srcFileNamesByDest) {
 		for (const srcFileName of srcFileNames) {
 			if (!srcFileNamesByDest.get(srcFileName)) {

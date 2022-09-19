@@ -49,19 +49,19 @@ export interface IGraphvizRenderOpts {
 	type: "png" | "dot"
 }
 
-interface IWebpackAnalyzerConfigOutputEntry {
+interface IWebpackStatsConfigOutputEntry {
 	enabled: boolean
 	fileName: string
 }
 
 export interface IConfigOutput {
-	testGraphmlJs2Xml: IWebpackAnalyzerConfigOutputEntry
-	depsJson: IWebpackAnalyzerConfigOutputEntry
-	statsJson: IWebpackAnalyzerConfigOutputEntry
-	graphmlDeps: IWebpackAnalyzerConfigOutputEntry
-	circularDepsJson: IWebpackAnalyzerConfigOutputEntry
-	cytoscapeJson: IWebpackAnalyzerConfigOutputEntry
-	simplifiedDot: IWebpackAnalyzerConfigOutputEntry
+	testGraphmlJs2Xml: IWebpackStatsConfigOutputEntry
+	depsJson: IWebpackStatsConfigOutputEntry
+	statsJson: IWebpackStatsConfigOutputEntry
+	graphmlDeps: IWebpackStatsConfigOutputEntry
+	circularDepsJson: IWebpackStatsConfigOutputEntry
+	cytoscapeJson: IWebpackStatsConfigOutputEntry
+	simplifiedDot: IWebpackStatsConfigOutputEntry
 }
 
 export interface IConfigGraphml {
