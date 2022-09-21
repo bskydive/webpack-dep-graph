@@ -6,11 +6,7 @@ node_modules/
 ./.vscode/
 ./dist/
 
-./webpack-stats.json
-./deps.json
-./circular.json
-./cytoscape.json
-./graph.dot
-./deps.png
+./*stats*.json
 
 ./out
+./graph-output
