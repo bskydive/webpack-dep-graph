@@ -23,6 +23,7 @@ export const depsConfig: IConfig = {
 			"export imported specifier", // re-export TODO check necessity
 		],
         // TODO implement
+        // excludeExceptNodeColor: 'brown', // paired with excludeExcept
         // depsCountEdgeColor: {
         //      0: 'green',
         //      10: 'red'
@@ -37,8 +38,7 @@ export const depsConfig: IConfig = {
         //      10: 'red'
         // },
         // collapseNodePaths: ['node_modules'], // replace edge-node-edge with one edge
-        // collapseNodeColor: 'brown',
-        // excludeNodeExceptColor: 'brown',
+        // collapseNodeEdgeColor: 'brown',
 	},
 	output: {
 		testGraphmlJs2Xml: { // test js2xml

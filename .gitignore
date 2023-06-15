@@ -3,10 +3,11 @@
 node_modules/
 *.tsbuildinfo
 .env*
-./.vscode/
-./dist/
+.vscode/
+dist/
+log/
 
-./*stats*.json
+*.json
 
-./out
-./graph-output
+out
+graph-output
