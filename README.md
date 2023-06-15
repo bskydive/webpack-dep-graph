@@ -31,42 +31,6 @@
         
     ```
 
-## TODO
-
- * v1.4.0
-    * depsCountColoring
-    * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
- * v1.5.0
-    * add gephi examples
-    * validate/refactor examples
- * v2
-    * migrate to new repo
-    * npm package
- * v3
-    * webpack plugin
- * v4
-    * vscode plugin(folder/file right click) like in dependency cruiser
-        * stats.json validation with current folder structure
-        * collect stats.json before run
- * v5+
-    * replace UUID by relative path
-    * fix circular.json comparing to eslint
-    * add issuedPath
-    * use xml schema for graphml parser
-        * http://www.w3.org/2001/XMLSchema-instance
-        * http://graphml.graphdrawing.org/xmlns 
-        * http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd
-        * http://www.yworks.com/xml/yfiles-common/1.0/java
-        * http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0
-        * http://www.yworks.com/xml/yfiles-common/markup/2.0
-        * http://www.yworks.com/xml/graphml
-        * http://www.yworks.com/xml/yed/3
-    * local webpack dev server
-    * deps size in UI
-    * deps size in stats_summary.json
-    * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
-    * local web [cytoscape](https://js.cytoscape.org) graph viewer
-
 ## Caveats
 
  * terminology:
@@ -207,3 +171,42 @@ Used for [yed](https://www.yworks.com/products/yed) editor
  * Unmaintained [repo](https://github.com/g0t4/webpack-stats-graph)
  * Unmaintained [repo](https://github.com/jantimon/webpack-dependency-stats)
 
+## TODO
+
+ * v1.4.0
+    * depsCountColoring
+    * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
+    * coupling/cohesion graph
+        * edge color: import count
+        * node size: lines count
+        * node color: code complexity
+ * v1.5.0
+    * add gephi examples
+    * validate/refactor examples
+ * v2
+    * migrate to new repo
+    * npm package
+ * v3
+    * webpack plugin
+ * v4
+    * vscode plugin(folder/file right click) like in dependency cruiser
+        * stats.json validation with current folder structure
+        * collect stats.json before run
+ * v5+
+    * replace UUID by relative path
+    * fix circular.json comparing to eslint
+    * add issuedPath
+    * use xml schema for graphml parser
+        * http://www.w3.org/2001/XMLSchema-instance
+        * http://graphml.graphdrawing.org/xmlns 
+        * http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd
+        * http://www.yworks.com/xml/yfiles-common/1.0/java
+        * http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0
+        * http://www.yworks.com/xml/yfiles-common/markup/2.0
+        * http://www.yworks.com/xml/graphml
+        * http://www.yworks.com/xml/yed/3
+    * local webpack dev server
+    * deps size in UI
+    * deps size in stats_summary.json
+    * local web [graphviz](http://magjac.com/graphviz-visual-editor/) graph viewer
+    * local web [cytoscape](https://js.cytoscape.org) graph viewer

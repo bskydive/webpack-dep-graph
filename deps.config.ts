@@ -23,13 +23,22 @@ export const depsConfig: IConfig = {
 			"export imported specifier", // re-export TODO check necessity
 		],
         // TODO implement
-        // excludeExceptColor: 'brown',
-        // depsCountColoring: {
-        //      5: 'green',
+        // depsCountEdgeColor: {
+        //      0: 'green',
+        //      10: 'red'
+        // },
+        // linesCountNodeFrame: { // file lines count
+        //      0: '1px',
+        //      500: '2px',
+        //      1000: '5px'
+        // },
+        // codeComplexityNodeTextColor: {
+        //      0: 'green',
         //      10: 'red'
         // },
         // collapseNodePaths: ['node_modules'], // replace edge-node-edge with one edge
         // collapseNodeColor: 'brown',
+        // excludeNodeExceptColor: 'brown',
 	},
 	output: {
 		testGraphmlJs2Xml: { // test js2xml
