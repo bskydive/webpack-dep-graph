@@ -56,3 +56,29 @@ export function saveCircularImports(
 	const data = getCircularImports(srcFileNamesByDest)
 	saveJSON(fileName, data)
 }
+
+/**
+ * https://www.npmjs.com/package/circular-dependency-plugin
+ * https://www.digitalocean.com/community/tutorials/angular-custom-webpack-config
+ * @param logFile  - ["path1->path2", "path3->path4"]
+ * @returns
+ */
+export function circularLogToMap(logFile: string[]): TSrcFileNamesByDest {
+	let splittedChains = new Map<number, string[]>()
+	let result: TSrcFileNamesByDest
+	const CIRCULAR_DIVIDER = " -> "
+
+	for (let i = 0; i < logFile.length; i++) {
+		splittedChains.set(i, logFile[i].split(CIRCULAR_DIVIDER))
+	}
+
+	for (const [chainName, chain] of splittedChains) {
+		if (chain?.length > 1) {
+			for (let i = 0; i < chain.length; i++) {}
+		} else {
+            console.log('Error: not paired')
+        }
+	}
+
+	return result
+}
