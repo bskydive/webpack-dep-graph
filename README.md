@@ -176,12 +176,14 @@ Used for [yed](https://www.yworks.com/products/yed) editor
 
  * v1.4.0
     * depsCountColoring
+    * circular detection draft
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
     * coupling/cohesion graph
         * edge color: import count
         * node size: lines count
         * node color: code complexity
  * v1.5.0
+    * circular detection
     * add gephi examples
     * validate/refactor examples
  * v2
