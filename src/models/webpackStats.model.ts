@@ -109,7 +109,7 @@ export type TUUIDByRelativePath = Map<string, TUuid>
 
 export type TUuidsByUuidMap = Map<TUuid, Set<TUuid>>
 
-/** alias */
+/** id for IWebpackModuleParsed entry */
 export type TUuid = string
 
 export interface IStats {

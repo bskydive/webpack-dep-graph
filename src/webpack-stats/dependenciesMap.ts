@@ -8,7 +8,7 @@ import {
 } from "../models/webpackStats.model"
 import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
 
-/** applied only after dependencyMap creation to filter in both directions: src/dest nodes */
+/** applied only after dependencyMap creation to filter in both directions: src/dest modules */
 function isModuleIncludedOnly(
 	moduleName: string,
 	includeOnly: string[]
@@ -24,16 +24,16 @@ function isModuleIncludedOnly(
 	return result
 }
 
-function getModuleName(modules: TModuleByUUID, destModuleUuid: TUuid) {
-	return modules.get(destModuleUuid)?.relativePath || ""
+function getDestModulePath(srcModules: TModuleByUUID, destModuleUuid: TUuid) {
+	return srcModules.get(destModuleUuid)?.relativePath || ""
 }
 
-function getModuleDependencies(
-	srcNodes: TModuleByUUID,
-	destNodes: Set<string>
+function getDestModulesPaths(
+	srcModules: TModuleByUUID,
+	destModules: Set<string>
 ): string[] {
-	return Array.from(destNodes).map((dependencyName: string) =>
-		getModuleName(srcNodes, dependencyName)
+	return Array.from(destModules).map((dependencyPath: string) =>
+		getDestModulePath(srcModules, dependencyPath)
 	)
 }
 
@@ -81,8 +81,8 @@ export function getSrcFileNamesByDest(
 	let destPath: string
 
 	for (const [srcNodeId, destNodeIds] of uuidMap.destUuidsBySrcUuidMap) {
-		destPath = getModuleName(uuidMap.srcModuleByUUIDMap, srcNodeId)
-		srcModules = getModuleDependencies(uuidMap.srcModuleByUUIDMap, destNodeIds)
+		destPath = getDestModulePath(uuidMap.srcModuleByUUIDMap, srcNodeId)
+		srcModules = getDestModulesPaths(uuidMap.srcModuleByUUIDMap, destNodeIds)
 
 		if (!destPath) {
 			log(
