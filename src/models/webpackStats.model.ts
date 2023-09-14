@@ -17,29 +17,35 @@ export interface IWebpackModuleParsed {
 	relativePath: string
 }
 
-/** prepared for the IWebpackModuleParsed, parsed from the version dependend formats */
+/** 
+ * source path list with destinations
+ * used for the IWebpackModuleParsed
+ * parsed from the version dependend formats 
+ */
 export interface IWebpackModuleShort {
-	identifier: string
+	// identifier: string // includes absolute path with `!` and `|` separators
 	size: number
-	name: string
-	issuerName?: string
-	id: string
-	reasons: IWebpackModuleReasonShort[]
+	name: string // source path for `reasons.moduleName`
+	issuerName?: string // destination path for `name`, used for debugging, moved to reasons
+	// id: string // number
+	reasons: IWebpackModuleReasonShort[] // destination paths for `name`
 }
 
 export type TWebpackReasonShortType =
 	| TWebpackStatsV5ReasonType
 	| TWebpackStatsV3ReasonType
 	| "side effect"
+    | "issuerParser" // see src/webpack-stats/webpackStats.ts:getWebpackModuleShort()
 
+/** destination paths */
 export interface IWebpackModuleReasonShort {
-	moduleIdentifier: string // absolute path
-	module: string
-	moduleName: string // relative path
-	type: string
+	// moduleIdentifier: string // includes absolute path with `!` and `|` separators
+	// module: string // additional destination relative path for moduleName `+` other modules count
+	moduleName: string // destination for parent `name` and source relative path for `module`
+	type: TWebpackReasonShortType
 }
 
-/** destPath:{srcPath1, srcPath2} */
+/** {destPath:[srcPath1, srcPath2]} */
 export type TSrcFileNamesByDest = Map<string, string[]>
 
 export interface IGraphvizRenderOpts {
@@ -103,8 +109,10 @@ export interface IConfig {
 }
 
 
+/** search module by UUID */
 export type TModuleByUUID = Map<TUuid, IWebpackModuleParsed>
 
+/** search uuid by relative path */
 export type TUUIDByRelativePath = Map<string, TUuid>
 
 export type TUuidsByUuidMap = Map<TUuid, Set<TUuid>>
@@ -113,29 +121,31 @@ export type TUuidsByUuidMap = Map<TUuid, Set<TUuid>>
 export type TUuid = string
 
 export interface IStats {
-    rawModules: number
-    rawSrcModulesTypes: string[]
+    webpackVersion: string
+    rawModules: IWebpackModuleShort[]
+    rawModulesCount: number
+    rawUniqSrcModulesTypes: Set<string>
     excludedNodesByType: Set<string>
     excludedSrcNodes: Set<string>
     excludedDestNodes: Set<string>
     excludedSrcNodeByMaxDepsCount: Set<string>
     excludedDestNodeByMaxDepsCount: Set<string>
-    emptySrcNodeUuids: Set<string>
+    emptySrcNodePaths: Set<string>
     emptyDestNodes: Set<string>
-    emptySrcNodes: Set<string>
     depsSizes: string[]
 }
 
 export const STATS_EMPTY: IStats = {
-    rawModules: 0,
-    rawSrcModulesTypes: [],
+    webpackVersion: '',
+    rawModules: [],
+    rawModulesCount: 0,
+    rawUniqSrcModulesTypes: new Set(),
     excludedNodesByType: new Set(),
     excludedSrcNodes: new Set(),
     excludedDestNodes: new Set(),
     excludedSrcNodeByMaxDepsCount: new Set(),
     excludedDestNodeByMaxDepsCount: new Set(),
-    emptySrcNodeUuids: new Set(),
+    emptySrcNodePaths: new Set(),
     emptyDestNodes: new Set(), // TODO add source module uuid, convert to map
-    emptySrcNodes: new Set(),
     depsSizes: []
 }

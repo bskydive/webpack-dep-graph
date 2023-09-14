@@ -24,6 +24,6 @@ export function fileNameFromPath(path: string) {
 }
 
 export function saveJSON(fileName: string, data: any) {
-	const json = JSON.stringify(data, null, 2)
+	const json: string = JSON.stringify(data, null, 2)
 	writeFile(fileName, json)
 }

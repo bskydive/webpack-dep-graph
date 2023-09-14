@@ -25,8 +25,8 @@ function main() {
 	let srcFileNamesByDest: TSrcFileNamesByDest
 	let statsParser: WebpackStatsParser
 
-	log(`loading ${statFileName}`)
 	statFileName = process?.argv[2] || depsConfig.input.webpackStatsFileName
+	log(`loading ${statFileName}`)
 	webpackStat = loadWebpackStat(statFileName)
 
 	log("stats parsing start")

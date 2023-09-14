@@ -110,7 +110,7 @@ interface Origin {
 	request: string
 }
 
-interface IWebpackStatsV5ChunkModule {
+export interface IWebpackStatsV5ChunkModule {
 	type: string
 	moduleType: string
 	layer?: any

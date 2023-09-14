@@ -81,7 +81,7 @@ interface Origin {
 	reasons: any[]
 }
 
-interface IWebpackStatsV3ChunkModule {
+export interface IWebpackStatsV3ChunkModule {
 	id: number
 	identifier: string
 	name: string

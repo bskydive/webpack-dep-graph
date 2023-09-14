@@ -1,5 +1,10 @@
 # Webpack Dependency Graph Visualizer
 
+## docs
+
+ * https://github.com/webpack/webpack.js.org/blob/main/src/content/api/stats.mdx
+ * https://webpack.js.org/api/stats
+
 ## What is it
 
  * webpack [stats.json](https://webpack.js.org/api/stats) parser/converter for visual/UI dependencies analysis
@@ -30,6 +35,7 @@
         npm run start
         
     ```
+ * see the logfile in: `./graph-output/stats_summary.json`
 
 ## Caveats
 
@@ -38,6 +44,9 @@
 	* webpack `reason(origin)`: consumer, destination in graph
     * `module` == `node`
  * dependency map calculated only for nodes with dependencies. For the dot format it's ok, but for the graphml bunch of nodes added from the dependencies array
+ * UUID's generated to shorten long paths
+ * webpack stats simplified structure: `name: {issuerName, reasons}`, where `name` is dependency source
+ * names with empty reasons are useless
  * see the full path in node data properties(right click)
     * ![](./doc/graphml_yed_data.jpg)
  * search in nodes, urls, properties
@@ -175,6 +184,7 @@ Used for [yed](https://www.yworks.com/products/yed) editor
 ## TODO
 
  * v1.4.0
+    * added missed issuerName dest dependencies
     * depsCountColoring
     * circular detection draft
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view

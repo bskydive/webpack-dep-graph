@@ -1,112 +1,122 @@
 import {
-	TSrcFileNamesByDest,
-	IWebpackModuleReasonShort,
-	IWebpackModuleShort,
+    TSrcFileNamesByDest,
+    IWebpackModuleReasonShort,
+    IWebpackModuleShort,
 } from "../models/webpackStats.model"
 import {
-	IWebpackStatsV3,
-	IWebpackStatsV3Chunk,
-	IWebpackStatsV3Module,
-	IWebpackStatsV3Reason,
+    IWebpackStatsV3,
+    IWebpackStatsV3Chunk,
+    IWebpackStatsV3ChunkModule,
+    IWebpackStatsV3Module,
+    IWebpackStatsV3Reason,
 } from "../models/webpack.3.model"
 import { depsConfig } from "../../deps.config"
 import {
-	IWebpackStatsV5,
-	IWebpackStatsV5Chunk,
-	IWebpackStatsV5Module,
-	IWebpackStatsV5Reason,
+    IWebpackStatsV5,
+    IWebpackStatsV5Chunk,
+    IWebpackStatsV5ChunkModule,
+    IWebpackStatsV5Module,
+    IWebpackStatsV5Reason,
 } from "../models/webpack.5.model"
 import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
 import { getSrcFileNamesByDest } from "./dependenciesMap"
+import { log } from "../utils/logger"
 
 export class WebpackStatsParser {
-	private modules: IWebpackModuleShort[]
-	uuidMap: DependenciesUUIDMap
-	/** destPath:{srcPath1, srcPath2} */
-	srcFileNamesByDest: TSrcFileNamesByDest
+    modules: IWebpackModuleShort[]
+    uuidMap: DependenciesUUIDMap
+    srcFileNamesByDest: TSrcFileNamesByDest
 
-	constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
-		this.modules = this.getShortModules(stats)
-		this.uuidMap = new DependenciesUUIDMap(this.modules)
-		this.srcFileNamesByDest = getSrcFileNamesByDest(
-			this.uuidMap,
-			depsConfig
-		)
-	}
+    constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
+        this.modules = this.getShortModules(stats)
+        this.uuidMap = new DependenciesUUIDMap(this.modules, stats.version)
+        this.srcFileNamesByDest = getSrcFileNamesByDest(
+            this.uuidMap,
+            depsConfig
+        )
+    }
 
-	/** modules filtering in  */
-	private getShortModules(
-		stats: IWebpackStatsV3 | IWebpackStatsV5
-	): IWebpackModuleShort[] {
-		let webpackModules: IWebpackModuleShort[]
+    /** remove properties from raw stats.json */
+    private getShortModules(
+        stats: IWebpackStatsV3 | IWebpackStatsV5
+    ): IWebpackModuleShort[] {
+        let webpackModules: IWebpackModuleShort[]
 
-		const webpackVersion = this.getWebpackVersion(stats)
+        const webpackVersion = this.getWebpackVersion(stats)
 
-		if (webpackVersion !== "3" && webpackVersion !== "5") {
-			throw new Error("Unknown webpack version: " + stats?.version)
-		}
+        if (webpackVersion !== "3" && webpackVersion !== "5") {
+            throw new Error("Unknown webpack version: " + stats?.version)
+        }
 
-		webpackModules = this.parseWebpackModules(stats?.modules)
+        webpackModules = this.parseWebpackModules(stats?.modules)
 
-		if (!webpackModules?.length) {
-			webpackModules = this.parseWebpackChunks(stats?.chunks)
-		}
+        if (!webpackModules?.length) {
+            log('Empty modules, getting data from the chunks');
+            webpackModules = this.parseWebpackChunks(stats?.chunks)
+        }
 
-		return webpackModules
-	}
+        return webpackModules
+    }
 
-	private parseWebpackChunks(
-		chunks: IWebpackStatsV3Chunk[] | IWebpackStatsV5Chunk[]
-	): IWebpackModuleShort[] {
-		const result = chunks
-			.map((chunk) => chunk?.modules)
-			.flat()
-			.map((module) => ({
-				size: module.size,
-				name: module.name,
-				issuerName: module.issuerName,
-				identifier: module.identifier,
-				id: String(module.id),
-				reasons: this.parseWebpackModuleReasonsShort(module.reasons),
-			}))
+    /** alternative data source */
+    private parseWebpackChunks(
+        chunks: IWebpackStatsV3Chunk[] | IWebpackStatsV5Chunk[]
+    ): IWebpackModuleShort[] {
+        const result: IWebpackModuleShort[] = chunks
+            .map((chunk) => chunk?.modules)
+            .flat()
+            .map((module) => this.getWebpackModuleShort(module))
 
-		return result
-	}
+        return result
+    }
 
-	private parseWebpackModules(
-		modules: IWebpackStatsV3Module[] | IWebpackStatsV5Module[]
-	): IWebpackModuleShort[] {
-		const result = modules?.map((module) => ({
-			size: module.size,
-			name: module.name,
-			issuerName: module.issuerName,
-			identifier: module.identifier,
-			id: String(module.id),
-			reasons: this.parseWebpackModuleReasonsShort(module.reasons),
-		}))
+    /** main data source */
+    private parseWebpackModules(
+        modules: IWebpackStatsV3Module[] | IWebpackStatsV5Module[]
+    ): IWebpackModuleShort[] {
+        const result: IWebpackModuleShort[] = modules?.map(
+            (module) => this.getWebpackModuleShort(module)
+        )
 
-		return result
-	}
+        return result
+    }
 
-	private parseWebpackModuleReasonsShort(
-		reason: IWebpackStatsV3Reason[] | IWebpackStatsV5Reason[]
-	): IWebpackModuleReasonShort[] {
-		const result = reason.map((module) => {
-			return {
-				moduleIdentifier: module.moduleIdentifier,
-				module: module.module,
-				moduleName:
-					(module as IWebpackStatsV5Reason)?.resolvedModule ||
-					(module as IWebpackStatsV3Reason)?.resolvedModulePath ||
-					module?.moduleName,
-				type: module.type,
-			}
-		})
+    /** copy issuer into reasons */
+    private getWebpackModuleShort(module:
+        IWebpackStatsV3Module | IWebpackStatsV5Module |
+        IWebpackStatsV3ChunkModule | IWebpackStatsV5ChunkModule
+    ): IWebpackModuleShort {
+        const result: IWebpackModuleShort = {
+            size: module.size,
+            name: module.name,
+            issuerName: module.issuerName || null,
+            reasons: [
+                { moduleName: module.issuerName || null, type: 'issuerParser' },
+                ...this.parseWebpackModuleReasons(module.reasons)
+            ],
+        }
 
-		return result
-	}
+        return result;
+    }
 
-	private getWebpackVersion(stat: IWebpackStatsV5 | IWebpackStatsV3): string {
-		return stat?.version.split(".")[0]
-	}
+    /** version dependent parsing v5/v3 */
+    private parseWebpackModuleReasons(
+        reason: IWebpackStatsV3Reason[] | IWebpackStatsV5Reason[]
+    ): IWebpackModuleReasonShort[] {
+        const result = reason.map((module) => {
+            return {
+                moduleName:
+                    (module as IWebpackStatsV5Reason)?.resolvedModule ||
+                    (module as IWebpackStatsV3Reason)?.resolvedModulePath ||
+                    module?.moduleName,
+                type: module.type,
+            }
+        })
+
+        return result
+    }
+
+    private getWebpackVersion(stat: IWebpackStatsV5 | IWebpackStatsV3): string {
+        return stat?.version.split(".")[0]
+    }
 }

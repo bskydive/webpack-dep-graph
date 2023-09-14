@@ -6,8 +6,7 @@ node_modules/
 .vscode/
 dist/
 log/
-
 *.json
+*.log
+graph-output/
 
-out
-graph-output
