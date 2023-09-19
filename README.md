@@ -188,6 +188,8 @@ Used for [yed](https://www.yworks.com/products/yed) editor
     * depsCountColoring
     * circular detection draft
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
+    * exclude usedExports=[null|false]
+    * disable module concatenation
     * coupling/cohesion graph
         * edge color: import count
         * node size: lines count
