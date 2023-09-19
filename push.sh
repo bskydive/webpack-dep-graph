@@ -2,4 +2,5 @@
 
 git add -A ./*
 git commit -am "forgot to add files"
-git push origin --all
+git push gh --all
+git push gl --all
