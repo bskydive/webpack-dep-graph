@@ -35,7 +35,7 @@
         npm run start
         
     ```
- * see the logfile in: `./graph-output/stats_summary.json`
+ * see the logfile in: `./doc/graph-output/stats_summary.json`
 
 ## Caveats
 
@@ -99,37 +99,37 @@ The graphviz layout renderer seems to be less useful. You can upload the simplif
             exclude: ["cache", "webpack", "node_modules", 'main', 'logger', 'index', 'profile', 'config', 'platform','settings', 'popup', 'app', 'confirm', 'analytics', 'theme', 'error', 'home'],
             excludeExcept: [], includeOnly: [],
         ```
-    * [json: circular dependencies](./graph-output/circular.json)
-    * [json: cytoscape](./graph-output/cytoscape.json)
-    * [json: analyzed deps from webpack stats](./graph-output/deps.json)
-    * [xml: simplified dot graph](./graph-output/graph_simplified.dot)
+    * [json: circular dependencies](./doc/graph-output/circular.json)
+    * [json: cytoscape](./doc/graph-output/cytoscape.json)
+    * [json: analyzed deps from webpack stats](./doc/graph-output/deps.json)
+    * [xml: simplified dot graph](./doc/graph-output/graph_simplified.dot)
         * ![](./doc/webpackV3/graphviz_dot_simplified.jpg)
 
 ### graphviz
 
-* [xml: dot](./graph-output/graphviz.dot)
+* [xml: dot](./doc/graph-output/graphviz.dot)
     * ![](./doc/webpackV3/graphviz_dot.jpg)
-* [png: dot layout](./graph-output/graphviz_dot.png)
+* [png: dot layout](./doc/graph-output/graphviz_dot.png)
     * ![](./doc/webpackV3/graphviz_dot_layout.jpg)
     * ![](./doc/webpackV3/graphviz_dot_layout_full.jpg)
-* [png: spring layout](./graph-output/graphviz_spring.png)
+* [png: spring layout](./doc/graph-output/graphviz_spring.png)
     * ![](./doc/webpackV3/graphviz_spring_layout.jpg)
-* [png: directed layout](./graph-output/graphviz_directed.png)
+* [png: directed layout](./doc/graph-output/graphviz_directed.png)
     * ![](./doc/webpackV3/graphviz_directed_layout.jpg)
     * ![](./doc/webpackV3/graphviz_directed_layout_full.jpg)
-* [png: circular layout](./graph-output/graphviz_circular.png)
+* [png: circular layout](./doc/graph-output/graphviz_circular.png)
     * ![](./doc/webpackV3/graphviz_circle_layout.jpg)
     * ![](./doc/webpackV3/graphviz_circle_layout_full.jpg)
-* [png: radial layout](./graph-output/graphviz_radial.png)
+* [png: radial layout](./doc/graph-output/graphviz_radial.png)
     * ![](./doc/webpackV3/graphviz_radial_layout.jpg)
-* [png: clustered layout](./graph-output/graphviz_clustered.png)
+* [png: clustered layout](./doc/graph-output/graphviz_clustered.png)
     * ![](./doc/webpackV3/graphviz_clustered_layout.jpg)
 
 ### graphml
 
 Used for [yed](https://www.yworks.com/products/yed) editor
 
- * [graphml: raw xml](./graph-output/deps.graphml)
+ * [graphml: raw xml](./doc/graph-output/deps.graphml)
  * Manually applied in yed circular layout: `tools-->fit node to label`, `layout-->circular (alt+shift+c)`
 
  * exclude most frequently used dependencies
@@ -140,7 +140,7 @@ Used for [yed](https://www.yworks.com/products/yed) editor
 		edgeTypeExclude: ["cjs self exports reference","export imported specifier",],
     ```
     * summary: imports: 594; dependencies: 123 nodesPaths: 166 nodes: 168
-    * [graphml](./graph-output/deps_circular.graphml)
+    * [graphml](./doc/graph-output/deps_circular.graphml)
     * ![](./doc/graphml_except.jpg)
  * include all
     * [deps.config.ts](./deps.config.ts)
