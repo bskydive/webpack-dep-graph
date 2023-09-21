@@ -18,18 +18,18 @@ import {
     IWebpackStatsV5Module,
     IWebpackStatsV5Reason,
 } from "../models/webpack.5.model"
-import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
+import { DependenciesByIdMap } from "./dependenciesUUIDMap"
 import { getSrcFileNamesByDest } from "./dependenciesMap"
 import { log } from "../utils/logger"
 
 export class WebpackStatsParser {
     modules: IWebpackModuleShort[]
-    uuidMap: DependenciesUUIDMap
+    uuidMap: DependenciesByIdMap
     srcFileNamesByDest: TSrcFileNamesByDest
 
     constructor(stats: IWebpackStatsV3 | IWebpackStatsV5) {
         this.modules = this.getShortModules(stats)
-        this.uuidMap = new DependenciesUUIDMap(this.modules, stats.version)
+        this.uuidMap = new DependenciesByIdMap(this.modules, stats.version)
         this.srcFileNamesByDest = getSrcFileNamesByDest(
             this.uuidMap,
             depsConfig

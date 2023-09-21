@@ -186,10 +186,9 @@ Used for [yed](https://www.yworks.com/products/yed) editor
  * v1.4.0
     * added missed issuerName dest dependencies
     * depsCountColoring
+    * dedupe
     * circular detection draft
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
-    * exclude usedExports=[null|false]
-    * disable module concatenation
     * coupling/cohesion graph
         * edge color: import count
         * node size: lines count
@@ -203,6 +202,8 @@ Used for [yed](https://www.yworks.com/products/yed) editor
     * npm package
  * v3
     * webpack plugin
+    * exclude usedExports=[null|false]
+    * disable module concatenation
  * v4
     * vscode plugin(folder/file right click) like in dependency cruiser
         * stats.json validation with current folder structure

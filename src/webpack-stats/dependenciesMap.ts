@@ -3,10 +3,10 @@ import {
 	TSrcFileNamesByDest,
 	IConfig,
 	IConfigFilters,
-	TModuleByUUID,
-    TUuid,
+	TModuleByIDMap,
+    TFileId,
 } from "../models/webpackStats.model"
-import { DependenciesUUIDMap } from "./dependenciesUUIDMap"
+import { DependenciesByIdMap } from "./dependenciesUUIDMap"
 
 /** applied only after dependencyMap creation to filter in both directions: src/dest modules */
 function isModuleIncludedOnly(
@@ -24,12 +24,12 @@ function isModuleIncludedOnly(
 	return result
 }
 
-function getDestModulePath(srcModules: TModuleByUUID, destModuleUuid: TUuid) {
-	return srcModules.get(destModuleUuid)?.relativePath || ""
+function getDestModulePath(srcModules: TModuleByIDMap, destModuleUuid: TFileId) {
+	return srcModules.get(destModuleUuid)?.srcFilePath || ""
 }
 
 function getDestModulesPaths(
-	srcModules: TModuleByUUID,
+	srcModules: TModuleByIDMap,
 	destModules: Set<string>
 ): string[] {
 	return Array.from(destModules).map((dependencyPath: string) =>
@@ -73,16 +73,16 @@ function isDependencyLinkIncluded(
 
 /** postprocessing, converting Map to array */
 export function getSrcFileNamesByDest(
-	uuidMap: DependenciesUUIDMap,
+	uuidMap: DependenciesByIdMap,
 	opts: IConfig
 ): TSrcFileNamesByDest {
 	const result: TSrcFileNamesByDest = new Map()
 	let srcModules: string[]
 	let destPath: string
 
-	for (const [srcNodeId, destNodeIds] of uuidMap.destUuidsBySrcUuidMap) {
-		destPath = getDestModulePath(uuidMap.srcModuleByUUIDMap, srcNodeId)
-		srcModules = getDestModulesPaths(uuidMap.srcModuleByUUIDMap, destNodeIds)
+	for (const [srcNodeId, destNodeIds] of uuidMap.destIdsBySrcIdMap) {
+		destPath = getDestModulePath(uuidMap.srcModuleByIDMap, srcNodeId)
+		srcModules = getDestModulesPaths(uuidMap.srcModuleByIDMap, destNodeIds)
 
 		if (!destPath) {
 			log(

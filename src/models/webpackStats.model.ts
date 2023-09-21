@@ -3,18 +3,15 @@ import { IGraphmlEdge, IGraphmlNode } from "./graphml.model"
 import { TWebpackStatsV3ReasonType } from "./webpack.3.model"
 import { TWebpackStatsV5ReasonType } from "./webpack.5.model"
 
-export const EMPTY_MODULE_PARSED: IWebpackModuleParsed = {
-	uuid: "",
-	fileName: "",
-	relativePath: "",
-}
-
-/** for calculations */
+/** parsed file names 
+ * TODO add file type
+ */
 export interface IWebpackModuleParsed {
-	uuid: string
-	sizeInBytes?: number // TODO @deprecated remove or implement file size visualizer
-	fileName: string
-	relativePath: string
+	// id: string // TODO use hash https://github.com/sindresorhus/crypto-hash/blob/main/index.js
+	sizeInBytes?: number // TODO implement file size visualizer
+	srcFileName: string
+	srcFilePath: string // relative, parsed
+    destFilesPathSet: Set<TFileId>
 }
 
 /** 
@@ -42,7 +39,7 @@ export interface IWebpackModuleReasonShort {
 	// moduleIdentifier: string // includes absolute path with `!` and `|` separators
 	// module: string // additional destination relative path for moduleName `+` other modules count
 	moduleName: string // destination for parent `name` and source relative path for `module`
-	type: TWebpackReasonShortType
+	type: TWebpackReasonShortType // TODO implement filtering by type
 }
 
 /** {destPath:[srcPath1, srcPath2]} */
@@ -109,16 +106,19 @@ export interface IConfig {
 }
 
 
-/** search module by UUID */
-export type TModuleByUUID = Map<TUuid, IWebpackModuleParsed>
+/** search module by ID */
+export type TModuleByIDMap = Map<TFileId, IWebpackModuleParsed>
 
-/** search uuid by relative path */
-export type TUUIDByRelativePath = Map<string, TUuid>
+/** 
+ * resulting dependencies graph map: 
+ * {"id_src": ["id_dest", "id_dest2"]} 
+ * or
+ * {"id_dest": ["id_src1", "id_src2"]} - reversed for filtering
+ */
+export type TIdsByIdGraphMap = Map<TFileId, Set<TFileId>>
 
-export type TUuidsByUuidMap = Map<TUuid, Set<TUuid>>
-
-/** id for IWebpackModuleParsed entry */
-export type TUuid = string
+/** id for IWebpackModuleParsed entry, currently the relative path  */
+export type TFileId = string
 
 export interface IStats {
     webpackVersion: string
@@ -132,6 +132,7 @@ export interface IStats {
     excludedDestNodeByMaxDepsCount: Set<string>
     emptySrcNodePaths: Set<string>
     emptyDestNodes: Set<string>
+    existingModulePath: Map<string,number>
     depsSizes: string[]
 }
 
@@ -147,5 +148,6 @@ export const STATS_EMPTY: IStats = {
     excludedDestNodeByMaxDepsCount: new Set(),
     emptySrcNodePaths: new Set(),
     emptyDestNodes: new Set(), // TODO add source module uuid, convert to map
+    existingModulePath: new Map(),
     depsSizes: []
 }
