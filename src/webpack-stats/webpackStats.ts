@@ -18,8 +18,8 @@ import {
     IWebpackStatsV5Module,
     IWebpackStatsV5Reason,
 } from "../models/webpack.5.model"
-import { DependenciesByIdMap } from "./dependenciesUUIDMap"
-import { getSrcFileNamesByDest } from "./dependenciesMap"
+import { DependenciesByIdMap } from "./dependenciesByIdMap"
+import { getSrcFileNamesByDest } from "./dependenciesMapParser"
 import { log } from "../utils/logger"
 
 export class WebpackStatsParser {

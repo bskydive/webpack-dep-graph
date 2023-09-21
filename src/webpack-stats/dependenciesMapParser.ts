@@ -6,7 +6,7 @@ import {
 	TModuleByIDMap,
     TFileId,
 } from "../models/webpackStats.model"
-import { DependenciesByIdMap } from "./dependenciesUUIDMap"
+import { DependenciesByIdMap } from "./dependenciesByIdMap"
 
 /** applied only after dependencyMap creation to filter in both directions: src/dest modules */
 function isModuleIncludedOnly(
