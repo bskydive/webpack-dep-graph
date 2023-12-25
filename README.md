@@ -183,6 +183,9 @@ Used for [yed](https://www.yworks.com/products/yed) editor
 
 ## TODO
 
+ * try embed dependency tree builder in [webpack](https://www.npmjs.com/package/circular-dependency-plugin) worker
+ * try [vite](https://vitejs.ru/) dependency tree builder
+ * try [codeQL extractor](https://docs.github.com/ru/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options)
  * v1.4.0
     * added missed issuerName dest dependencies
     * depsCountColoring

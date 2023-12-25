@@ -27,7 +27,7 @@ export class CircularDependencyPlugin {
 		}
 	}
 
-	/** TODO moev errorsOut to return section */
+	/** TODO move errorsOut to return section */
 	isCyclic(initialModule: IModule, currentModule: IModule, seenModules: IModuleSeen, errorsOut: string[]): string[] {
 		// Add the current module to the seen modules cache
 		seenModules[currentModule.debugId] = true
