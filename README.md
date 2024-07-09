@@ -1,6 +1,7 @@
 # Webpack Dependency Graph Visualizer
 
 Fixed and working.
+But, there are some bugs around webpack stat file structure. They will be fixed in v1.4.0, I hope.
 
 ## What is it
 
@@ -16,6 +17,7 @@ Fixed and working.
 
  * v1.4.0
     * collapseNodePaths=[] option to simplify DI/Router/Libs deps view
+	* fix stat file structure into graph conversion algorithm. Some tags are not obvious, some nodes are missed.
  * v1.5.0
     * add gephi examples
     * validate/refactor examples
