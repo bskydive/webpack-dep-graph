@@ -1,5 +1,8 @@
 # Webpack Dependency Graph Visualizer
 
+Fixed and working.
+But, there are some bugs around webpack stat file structure. They will be fixed in v1.4.0, I hope.
+
 ## docs
 
  * https://github.com/webpack/webpack.js.org/blob/main/src/content/api/stats.mdx
@@ -183,6 +186,7 @@ Used for [yed](https://www.yworks.com/products/yed) editor
 
 ## TODO
 
+ * fix stat file structure into graph conversion algorithm. Some tags are not obvious, some nodes are missed.
  * try embed dependency tree builder in [webpack](https://www.npmjs.com/package/circular-dependency-plugin) worker
  * try [vite](https://vitejs.ru/) dependency tree builder
  * try [codeQL extractor](https://docs.github.com/ru/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options)
