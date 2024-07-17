@@ -187,6 +187,7 @@ Used for [yed](https://www.yworks.com/products/yed) editor
 ## TODO
 
  * fix stat file structure into graph conversion algorithm. Some tags are not obvious, some nodes are missed.
+ * try lexical analysis/AST parsers to extract dependencies https://esprima.org/
  * try embed dependency tree builder in [webpack](https://www.npmjs.com/package/circular-dependency-plugin) worker
  * try [vite](https://vitejs.ru/) dependency tree builder
  * try [codeQL extractor](https://docs.github.com/ru/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options)
