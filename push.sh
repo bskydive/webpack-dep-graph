@@ -36,7 +36,7 @@ push() {
 	} || result="${result}\n ++++++++++PUSH:${remote}:FAILED REMOTE TEST:$?"
 }
 
-push "gl" ${branch_default}
+push "gl" ${branch_default} || exit 1
 push "gh" ${branch_default}
 
 echo -e "++++++++++++++++++++++++++++++++++++++++"

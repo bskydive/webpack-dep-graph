@@ -34,8 +34,8 @@ pull() {
 	return 0
 }
 
+pull "gl" ${branch_default} || exit 1
 pull "gh" ${branch_default}
-pull "gl" ${branch_default}
 
 echo -e "----------------------------------------"
 echo -e "\n\n${result}\n\n"
